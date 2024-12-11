@@ -1,0 +1,25 @@
+{% use '@TalesFromADevFlowbite/form/default.html.twig' %}
+
+{% block class_label -%}
+    block mb-2 font-normal text-gray-900 text-xs
+{%- endblock class_label %}
+
+{% block class_input_text -%}
+    text-gray-900 bg-gray-50 rounded-lg text-sm block w-full p-2.5 border border-gray-300 focus:z-10 focus:ring-blue-500 focus:border-blue-500
+{%- endblock class_input_text %}
+
+{% block class_textarea -%}
+    {{ block('class_input_text') }}
+{%- endblock class_textarea %}
+
+{% block class_label_error -%}
+    block mb-2 font-normal text-red-600 text-xs
+{%- endblock class_label_error %}
+
+{% block class_input_error -%}
+    bg-red-50 border-red-500 text-red-900 placeholder-red-700 text-xs
+{%- endblock class_input_error %}
+
+{% block class_text_error -%}
+    mt-2 text-red-600 text-xs
+{%- endblock class_text_error %}

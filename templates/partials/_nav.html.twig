@@ -1,0 +1,113 @@
+<nav class="fixed {{ is_granted('IS_IMPERSONATOR') ? 'top-10' : 'top-0' }} left-0 z-50 w-full border-b border-black bg-black">
+    <div class="px-3 py-3 lg:px-5 lg:pl-3">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center justify-start rtl:justify-end">
+                <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
+                        type="button"
+                        class="inline-flex items-center p-2 rounded-lg lg:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
+                    <span class="sr-only">Open sidebar</span>
+                    <svg class="w-8 h-8" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" fill-rule="evenodd"
+                              d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                    </svg>
+                </button>
+                <a href="" class="ml-5 lg:me-24">
+
+                    <img src="{{ asset('images/Envalior-white.webp') }}" class="h-14 pt-3 lg:pt-0" alt="Envalior Logo"/>
+                </a>
+            </div>
+            <div class="flex gap-x-10">
+                {% if app.user() %}
+                    <twig:Sidebar:Item
+                            path=""
+                            label="Search recipies"
+                    />
+                    <twig:Sidebar:Item
+                            path=""
+                            label="My recipies"
+                    />
+                    <twig:Sidebar:Item
+                            path=""
+                            label="Add own recipies"
+                    />
+                    <twig:Sidebar:Item
+                            path=""
+                            label="On a budget"
+                    />
+                {% else %}
+                    <twig:Sidebar:Item
+                            path="{{ path('app_login') }}"
+                            label="Login"
+                    />
+                    <twig:Sidebar:Item
+                            path="{{ path('app_register') }}"
+                            label="Register"
+                    />
+                {% endif %}
+
+
+                {#Language #}
+                    {# <button
+                            type="button"
+                            aria-expanded="false" data-dropdown-toggle="dropdown-lang"
+                            class="text-white flex gap-3 "
+                    >
+
+                        language icon and tekst in header
+                       <div class="w-6 md:relative md:right-0 md:top-0">
+                            {{ ux_icon('earth') }}
+                        </div>
+                        <div class="hidden md:block text-lg">
+                            {% if app.request.locale == 'en' %}
+                                English
+                            {% endif %}
+                            {% if app.request.locale == 'nl' %}
+                                Nederlands
+                            {% endif %}
+                        </div>
+                    </button>
+                    <div class="z-50 hidden my-4 text-sm list-none divide-y rounded shadow bg-black justify-content-center divide-gray-600"
+                         id="dropdown-lang">
+                        {{ include('includes/languageMenu.html.twig') }}
+                    </div>#}
+
+                    <div>
+                        <div>
+                            <button type="button"
+                                    class=" flex text-sm rounded-full focus:ring-2 focus:ring-gray-100"
+                                    aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                                <span class="sr-only">Open user menu</span>
+                                <img class="w-10 rounded-full"
+                                     src="{{ asset('images/placeholder-black.png') }}" alt="user photo">
+                            </button>
+                        </div>
+                        <div class="z-50 hidden my-4 text-sm list-none divide-y rounded shadow bg-black divide-gray-600"
+                             id="dropdown-user">
+                            <div class="px-4 py-3" role="none">
+                                <p class="text-white" role="none">
+                                    Karel Scheers
+                                </p>
+                                <p class="font-medium truncate text-gray-300" role="none">
+                                    example@example.com
+
+                                </p>
+                            </div>
+                            <ul class="py-1" role="none">
+                                <li>
+                                    <a href=""
+                                       class="block px-4 py-2 text-gray-300 hover:bg-gray-600 hover:text-white"
+                                       role="menuitem">Edit account</a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                       class="block px-4 py-2 text-gray-300 hover:bg-gray-600 hover:text-white"
+                                       role="menuitem">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</nav>
