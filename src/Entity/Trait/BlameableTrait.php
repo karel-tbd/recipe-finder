@@ -2,7 +2,7 @@
 
 namespace App\Entity\Trait;
 
-use App\Entity\User\User;
+use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
