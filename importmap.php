@@ -28,4 +28,14 @@ return [
     '@hotwired/turbo' => [
         'version' => '8.0.12',
     ],
+    'flowbite/dist/flowbite.turbo.js' => [
+        'version' => '2.5.2',
+    ],
+    'flatpickr' => [
+        'version' => '4.6.13',
+    ],
+    'flatpickr/dist/flatpickr.min.css' => [
+        'version' => '4.6.13',
+        'type' => 'css',
+    ],
 ];

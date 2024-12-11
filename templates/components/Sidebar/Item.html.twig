@@ -1,0 +1,6 @@
+<a href="{{ path }}"
+   class="flex items-center p-2 text-white hover:text-gray-300 group {% if (app.request.pathInfo == path) or (app.request.attributes.get('_route') in active) %}text-white{% endif %}"
+   aria-label="Sidebar">
+    <span class="ms-3">{{ label }}</span>
+</a>
+

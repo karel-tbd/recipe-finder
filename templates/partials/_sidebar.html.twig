@@ -1,0 +1,32 @@
+<aside id="logo-sidebar"
+       class="fixed top-0 {{ is_granted('IS_IMPERSONATOR') ? 'pt-28' : 'pt-20' }} left-0 z-40 w-96 h-screen transition-transform -translate-x-full border-r lg:translate-x-0 "
+       aria-label="Sidebar">
+    <div class="h-full p-3 overflow-y-auto bg-primary">
+        <ul class="space-y-2 font-medium">
+            <li class="py-4">
+                <twig:Sidebar:Item
+                        path=""
+                        label="Search recepies"
+                />
+            </li>
+            <li class="py-4">
+                <twig:Sidebar:Item
+                        path=""
+                        label="My recepies"
+                />
+            </li>
+            <li class="py-4">
+                <twig:Sidebar:Item
+                        path=""
+                        label="Add own recepies"
+                />
+            </li>
+            <li class="py-4">
+                <twig:Sidebar:Item
+                        path=""
+                        label="On a budget"
+                />
+            </li>
+        </ul>
+    </div>
+</aside>
