@@ -4,43 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="installation packages">
-      <change afterPath="$PROJECT_DIR$/public/images/Envalior-white.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/placeholder-black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Sidebar/Item.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Subtitle.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Table/Body.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Table/Cell.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Table/Head.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Table/Row.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Table/SortableHeader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Title.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base-security.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/Sidebar/Item.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/Subtitle.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/Table/Body.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/Table/Cell.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/Table/Head.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/Table/Row.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/Table/SortableHeader.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/Title.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/partials/_sidebar.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Start project from copple days">
+      <change afterPath="$PROJECT_DIR$/src/Entity/Trait/BlameableTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Trait/DefaultTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Trait/NameTrait.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/importmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/importmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/Envalior-white.webp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,6 +177,9 @@
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/tales-from-a-dev/flowbite-bundle" />
       <path value="$PROJECT_DIR$/vendor/tales-from-a-dev/twig-tailwind-extra" />
+      <path value="$PROJECT_DIR$/vendor/gedmo/doctrine-extensions" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -223,7 +197,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/templates/form",
+    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/src/Entity",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -234,11 +208,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Entity" />
       <recent name="$PROJECT_DIR$/templates/form" />
       <recent name="$PROJECT_DIR$/templates/components" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/templates/components/Sidebar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/images" />
@@ -268,7 +242,7 @@
       <workItem from="1733760565119" duration="3212000" />
       <workItem from="1733818248843" duration="26000" />
       <workItem from="1733848106297" duration="1550000" />
-      <workItem from="1733934351494" duration="2340000" />
+      <workItem from="1733934351494" duration="3605000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -294,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733249418510</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Start project from copple days">
+      <option name="closed" value="true" />
+      <created>1733936797435</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733936797435</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,6 +285,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start project" />
     <MESSAGE value="installation packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="installation packages" />
+    <MESSAGE value="Start project from copple days" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start project from copple days" />
   </component>
 </project>
