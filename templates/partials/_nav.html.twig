@@ -1,6 +1,6 @@
-<nav class="fixed {{ is_granted('IS_IMPERSONATOR') ? 'top-10' : 'top-0' }} left-0 z-50 w-full border-b border-black bg-black">
-    <div class="px-3 py-3 lg:px-5 lg:pl-3">
-        <div class="flex items-center justify-between">
+<nav class="fixed {{ is_granted('IS_IMPERSONATOR') ? 'top-10' : 'top-0' }} left-0 z-50 w-full bg-blue-100 h-18">
+    <div class="px-3 py-4 lg:px-5 lg:pl-3">
+        <div class="flex items-center justify-between w-4/5 mx-auto">
             <div class="flex items-center justify-start rtl:justify-end">
                 <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
                         type="button"
@@ -13,16 +13,15 @@
                     </svg>
                 </button>
                 <a href="" class="ml-5 lg:me-24">
-
-                    <img src="{{ asset('images/Envalior-white.webp') }}" class="h-14 pt-3 lg:pt-0" alt="Envalior Logo"/>
+                    <img src="{{ asset('images/Envalior-white.webp') }}" class="h-10 pt-3 lg:pt-0" alt="Envalior Logo"/>
                 </a>
             </div>
             <div class="flex gap-x-10">
+                <twig:Sidebar:Item
+                        path=""
+                        label="Search recipies"
+                />
                 {% if app.user() %}
-                    <twig:Sidebar:Item
-                            path=""
-                            label="Search recipies"
-                    />
                     <twig:Sidebar:Item
                             path=""
                             label="My recipies"
@@ -75,11 +74,11 @@
                     <div>
                         <div>
                             <button type="button"
-                                    class=" flex text-sm rounded-full focus:ring-2 focus:ring-gray-100"
+                                    class=" flex text-sm rounded-full"
                                     aria-expanded="false" data-dropdown-toggle="dropdown-user">
                                 <span class="sr-only">Open user menu</span>
                                 <img class="w-10 rounded-full"
-                                     src="{{ asset('images/placeholder-black.png') }}" alt="user photo">
+                                     src="{{ asset('images/placeholder.png') }}" alt="user photo">
                             </button>
                         </div>
                         <div class="z-50 hidden my-4 text-sm list-none divide-y rounded shadow bg-black divide-gray-600"

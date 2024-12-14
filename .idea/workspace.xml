@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Gevoelige foto weg">
-      <change afterPath="$PROJECT_DIR$/config/packages/stof_doctrine_extensions.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Made registration">
+      <change afterPath="$PROJECT_DIR$/public/images/placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Commands/Import.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Trait/BlameableTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Trait/BlameableTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Sidebar/Item.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Sidebar/Item.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/fields.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +189,7 @@
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid-doctrine" />
       <path value="$PROJECT_DIR$/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -197,19 +203,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/config/packages",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/karelscheers/Sites/recipe-finder/config/packages&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/config/packages" />
@@ -246,7 +252,9 @@
       <workItem from="1733760565119" duration="3212000" />
       <workItem from="1733818248843" duration="26000" />
       <workItem from="1733848106297" duration="1550000" />
-      <workItem from="1733934351494" duration="4499000" />
+      <workItem from="1733934351494" duration="4667000" />
+      <workItem from="1734020387832" duration="4823000" />
+      <workItem from="1734171707378" duration="2851000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -288,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733938035052</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Made registration">
+      <option name="closed" value="true" />
+      <created>1733938942767</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733938942767</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,6 +315,7 @@
     <MESSAGE value="installation packages" />
     <MESSAGE value="Start project from copple days" />
     <MESSAGE value="Gevoelige foto weg" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gevoelige foto weg" />
+    <MESSAGE value="Made registration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made registration" />
   </component>
 </project>
