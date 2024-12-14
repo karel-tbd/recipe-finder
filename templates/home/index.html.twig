@@ -3,5 +3,8 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<h1 class="bg-green-500 text-green-300">test</h1>
+<h1 class="">Recipe finder</h1>
+    {% for item in foodGroups %}
+       <p>{{ item.name }}</p>
+    {% endfor %}
 {% endblock %}
