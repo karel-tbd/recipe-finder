@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Made registration">
-      <change afterPath="$PROJECT_DIR$/public/images/placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Commands/Import.php" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Made all igridient is db with foodgroup">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Sidebar/Item.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Sidebar/Item.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/fields.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +245,7 @@
       <workItem from="1733848106297" duration="1550000" />
       <workItem from="1733934351494" duration="4667000" />
       <workItem from="1734020387832" duration="4823000" />
-      <workItem from="1734171707378" duration="2851000" />
+      <workItem from="1734171707378" duration="3619000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -304,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733938942767</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Made all igridient is db with foodgroup">
+      <option name="closed" value="true" />
+      <created>1734175554159</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1734175554159</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,6 +315,7 @@
     <MESSAGE value="Start project from copple days" />
     <MESSAGE value="Gevoelige foto weg" />
     <MESSAGE value="Made registration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made registration" />
+    <MESSAGE value="Made all igridient is db with foodgroup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made all igridient is db with foodgroup" />
   </component>
 </project>
