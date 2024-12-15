@@ -4,8 +4,3 @@
 @tailwind components;
 @tailwind utilities;
 
-
-ul{
-    list-style:circle;
-}
-

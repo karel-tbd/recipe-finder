@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Show recipe{% endblock %}
+
+{% block body %}
+
+    {% if recipe.imageName %}
+        <img class="w-full h-56 object-contain overflow-hidden" src="{{ vich_uploader_asset(recipe, 'image') }}" alt="{{ recipe.name }}">
+    {% endif %}
+    <h2 class="text-3xl font-bold text-center py-2">{{ recipe.name }}</h2>
+    <div class="grid grid-cols-4 gap-x-10">
+    <ul class="ml-10 col-span-1 bg-gray-100 list-none p-5 mt-5">
+            {% for ingredient in recipe.ingredients %}
+              <li class="pb-2">
+                  {{ ingredient.name }}
+              </li>
+            {% endfor %}
+    </ul>
+    <p class="col-span-3 p-5">{{ recipe.description }}</p>
+    </div>
+{% endblock %}
