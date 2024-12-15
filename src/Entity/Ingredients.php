@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 #[ORM\Entity(repositoryClass: IngredientsRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Ingredients
 {
 

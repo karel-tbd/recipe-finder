@@ -3,8 +3,34 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<h1 class="">Recipe finder</h1>
-    {% for item in foodGroups %}
-       <p>{{ item.name }}</p>
+    {{ form_start(form, {'method': 'GET'}) }}
+    {{ form_rest(form) }}
+    <div class="grid grid-cols-10 gap-4">
+        <twig:Button
+                label="Search"/>
+        {{ form_end(form) }}
+        <twig:Button
+                label="Clear filter"
+                variant="white" type="reset"
+                data-controller="reset-search" data-action="reset-search#reset"/>
+    </div>
+    {% for recipe in recipes %}
+        <div class="border border-black mb-10 bg-gray-50 p-5 rounded">
+            {% if recipe.imageName %}
+                <img src="{{ vich_uploader_asset(recipe, 'image') }}" alt="{{ recipe.name }}">
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+           <h2 class="text-2xl font-bold">{{ recipe.name }}</h2>
+                <ul class="ml-10">
+                    {% for ingredient in recipe.ingredients %}
+                      <li>
+                          {{ ingredient.name }}
+                      </li>
+                    {% endfor %}
+                </ul>
+            <p>{{ recipe.description }}</p>
+            <p>{{ recipe.time }} minutes</p>
+        </div>
     {% endfor %}
 {% endblock %}
