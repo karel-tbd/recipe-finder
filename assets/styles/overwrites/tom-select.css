@@ -1,0 +1,84 @@
+select[data-controller="symfony--ux-autocomplete--autocomplete"] {
+    @apply hidden;
+}
+
+input[data-controller="symfony--ux-autocomplete--autocomplete"] {
+    @apply hidden;
+}
+
+.ts-wrapper {
+    @apply relative p-0 text-sm;
+}
+
+.ts-wrapper.dropdown-active {
+    @apply rounded-t outline-1 outline-gray-50 ring-blue-100;
+}
+
+.ts-wrapper.dropdown-active .ts-control {
+    @apply rounded-b-none border-b-0;
+}
+
+.ts-control {
+    @apply flex flex-wrap items-center gap-2.5  text-gray-900 rounded-lg text-sm w-full border-b border-b-gray-50 focus:ring-blue-100 ;
+}
+
+.ts-wrapper.multi .item {
+    @apply rounded-md bg-gray-50 px-2.5 text-sm bg-green-200;
+}
+
+.ts-wrapper.multi .remove {
+    @apply ms-2.5;
+}
+
+.ts-wrapper.single .item {
+    @apply text-sm text-gray-900;
+}
+
+.ts-wrapper .option {
+    @apply p-2.5 cursor-pointer hover:bg-gray-100 hover:text-gray-800 text-sm font-normal;
+}
+
+.ts-wrapper .no-results {
+    @apply p-2.5 text-sm;
+}
+
+.ts-wrapper .clear-button {
+    @apply hidden;
+}
+
+.ts-wrapper.single.has-items .clear-button {
+    @apply block text-sm cursor-pointer;
+}
+
+.ts-wrapper.single .option.selected {
+    @apply bg-gray-50 hover:bg-gray-50;
+}
+
+.ts-control > input {
+    @apply grow p-0 bg-transparent outline-none text-sm border-0 shadow-none;
+}
+
+.ts-control > input:focus {
+    @apply border-0 shadow-none ring-0;
+}
+
+.ts-dropdown-content {
+    @apply absolute left-0 bg-gray-50 w-full z-10 shadow rounded-b-lg mt-1 border border-gray-200 overflow-x-hidden overflow-y-auto  max-h-[50vh] overscroll-contain
+    ;
+}
+
+.ts-wrapper.has-items .ts-control > input::placeholder {
+    @apply opacity-0;
+}
+
+.no-more-results {
+    display: none;
+}
+
+.ts-dropdown .create {
+    @apply p-2.5 text-sm cursor-pointer
+}
+
+.ts-wrapper .remove {
+    @apply ml-2
+}

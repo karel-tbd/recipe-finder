@@ -1,0 +1,10 @@
+<{{ tag }}{{ attributes.defaults({
+    'class': '' ~ this.extraClasses,
+    'type': type,
+}) }}>
+{% if label is defined and label is not empty %}
+    {{ label|raw }}
+{% else %}
+    {% block content %}{% endblock content %}
+{% endif %}
+</{{ tag }}>
