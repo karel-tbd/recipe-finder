@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Ingredients;
 use App\Entity\Recipe;
 use App\Entity\User;
+use Ehyiah\QuillJsBundle\Form\QuillType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -31,9 +32,12 @@ class RecipeType extends AbstractType
                 'multiple' => true,
                 'required' => false,
             ])
-            ->add('description',TextareaType::class,[
+            ->add('description',QuillType::class,[
                 'label' => 'Recipe description',
                 'required' => false,
+                'attr' => [
+                    'rows' => 10,
+                ]
             ])
             ->add('image', VichFileType::class, [
                 'label' => 'Recipe image',

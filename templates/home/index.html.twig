@@ -5,7 +5,7 @@
 {% block body %}
     {{ form_start(form, {'method': 'GET'}) }}
     {{ form_rest(form) }}
-    <div class="grid grid-cols-10 gap-4">
+    <div class="grid grid-cols-10 gap-4 mb-10">
         <twig:Button
                 label="Search"/>
         {{ form_end(form) }}
@@ -14,23 +14,25 @@
                 variant="white" type="reset"
                 data-controller="reset-search" data-action="reset-search#reset"/>
     </div>
+    <div class="grid grid-cols-3">
     {% for recipe in recipes %}
-        <div class="border border-black mb-10 bg-gray-50 p-5 rounded">
+        <a href="{{ path('recipe_show', {'uuid':recipe.uuid}) }}" class="border mb-10 p-5 rounded">
             {% if recipe.imageName %}
-                <img src="{{ vich_uploader_asset(recipe, 'image') }}" alt="{{ recipe.name }}">
-            {% else %}
-                <p>No image available</p>
+                <img class="w-full h-56 object-contain overflow-hidden" src="{{ vich_uploader_asset(recipe, 'image') }}" alt="{{ recipe.name }}">
             {% endif %}
-           <h2 class="text-2xl font-bold">{{ recipe.name }}</h2>
-                <ul class="ml-10">
-                    {% for ingredient in recipe.ingredients %}
-                      <li>
-                          {{ ingredient.name }}
-                      </li>
-                    {% endfor %}
-                </ul>
-            <p>{{ recipe.description }}</p>
-            <p>{{ recipe.time }} minutes</p>
-        </div>
+           <h2 class="text-3xl font-bold text-center py-2">{{ recipe.name }}</h2>
+            <div class="flex gap-x-2 bg-gray-50 p-2 rounded">
+               <div class="w-4 self-center">{{ ux_icon('clock') }}</div> <p>{{ recipe.time }}</p>
+            </div>
+                    {#<ul class="ml-10">
+                        {% for ingredient in recipe.ingredients %}
+                          <li>
+                              {{ ingredient.name }}
+                          </li>
+                        {% endfor %}
+                    </ul>
+                <p>{{ recipe.description }}</p>#}
+        </a>
     {% endfor %}
+    </div>
 {% endblock %}
