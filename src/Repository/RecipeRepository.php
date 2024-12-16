@@ -23,15 +23,15 @@ class RecipeRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('r')
         ->join('r.ingredients', 'i');
 
-        if (QueryService::isNotEmpty($search, 'search')) {/*
-            dd($search['search']);*/
-
+        if (QueryService::isNotEmpty($search, 'search')) {
+            $number = count($search['search']);
                 $query
                     ->andWhere('i.id IN (:ingredients)')
-                    ->setParameter('ingredients', $search['search']);
-
+                    ->setParameter('ingredients', $search['search'])
+                    ->groupBy('r.id')
+                    ->having('COUNT(r.id) =  '.$number)
+                ;
             }
-
 
         return $query
             ->getQuery()
