@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit recipe{% endblock %}
+
+{% block body %}
+    <twig:Title
+            label="Edit recipe" />
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+    <twig:Button
+            label="Edit recipe"/>
+    {{ form_end(form) }}
+{% endblock %}

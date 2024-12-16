@@ -25,10 +25,13 @@ class RecipeRepository extends ServiceEntityRepository
 
         if (QueryService::isNotEmpty($search, 'search')) {/*
             dd($search['search']);*/
-            $query
-                ->andWhere('i.id IN (:ingredients)')
-                ->setParameter('ingredients', $search['search']);
-        }
+
+                $query
+                    ->andWhere('i.id IN (:ingredients)')
+                    ->setParameter('ingredients', $search['search']);
+
+            }
+
 
         return $query
             ->getQuery()

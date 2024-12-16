@@ -18,4 +18,7 @@
     </ul>
     <p class="col-span-3 p-5">{{ recipe.description }}</p>
     </div>
+    <twig:Link
+        href="{{ path('recipe_edit', {'uuid':recipe.uuid}) }}"
+        label="Edit recipe"/>
 {% endblock %}

@@ -59,25 +59,25 @@ return [
         'version' => '6.2.0',
     ],
     'loader-utils' => [
-        'version' => '2.0.4',
+        'version' => '3.3.1',
     ],
     'schema-utils' => [
-        'version' => '3.3.0',
+        'version' => '4.3.0',
     ],
     'json5' => [
         'version' => '2.2.3',
     ],
     'big.js' => [
-        'version' => '5.2.2',
+        'version' => '6.2.2',
     ],
     'emojis-list' => [
         'version' => '3.0.0',
     ],
     'ajv' => [
-        'version' => '6.12.6',
+        'version' => '8.17.1',
     ],
     'ajv-keywords' => [
-        'version' => '3.5.2',
+        'version' => '5.1.0',
     ],
     'uri-js' => [
         'version' => '4.4.1',
@@ -86,19 +86,19 @@ return [
         'version' => '3.1.3',
     ],
     'json-schema-traverse' => [
-        'version' => '0.4.1',
+        'version' => '1.0.0',
     ],
     'fast-json-stable-stringify' => [
         'version' => '2.1.0',
     ],
     'quill' => [
-        'version' => '2.0.0-rc.2',
+        'version' => '2.0.3',
     ],
     'lodash-es' => [
         'version' => '4.17.21',
     ],
     'parchment' => [
-        'version' => '3.0.0-alpha.2',
+        'version' => '3.0.0',
     ],
     'quill-delta' => [
         'version' => '5.1.0',
@@ -116,11 +116,11 @@ return [
         'version' => '4.5.0',
     ],
     'quill/dist/quill.snow.css' => [
-        'version' => '2.0.2',
+        'version' => '2.0.3',
         'type' => 'css',
     ],
     'quill/dist/quill.bubble.css' => [
-        'version' => '2.0.2',
+        'version' => '2.0.3',
         'type' => 'css',
     ],
     'axios' => [
@@ -135,5 +135,14 @@ return [
     ],
     'quill-resize-image' => [
         'version' => '1.0.5',
+    ],
+    'ajv-formats' => [
+        'version' => '2.1.1',
+    ],
+    'fast-uri' => [
+        'version' => '3.0.1',
+    ],
+    'ajv/dist/compile/codegen' => [
+        'version' => '8.12.0',
     ],
 ];

@@ -16,7 +16,7 @@ class HomeController extends AbstractController
 
 
     #[Route('/home', name: 'app_home')]
-    public function index(FoodGroupRepository $foodGroupRepository, RecipeRepository $recipeRepository, Request $request): Response
+    public function index( RecipeRepository $recipeRepository, Request $request): Response
     {
         $session = $request->getSession();
         if (!empty($search = $request->query->all('search'))) {
@@ -24,13 +24,11 @@ class HomeController extends AbstractController
         } else {
             $search = $session->get('ingredient_search', []);
         }
-        $foodGroups = $foodGroupRepository->findAll();
         $form = $this->createForm(SearchFormType::class, null, ['search' => $search]);
         $form->handleRequest($request);
         $recipes = $recipeRepository->search($search);
 
         return $this->render('home/index.html.twig',[
-            'foodGroups' => $foodGroups,
             'form' => $form,
             'recipes' => $recipes,
         ]);
