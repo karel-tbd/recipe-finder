@@ -36,4 +36,21 @@ class RecipeController extends AbstractController
             'recipe' => $recipe,
         ]);
     }
+
+    #[Route('/recipe/edit/{uuid}', name: 'recipe_edit')]
+    public function edit(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(RecipeType::class, $recipe);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($recipe);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_home');
+        }
+        return $this->render('recipe/edit.html.twig', [
+            'form' => $form,
+            'recipe' => $recipe,
+        ]);
+    }
+
 }

@@ -16,9 +16,15 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-            custom_authenticator: App\Security\LoginAuthenticator
+            switch_user: { role: ROLE_SUPER_ADMIN }
             logout:
                 path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                enable_csrf: true
                 # where to redirect after logout
                 # target: app_any_route
 

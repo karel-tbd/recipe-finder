@@ -18,7 +18,7 @@
             </div>
             <div class="flex gap-x-10">
                 <twig:Sidebar:Item
-                        path=""
+                        path="{{ path('app_home') }}"
                         label="Search recipies"
                 />
                 {% if app.user() %}
