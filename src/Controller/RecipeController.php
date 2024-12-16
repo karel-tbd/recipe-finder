@@ -20,11 +20,12 @@ class RecipeController extends AbstractController
         $form = $this->createForm(RecipeType::class, $recipe);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+
             $entityManager->persist($recipe);
             $entityManager->flush();
             return $this->redirectToRoute('app_home');
         }
-        return $this->render('recipe/index.html.twig', [
+        return $this->render('recipe/add.html.twig', [
             'form' => $form,
         ]);
     }
