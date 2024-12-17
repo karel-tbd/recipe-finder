@@ -1,10 +1,10 @@
-<nav class="fixed {{ is_granted('IS_IMPERSONATOR') ? 'top-10' : 'top-0' }} left-0 z-50 w-full bg-blue-100 h-18">
+<nav class="fixed {{ is_granted('IS_IMPERSONATOR') ? 'top-10' : 'top-0' }} left-0 z-50 w-full h-18 bg-white">
     <div class="px-3 py-4 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between w-4/5 mx-auto">
             <div class="flex items-center justify-start rtl:justify-end">
                 <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
                         type="button"
-                        class="inline-flex items-center p-2 rounded-lg lg:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
+                        class="inline-flex items-center p-2 rounded-lg lg:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-blue-200 focus:ring-gray-600">
                     <span class="sr-only">Open sidebar</span>
                     <svg class="w-8 h-8" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                          xmlns="http://www.w3.org/2000/svg">
@@ -13,10 +13,10 @@
                     </svg>
                 </button>
                 <a href="" class="ml-5 lg:me-24">
-                    <img src="{{ asset('images/Envalior-white.webp') }}" class="h-10 pt-3 lg:pt-0" alt="Envalior Logo"/>
+                    <img src="{{ asset('images/logo.png') }}" class="h-14 pt-3 lg:pt-0" alt="From Fridge to Feast"/>
                 </a>
             </div>
-            <div class="flex gap-x-10">
+            <div class="gap-x-10 hidden lg:flex">
                 <twig:Sidebar:Item
                         path="{{ path('app_home') }}"
                         label="Search recipies"
@@ -70,7 +70,7 @@
                          id="dropdown-lang">
                         {{ include('includes/languageMenu.html.twig') }}
                     </div>#}
-
+                {% if app.user %}
                     <div>
                         <div>
                             <button type="button"
@@ -106,6 +106,8 @@
                             </ul>
                         </div>
                     </div>
+                {% endif %}
+
             </div>
         </div>
     </div>

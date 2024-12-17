@@ -20,7 +20,6 @@ class RecipeController extends AbstractController
         $form = $this->createForm(RecipeType::class, $recipe);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
             $entityManager->persist($recipe);
             $entityManager->flush();
             return $this->redirectToRoute('app_home');
@@ -32,9 +31,15 @@ class RecipeController extends AbstractController
     #[Route('/recipe/show/{uuid}', name: 'recipe_show')]
     public function show(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager): Response
     {
+        $session = $request->getSession();
+        $searchIngredients = null;
+        if (isset($session->get('ingredient_search')['search'])){
+            $searchIngredients = $session->get('ingredient_search')['search'];
+        }
 
         return $this->render('recipe/show.html.twig', [
             'recipe' => $recipe,
+            'searchIngredients' => $searchIngredients,
         ]);
     }
 

@@ -8,6 +8,10 @@
     text-gray-900 rounded text-sm block w-full p-2.5 border border-gray-300 focus:z-10 focus:ring-blue-500 focus:border-blue-500
 {%- endblock class_input_text %}
 
+{% block class_select -%}
+    {{ block('class_input_text') }}
+{%- endblock class_select %}
+
 {% block class_textarea -%}
     {{ block('class_input_text') }}
 {%- endblock class_textarea %}
@@ -25,5 +29,5 @@
 {%- endblock class_text_error %}
 
 {% block class_input_file -%}
-    block w-full text-sm text-gray-900 border border-gray-300 rounded cursor-pointer p-2.5
+    block w-full text-sm text-gray-900 border border-gray-300 rounded cursor-pointer file:bg-blue-100 file:hover:bg-blue-200 file:border-0 file:py-2 file:px-4
 {%- endblock class_input_file %}

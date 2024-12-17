@@ -4,3 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.optgroup-header {
+    display: none;
+}
+ol li{
+    margin-left: 30px;
+    list-style: upper-roman;
+}

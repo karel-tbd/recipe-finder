@@ -17,7 +17,8 @@
     </head>
     <body>
     {{ include('partials/_nav.html.twig') }}
-    <div class="pt-36 w-4/5 mx-auto">
+    {{ include('partials/_sidebar.html.twig') }}
+    <div class="pt-28 w-4/5 mx-auto">
         {% block body %}{% endblock %}
     </div>
 
