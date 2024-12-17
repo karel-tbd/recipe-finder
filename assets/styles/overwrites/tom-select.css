@@ -1,9 +1,9 @@
 select[data-controller="symfony--ux-autocomplete--autocomplete"] {
-    @apply hidden;
+    @apply hidden opacity-0;
 }
 
 input[data-controller="symfony--ux-autocomplete--autocomplete"] {
-    @apply hidden;
+    @apply hidden opacity-0;
 }
 
 .ts-wrapper {
@@ -19,11 +19,11 @@ input[data-controller="symfony--ux-autocomplete--autocomplete"] {
 }
 
 .ts-control {
-    @apply flex flex-wrap items-center gap-2.5  text-gray-900 rounded-lg text-sm w-full border-b border-b-gray-50 focus:ring-blue-100 ;
+    @apply flex flex-wrap items-center gap-2.5  text-gray-900 rounded text-sm w-full border-b border-b-gray-50 focus:ring-blue-100 ;
 }
 
 .ts-wrapper.multi .item {
-    @apply rounded-md bg-gray-50 px-2.5 text-sm bg-green-200;
+    @apply rounded-md px-2.5 text-sm bg-green-200;
 }
 
 .ts-wrapper.multi .remove {
