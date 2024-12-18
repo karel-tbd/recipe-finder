@@ -11,3 +11,24 @@ ol li{
     margin-left: 30px;
     list-style: upper-roman;
 }
+
+.recipe h1{
+    color: red;
+    font-weight: 300;
+}
+.recipe h2{
+    color: red;
+    font-size: large;
+}
+.recipe h3{
+    color: red;
+}
+.recipe p{
+    padding-top: 20px;
+    margin-left: 30px;
+}
+.recipe hr{
+    width: 90%;
+    justify-self: end;
+    margin-top: -13px
+}

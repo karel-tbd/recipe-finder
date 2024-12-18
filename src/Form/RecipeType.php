@@ -21,7 +21,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class RecipeType extends AbstractType
@@ -33,12 +35,17 @@ class RecipeType extends AbstractType
                 'label' => 'Recipe name',
                 'required' => false,
             ])
-            ->add('ingredients', EntityType::class, [
-                'class' => Ingredients::class,
-                'choice_label' => 'name',
-                'autocomplete' => true,
-                'multiple' => true,
+            ->add('ingredients', LiveCollectionType::class, [
                 'required' => false,
+                'entry_type' => IngredientType::class,
+                'entry_options' => ['label' => false],
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'error_bubbling' => false,
+                'constraints' => [
+                    new Count(['min' => 1]),
+                ]
             ])
             ->add('description',QuillType::class,[
                 'label' => 'Recipe description',
