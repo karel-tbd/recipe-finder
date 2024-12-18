@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Recipe;
+use App\Entity\RecipeIngredients;
 use App\Form\RecipeType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
@@ -20,8 +21,13 @@ class RecipeController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $recipe = $form->getData();
-            foreach ( $form->get('ingredients')->getData() as $data) {
-                $recipe->addIngredient($data['ingredient']);
+            foreach ($form->get('ingredients')->getData() as $data) {
+                $recipeIngredient = new RecipeIngredients();
+                $recipeIngredient->setRecipe($recipe);
+                $recipeIngredient->setIngredient($data['ingredient']);
+                $recipeIngredient->setQuantity($data['quantity']);
+                $recipeIngredient->setUnit($data['unit']);
+                $entityManager->persist($recipeIngredient);
             }
             $entityManager->persist($recipe);
             $entityManager->flush();
@@ -31,12 +37,13 @@ class RecipeController extends AbstractController
             'form' => $form,
         ]);
     }
+
     #[Route('/recipe/show/{uuid}', name: 'recipe_show')]
     public function show(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager): Response
     {
         $session = $request->getSession();
         $searchIngredients = null;
-        if (isset($session->get('ingredient_search')['search'])){
+        if (isset($session->get('ingredient_search')['search'])) {
             $searchIngredients = $session->get('ingredient_search')['search'];
         }
 
@@ -49,7 +56,7 @@ class RecipeController extends AbstractController
     #[Route('/recipe/edit/{uuid}', name: 'recipe_edit')]
     public function edit(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(RecipeType::class, $recipe);
+        $form = $this->createForm(RecipeType::class, $recipe, ['edit' => true]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($recipe);

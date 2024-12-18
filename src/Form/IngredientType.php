@@ -3,9 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Ingredients;
-use PHPUnit\TextUI\XmlConfiguration\Logging\Text;
+use App\Enum\Unit;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,12 +23,23 @@ class IngredientType extends AbstractType
                 'required' => false,
                 'autocomplete' => true,
                 'multiple' => false,
+                'placeholder' => 'Tomatoes',
             ])
-            ->add('quantity', TextType::class,[
+            ->add('quantity', TextType::class, [
                 'label' => 'Quantity',
                 'required' => false,
+                'attr' => [
+                    'placeholder' => '2',
+                ]
             ])
-        ;
+            ->add('unit', EnumType::class, [
+                'label' => 'Unit',
+                'class' => Unit::class,
+                'required' => false,
+                'autocomplete' => true,
+                'choice_label' => 'value',
+                'placeholder' => '',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

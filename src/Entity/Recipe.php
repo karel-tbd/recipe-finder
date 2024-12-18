@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Trait\BlameableTrait;
 use App\Entity\Trait\DefaultTrait;
+use App\Enum\MealType;
 use App\Repository\RecipeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,7 +12,6 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -46,19 +46,31 @@ class Recipe
     /**
      * @var Collection<int, Ingredients>
      */
-    #[ORM\ManyToMany(targetEntity: Ingredients::class, inversedBy: 'recipes')]
-    private Collection $ingredients;
-
     #[ORM\Column]
     #[NotBlank(message: 'This value should not be blank.')]
     private ?float $time = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[NotBlank(message: 'This value should not be blank.')]
     private ?string $instructions = null;
+
+    /**
+     * @var Collection<int, RecipeIngredients>
+     */
+    #[ORM\OneToMany(targetEntity: RecipeIngredients::class, mappedBy: 'recipe')]
+    private Collection $recipeIngredients;
+
+    #[ORM\Column]
+    #[NotBlank(message: 'This value should not be blank.')]
+    private ?int $people = null;
+
+    #[ORM\Column(type: Types::SIMPLE_ARRAY, nullable: true, enumType: MealType::class)]
+    #[NotBlank(message: 'This value should not be blank.')]
+    private ?array $mealType = [];
 
     public function __construct()
     {
-        $this->ingredients = new ArrayCollection();
+        $this->recipeIngredients = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -85,30 +97,6 @@ class Recipe
         return $this;
     }
 
-    /**
-     * @return Collection<int, Ingredients>
-     */
-    public function getIngredients(): Collection
-    {
-        return $this->ingredients;
-    }
-
-    public function addIngredient(Ingredients $ingredient): static
-    {
-        if (!$this->ingredients->contains($ingredient)) {
-            $this->ingredients->add($ingredient);
-        }
-
-        return $this;
-    }
-
-    public function removeIngredient(Ingredients $ingredient): static
-    {
-        $this->ingredients->removeElement($ingredient);
-
-        return $this;
-    }
-
     public function getTime(): ?float
     {
         return $this->time;
@@ -120,6 +108,7 @@ class Recipe
 
         return $this;
     }
+
     public function setImage(?File $image = null): void
     {
         $this->image = $image;
@@ -135,6 +124,7 @@ class Recipe
     {
         return $this->image;
     }
+
     public function setImageName(?string $imageName): void
     {
         $this->imageName = $imageName;
@@ -163,6 +153,63 @@ class Recipe
     public function setInstructions(string $instructions): static
     {
         $this->instructions = $instructions;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, RecipeIngredients>
+     */
+    public function getRecipeIngredients(): Collection
+    {
+        return $this->recipeIngredients;
+    }
+
+    public function addRecipeIngredient(RecipeIngredients $recipeIngredient): static
+    {
+        if (!$this->recipeIngredients->contains($recipeIngredient)) {
+            $this->recipeIngredients->add($recipeIngredient);
+            $recipeIngredient->setRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecipeIngredient(RecipeIngredients $recipeIngredient): static
+    {
+        if ($this->recipeIngredients->removeElement($recipeIngredient)) {
+            // set the owning side to null (unless already changed)
+            if ($recipeIngredient->getRecipe() === $this) {
+                $recipeIngredient->setRecipe(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getPeople(): ?int
+    {
+        return $this->people;
+    }
+
+    public function setPeople(int $people): static
+    {
+        $this->people = $people;
+
+        return $this;
+    }
+
+    /**
+     * @return MealType[]
+     */
+    public function getMealType(): ?array
+    {
+        return $this->mealType;
+    }
+
+    public function setMealType(?array $mealType): static
+    {
+        $this->mealType = $mealType;
 
         return $this;
     }

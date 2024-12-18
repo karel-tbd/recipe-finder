@@ -3,9 +3,10 @@
 {% block title %}Add recipe{% endblock %}
 
 {% block body %}
-<twig:Title
-label="Add recipe" />
 
-    <twig:AddRecipe />
+    <twig:Title
+            label="Add a new recipe"/>
+    <twig:AddRecipe form="{{ form }}"/>
+
 
 {% endblock %}
