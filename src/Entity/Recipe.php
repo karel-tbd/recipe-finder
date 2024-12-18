@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: RecipeRepository::class)]
@@ -24,10 +25,12 @@ class Recipe
     use BlameableTrait;
 
     #[ORM\Column(length: 255)]
+    #[NotBlank(message: 'This value should not be blank.')]
     private ?string $name = null;
 
 
     #[Vich\UploadableField(mapping: 'recipe_files', fileNameProperty: 'imageName', size: 'imageSize')]
+    #[NotBlank(message: 'This value should not be blank.')]
     private ?File $image = null;
 
     #[ORM\Column(nullable: true)]
@@ -37,6 +40,7 @@ class Recipe
     private ?int $imageSize = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[NotBlank(message: 'This value should not be blank.')]
     private ?string $description = null;
 
     /**
@@ -46,7 +50,11 @@ class Recipe
     private Collection $ingredients;
 
     #[ORM\Column]
+    #[NotBlank(message: 'This value should not be blank.')]
     private ?float $time = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $instructions = null;
 
     public function __construct()
     {
@@ -145,5 +153,17 @@ class Recipe
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    public function getInstructions(): ?string
+    {
+        return $this->instructions;
+    }
+
+    public function setInstructions(string $instructions): static
+    {
+        $this->instructions = $instructions;
+
+        return $this;
     }
 }

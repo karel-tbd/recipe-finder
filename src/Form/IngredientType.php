@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Ingredients;
+use PHPUnit\TextUI\XmlConfiguration\Logging\Text;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,8 +21,12 @@ class IngredientType extends AbstractType
                 'choice_label' => 'name',
                 'required' => false,
                 'autocomplete' => true,
+                'multiple' => false,
             ])
-            ->add('quantity', T)
+            ->add('quantity', TextType::class,[
+                'label' => 'Quantity',
+                'required' => false,
+            ])
         ;
     }
 
