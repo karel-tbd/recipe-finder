@@ -16,10 +16,13 @@ class RecipeController extends AbstractController
     #[Route('/recipe/add', name: 'recipe_add')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $recipe = new Recipe();
-        $form = $this->createForm(RecipeType::class, $recipe);
+        $form = $this->createForm(RecipeType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $recipe = $form->getData();
+            foreach ( $form->get('ingredients')->getData() as $data) {
+                $recipe->addIngredient($data['ingredient']);
+            }
             $entityManager->persist($recipe);
             $entityManager->flush();
             return $this->redirectToRoute('app_home');

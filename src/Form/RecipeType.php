@@ -23,6 +23,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
@@ -37,6 +38,7 @@ class RecipeType extends AbstractType
             ])
             ->add('ingredients', LiveCollectionType::class, [
                 'required' => false,
+                'label' => false,
                 'entry_type' => IngredientType::class,
                 'entry_options' => ['label' => false],
                 'allow_add' => true,
@@ -45,14 +47,20 @@ class RecipeType extends AbstractType
                 'error_bubbling' => false,
                 'constraints' => [
                     new Count(['min' => 1]),
-                ]
+                ],
+                'mapped'=>false,
             ])
-            ->add('description',QuillType::class,[
+            ->add('description', TextareaType::class,[
                 'label' => 'Recipe description',
                 'required' => false,
                 'attr' => [
                     'rows' => 10,
+                    'placeholder' => 'Short description of your dish'
                 ],
+            ])
+            ->add('instructions',QuillType::class,[
+                'label' => 'Recipe Instructions',
+                'required' => false,
                 'quill_options' => [
                     QuillGroup::build(
                         new HeaderGroupField(),
