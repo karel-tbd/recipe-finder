@@ -29,7 +29,7 @@ final class Link
     public function getVariantClasses(): string
     {
         return match ($this->variant) {
-            'primary' => 'flex items-center py-1 bg-blue-200 mt-5 rounded hover:bg-blue-300 font-bold text-base tracking-wider h-fit w-fit',
+            'primary' => 'flex items-center py-2 bg-red-500 mt-5 px-4 rounded hover:bg-red-400 font-bold text-white tracking-wider h-fit w-fit',
             'white' => 'flex items-center py-1 border text-center border-secondary mt-5 text-secondary rounded hover:bg-gray-100 font-bold text-base tracking-wider h-fit',
             default => throw new LogicException(sprintf('Unknown button type "%s"', $this->variant)),
         };

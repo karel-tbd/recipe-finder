@@ -4,10 +4,17 @@ namespace App\Controller;
 
 use App\Entity\Recipe;
 use App\Entity\RecipeIngredients;
+use App\Entity\UserRecipeRating;
+use App\Entity\UserRecipeSaved;
 use App\Form\RecipeType;
+use App\Form\SearchFormType;
+use App\Repository\RecipeRepository;
+use App\Repository\UserRecipeRatingRepository;
+use App\Repository\UserRecipeSavedRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -39,17 +46,23 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/recipe/show/{uuid}', name: 'recipe_show')]
-    public function show(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager): Response
+    public function show(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager, UserRecipeRatingRepository $userRecipeRatingRepository, UserRecipeSavedRepository $userRecipeSavedRepository): Response
     {
         $session = $request->getSession();
         $searchIngredients = null;
         if (isset($session->get('ingredient_search')['search'])) {
             $searchIngredients = $session->get('ingredient_search')['search'];
         }
-
+        $recipeSavedByUser = $userRecipeSavedRepository->findOneBy(['recipe' => $recipe, 'user' => $this->getUser()]);
+        $score = $userRecipeRatingRepository->findOneBy(['recipe' => $recipe, 'user' => $this->getUser()]);
+        if (!empty($score)) {
+            $score = $score->getScore();
+        }
         return $this->render('recipe/show.html.twig', [
             'recipe' => $recipe,
             'searchIngredients' => $searchIngredients,
+            'recipeSavedByUser' => $recipeSavedByUser,
+            'score' => $score,
         ]);
     }
 
@@ -69,4 +82,63 @@ class RecipeController extends AbstractController
         ]);
     }
 
+    #[Route('/recipe/save/{uuid}', name: 'recipe_save')]
+    public function save(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager, UserRecipeSavedRepository $userRecipeSavedRepository, Security $security): Response
+    {
+        if (!$userRecipeSaved = $userRecipeSavedRepository->findOneBy(['recipe' => $recipe, 'user' => $security->getUser()])) {
+            $userRecipeSaved = new UserRecipeSaved();
+            $userRecipeSaved->setRecipe($recipe);
+            $userRecipeSaved->setUser($security->getUser());
+            $entityManager->persist($userRecipeSaved);
+            $this->addFlash('success', 'Recipe saved!');
+        } else {
+            $entityManager->remove($userRecipeSaved);
+            $this->addFlash('error', 'Recipe removed from saved!');
+        }
+        $entityManager->flush();
+        return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
+    }
+
+    #[Route('/my-recipes', name: 'recipe_saved')]
+    public function saved(RecipeRepository $recipeRepository, Security $security, Request $request): Response
+    {
+        $user = $security->getUser();
+        $session = $request->getSession();
+        if (!empty($search = $request->query->all('search'))) {
+            $session->set('ingredient_search', $search);
+        } else {
+            $search = $session->get('ingredient_search', []);
+        }
+
+        $form = $this->createForm(SearchFormType::class, null, ['search' => $search]);
+        $form->handleRequest($request);
+        $recipes = $recipeRepository->saved($user, $search);
+        return $this->render('my-recipes/index.html.twig', [
+            'recipes' => $recipes,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/recipe/rating', name: 'recipe_set_rating', methods: ['POST'])]
+    public function rating(RecipeRepository $recipeRepository, Security $security, EntityManagerInterface $entityManager, UserRecipeRatingRepository $userRecipeRatingRepository, Request $request): Response
+    {
+        $content = json_decode($request->getContent(), true);
+        $score = $content['clicked'];
+        $uuid = $content['uuid'];
+
+        $recipe = $recipeRepository->findOneBy(['uuid' => $uuid]);
+
+        if (!$rating = $userRecipeRatingRepository->findOneBy(['recipe' => $recipe, 'user' => $security->getUser()])) {
+            $rating = new UserRecipeRating();
+        }
+        $rating->setRecipe($recipe);
+        $rating->setUser($security->getUser());
+        $rating->setScore($score + 1);
+        $entityManager->persist($rating);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
+    }
+
 }
+
