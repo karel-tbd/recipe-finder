@@ -68,9 +68,23 @@ class Recipe
     #[NotBlank(message: 'This value should not be blank.')]
     private ?array $mealType = [];
 
+    /**
+     * @var Collection<int, UserRecipeSaved>
+     */
+    #[ORM\OneToMany(targetEntity: UserRecipeSaved::class, mappedBy: 'recipe')]
+    private Collection $userRecipeSaveds;
+
+    /**
+     * @var Collection<int, UserRecipeRating>
+     */
+    #[ORM\OneToMany(targetEntity: UserRecipeRating::class, mappedBy: 'recipe')]
+    private Collection $userRecipeRatings;
+
     public function __construct()
     {
         $this->recipeIngredients = new ArrayCollection();
+        $this->userRecipeSaveds = new ArrayCollection();
+        $this->userRecipeRatings = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -210,6 +224,80 @@ class Recipe
     public function setMealType(?array $mealType): static
     {
         $this->mealType = $mealType;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, UserRecipeSaved>
+     */
+    public function getUserRecipeSaveds(): Collection
+    {
+        return $this->userRecipeSaveds;
+    }
+
+    public function addUserRecipeSaved(UserRecipeSaved $userRecipeSaved): static
+    {
+        if (!$this->userRecipeSaveds->contains($userRecipeSaved)) {
+            $this->userRecipeSaveds->add($userRecipeSaved);
+            $userRecipeSaved->setRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserRecipeSaved(UserRecipeSaved $userRecipeSaved): static
+    {
+        if ($this->userRecipeSaveds->removeElement($userRecipeSaved)) {
+            // set the owning side to null (unless already changed)
+            if ($userRecipeSaved->getRecipe() === $this) {
+                $userRecipeSaved->setRecipe(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getRating(): float
+    {
+        $totalScore = 0;
+        $count = $this->getUserRecipeRatings()->count();
+        $score = $this->getUserRecipeRatings()->toArray();
+
+        if (!empty($score)) {
+            $score = reset($score)->getScore();
+           
+        }
+
+        return $totalScore;
+    }
+
+    /**
+     * @return Collection<int, UserRecipeRating>
+     */
+    public function getUserRecipeRatings(): Collection
+    {
+        return $this->userRecipeRatings;
+    }
+
+    public function addUserRecipeRating(UserRecipeRating $userRecipeRating): static
+    {
+        if (!$this->userRecipeRatings->contains($userRecipeRating)) {
+            $this->userRecipeRatings->add($userRecipeRating);
+            $userRecipeRating->setRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserRecipeRating(UserRecipeRating $userRecipeRating): static
+    {
+        if ($this->userRecipeRatings->removeElement($userRecipeRating)) {
+            // set the owning side to null (unless already changed)
+            if ($userRecipeRating->getRecipe() === $this) {
+                $userRecipeRating->setRecipe(null);
+            }
+        }
 
         return $this;
     }

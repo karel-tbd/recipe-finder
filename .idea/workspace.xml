@@ -4,24 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="before ManyToMany Manualy">
-      <change afterPath="$PROJECT_DIR$/src/Enum/MealType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enum/Trait/TranslatableTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enum/Unit.php" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="added extra klasses to filter en search on + layout pages updated">
+      <change afterPath="$PROJECT_DIR$/assets/controllers/flash_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Alert.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/Alert.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/my-recipes/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/overwrites/tom-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/overwrites/tom-select.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/Import.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Import.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/diabolique-6762ea6d6a703227699533.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ingredients.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ingredients.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Recipe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/IngredientType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/IngredientType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/RecipeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecipeType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/fields.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Link.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Link.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/AddRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/AddRecipe.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recipe/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,7 +229,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/src/Enum",
+    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/assets/controllers",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -241,9 +241,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Enum" />
-      <recent name="$PROJECT_DIR$/templates/components" />
       <recent name="$PROJECT_DIR$/assets/controllers" />
+      <recent name="$PROJECT_DIR$/templates/components" />
+      <recent name="$PROJECT_DIR$/src/Enum" />
       <recent name="$PROJECT_DIR$/assets/styles" />
       <recent name="$PROJECT_DIR$/config/packages" />
     </key>
@@ -282,7 +282,7 @@
       <workItem from="1734171707378" duration="21190000" />
       <workItem from="1734365673329" duration="7764000" />
       <workItem from="1734440266599" duration="22601000" />
-      <workItem from="1734513475175" duration="26361000" />
+      <workItem from="1734513475175" duration="53139000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -420,7 +420,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734519919398</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added extra klasses to filter en search on + layout pages updated">
+      <option name="closed" value="true" />
+      <created>1734544752198</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1734544752199</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,6 +471,7 @@
     <MESSAGE value="Made layout recipefinder page and started on show page" />
     <MESSAGE value="layout recipe finder page made" />
     <MESSAGE value="before ManyToMany Manualy" />
-    <option name="LAST_COMMIT_MESSAGE" value="before ManyToMany Manualy" />
+    <MESSAGE value="added extra klasses to filter en search on + layout pages updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="added extra klasses to filter en search on + layout pages updated" />
   </component>
 </project>

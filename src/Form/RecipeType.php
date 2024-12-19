@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Recipe;
+use App\Enum\EntryPermitSite;
 use App\Enum\MealType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
@@ -32,9 +33,10 @@ class RecipeType extends AbstractType
             ->add('mealType', EnumType::class, [
                 'label' => 'Meal type',
                 'required' => false,
+                'multiple' => true,
                 'class' => MealType::class,
+                'choice_label' => fn(MealType $mealType) => $mealType->value,
                 'autocomplete' => true,
-                'choice_label' => 'value',
                 'placeholder' => 'Dinner',
             ])
             ->add('people', NumberType::class, [

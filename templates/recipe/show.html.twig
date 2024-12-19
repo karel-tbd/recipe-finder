@@ -3,8 +3,16 @@
 {% block title %}Show recipe{% endblock %}
 
 {% block body %}
-    <div class="lg:grid lg:grid-cols-2  justify-self-end">
-        <img class="object-cover w-2/3 h-96 rounded-xl" src="{{ vich_uploader_asset(recipe, 'image') }}"
+    {% for  type, messages in app.flashes %}
+        {% for message in messages %}
+            <twig:Alert
+                    type="{{ type }}"
+                    message="{{ message }}"/>
+        {% endfor %}
+    {% endfor %}
+    <div class="lg:grid lg:grid-cols-2 gap-x-10 xl:justify-self-end xl:w-5/6">
+        <img class="object-cover overflow-hidden m-auto xl:m-0 h-96 rounded-xl"
+             src="{{ vich_uploader_asset(recipe, 'image') }}"
              alt="{{ recipe.name }}">
         <div>
             <h2 class="text-3xl font-bold py-2 lg:w-3/4">{{ recipe.name }}</h2>
@@ -36,8 +44,17 @@
                             class="text-red-500">{% if recipe.createdBy == null %}From Fridge to Feast {% else %}{{ recipe.createdBy.email }}{% endif %}</span>
                 </p>
                 <div class="flex gap-x-5">
-                    <a href="#" title="Save recipe" class="w-4 text-gray-500">{{ ux_icon('bookmark-regular') }}</a>
-                    <a href="" title="pdf" class="w-5  text-gray-500">{{ ux_icon('print') }}</a>
+                    {% if app.user %}
+                        {% if recipeSavedByUser == null %}
+                            <a href="{{ path('recipe_save', {'uuid':recipe.uuid}) }}" title="Save recipe"
+                               class="w-4 text-gray-500 hover:text-red-500">{{ ux_icon('bookmark-regular') }}</a>
+                        {% else %}
+                            <a href="{{ path('recipe_save', {'uuid':recipe.uuid}) }}" title="Save recipe"
+                               class="w-4 text-red-500 hover:text-red-400">{{ ux_icon('bookmark') }}</a>
+                        {% endif %}
+
+                    {% endif %}
+                    <a href="" title="pdf" class="w-5  text-gray-500 hover:text-red-500">{{ ux_icon('print') }}</a>
                 </div>
             </div>
         </div>
@@ -77,6 +94,30 @@
                     </li>
                 {% endfor %}
             </ul>
+
+            {% if app.user %}
+                <twig:Subtitle
+                        tag="h4"
+                        label="Rate recipe"
+                        class="pt-10"/>
+
+                <div class="flex gap-x-2 pt-3"
+                     data-controller="rating"
+                     data-rating-score-value="{{ score }}"
+                     data-rating-uuid-value="{{ recipe.uuid }}">
+                    <twig:Star value="0"/>
+                    <twig:Star value="1"/>
+                    <twig:Star
+                            value="2"
+                    />
+                    <twig:Star
+                            value="3"
+                    />
+                    <twig:Star
+                            value="4"
+                    />
+                </div>
+            {% endif %}
         </div>
     </div>
 
