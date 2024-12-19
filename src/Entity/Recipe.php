@@ -265,10 +265,11 @@ class Recipe
         $score = $this->getUserRecipeRatings()->toArray();
 
         if (!empty($score)) {
-            $score = reset($score)->getScore();
-           
+            foreach ($score as $rating) {
+                $totalScore += $rating->getScore();
+            }
+            $totalScore = $totalScore / $count;
         }
-
         return $totalScore;
     }
 

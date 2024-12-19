@@ -1,0 +1,16 @@
+<div data-accordion="collapse" class="mt-10">
+    <h2>
+        <button type="button" class="flex items-center justify-between w-full text-black"
+                data-accordion-target="#{{ id }}" aria-expanded="false">
+            <span>{{ label }}</span>
+            <span class="w-4">
+                {{ ux_icon('plus-solid') }}
+            </span>
+        </button>
+    </h2>
+    <div id="{{ id }}" class="hidden">
+        <ul>
+            {% block content %}{% endblock %}
+        </ul>
+    </div>
+</div>

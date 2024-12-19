@@ -1,11 +1,12 @@
 # Enable stateless CSRF protection for forms and logins/logouts
 framework:
-    form:
-        csrf_protection:
-            token_id: submit
-
+  form:
     csrf_protection:
-        stateless_token_ids:
-            - submit
-            - authenticate
-            - logout
+      token_id: submit
+
+  #Remove bottom part to fix CSRF bug
+  csrf_protection:
+    stateless_token_ids:
+      - submit
+      - authenticate
+      - logout
