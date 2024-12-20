@@ -50,6 +50,42 @@ class SearchFormType extends AbstractType
             ->add('pastas', CheckboxType::class, [
                 'label' => 'Pastas',
                 'required' => false,
+            ])
+            ->add('breakfast', CheckboxType::class, [
+                'label' => 'Breakfast',
+                'required' => false,
+            ])
+            ->add('brunch', CheckboxType::class, [
+                'label' => 'Brunch',
+                'required' => false,
+            ])
+            ->add('lunch', CheckboxType::class, [
+                'label' => 'Lunch',
+                'required' => false,
+            ])
+            ->add('dinner', CheckboxType::class, [
+                'label' => 'Dinner',
+                'required' => false,
+            ])
+            ->add('cocktail', CheckboxType::class, [
+                'label' => 'Cocktail',
+                'required' => false,
+            ])
+            ->add('nuts', CheckboxType::class, [
+                'label' => 'Nuts',
+                'required' => false,
+            ])
+            ->add('gluten', CheckboxType::class, [
+                'label' => 'Gluten',
+                'required' => false,
+            ])
+            ->add('seaFoodAllergies', CheckboxType::class, [
+                'label' => 'Sea Food',
+                'required' => false,
+            ])
+            ->add('dairy', CheckboxType::class, [
+                'label' => 'Dairy',
+                'required' => false,
             ]);
     }
 

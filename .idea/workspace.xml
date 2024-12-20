@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="made the my recipe page with your saved recipes and the ones youve writen yourself&#10;&#10;made a star review function on show page">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="made search live and added dish type in search">
+      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/MyRecipes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers/csrf_protection_controller.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/csrf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/csrf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Recipe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/vegcurry-676055c61016d481176715-676431e68223a616228472.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/SearchFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchFormType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/fields.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Search.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/my-recipes/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/my-recipes/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +223,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/assets/controllers",
+    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/templates/components/Pages",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -235,11 +235,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/components/Pages" />
       <recent name="$PROJECT_DIR$/assets/controllers" />
       <recent name="$PROJECT_DIR$/templates/components" />
       <recent name="$PROJECT_DIR$/src/Enum" />
       <recent name="$PROJECT_DIR$/assets/styles" />
-      <recent name="$PROJECT_DIR$/config/packages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/images" />
@@ -276,7 +276,7 @@
       <workItem from="1734171707378" duration="21190000" />
       <workItem from="1734365673329" duration="7764000" />
       <workItem from="1734440266599" duration="22601000" />
-      <workItem from="1734513475175" duration="62638000" />
+      <workItem from="1734513475175" duration="66562000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -430,7 +430,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734622480948</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="made search live and added dish type in search">
+      <option name="closed" value="true" />
+      <created>1734631855541</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1734631855541</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,6 +483,7 @@
     <MESSAGE value="before ManyToMany Manualy" />
     <MESSAGE value="added extra klasses to filter en search on + layout pages updated" />
     <MESSAGE value="made the my recipe page with your saved recipes and the ones youve writen yourself&#10;&#10;made a star review function on show page" />
-    <option name="LAST_COMMIT_MESSAGE" value="made the my recipe page with your saved recipes and the ones youve writen yourself&#10;&#10;made a star review function on show page" />
+    <MESSAGE value="made search live and added dish type in search" />
+    <option name="LAST_COMMIT_MESSAGE" value="made search live and added dish type in search" />
   </component>
 </project>

@@ -1,0 +1,112 @@
+<div{{ attributes }}>
+    <img src="{{ asset('/images/cta.jpg') }}"
+         class="rounded-2xl w-full m-auto h-[50vh] object-cover overflow-hidden mb-10" alt="">
+    {{ form_start(form, {'method': 'GET'}) }}
+    <div class="lg:flex lg:gap-10 pt-10">
+        <div class="w-1/4 hidden lg:block">
+            <div class="flex gap-x-5 items-center">
+                <twig:Subtitle
+                        tag="h2"
+                        label="Recipes"
+                        class="pt-3"/>
+            </div>
+
+            <twig:Accordion label="Dish Type" id="dish-type">
+                <twig:Accordion:Item>
+                    {{ form_row(form.meat) }}
+                </twig:Accordion:Item>
+                <twig:Accordion:Item>
+                    {{ form_row(form.seaFood) }}
+                </twig:Accordion:Item>
+                <twig:Accordion:Item>
+                    {{ form_row(form.vegetarian) }}
+                </twig:Accordion:Item>
+                <twig:Accordion:Item>
+                    {{ form_row(form.proteinFoods) }}
+                </twig:Accordion:Item>
+                <twig:Accordion:Item>
+                    {{ form_row(form.pastas) }}
+                </twig:Accordion:Item>
+            </twig:Accordion>
+
+            <twig:Accordion label="Meal Type" id="meal-type">
+                <twig:Accordion:Item>
+                    {{ form_row(form.breakfast) }}
+                </twig:Accordion:Item>
+                <twig:Accordion:Item>
+                    {{ form_row(form.brunch) }}
+                </twig:Accordion:Item>
+                <twig:Accordion:Item>
+                    {{ form_row(form.lunch) }}
+                </twig:Accordion:Item>
+                <twig:Accordion:Item>
+                    {{ form_row(form.dinner) }}
+                </twig:Accordion:Item>
+                <twig:Accordion:Item>
+                    {{ form_row(form.cocktail) }}
+                </twig:Accordion:Item>
+            </twig:Accordion>
+
+            <twig:Accordion label="Allergies" id="allergies">
+                <twig:Accordion:Item>
+                    {{ form_row(form.nuts) }}
+                </twig:Accordion:Item>
+                <twig:Accordion:Item>
+                    {{ form_row(form.gluten) }}
+                </twig:Accordion:Item>
+                <twig:Accordion:Item>
+                    {{ form_row(form.seaFoodAllergies) }}
+                </twig:Accordion:Item>
+                <twig:Accordion:Item>
+                    {{ form_row(form.dairy) }}
+                </twig:Accordion:Item>
+            </twig:Accordion>
+        </div>
+        <div class="lg:w-3/4">
+
+            {{ form_row(form.search) }}
+            <div class="grid md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-6 gap-4 mb-10">
+                <twig:Button
+                        label="Search"/>
+
+                <twig:Button
+                        label="Clear filter"
+                        variant="white" type="reset"
+                        data-controller="reset-search" data-action="reset-search#reset"/>
+            </div>
+
+            <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5 ">
+                {% for recipe in this.recipes %}
+                    <a href="{{ path('recipe_show', {'uuid':recipe.uuid}) }}"
+                       class="md:w-1/2 m-auto lg:w-full mb-10 rounded-2xl shadow">
+                        {% if recipe.imageName %}
+                            <img class="w-full h-52 object-cover overflow-hidden rounded-t-xl"
+                                 src="{{ vich_uploader_asset(recipe, 'image') }}" alt="{{ recipe.name }}">
+                        {% endif %}
+                        <div class="flex w-1/2 gap-x-2 py-2 px-3 m-auto xl:w-full justify-around">
+                            <div class="flex gap-x-2 whitespace-nowrap">
+                                <div class="w-4 self-center">{{ ux_icon('clock') }}</div>
+                                <p>{{ recipe.time }} min</p>
+                            </div>
+                            <div class="flex gap-x-2 whitespace-nowrap">
+                                <div class="w-4 self-center">{{ ux_icon('star-solid') }}</div>
+                                <p>{{ recipe.rating }}</p>
+                            </div>
+                            <div class="flex gap-x-2 whitespace-nowrap">
+                                <div class="w-4 self-center">{{ ux_icon('user-group') }}</div>
+                                <p>{{ recipe.people }}</p>
+                            </div>
+
+                        </div>
+                        <h2 class="text-xl w-1/2 font-semibold text-center p-2 xl:w-full  m-auto">{{ recipe.name }}</h2>
+                        <div class="flex gap-x-2 p-2 rounded">
+
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>

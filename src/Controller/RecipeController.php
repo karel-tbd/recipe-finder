@@ -7,7 +7,6 @@ use App\Entity\RecipeIngredients;
 use App\Entity\UserRecipeRating;
 use App\Entity\UserRecipeSaved;
 use App\Form\RecipeType;
-use App\Form\SearchFormType;
 use App\Repository\RecipeRepository;
 use App\Repository\UserRecipeRatingRepository;
 use App\Repository\UserRecipeSavedRepository;
@@ -100,23 +99,9 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/my-recipes', name: 'recipe_saved')]
-    public function saved(RecipeRepository $recipeRepository, Security $security, Request $request): Response
+    public function saved(): Response
     {
-        $user = $security->getUser();
-        $session = $request->getSession();
-        if (!empty($search = $request->query->all('search'))) {
-            $session->set('ingredient_search', $search);
-        } else {
-            $search = $session->get('ingredient_search', []);
-        }
-
-        $form = $this->createForm(SearchFormType::class, null, ['search' => $search]);
-        $form->handleRequest($request);
-        $recipes = $recipeRepository->saved($user, $search);
-        return $this->render('my-recipes/index.html.twig', [
-            'recipes' => $recipes,
-            'form' => $form,
-        ]);
+        return $this->render('my-recipes/index.html.twig');
     }
 
     #[Route('/recipe/rating', name: 'recipe_set_rating', methods: ['POST'])]
