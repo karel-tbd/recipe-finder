@@ -20,8 +20,18 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class RecipeController extends AbstractController
 {
+
+    #[Route('/recipes', name: 'recipe_index')]
+    public function index(RecipeRepository $recipeRepository): Response
+    {
+        $recipe = $recipeRepository->findAll();
+        return $this->render('recipe/index.html.twig', [
+            'recipes' => $recipe
+        ]);
+    }
+
     #[Route('/recipe/add', name: 'recipe_add')]
-    public function index(Request $request, EntityManagerInterface $entityManager): Response
+    public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(RecipeType::class);
         $form->handleRequest($request);
@@ -37,7 +47,7 @@ class RecipeController extends AbstractController
             }
             $entityManager->persist($recipe);
             $entityManager->flush();
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('recipe_index');
         }
         return $this->render('recipe/add.html.twig', [
             'form' => $form,
@@ -73,7 +83,7 @@ class RecipeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($recipe);
             $entityManager->flush();
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('recipe_index');
         }
         return $this->render('recipe/edit.html.twig', [
             'form' => $form,
@@ -124,6 +134,15 @@ class RecipeController extends AbstractController
 
         return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
     }
+
+    #[Route('/recipe/find', name: 'recipe_find', methods: ['POST'])]
+    public function find(Request $request): Response
+    {
+        $content = json_decode($request->getContent(), true);
+        dd($content);
+        return $this->redirectToRoute('app_home');
+    }
+
 
 }
 

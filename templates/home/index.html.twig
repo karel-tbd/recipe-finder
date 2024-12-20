@@ -1,7 +1,137 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-landing.html.twig' %}
 
-{% block title %}Recipe Search{% endblock %}
+{% block title %}Find a recipe{% endblock %}
 
 {% block body %}
-    <twig:Pages:SearchRecipes/>
+
+    <div class="relative h-screen">
+        <img class="w-full h-full object-cover" src="{{ asset('images/landingImg.jpg') }}" alt="">
+        <div data-controller="position">
+            <div id="desire">
+                <div class="absolute inset-0 flex items-center justify-center z-10 ">
+                    <twig:Title class="bg-gray-200 bg-opacity-50 rounded-xl px-4 py-2"
+                                label="What do you desire?"/>
+                </div>
+
+                <a class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10 z-10 animate-bounce cursor-pointer"
+                   data-position="pasta"
+                   data-position-target="meal">
+                    <h2 class="text-xl xl:text-3xl">&#127806; Pasta Meal &#127837; </h2>
+
+                </a>
+
+                <a data-position="meat"
+                   data-position-target="meal"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#128019; Meat Fest &#129363;</h2>
+
+                </a>
+
+                <a data-position="vegi"
+                   data-position-target="meal"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#129367; Vegi party &#129388;</h2>
+                </a>
+
+                <a data-position="protein"
+                   data-position-target="meal"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl"> &#128035; Got to hit the proteins &#128170;</h2>
+                </a>
+
+                <a data-position="fish"
+                   data-position-target="meal"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#128032; Feel like swimming &#129424;</h2>
+                </a>
+            </div>
+            <div id="country" class="hidden">
+                <div class="absolute inset-0 flex items-center justify-center z-10 ">
+                    <twig:Title class="bg-gray-200 bg-opacity-50 rounded-xl px-4 py-2"
+                                label="What intrigues you?"/>
+                </div>
+
+                <a data-position="italian"
+                   data-position-target="country"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#127470;&#127481; Italian &#127470;&#127481;</h2>
+                </a>
+
+                <a data-position="mexican"
+                   data-position-target="country"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#127474;&#127485; Mexican &#127474;&#127485;</h2>
+                </a>
+
+                <a data-position="greek"
+                   data-position-target="country"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#127468;&#127479; Greek &#127468;&#127479;</h2>
+                </a>
+
+                <a data-position="chinese"
+                   data-position-target="country"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#127464;&#127475; Chinese &#127464;&#127475;</h2>
+                </a>
+
+                <a data-position="japanese"
+                   data-position-target="country"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#127471;&#127477; Japanese &#127471;&#127477;</h2>
+                </a>
+
+                <a data-position="french"
+                   data-position-target="country"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#127467;&#127479; French &#127467;&#127479;</h2>
+                </a>
+
+                <a data-position="american"
+                   data-position-target="country"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#127482;&#127480; American &#127482;&#127480;</h2>
+                </a>
+            </div>
+            <div id="difficulty" class="hidden">
+                <div class="absolute inset-0 flex items-center justify-center z-10 ">
+                    <twig:Title class="bg-gray-200 bg-opacity-50 rounded-xl px-4 py-2"
+                                label="What difficulty do you want?"/>
+                </div>
+
+                <a data-position="easy"
+                   data-position-target="difficulty"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#128102;&#127995; Easy &#128102;&#127995;</h2>
+                </a>
+
+                <a data-position="normal"
+                   data-position-target="difficulty"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#128102;&#127997; Normal &#128102;&#127997;</h2>
+                </a>
+
+                <a data-position="difficult"
+                   data-position-target="difficulty"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#128102;&#127999; Hard &#128102;&#127999;</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

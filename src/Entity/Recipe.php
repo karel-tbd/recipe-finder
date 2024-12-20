@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Trait\BlameableTrait;
 use App\Entity\Trait\DefaultTrait;
+use App\Enum\MealCountry;
 use App\Enum\MealType;
 use App\Repository\RecipeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -79,6 +80,9 @@ class Recipe
      */
     #[ORM\OneToMany(targetEntity: UserRecipeRating::class, mappedBy: 'recipe')]
     private Collection $userRecipeRatings;
+
+    #[ORM\Column(nullable: true, enumType: MealCountry::class)]
+    private ?MealCountry $country = null;
 
     public function __construct()
     {
@@ -258,7 +262,7 @@ class Recipe
         return $this;
     }
 
-    public function getRating(): float
+    public function getRating(): array
     {
         $totalScore = 0;
         $count = $this->getUserRecipeRatings()->count();
@@ -270,7 +274,10 @@ class Recipe
             }
             $totalScore = $totalScore / $count;
         }
-        return $totalScore;
+        return [
+            'score' => $totalScore,
+            'count' => $count,
+        ];
     }
 
     /**
@@ -299,6 +306,18 @@ class Recipe
                 $userRecipeRating->setRecipe(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCountry(): ?MealCountry
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?MealCountry $country): static
+    {
+        $this->country = $country;
 
         return $this;
     }

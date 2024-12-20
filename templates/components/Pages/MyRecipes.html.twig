@@ -1,5 +1,5 @@
 <div{{ attributes }}>
-    <img src="{{ asset('/images/cta.jpg') }}"
+    <img src="{{ asset('/images/posible-cta2.jpg') }}"
          class="rounded-2xl w-full m-auto h-[50vh] object-cover overflow-hidden mb-10" alt="">
     {{ form_start(form, {'method': 'GET'}) }}
     <div class="lg:flex lg:gap-10 pt-10">
@@ -90,7 +90,7 @@
                             </div>
                             <div class="flex gap-x-2 whitespace-nowrap">
                                 <div class="w-4 self-center">{{ ux_icon('star-solid') }}</div>
-                                <p>{{ recipe.rating }}</p>
+                                <p>{{ recipe.rating['score'] }}({{ recipe.rating['count'] }})</p>
                             </div>
                             <div class="flex gap-x-2 whitespace-nowrap">
                                 <div class="w-4 self-center">{{ ux_icon('user-group') }}</div>

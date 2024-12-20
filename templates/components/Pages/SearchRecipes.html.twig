@@ -3,7 +3,7 @@
          class="rounded-2xl w-full m-auto h-[50vh] object-cover overflow-hidden mb-10" alt="">
     {{ form_start(form, {'method': 'GET'}) }}
     <div class="lg:flex lg:gap-10 pt-10">
-        <div class="w-1/4 hidden lg:block">
+        <div class="w-1/4 hidden lg:block ">
             <div class="flex gap-x-5 items-center">
                 <twig:Subtitle
                         tag="h2"
@@ -63,22 +63,20 @@
             </twig:Accordion>
         </div>
         <div class="lg:w-3/4">
-
-            {{ form_row(form.search) }}
-            <div class="grid md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-6 gap-4 mb-10">
-                <twig:Button
-                        label="Search"/>
-
-                <twig:Button
-                        label="Clear filter"
-                        variant="white" type="reset"
-                        data-controller="reset-search" data-action="reset-search#reset"/>
+            <div class="flex items-center gap-x-5">
+                <div class="flex-1">
+                    {{ form_row(form.search) }}
+                </div>
+                <button class="mt-2 mr-2" data-controller="reset-search" data-action="reset-search#reset"
+                        title="Clear Filter">
+                    <div class="text-black w-5">{{ ux_icon('trash') }}</div>
+                </button>
             </div>
 
             <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5 ">
                 {% for recipe in this.recipes %}
                     <a href="{{ path('recipe_show', {'uuid':recipe.uuid}) }}"
-                       class="md:w-1/2 m-auto lg:w-full mb-10 rounded-2xl shadow">
+                       class="w-full md:w-1/2 m-auto lg:w-full mb-10 rounded-2xl shadow">
                         {% if recipe.imageName %}
                             <img class="w-full h-52 object-cover overflow-hidden rounded-t-xl"
                                  src="{{ vich_uploader_asset(recipe, 'image') }}" alt="{{ recipe.name }}">
@@ -90,7 +88,7 @@
                             </div>
                             <div class="flex gap-x-2 whitespace-nowrap">
                                 <div class="w-4 self-center">{{ ux_icon('star-solid') }}</div>
-                                <p>{{ recipe.rating }}</p>
+                                <p>{{ recipe.rating['score'] }}({{ recipe.rating['count'] }})</p>
                             </div>
                             <div class="flex gap-x-2 whitespace-nowrap">
                                 <div class="w-4 self-center">{{ ux_icon('user-group') }}</div>
