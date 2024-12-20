@@ -4,19 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="made search live and added dish type in search">
-      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/MyRecipes.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Made side filters work">
+      <change afterPath="$PROJECT_DIR$/assets/icons/xmark.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Enum/MealCountry.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base-landing.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/recipe/found.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/recipe/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vegcurry-676055c61016d481176715-676431e68223a616228472.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers/rating_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/rating_controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SearchFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Recipe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Search.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Button.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Button.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base-security.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base-security.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/my-recipes/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/my-recipes/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +234,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/templates/components/Pages",
+    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/assets/icons",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -235,18 +246,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/icons" />
+      <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/templates/components/Pages" />
       <recent name="$PROJECT_DIR$/assets/controllers" />
       <recent name="$PROJECT_DIR$/templates/components" />
-      <recent name="$PROJECT_DIR$/src/Enum" />
-      <recent name="$PROJECT_DIR$/assets/styles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/recipe" />
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/assets/icons" />
       <recent name="$PROJECT_DIR$/templates/components" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -276,7 +287,8 @@
       <workItem from="1734171707378" duration="21190000" />
       <workItem from="1734365673329" duration="7764000" />
       <workItem from="1734440266599" duration="22601000" />
-      <workItem from="1734513475175" duration="66562000" />
+      <workItem from="1734513475175" duration="66593000" />
+      <workItem from="1734683766884" duration="22820000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -438,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734631855541</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Made side filters work">
+      <option name="closed" value="true" />
+      <created>1734683729761</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1734683729761</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,6 +504,7 @@
     <MESSAGE value="added extra klasses to filter en search on + layout pages updated" />
     <MESSAGE value="made the my recipe page with your saved recipes and the ones youve writen yourself&#10;&#10;made a star review function on show page" />
     <MESSAGE value="made search live and added dish type in search" />
-    <option name="LAST_COMMIT_MESSAGE" value="made search live and added dish type in search" />
+    <MESSAGE value="Made side filters work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made side filters work" />
   </component>
 </project>

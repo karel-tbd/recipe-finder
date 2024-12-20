@@ -15,6 +15,7 @@ export default class extends Controller {
 
         for (const star of this.starTargets) {
             star.addEventListener('click', async (event) => {
+
                 let currentStar = event.currentTarget
                 this.clicked = currentStar.getAttribute('data-rating');
                 this.updateStar(this.clicked);

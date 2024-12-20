@@ -30,8 +30,8 @@ final class Button
     public function getVariantClasses(): string
     {
         return match ($this->variant) {
-            'primary' => 'bg-red-500 p-2 mt-5 rounded hover:bg-red-400 font-bold text-base tracking-wider whitespace-nowrap text-white	',
-            'white' => 'border border-black p-1 mt-5 text-black rounded hover:bg-gray-100 font-bold text-base tracking-wider whitespace-nowrap',
+            'primary' => 'bg-red-500 p-2 rounded hover:bg-red-400 font-bold text-base tracking-wider whitespace-nowrap text-white	',
+            'white' => 'border border-black p-1 text-black rounded hover:bg-gray-100 font-bold text-base tracking-wider whitespace-nowrap',
             default => throw new LogicException(sprintf('Unknown button type "%s"', $this->variant)),
         };
     }

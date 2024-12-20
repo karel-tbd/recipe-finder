@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{% block title %}Welcome!{% endblock %}</title>
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
     {% block javascripts %}
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
@@ -17,7 +16,7 @@
 <body>
 {{ include('partials/_nav.html.twig') }}
 {{ include('partials/_sidebar.html.twig') }}
-<div class="pt-28 w-4/5 mx-auto">
+<div class="">
     {% block body %}{% endblock %}
 </div>
 </body>
