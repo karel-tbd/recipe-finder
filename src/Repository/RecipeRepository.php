@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Recipe;
 use App\Entity\User;
+use App\Enum\MealCountry;
 use App\Enum\MealType;
 use App\Service\QueryService;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -267,11 +268,51 @@ class RecipeRepository extends ServiceEntityRepository
 
     public function findMeal(string $mealType, string $country, string $difficulty)
     {
+
         $query = $this->createQueryBuilder('r')
             ->leftJoin('r.recipeIngredients', 'ri')
             ->leftJoin('ri.ingredient', 'i')
-            ->groupBy('r.id');;
+            ->groupBy('r.id');
+        
+        if (MealCountry::tryFrom($country)) {
+            $query
+                ->andWhere('r.country = :country')
+                ->setParameter('country', $country);
+        }
 
+        if ($mealType == 'vegetarian') {
+            $foodGroup = [];
+            $meat = $this->foodGroupRepository->findOneBy(['name' => 'Meat']);
+            $fish = $this->foodGroupRepository->findOneBy(['name' => 'Fish and Seafood']);
+            $foodGroup[] = $meat->getId();
+            $foodGroup[] = $fish->getId();
+            $query
+                ->andWhere('r.id NOT IN (SELECT r1.id FROM App\Entity\Recipe r1 LEFT JOIN r1.recipeIngredients ri1 LEFT JOIN ri1.ingredient i1 LEFT JOIN i1.foodGroup fg1 WHERE fg1.id IN (:mealTypeExcluded) GROUP BY r1.id)')
+                ->setParameter('mealTypeExcluded', $foodGroup);
+        } else {
+            $foodGroup = $this->foodGroupRepository->findOneBy(['name' => $mealType]);
+            $query
+                ->andWhere('r.id IN (SELECT r1.id FROM App\Entity\Recipe r1 LEFT JOIN r1.recipeIngredients ri1 LEFT JOIN ri1.ingredient i1 LEFT JOIN i1.foodGroup fg1 WHERE fg1.id IN (:mealTypeIncluded) GROUP BY r1.id)')
+                ->setParameter('mealTypeIncluded', $foodGroup->getId());
+        }
+
+        if ($difficulty == 'easy') {
+            $query
+                ->andWhere('r.time <= :time')
+                ->setParameter('time', 15);
+        }
+        if ($difficulty == 'normal') {
+            $query
+                ->andWhere('r.time <= :maxTime')
+                ->setParameter('maxTime', 30)
+                ->andWhere('r.time > :minTime')
+                ->setParameter('minTime', 15);
+        }
+        if ($difficulty == 'hard') {
+            $query
+                ->andWhere('r.time > :hardTime')
+                ->setParameter('hardTime', 30);
+        }
 
         return $query
             ->getQuery()

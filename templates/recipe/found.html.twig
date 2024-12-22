@@ -4,10 +4,10 @@
     Recipes found
 {% endblock %}
     {% block body %}
-        <div class="relative h-screen">
+        <div class="relative h-[100vh]">
             <img class="w-full h-full object-cover opacity-50" src="{{ asset('images/landingImg.jpg') }}" alt="">
             <div class="absolute inset-0 flex items-center justify-center z-10 p-4">
-                <div class="relative w-full max-w-md max-h-full">
+                <div class="relative w-full md:w-3/4 ">
                     <div class="relative rounded-lg shadow bg-white">
                         <div class="flex items-center justify-between p-4 border-b rounded-t">
                             <h3 class="text-xl font-medium text-blue-950">
@@ -16,13 +16,57 @@
                         </div>
                         <div class="p-4">
                             <div id="controls-carousel" class="relative w-full" data-carousel="static">
-                                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                                <div class="relative overflow-hidden rounded-lg h-80 md:h-72">
+                                    {% if recipes == null %}
+                                    <div class="flex justify-center pt-10 text-xl">
+                                        <p>No recipes found</p>
+                                    </div>
+                                    <div class="flex justify-center pt-5 text-xl">
+                                        <twig:Link
+                                                href="{{ path('app_home') }}"
+                                                label="Try again"/>
+                                    </div>
+                                    <div class="flex justify-center pt-5 text-xl">
+                                        <twig:Link
+                                                href="{{ path('recipe_index') }}"
+                                                label="Go to search recipes"
+                                                variant="white"/>
+                                    </div>
+
+                                    {% else %}
                                     {% for recipe in recipes %}
-                                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                            <img class="object-cover overflow-hidden m-auto xl:m-0 w-full h-32 rounded-xl"
-                                                 src="{{ vich_uploader_asset(recipe, 'image') }}"
-                                                 alt="{{ recipe.name }}">
-                                            {{ recipe.name }}
+                                        <div class="hidden duration-700 ease-in-out md:px-20 w-full"
+                                             data-carousel-item>
+                                            <div class="md:flex md:gap-x-5 w-full pt-5">
+                                                <div class="md:w-1/2">
+                                                    <img class="object-cover overflow-hidden pb-5 h-32 m-auto w-full md:h-52 md:m-0 rounded-xl"
+                                                         src="{{ vich_uploader_asset(recipe, 'image') }}"
+                                                         alt="{{ recipe.name }}">
+                                                </div>
+                                                <div class="md:w-1/2">
+                                                    <div>
+                                                        <h2 class="pt-3 text-2xl">{{ recipe.name }}</h2>
+
+                                                        <p class="pt-3">
+                                                            {{ recipe.description }}
+                                                        </p>
+                                                        <div class="flex gap-x-3 pt-5">
+                                                            <div class="flex gap-x-2 items-center">
+                                                                <div class="w-4">{{ ux_icon('clock') }}</div>
+                                                                <p>{{ recipe.time }} min</p>
+                                                            </div>
+                                                            <div class="flex gap-x-2 items-center">
+                                                                <div class="w-4">{{ ux_icon('user-group') }}</div>
+                                                                <p>{{ recipe.people }}</p>
+                                                            </div>
+                                                            <div class="flex gap-x-2 items-center">
+                                                                <div class="w-4">{{ ux_icon('fire') }}</div>
+                                                                <p>746 kcal</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     {% endfor %}
                                 </div>
@@ -30,7 +74,7 @@
                                 <button type="button"
                                         class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                                         data-carousel-prev>
-                                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-400/30 hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
                                     <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
                                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -43,7 +87,7 @@
                                 <button type="button"
                                         class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                                         data-carousel-next>
-                                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-400/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
                                         <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
                                              aria-hidden="true"
                                              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -54,14 +98,13 @@
                                     <span class="sr-only">Next</span>
                                 </span>
                                 </button>
-                            </div>
-                            <div class="flex space-x-2">
-                                <twig:Button
-                                        variant="primary" type="submit"
-                                        label='Update'/>
-                                <twig:Button
-                                        type="button" variant="white"
-                                        label='Cancel'/>
+                                <div class="flex">
+                                    <twig:Button
+                                            variant="primary" type="submit"
+                                            label='Go to recipe'/>
+                                </div>
+                                {% endif %}
+
                             </div>
                         </div>
                     </div>
