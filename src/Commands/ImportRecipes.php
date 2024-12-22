@@ -4,6 +4,8 @@ namespace App\Commands;
 
 use App\Entity\Recipe;
 use App\Entity\RecipeIngredients;
+use App\Enum\MealCountry;
+use App\Enum\MealType;
 use App\Enum\Unit;
 use App\Repository\IngredientsRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -28,7 +30,7 @@ class ImportRecipes extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $filename = $this->kernelProjectDir . '/private/imports/recipes.txt';
+        $filename = $this->kernelProjectDir . '/private/imports/__recipes.txt';
 
         $file = fopen($filename, "r");
         $i = 0;
@@ -42,6 +44,13 @@ class ImportRecipes extends Command
                 $recipe->setDescription($data[2]);
                 $recipe->setTime($data[3]);
                 $recipe->setInstructions($data[4]);
+                $recipe->setPeople($data[5]);
+                if (!empty($data[6])) {
+                    $recipe->setMealType([MealType::tryFrom(trim($data[6]))]);
+                }
+                if (!empty($data[7])) {
+                    $recipe->setCountry(MealCountry::tryFrom(trim($data[7])));
+                }
                 $this->entityManager->persist($recipe);
                 $ingredients = explode(",", $data[1]);
 

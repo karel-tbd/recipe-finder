@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="made carousel for found recipes">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="styled carousel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enum/Unit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enum/Unit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SearchFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchFormType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Link.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Link.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recipe/found.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/found.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -274,7 +275,8 @@
       <workItem from="1734513475175" duration="66593000" />
       <workItem from="1734683766884" duration="22820000" />
       <workItem from="1734709072248" duration="39000" />
-      <workItem from="1734859957352" duration="11588000" />
+      <workItem from="1734859957352" duration="11616000" />
+      <workItem from="1734882773636" duration="10629000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -460,7 +462,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734864118887</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="styled carousel">
+      <option name="closed" value="true" />
+      <created>1734882759494</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1734882759494</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,6 +519,7 @@
     <MESSAGE value="Made side filters work" />
     <MESSAGE value="ongoing landig page" />
     <MESSAGE value="made carousel for found recipes" />
-    <option name="LAST_COMMIT_MESSAGE" value="made carousel for found recipes" />
+    <MESSAGE value="styled carousel" />
+    <option name="LAST_COMMIT_MESSAGE" value="styled carousel" />
   </component>
 </project>

@@ -86,6 +86,34 @@ class SearchFormType extends AbstractType
             ->add('dairy', CheckboxType::class, [
                 'label' => 'Dairy',
                 'required' => false,
+            ])
+            ->add('italian', CheckboxType::class, [
+                'label' => 'Italian',
+                'required' => false,
+            ])
+            ->add('mexican', CheckboxType::class, [
+                'label' => 'Mexican',
+                'required' => false,
+            ])
+            ->add('greek', CheckboxType::class, [
+                'label' => 'Greek',
+                'required' => false,
+            ])
+            ->add('chinese', CheckboxType::class, [
+                'label' => 'Chinese',
+                'required' => false,
+            ])
+            ->add('japanese', CheckboxType::class, [
+                'label' => 'Japanese',
+                'required' => false,
+            ])
+            ->add('french', CheckboxType::class, [
+                'label' => 'French',
+                'required' => false,
+            ])
+            ->add('american', CheckboxType::class, [
+                'label' => 'American',
+                'required' => false,
             ]);
     }
 
