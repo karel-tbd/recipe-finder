@@ -54,6 +54,12 @@ ol li {
     margin-bottom: 20px;
 }
 
+.carousel-container {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
 .alert-success {
     background-color: #d4edda;
     color: #155724;
