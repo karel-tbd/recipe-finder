@@ -12,11 +12,12 @@ class HomeController extends AbstractController
 
 
     #[Route('/', name: 'app_home', methods: ['GET', 'POST'])]
-    public function index(Request $request): Response
+    public function index(Request $request, bool $modal = false): Response
     {
-        if (!empty($request->query->all())) {
-            dd($request->query->all());
-        }
-        return $this->render('home/index.html.twig');
+        $recipes = [];
+        return $this->render('home/index.html.twig', [
+            'modal' => $modal,
+            'recipes' => $recipes,
+        ]);
     }
 }

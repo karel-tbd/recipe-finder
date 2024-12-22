@@ -264,4 +264,17 @@ class RecipeRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findMeal(string $mealType, string $country, string $difficulty)
+    {
+        $query = $this->createQueryBuilder('r')
+            ->leftJoin('r.recipeIngredients', 'ri')
+            ->leftJoin('ri.ingredient', 'i')
+            ->groupBy('r.id');;
+
+
+        return $query
+            ->getQuery()
+            ->getResult();
+    }
 }

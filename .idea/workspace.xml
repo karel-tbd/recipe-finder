@@ -4,30 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Made side filters work">
-      <change afterPath="$PROJECT_DIR$/assets/icons/xmark.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enum/MealCountry.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base-landing.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/recipe/found.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/recipe/index.html.twig" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="ongoing landig page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers/rating_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/rating_controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers/position_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/position_controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Recipe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Button.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Button.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base-security.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base-security.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/found.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/found.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,20 +214,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/assets/icons",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.general",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/karelscheers/Sites/recipe-finder/assets/icons&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/icons" />
@@ -289,6 +273,8 @@
       <workItem from="1734440266599" duration="22601000" />
       <workItem from="1734513475175" duration="66593000" />
       <workItem from="1734683766884" duration="22820000" />
+      <workItem from="1734709072248" duration="39000" />
+      <workItem from="1734859957352" duration="3888000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -458,7 +444,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734683729761</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="ongoing landig page">
+      <option name="closed" value="true" />
+      <created>1734709104035</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1734709104035</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,6 +499,7 @@
     <MESSAGE value="made the my recipe page with your saved recipes and the ones youve writen yourself&#10;&#10;made a star review function on show page" />
     <MESSAGE value="made search live and added dish type in search" />
     <MESSAGE value="Made side filters work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made side filters work" />
+    <MESSAGE value="ongoing landig page" />
+    <option name="LAST_COMMIT_MESSAGE" value="ongoing landig page" />
   </component>
 </project>
