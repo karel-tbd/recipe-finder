@@ -14,6 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -136,13 +137,29 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/recipe/find', name: 'recipe_find', methods: ['POST'])]
-    public function find(Request $request): Response
+    public function find(Request $request, RecipeRepository $recipeRepository): JsonResponse
     {
         $content = json_decode($request->getContent(), true);
-        dd($content);
-        return $this->redirectToRoute('app_home');
+        $mealType = $content['mealType'];
+        $country = $content['country'];
+        $difficulty = $content['difficulty'];
+
+        $recipes = $recipeRepository->findMeal($mealType, $country, $difficulty);
+        $session = $request->getSession();
+        $session->set('recipes', $recipes);
+        return new JsonResponse([
+            'redirectUrl' => $this->generateUrl('recipe_found'),
+        ]);
     }
 
-
+    #[Route('/recipe/found', name: 'recipe_found')]
+    public function found(Request $request, RecipeRepository $recipeRepository): Response
+    {
+        $session = $request->getSession();
+        $recipes = $session->get('recipes');
+        return $this->render('recipe/found.html.twig', [
+            'recipes' => $recipes,
+        ]);
+    }
 }
 

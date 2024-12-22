@@ -49,11 +49,22 @@ export default class extends Controller {
 
                 await fetch('/recipe/find', {
                     method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
                     body: JSON.stringify({
                         mealType: this.selectedMealType,
                         country: this.selectedCountry,
                         difficulty: this.selectedDifficulty,
-                    })
+                    }),
+                }).then(async (response) => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    if (data.redirectUrl) {
+                        window.location.href = data.redirectUrl;
+                    }
                 })
             })
         }
