@@ -18,5 +18,7 @@ enum Unit: string implements TranslatableInterface
     case LITERS = "liters";
     case SLICES = "slices";
     case LEAVES = "leaves";
+    case TOTAST = "totast";
+    case PIECES = "pieces";
 
 }

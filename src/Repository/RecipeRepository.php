@@ -120,28 +120,64 @@ class RecipeRepository extends ServiceEntityRepository
 
             if (QueryService::isNotEmpty($search, 'breakfast')) {
                 $query
-                    ->andWhere('r.mealType LIKE :mealType')
-                    ->setParameter('mealType', '%' . MealType::BREAKFAST->value . '%');
+                    ->andWhere('r.mealType LIKE :breakfast')
+                    ->setParameter('breakfast', '%' . MealType::BREAKFAST->value . '%');
             }
             if (QueryService::isNotEmpty($search, 'brunch')) {
                 $query
-                    ->andWhere('r.mealType LIKE :mealType')
-                    ->setParameter('mealType', '%' . MealType::BRUNCH->value . '%');
+                    ->andWhere('r.mealType LIKE :brunch')
+                    ->setParameter('brunch', '%' . MealType::BRUNCH->value . '%');
             }
             if (QueryService::isNotEmpty($search, 'lunch')) {
                 $query
-                    ->andWhere('r.mealType LIKE :mealType')
-                    ->setParameter('mealType', '%' . MealType::LUNCH->value . '%');
+                    ->andWhere('r.mealType LIKE :lunch')
+                    ->setParameter('lunch', '%' . MealType::LUNCH->value . '%');
             }
             if (QueryService::isNotEmpty($search, 'dinner')) {
                 $query
-                    ->andWhere('r.mealType LIKE :mealType')
-                    ->setParameter('mealType', '%' . MealType::DINNER->value . '%');
+                    ->andWhere('r.mealType LIKE :dinner')
+                    ->setParameter('dinner', '%' . MealType::DINNER->value . '%');
             }
             if (QueryService::isNotEmpty($search, 'cocktail')) {
                 $query
-                    ->andWhere('r.mealType LIKE :mealType')
-                    ->setParameter('mealType', '%' . MealType::COCKTAIL->value . '%');
+                    ->andWhere('r.mealType LIKE :cocktail')
+                    ->setParameter('cocktail', '%' . MealType::COCKTAIL->value . '%');
+            }
+
+            if (QueryService::isNotEmpty($search, 'italian')) {
+                $query
+                    ->orWhere('r.country = :italian')
+                    ->setParameter('italian', MealCountry::ITALIAN->value);
+            }
+            if (QueryService::isNotEmpty($search, 'mexican')) {
+                $query
+                    ->orWhere('r.country = :mexican')
+                    ->setParameter('mexican', MealCountry::MEXICAN->value);
+            }
+            if (QueryService::isNotEmpty($search, 'greek')) {
+                $query
+                    ->orWhere('r.country = :greek')
+                    ->setParameter('greek', MealCountry::GREEK->value);
+            }
+            if (QueryService::isNotEmpty($search, 'chinese')) {
+                $query
+                    ->orWhere('r.country = :chinese')
+                    ->setParameter('chinese', MealCountry::CHINESE->value);
+            }
+            if (QueryService::isNotEmpty($search, 'japanese')) {
+                $query
+                    ->orWhere('r.country = :japanese')
+                    ->setParameter('japanese', MealCountry::JAPANESE->value);
+            }
+            if (QueryService::isNotEmpty($search, 'french')) {
+                $query
+                    ->orWhere('r.country = :french')
+                    ->setParameter('french', MealCountry::FRENCH->value);
+            }
+            if (QueryService::isNotEmpty($search, 'american')) {
+                $query
+                    ->orWhere('r.country = :american')
+                    ->setParameter('american', MealCountry::AMERICAN->value);
             }
         }
 
@@ -273,7 +309,7 @@ class RecipeRepository extends ServiceEntityRepository
             ->leftJoin('r.recipeIngredients', 'ri')
             ->leftJoin('ri.ingredient', 'i')
             ->groupBy('r.id');
-        
+
         if (MealCountry::tryFrom($country)) {
             $query
                 ->andWhere('r.country = :country')
