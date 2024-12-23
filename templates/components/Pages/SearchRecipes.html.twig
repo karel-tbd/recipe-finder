@@ -1,3 +1,4 @@
+{% set recipes = this.recipes %}
 <div{{ attributes }}>
     <img src="{{ asset('/images/cta.jpg') }}"
          class="rounded-2xl w-full m-auto h-[50vh] object-cover overflow-hidden mb-10" alt="">
@@ -10,7 +11,6 @@
                         label="Recipes"
                         class="pt-3"/>
             </div>
-
             <twig:Accordion label="Dish Type" id="dish-type">
                 <twig:Accordion:Item>
                     {{ form_row(form.meat) }}
@@ -96,37 +96,18 @@
                     <div class="text-black w-5">{{ ux_icon('trash') }}</div>
                 </button>
             </div>
+            {% if this.search == null %}
+            <div id="recipe-container" data-controller="scroll">
+                {% endif %}
 
-            <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5 ">
-                {% for recipe in this.recipes %}
-                    <a href="{{ path('recipe_show', {'uuid':recipe.uuid}) }}"
-                       class="w-full md:w-1/2 m-auto lg:w-full mb-10 rounded-2xl shadow">
-                        {% if recipe.imageName %}
-                            <img class="w-full h-52 object-cover overflow-hidden rounded-t-xl"
-                                 src="{{ vich_uploader_asset(recipe, 'image') }}" alt="{{ recipe.name }}">
-                        {% endif %}
-                        <div class="flex w-1/2 gap-x-2 py-2 px-3 m-auto xl:w-full justify-around">
-                            <div class="flex gap-x-2 whitespace-nowrap">
-                                <div class="w-4 self-center">{{ ux_icon('clock') }}</div>
-                                <p>{{ recipe.time }} min</p>
-                            </div>
-                            <div class="flex gap-x-2 whitespace-nowrap">
-                                <div class="w-4 self-center">{{ ux_icon('star-solid') }}</div>
-                                <p>{{ recipe.rating['score'] }}({{ recipe.rating['count'] }})</p>
-                            </div>
-                            <div class="flex gap-x-2 whitespace-nowrap">
-                                <div class="w-4 self-center">{{ ux_icon('user-group') }}</div>
-                                <p>{{ recipe.people }}</p>
-                            </div>
-
-                        </div>
-                        <h2 class="text-xl w-1/2 font-semibold text-center p-2 xl:w-full  m-auto">{{ recipe.name }}</h2>
-                        <div class="flex gap-x-2 p-2 rounded">
-
-                        </div>
-                    </a>
-                {% endfor %}
+                <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5" id="recipeBody">
+                    {{ include('recipe/recipe_items.html.twig') }}
+                </div>
+                {% if this.search == null %}
             </div>
+            {% endif %}
+
+            <div id="loading" style="display: none;">Loading more recipes...</div>
 
         </div>
     </div>

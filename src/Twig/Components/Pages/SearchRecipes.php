@@ -6,6 +6,7 @@ use App\Form\SearchFormType;
 use App\Repository\RecipeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\ComponentWithFormTrait;
@@ -20,7 +21,9 @@ final class SearchRecipes extends AbstractController
     #[LiveProp(writable: true)]
     public string $query = '';
 
-    public function __construct(private readonly RecipeRepository $recipeRepository)
+    public array $recipes;
+
+    public function __construct(private readonly RecipeRepository $recipeRepository, private readonly RequestStack $requestStack)
     {
     }
 
@@ -29,6 +32,12 @@ final class SearchRecipes extends AbstractController
         $search = $this->getForm()->getData() ?? [];
         $recipes = $this->recipeRepository->search($search);
         return $recipes;
+    }
+
+    public function getSearch(): array
+    {
+        $search = $this->getForm()->getData() ?? [];
+        return $search;
     }
 
     protected function instantiateForm(): FormInterface
