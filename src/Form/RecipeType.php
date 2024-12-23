@@ -72,7 +72,7 @@ class RecipeType extends AbstractType
                 'label' => 'Recipe Instructions',
                 'required' => false,
                 'attr' => [
-                    'rows' => 10,
+                    'rows' => 30,
                     'placeholder' => 'Step by step instructions for making your dish'
                 ],
                 /*'quill_options' => [

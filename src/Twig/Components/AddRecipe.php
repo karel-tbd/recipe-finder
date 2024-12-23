@@ -17,7 +17,6 @@ final class AddRecipe extends AbstractController
     use ComponentWithFormTrait;
     use LiveCollectionTrait;
 
-
     protected function instantiateForm(): FormInterface
     {
         return $this->createForm(RecipeType::class);

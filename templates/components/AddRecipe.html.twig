@@ -1,62 +1,43 @@
 <div{{ attributes }}>
-    <h4 class="pb-10">All fields are required</h4>
-
     {{ form_start(form) }}
-    {{ form_row(form.name) }}
-    <div class="xl:hidden">
-        {{ form_row(form.mealType) }}
+    <div>
+        <div class="xl:flex xl:gap-x-5">
+            <div class="w-full h-full">
+                {{ form_row(form.image) }}
+            </div>
+            <div class="w-full">
+                <div>{{ form_row(form.name) }}</div>
+                <div>{{ form_row(form.mealType) }}</div>
+                <div>{{ form_row(form.description) }}</div>
+                <div class="flex gap-x-5 w-full">
+                    <div class="w-full">{{ form_row(form.time) }}</div>
+                    <div class="w-full">{{ form_row(form.people) }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="xl:flex xl:gap-x-5">
+            <div class="w-full">
+                {{ form_row(form.instructions) }}
+            </div>
+            <div class="w-full">
+                {% for ingredient in form.ingredients %}
+                    <div class="pt-5">
+                        {{ form_row(ingredient.ingredient) }}
+                        {{ form_row(ingredient.quantity) }}
+                        {{ form_row(ingredient.unit) }}
+                    </div>
+                    <div class="pt-6 md:pb-0"> {{ form_row(ingredient.vars.button_delete, {label: "Delete", attr: {class: 'text-red-500 rounded border border-red-500 text-sm py-2 px-4'}}) }}</div>
+                {% endfor %}
+                <div class="pb-5">
+                    {{ form_widget(form.ingredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-6 px-4 text-sm'}}) }}
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="hidden xl:flex justify-around items-center w-full py-10">
-        <label>
-            <input type="radio" class="peer hidden" name="mealType" id="breakfast" value="small" checked>
-            <div class="w-20 peer-checked:text-red-500 text-gray-600">{{ ux_icon('bacon-solid') }}</div>
-            <twig:Subtitle
-                    tag="h4"
-                    label="Breakfast"
-                    class="text-gray-600 font-thin pt-3 peer-checked:text-red-500"/>
+    {{ form_end(form) }}
 
-        </label>
-        <label>
-            <input type="radio" class="peer hidden" name="mealType" id="brunch" value="small">
-            <div class="w-20 text-gray-600 peer-checked:text-red-500 ">{{ ux_icon('champagne-glasses-solid') }}</div>
-            <twig:Subtitle
-                    tag="h4"
-                    label="Brunch"
-                    class="text-gray-600 font-thin pt-3 peer-checked:text-red-500"/>
-        </label>
-        <label>
-            <input type="radio" class="peer hidden" name="mealType" id="lunch" value="small">
-            <div class="w-20 text-gray-600 peer-checked:text-red-500">{{ ux_icon('burger-solid') }}</div>
-            <twig:Subtitle
-                    tag="h4"
-                    label="Lunch"
-                    class="text-gray-600 font-thin pt-3 peer-checked:text-red-500"/>
-        </label>
-        <label>
-            <input type="radio" class="peer hidden" name="mealType" id="dinner" value="small">
-            <div class="w-20 text-gray-600 peer-checked:text-red-500">{{ ux_icon('bowl-food-solid') }}</div>
-            <twig:Subtitle
-                    tag="h4"
-                    label="Dinner"
-                    class="text-gray-600 font-thin pt-3 peer-checked:text-red-500"/>
-        </label>
-        <label>
-            <input type="radio" class="peer hidden" name="mealType" id="cocktail" value="small">
-            <div class="w-20 text-gray-600 peer-checked:text-red-500">{{ ux_icon('martini-glass-citrus-solid') }}</div>
-            <twig:Subtitle
-                    tag="h4"
-                    label="Cocktail"
-                    class="text-gray-600 font-thin pt-3 peer-checked:text-red-500"/>
-        </label>
 
-    </div>
-
-    <div class="lg:grid lg:grid-cols-3 gap-x-5 w-full">
-        {{ form_row(form.image) }}
-        {{ form_row(form.time) }}
-        {{ form_row(form.people) }}
-    </div>
-
+    {#
     {% for ingredient in form.ingredients %}
         <div class="lg:grid lg:grid-cols-3 gap-x-5 items-center" aria-expanded="true">
             <div class="text-white">{{ form_row(ingredient.ingredient) }}</div>
@@ -76,5 +57,5 @@
             label="Add recipe"
             class="mb-10"
     />
-    {{ form_end(form) }}
+    {{ form_end(form) }} #}
 </div>

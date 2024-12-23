@@ -22,12 +22,24 @@ use Symfony\Component\Routing\Attribute\Route;
 class RecipeController extends AbstractController
 {
 
-    #[Route('/recipes', name: 'recipe_index')]
-    public function index(RecipeRepository $recipeRepository): Response
+    #[Route('/recipes', name: 'recipe_index', methods: ['GET'])]
+    public function index(Request $request, RecipeRepository $recipeRepository): Response
     {
-        $recipe = $recipeRepository->findAll();
+        $limit = 21;
+        $page = $request->query->getInt('page', 1);
+        $recipes = $recipeRepository->findBy([], null, $limit, ($page - 1) * $limit);
+
+        if ($request->query->has('page')) {
+            return new JsonResponse($this->renderView('recipe/recipe_items.html.twig', [
+                'recipes' => $recipes,
+            ]));
+        }
+        if (empty($recipes)) {
+            return new JsonResponse('', 200);
+        }
         return $this->render('recipe/index.html.twig', [
-            'recipes' => $recipe
+            'recipes' => $recipes,
+            'current_page' => $page,
         ]);
     }
 
