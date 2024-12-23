@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="added more recipes and added world cuisine filter">
-      <change afterPath="$PROJECT_DIR$/assets/controllers/preview_image_controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/controllers/scroll_controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/recipe/recipe_items.html.twig" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="added infinite scroll + ongoing layout form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/RecipeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecipeType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Twig/Components/AddRecipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/AddRecipe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/AddRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/AddRecipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/edit.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +274,7 @@
       <workItem from="1734683766884" duration="22820000" />
       <workItem from="1734709072248" duration="39000" />
       <workItem from="1734859957352" duration="11616000" />
-      <workItem from="1734882773636" duration="18010000" />
+      <workItem from="1734882773636" duration="20605000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -490,7 +484,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734895933964</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="added infinite scroll + ongoing layout form">
+      <option name="closed" value="true" />
+      <created>1734953542963</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1734953542963</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,6 +543,7 @@
     <MESSAGE value="made carousel for found recipes" />
     <MESSAGE value="styled carousel" />
     <MESSAGE value="added more recipes and added world cuisine filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="added more recipes and added world cuisine filter" />
+    <MESSAGE value="added infinite scroll + ongoing layout form" />
+    <option name="LAST_COMMIT_MESSAGE" value="added infinite scroll + ongoing layout form" />
   </component>
 </project>

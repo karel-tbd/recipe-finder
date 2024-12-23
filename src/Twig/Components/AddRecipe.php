@@ -17,6 +17,13 @@ final class AddRecipe extends AbstractController
     use ComponentWithFormTrait;
     use LiveCollectionTrait;
 
+
+    public function getImage()
+    {
+        $image = $this->getForm()->get('image')->getData();
+        return $image;
+    }
+
     protected function instantiateForm(): FormInterface
     {
         return $this->createForm(RecipeType::class);

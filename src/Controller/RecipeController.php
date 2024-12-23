@@ -7,6 +7,7 @@ use App\Entity\RecipeIngredients;
 use App\Entity\UserRecipeRating;
 use App\Entity\UserRecipeSaved;
 use App\Form\RecipeType;
+use App\Repository\RecipeIngredientsRepository;
 use App\Repository\RecipeRepository;
 use App\Repository\UserRecipeRatingRepository;
 use App\Repository\UserRecipeSavedRepository;
@@ -89,8 +90,9 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/recipe/edit/{uuid}', name: 'recipe_edit')]
-    public function edit(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager): Response
+    public function edit(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager, RecipeIngredientsRepository $recipeIngredientsRepository): Response
     {
+        $recipeIngerdients = $recipeIngredientsRepository->findBy(['recipe' => $recipe]);
         $form = $this->createForm(RecipeType::class, $recipe, ['edit' => true]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -101,6 +103,7 @@ class RecipeController extends AbstractController
         return $this->render('recipe/edit.html.twig', [
             'form' => $form,
             'recipe' => $recipe,
+            'recipeIngredients' => $recipeIngerdients,
         ]);
     }
 

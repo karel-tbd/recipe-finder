@@ -4,6 +4,12 @@
         <div class="xl:flex xl:gap-x-5">
             <div class="w-full h-full">
                 {{ form_row(form.image) }}
+                {% if this.image !=null %}
+                    <img class="object-cover overflow-hidden m-auto xl:m-0 h-96 rounded-xl"
+                         src="{{ vich_uploader_asset(this.image, 'image') }}"
+                         alt="{{ recipe.name }}">
+                {% endif %}
+
             </div>
             <div class="w-full">
                 <div>{{ form_row(form.name) }}</div>
@@ -34,28 +40,9 @@
             </div>
         </div>
     </div>
-    {{ form_end(form) }}
-
-
-    {#
-    {% for ingredient in form.ingredients %}
-        <div class="lg:grid lg:grid-cols-3 gap-x-5 items-center" aria-expanded="true">
-            <div class="text-white">{{ form_row(ingredient.ingredient) }}</div>
-            <div class="flex-1"> {{ form_row(ingredient.quantity) }}</div>
-            <div class="lg:grid lg:grid-cols-2 gap-x-2 border">
-                <div class="grid-1">{{ form_row(ingredient.unit) }}</div>
-                <div class="pt-6 md:pb-0"> {{ form_row(ingredient.vars.button_delete, {label: "Delete", attr: {class: 'text-red-500 rounded border border-red-500 text-sm py-2 px-4'}}) }}</div>
-            </div>
-        </div>
-    {% endfor %}
-    <div class="pb-5">
-        {{ form_widget(form.ingredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 px-4 text-sm'}}) }}
-    </div>
-    {{ form_row(form.description) }}
-    {{ form_row(form.instructions) }}
     <twig:Button
             label="Add recipe"
             class="mb-10"
     />
-    {{ form_end(form) }} #}
+    {{ form_end(form) }}
 </div>

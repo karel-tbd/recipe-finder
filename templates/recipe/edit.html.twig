@@ -3,11 +3,49 @@
 {% block title %}Edit recipe{% endblock %}
 
 {% block body %}
-    <twig:Title
-            label="Edit recipe" />
     {{ form_start(form) }}
-    {{ form_rest(form) }}
-    <twig:Button
+    <twig:Title
             label="Edit recipe"/>
+    <div>
+        <div class="xl:flex xl:gap-x-5">
+            <div class="w-full h-full">
+                {{ form_row(form.image) }}
+                <img class="object-cover overflow-hidden m-auto h-96 xl:m-0 h-60 rounded-xl"
+                     src="{{ vich_uploader_asset(recipe, 'image') }}"
+                     alt="{{ recipe.name }}">
+            </div>
+            <div class="w-full">
+                <div>{{ form_row(form.name) }}</div>
+                <div>{{ form_row(form.mealType) }}</div>
+                <div>{{ form_row(form.description) }}</div>
+                <div class="flex gap-x-5 w-full">
+                    <div class="w-full">{{ form_row(form.time) }}</div>
+                    <div class="w-full">{{ form_row(form.people) }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="xl:flex xl:gap-x-5">
+            <div class="w-full">
+                {{ form_row(form.instructions) }}
+            </div>
+            <div class="w-full">
+                {% for ingredient in form.ingredients %}
+                    <div class="pt-5">
+                        {{ form_row(ingredient.ingredient) }}
+                        {{ form_row(ingredient.quantity) }}
+                        {{ form_row(ingredient.unit) }}
+                    </div>
+                    <div class="pt-6 md:pb-0"> {{ form_row(ingredient.vars.button_delete, {label: "Delete", attr: {class: 'text-red-500 rounded border border-red-500 text-sm py-2 px-4'}}) }}</div>
+                {% endfor %}
+                <div class="pb-5">
+                    {{ form_widget(form.ingredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-6 px-4 text-sm'}}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <twig:Button
+            label="Edit recipe"
+            class="mb-10"
+    />
     {{ form_end(form) }}
 {% endblock %}
