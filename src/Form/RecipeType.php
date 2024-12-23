@@ -14,6 +14,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
@@ -28,7 +29,6 @@ class RecipeType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Grilled Steak',
                 ]
-
             ])
             ->add('mealType', EnumType::class, [
                 'label' => 'Meal type',
@@ -57,8 +57,9 @@ class RecipeType extends AbstractType
                 'error_bubbling' => false,
                 'constraints' => [
                     new Count(['min' => 1]),
+                    new NotBlank(['message' => 'Ingredient cannot be blank.']),
                 ],
-                'mapped' => false,
+                'mapped' => false
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Recipe description',
@@ -89,6 +90,7 @@ class RecipeType extends AbstractType
             ->add('image', VichFileType::class, [
                 'label' => 'Recipe image',
                 'required' => false,
+                'allow_delete' => false,
                 'constraints' => [
                     new File([
                         'mimeTypes' => [
@@ -108,10 +110,6 @@ class RecipeType extends AbstractType
                 ]
             ]);
 
-        if ($options['edit']) {
-            $builder
-                ->remove('ingredients');
-        }
     }
 
     public function configureOptions(OptionsResolver $resolver): void
