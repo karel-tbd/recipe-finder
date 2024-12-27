@@ -153,11 +153,12 @@ class RecipeController extends AbstractController
     public function find(Request $request, RecipeRepository $recipeRepository): JsonResponse
     {
         $content = json_decode($request->getContent(), true);
-        $mealType = $content['mealType'];
+        $meal = $content['meal'];
         $country = $content['country'];
         $difficulty = $content['difficulty'];
+        $mealType = $content['mealType'];
 
-        $recipes = $recipeRepository->findMeal($mealType, $country, $difficulty);
+        $recipes = $recipeRepository->findMeal($meal, $country, $difficulty, $mealType);
         $session = $request->getSession();
         $session->set('recipes', $recipes);
         return new JsonResponse([
@@ -227,5 +228,18 @@ class RecipeController extends AbstractController
         );
     }
 
+    #[Route('/recipe/delete/{uuid}', name: 'recipe_delete')]
+    public function delete(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, EntityManagerInterface $entityManager, Security $security): Response
+    {
+        if ($recipe->getCreatedBy() === $security->getUser() or $this->isGranted('ROLE_ADMIN')) {
+            foreach ($recipe->getRecipeIngredients() as $ingredient) {
+                $entityManager->remove($ingredient);
+            }
+            $entityManager->remove($recipe);
+            $entityManager->flush();
+            return $this->redirectToRoute('recipe_index');
+        }
+        return $this->redirectToRoute('recipe_index');
+    }
 }
 

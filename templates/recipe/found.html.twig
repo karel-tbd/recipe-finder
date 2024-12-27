@@ -46,7 +46,6 @@
                                                 <div class="md:w-1/2">
                                                     <div>
                                                         <h2 class="pt-3 text-2xl">{{ recipe.name }}</h2>
-
                                                         <p class="pt-3">
                                                             {{ recipe.description }}
                                                         </p>
@@ -67,15 +66,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="absolute bottom-0 z-50 flex gap-x-3">
-                                            <twig:Link
-                                                    href="{{ path('recipe_show', {'uuid':recipe.uuid}) }}"
-                                                    label='Go to recipe'/>
-                                            <twig:Link
-                                                    href="{{ path('app_home') }}"
-                                                    label='Try again'
-                                                    variant="white"/>
+                                            <div class="absolute bottom-0 z-50 flex gap-x-3">
+                                                <twig:Link
+                                                        href="{{ path('recipe_show', {'uuid':recipe.uuid}) }}"
+                                                        label='Go to recipe'/>
+                                                <twig:Link
+                                                        href="{{ path('app_home') }}"
+                                                        label='Try again'
+                                                        variant="white"/>
+                                            </div>
                                         </div>
                                     {% endfor %}
                                 </div>

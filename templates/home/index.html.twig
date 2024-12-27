@@ -5,148 +5,180 @@
 {% block body %}
 
     <div class="relative h-screen">
-        <img class="w-full h-full object-cover" src="{{ asset('images/landingImg.jpg') }}" alt="">
+        <img class="w-full h-full object-cover" src="{{ asset('images/bg-landing.jpg') }}" alt="">
         <div data-controller="position">
-            <div id="desire">
+            <div id="mealType">
                 <div class="absolute inset-0 flex items-center justify-center z-10 ">
-                    <twig:Title class="bg-gray-200 bg-opacity-50 rounded-xl px-4 py-2"
-                                label="What do you desire?"/>
+                    <twig:Title class="bg-gray-200 bg-opacity-70 rounded-xl px-4 py-2"
+                                label="What meal are you looking for?"/>
                 </div>
 
-                <a class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10 z-10 animate-bounce cursor-pointer"
+                <a class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 hover:bg-opacity-80 bg-opacity-70 inset-0 flex top-10 z-10 animate-bounce cursor-pointer"
+                   data-position="breakfast"
+                   data-position-target="mealType">
+                    <h2 class="text-xl xl:text-3xl">&#129386; Breakfast &#129472; </h2>
+
+                </a>
+
+                <a data-position="lunch"
+                   data-position-target="mealType"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#127833; Lunch &#127832;</h2>
+
+                </a>
+
+                <a data-position="dinner"
+                   data-position-target="mealType"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl">&#127791; Dinner &#127829;</h2>
+                </a>
+
+                <a data-position="cocktail"
+                   data-position-target="mealType"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl"> &#127864; Cocktail &#127864;</h2>
+                </a>
+
+                <a data-position="dessert"
+                   data-position-target="mealType"
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
+                            z-10 animate-bounce cursor-pointer">
+                    <h2 class="text-xl xl:text-3xl"> &#127846; Dessert &#127856;</h2>
+                </a>
+            </div>
+            <div id="desire" class="hidden">
+                <div class="absolute inset-0 flex items-center justify-center z-10 ">
+                    <twig:Title class="bg-gray-200 bg-opacity-70 rounded-xl px-4 py-2"
+                                label="What’s your craving today?"/>
+                </div>
+
+                <a class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 hover:bg-opacity-80 bg-opacity-70 inset-0 flex top-10 z-10 animate-bounce cursor-pointer"
                    data-position="Pasta"
                    data-position-target="meal">
-                    <h2 class="text-xl xl:text-3xl">&#127806; Pasta Meal &#127837; </h2>
+                    <h2 class="text-xl xl:text-3xl">&#127806; Pasta Party &#127837; </h2>
 
                 </a>
 
                 <a data-position="Meat"
                    data-position-target="meal"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
-                    <h2 class="text-xl xl:text-3xl">&#128019; Meat Fest &#129363;</h2>
+                    <h2 class="text-xl xl:text-3xl">&#128019; Meaty Madness &#129363;</h2>
 
                 </a>
 
                 <a data-position="vegetarian"
                    data-position-target="meal"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
-                    <h2 class="text-xl xl:text-3xl">&#129367; Vegi party &#129388;</h2>
+                    <h2 class="text-xl xl:text-3xl">&#129367; Veggie delight &#129388;</h2>
                 </a>
 
                 <a data-position="Proteins"
                    data-position-target="meal"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
-                    <h2 class="text-xl xl:text-3xl"> &#128035; Got to hit the proteins &#128170;</h2>
+                    <h2 class="text-xl xl:text-3xl"> &#128035; Protein power meal &#128170;</h2>
                 </a>
 
                 <a data-position="Fish and Seafood"
                    data-position-target="meal"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
-                    <h2 class="text-xl xl:text-3xl">&#128032; Feel like swimming &#129424;</h2>
+                    <h2 class="text-xl xl:text-3xl">&#128032; Fish Fest &#129424;</h2>
                 </a>
             </div>
             <div id="country" class="hidden">
                 <div class="absolute inset-0 flex items-center justify-center z-10 ">
-                    <twig:Title class="bg-gray-200 bg-opacity-50 rounded-xl px-4 py-2"
-                                label="What intrigues you?"/>
+                    <twig:Title class="bg-gray-200 bg-opacity-70 rounded-xl px-4 py-2"
+                                label="Which country is serving up these flavors? "/>
                 </div>
 
                 <a data-position="italian"
                    data-position-target="country"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
                     <h2 class="text-xl xl:text-3xl">&#127470;&#127481; Italian &#127470;&#127481;</h2>
                 </a>
 
                 <a data-position="mexican"
                    data-position-target="country"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
                     <h2 class="text-xl xl:text-3xl">&#127474;&#127485; Mexican &#127474;&#127485;</h2>
                 </a>
 
                 <a data-position="greek"
                    data-position-target="country"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
                     <h2 class="text-xl xl:text-3xl">&#127468;&#127479; Greek &#127468;&#127479;</h2>
                 </a>
 
                 <a data-position="chinese"
                    data-position-target="country"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
                     <h2 class="text-xl xl:text-3xl">&#127464;&#127475; Chinese &#127464;&#127475;</h2>
                 </a>
 
                 <a data-position="japanese"
                    data-position-target="country"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
                     <h2 class="text-xl xl:text-3xl">&#127471;&#127477; Japanese &#127471;&#127477;</h2>
                 </a>
 
                 <a data-position="french"
                    data-position-target="country"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
                     <h2 class="text-xl xl:text-3xl">&#127467;&#127479; French &#127467;&#127479;</h2>
                 </a>
 
                 <a data-position="american"
                    data-position-target="country"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
                     <h2 class="text-xl xl:text-3xl">&#127482;&#127480; American &#127482;&#127480;</h2>
                 </a>
 
                 <a data-position="all"
                    data-position-target="country"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
-                    <h2 class="text-xl xl:text-3xl">&#127987; All around the world &#127987;</h2>
+                    <h2 class="text-xl xl:text-3xl">&#127758; All around the world &#127758;</h2>
                 </a>
             </div>
             <div id="difficulty" class="hidden">
                 <div class="absolute inset-0 flex items-center justify-center z-10 ">
-                    <twig:Title class="bg-gray-200 bg-opacity-50 rounded-xl px-4 py-2"
-                                label="What difficulty do you want?"/>
+                    <twig:Title class="bg-gray-200 bg-opacity-70 rounded-xl px-4 py-2"
+                                label="How much time do we have for this recipe?"/>
                 </div>
 
                 <a data-position="easy"
                    data-position-target="difficulty"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
-                    <h2 class="text-xl xl:text-3xl">&#128102;&#127995; Easy &#128102;&#127995;</h2>
+                    <h2 class="text-xl xl:text-3xl">&#128336; 15 or less &#128336;</h2>
                 </a>
 
                 <a data-position="normal"
                    data-position-target="difficulty"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
-                    <h2 class="text-xl xl:text-3xl">&#128102;&#127997; Normal &#128102;&#127997;</h2>
+                    <h2 class="text-xl xl:text-3xl">&#128352; Half an hour &#128352;</h2>
                 </a>
 
                 <a data-position="hard"
                    data-position-target="difficulty"
-                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-50 inset-0 flex top-10
+                   class="absolute rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 animate-bounce cursor-pointer">
-                    <h2 class="text-xl xl:text-3xl">&#128102;&#127999; Hard &#128102;&#127999;</h2>
+                    <h2 class="text-xl xl:text-3xl">&#128357; All day &#128357;</h2>
                 </a>
-            </div>
-        </div>
-
-        <div id="modal" class="hidden">
-            <div class="absolute inset-0 flex items-center justify-center z-10 ">
-                {% for recipe in recipes %}
-                    {{ recipe.name }}
-                {% endfor %}
-                <twig:Title class="bg-gray-200 bg-opacity-50 rounded-xl px-4 py-2"
-                            label="What difficulty do you want?"/>
             </div>
         </div>
     </div>

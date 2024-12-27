@@ -84,22 +84,22 @@
                                      src="{{ asset('images/placeholder.png') }}" alt="user photo">
                             </button>
                         </div>
-                        <div class="z-50 hidden my-4 text-sm list-none divide-y rounded shadow bg-black divide-gray-600"
+                        <div class="z-50 hidden border my-4 text-sm list-none divide-y rounded shadow bg-white divide-gray-300"
                              id="dropdown-user">
                             <div class="px-4 py-3" role="none">
-                                <p class="font-medium truncate text-gray-300" role="none">
+                                <p class="font-medium truncate" role="none">
                                     {{ app.user.email }}
                                 </p>
                             </div>
                             <ul class="py-1" role="none">
                                 <li>
                                     <a href=""
-                                       class="block px-4 py-2 text-gray-300 hover:bg-gray-600 hover:text-white"
+                                       class="block px-4 py-2 hover:bg-gray-50"
                                        role="menuitem">Edit account</a>
                                 </li>
                                 <li>
                                     <a href="{{ path('app_logout') }}"
-                                       class="block px-4 py-2 text-gray-300 hover:bg-gray-600 hover:text-white"
+                                       class="block px-4 py-2 hover:bg-gray-50"
                                        role="menuitem">Logout</a>
                                 </li>
                             </ul>
