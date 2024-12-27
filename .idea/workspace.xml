@@ -5,12 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="added infinite scroll + ongoing layout form">
+      <change afterPath="$PROJECT_DIR$/src/Enum/Publish.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/Extension/LanguageExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/Extension/PdfExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/Extension/UserExtention.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/Runtime/PdfExtensionRuntime.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/recipe/pdf.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Recipe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/RecipeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecipeType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/AddRecipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/AddRecipe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/AddRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/AddRecipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/fields.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,6 +220,8 @@
       <path value="$PROJECT_DIR$/vendor/ehyiah/ux-quill" />
       <path value="$PROJECT_DIR$/vendor/league/uri-interfaces" />
       <path value="$PROJECT_DIR$/vendor/league/uri" />
+      <path value="$PROJECT_DIR$/vendor/pontedilana/php-weasyprint" />
+      <path value="$PROJECT_DIR$/vendor/pontedilana/weasyprint-bundle" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -217,7 +239,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/assets/controllers",
+    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/src/Twig",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -229,11 +251,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Twig" />
       <recent name="$PROJECT_DIR$/assets/controllers" />
       <recent name="$PROJECT_DIR$/assets/icons" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/templates/components/Pages" />
-      <recent name="$PROJECT_DIR$/templates/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/recipe" />
@@ -274,7 +296,7 @@
       <workItem from="1734683766884" duration="22820000" />
       <workItem from="1734709072248" duration="39000" />
       <workItem from="1734859957352" duration="11616000" />
-      <workItem from="1734882773636" duration="20605000" />
+      <workItem from="1734882773636" duration="35512000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -492,7 +514,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734953542963</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="added infinite scroll + ongoing layout form">
+      <option name="closed" value="true" />
+      <created>1734957943146</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1734957943147</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

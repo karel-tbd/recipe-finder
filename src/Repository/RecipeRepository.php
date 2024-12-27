@@ -6,6 +6,7 @@ use App\Entity\Recipe;
 use App\Entity\User;
 use App\Enum\MealCountry;
 use App\Enum\MealType;
+use App\Enum\Publish;
 use App\Service\QueryService;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -30,6 +31,9 @@ class RecipeRepository extends ServiceEntityRepository
             ->leftJoin('ri.ingredient', 'i')
             ->groupBy('r.id');
 
+        $query
+            ->andWhere('r.status = :status')
+            ->setParameter('status', Publish::PUBLISHED);
 
         if (QueryService::isNotEmpty($search, 'search')) {
             $ingredients = reset($search['search']);
@@ -197,7 +201,9 @@ class RecipeRepository extends ServiceEntityRepository
             ->where('r.createdBy = :user')
             ->setParameter('user', $user)
             ->orWhere('s.user = :user')
-            ->setParameter(':user', $user);
+            ->setParameter(':user', $user)
+            ->andWhere('r.status IN (:status)')
+            ->setParameter(':status', [Publish::PUBLISHED, Publish::PRIVATE]);
 
         if (!empty($search)) {
             $inGroup = [];
@@ -294,6 +300,41 @@ class RecipeRepository extends ServiceEntityRepository
                 $query
                     ->andWhere('r.mealType LIKE :mealType')
                     ->setParameter('mealType', '%' . MealType::COCKTAIL->value . '%');
+            }
+            if (QueryService::isNotEmpty($search, 'italian')) {
+                $query
+                    ->andWhere('r.country = :italian')
+                    ->setParameter('italian', MealCountry::ITALIAN->value);
+            }
+            if (QueryService::isNotEmpty($search, 'mexican')) {
+                $query
+                    ->andWhere('r.country = :mexican')
+                    ->setParameter('mexican', MealCountry::MEXICAN->value);
+            }
+            if (QueryService::isNotEmpty($search, 'greek')) {
+                $query
+                    ->andWhere('r.country = :greek')
+                    ->setParameter('greek', MealCountry::GREEK->value);
+            }
+            if (QueryService::isNotEmpty($search, 'chinese')) {
+                $query
+                    ->andWhere('r.country = :chinese')
+                    ->setParameter('chinese', MealCountry::CHINESE->value);
+            }
+            if (QueryService::isNotEmpty($search, 'japanese')) {
+                $query
+                    ->andWhere('r.country = :japanese')
+                    ->setParameter('japanese', MealCountry::JAPANESE->value);
+            }
+            if (QueryService::isNotEmpty($search, 'french')) {
+                $query
+                    ->andWhere('r.country = :french')
+                    ->setParameter('french', MealCountry::FRENCH->value);
+            }
+            if (QueryService::isNotEmpty($search, 'american')) {
+                $query
+                    ->andWhere('r.country = :american')
+                    ->setParameter('american', MealCountry::AMERICAN->value);
             }
         }
 

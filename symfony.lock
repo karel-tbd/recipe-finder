@@ -43,6 +43,9 @@
             "tests/bootstrap.php"
         ]
     },
+    "pontedilana/weasyprint-bundle": {
+        "version": "2.3.0"
+    },
     "ramsey/uuid-doctrine": {
         "version": "2.1",
         "recipe": {

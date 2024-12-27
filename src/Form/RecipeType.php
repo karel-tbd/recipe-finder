@@ -6,6 +6,7 @@ use App\Entity\Recipe;
 use App\Enum\EntryPermitSite;
 use App\Enum\MealType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -108,6 +109,11 @@ class RecipeType extends AbstractType
                 'attr' => [
                     'placeholder' => '80',
                 ]
+            ])
+            ->add('publish', CheckboxType::class, [
+                'label' => 'Publish',
+                'required' => false,
+                'mapped' => false,
             ]);
 
     }

@@ -6,6 +6,7 @@ use App\Entity\Trait\BlameableTrait;
 use App\Entity\Trait\DefaultTrait;
 use App\Enum\MealCountry;
 use App\Enum\MealType;
+use App\Enum\Publish;
 use App\Repository\RecipeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -83,6 +84,9 @@ class Recipe
 
     #[ORM\Column(nullable: true, enumType: MealCountry::class)]
     private ?MealCountry $country = null;
+
+    #[ORM\Column(enumType: Publish::class)]
+    private ?Publish $status = null;
 
     public function __construct()
     {
@@ -318,6 +322,18 @@ class Recipe
     public function setCountry(?MealCountry $country): static
     {
         $this->country = $country;
+
+        return $this;
+    }
+
+    public function getStatus(): ?Publish
+    {
+        return $this->status;
+    }
+
+    public function setStatus(Publish $status): static
+    {
+        $this->status = $status;
 
         return $this;
     }

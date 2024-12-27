@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"
+          href="https://cdn.curlwind.com?classes=border,border-b,text-2xl,pt-2,pt-10,pt-5,text-center,text-lg,pt-3,rounded-lg,text-3xl,pl-5,w-80,h-52,object-cover,overflow-hidden">
+    <title>{{ recipe.name }}</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td style="width: 50%">
+            <img src="data:image/png;base64,{{ encodeImage('.' ~ asset('images/' ~ recipe.imageName)) }}"
+                 class="w-80 h-52 object-cover overflow-hidden m-auto rounded-lg"
+                 alt="{{ recipe.name }}">
+        </td>
+        <td style="width: 50%">
+            <div class="w-full">
+                <h1 class="text-3xl pl-5">
+                    {{ recipe.name }}
+                </h1>
+                <p class="pl-5 pt-3 text-lg">
+                    {{ recipe.description }}
+                </p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 60%">
+            <div class="text-lg">
+                {{ recipe.instructions }}
+            </div>
+        </td>
+        <td style="width: 40%">
+            <div class="pl-5 text-lg pt-5">
+                <ul>
+                    {% for ingredient in recipe.recipeIngredients %}
+                        <li class="pt-2 border-b">
+                            {{ ingredient.quantity }}
+                            {{ ingredient.unit ? ingredient.unit.value }}
+                            {{ ingredient.ingredient.name }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

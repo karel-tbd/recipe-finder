@@ -30,10 +30,13 @@
                             path="{{ path('recipe_add') }}"
                             label="Add own recipies"
                     />
-                    <twig:Sidebar:Item
-                            path=""
-                            label="On a budget"
-                    />
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <twig:Sidebar:Item
+                                path="{{ path('recipe_manage') }}"
+                                label="Manage recipes"
+                        />
+                    {% endif %}
+
                 {% else %}
                     <twig:Sidebar:Item
                             path="{{ path('app_login') }}"
@@ -84,12 +87,8 @@
                         <div class="z-50 hidden my-4 text-sm list-none divide-y rounded shadow bg-black divide-gray-600"
                              id="dropdown-user">
                             <div class="px-4 py-3" role="none">
-                                <p class="text-white" role="none">
-                                    Karel Scheers
-                                </p>
                                 <p class="font-medium truncate text-gray-300" role="none">
-                                    example@example.com
-
+                                    {{ app.user.email }}
                                 </p>
                             </div>
                             <ul class="py-1" role="none">
@@ -99,7 +98,7 @@
                                        role="menuitem">Edit account</a>
                                 </li>
                                 <li>
-                                    <a href=""
+                                    <a href="{{ path('app_logout') }}"
                                        class="block px-4 py-2 text-gray-300 hover:bg-gray-600 hover:text-white"
                                        role="menuitem">Logout</a>
                                 </li>

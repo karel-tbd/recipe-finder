@@ -2,46 +2,37 @@
 
 namespace App\Controller;
 
+use App\Entity\General\Preregistration;
 use App\Entity\Recipe;
 use App\Entity\RecipeIngredients;
 use App\Entity\UserRecipeRating;
 use App\Entity\UserRecipeSaved;
+use App\Enum\Publish;
 use App\Form\RecipeType;
 use App\Repository\RecipeIngredientsRepository;
 use App\Repository\RecipeRepository;
 use App\Repository\UserRecipeRatingRepository;
 use App\Repository\UserRecipeSavedRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Pontedilana\PhpWeasyPrint\Pdf;
+use Pontedilana\WeasyprintBundle\WeasyPrint\Response\PdfResponse;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Attribute\Route;
+use Twig\Environment;
 
 class RecipeController extends AbstractController
 {
 
     #[Route('/recipes', name: 'recipe_index', methods: ['GET'])]
-    public function index(Request $request, RecipeRepository $recipeRepository): Response
+    public function index(): Response
     {
-        $limit = 21;
-        $page = $request->query->getInt('page', 1);
-        $recipes = $recipeRepository->findBy([], null, $limit, ($page - 1) * $limit);
-
-        if ($request->query->has('page')) {
-            return new JsonResponse($this->renderView('recipe/recipe_items.html.twig', [
-                'recipes' => $recipes,
-            ]));
-        }
-        if (empty($recipes)) {
-            return new JsonResponse('', 200);
-        }
-        return $this->render('recipe/index.html.twig', [
-            'recipes' => $recipes,
-            'current_page' => $page,
-        ]);
+        return $this->render('recipe/index.html.twig');
     }
 
     #[Route('/recipe/add', name: 'recipe_add')]
@@ -50,6 +41,7 @@ class RecipeController extends AbstractController
         $form = $this->createForm(RecipeType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $publish = $form->get('publish')->getData();
             $recipe = $form->getData();
             foreach ($form->get('ingredients')->getData() as $data) {
                 $recipeIngredient = new RecipeIngredients();
@@ -59,6 +51,12 @@ class RecipeController extends AbstractController
                 $recipeIngredient->setUnit($data['unit']);
                 $entityManager->persist($recipeIngredient);
             }
+            if ($publish) {
+                $recipe->setPublish(Publish::PENDING);
+            } else {
+                $recipe->setPublish(Publish::PRIVATE);
+            }
+
             $entityManager->persist($recipe);
             $entityManager->flush();
             return $this->redirectToRoute('recipe_index');
@@ -176,5 +174,58 @@ class RecipeController extends AbstractController
             'recipes' => $recipes,
         ]);
     }
+
+    #[Route('/recipe/manage', name: 'recipe_manage')]
+    public function manage(RecipeRepository $recipeRepository): Response
+    {
+        $recipes = $recipeRepository->findBy(['status' => Publish::PENDING]);
+        return $this->render('recipe/manage.html.twig', [
+            'recipes' => $recipes,
+        ]);
+    }
+
+    #[Route('/recipe/manage/reject/{uuid}', name: 'recipe_manage_reject')]
+    public function reject(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, EntityManagerInterface $entityManager, RecipeRepository $recipeRepository): Response
+    {
+        $entityManager->remove($recipe);
+        $entityManager->flush();
+
+        $recipes = $recipeRepository->findBy(['status' => Publish::PENDING]);
+        return $this->render('recipe/manage.html.twig', [
+            'recipes' => $recipes,
+        ]);
+    }
+
+    #[Route('/recipe/manage/accept/{uuid}', name: 'recipe_manage_accept')]
+    public function accept(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, EntityManagerInterface $entityManager, RecipeRepository $recipeRepository): Response
+    {
+        $recipe->setStatus(Publish::PUBLISHED);
+        $entityManager->flush();
+
+        $recipes = $recipeRepository->findBy(['status' => Publish::PENDING]);
+        return $this->render('recipe/manage.html.twig', [
+            'recipes' => $recipes,
+        ]);
+    }
+
+    #[Route('/recipe/pdf/{uuid}', name: 'recipe_pdf'), ]
+    public function pdf(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Environment $twig, Pdf $weasyPrint): PdfResponse
+    {
+        $html = $twig->render('recipe/pdf.html.twig', [
+                'recipe' => $recipe,
+            ]
+        );
+        $pdfContent = $weasyPrint->getOutputFromHtml($html);
+
+        return new PdfResponse(
+            content: $pdfContent,
+            fileName: 'recipe.pdf',
+            contentType: 'application/pdf',
+            contentDisposition: ResponseHeaderBag::DISPOSITION_INLINE,
+            status: 200,
+            headers: []
+        );
+    }
+
 }
 
