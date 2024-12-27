@@ -168,6 +168,8 @@
       <path value="$PROJECT_DIR$/vendor/ehyiah/ux-quill" />
       <path value="$PROJECT_DIR$/vendor/league/uri-interfaces" />
       <path value="$PROJECT_DIR$/vendor/league/uri" />
+      <path value="$PROJECT_DIR$/vendor/pontedilana/php-weasyprint" />
+      <path value="$PROJECT_DIR$/vendor/pontedilana/weasyprint-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />

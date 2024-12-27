@@ -23,4 +23,5 @@ return [
     Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true],
     Symfony\UX\Icons\UXIconsBundle::class => ['all' => true],
     Ehyiah\QuillJsBundle\QuillJsBundle::class => ['all' => true],
+    Pontedilana\WeasyprintBundle\WeasyprintBundle::class => ['all' => true],
 ];

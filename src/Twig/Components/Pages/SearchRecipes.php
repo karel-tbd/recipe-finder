@@ -4,6 +4,7 @@ namespace App\Twig\Components\Pages;
 
 use App\Form\SearchFormType;
 use App\Repository\RecipeRepository;
+use App\Service\RecipeService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -30,14 +31,8 @@ final class SearchRecipes extends AbstractController
     public function getRecipes(): array
     {
         $search = $this->getForm()->getData() ?? [];
-        $recipes = $this->recipeRepository->search($search);
-        return $recipes;
-    }
 
-    public function getSearch(): array
-    {
-        $search = $this->getForm()->getData() ?? [];
-        return $search;
+        return $this->recipeRepository->search($search);
     }
 
     protected function instantiateForm(): FormInterface
