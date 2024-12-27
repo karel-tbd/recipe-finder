@@ -343,7 +343,7 @@ class RecipeRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findMeal(string $mealType, string $country, string $difficulty)
+    public function findMeal(string $meal, string $country, string $difficulty, string $mealType)
     {
 
         $query = $this->createQueryBuilder('r')
@@ -356,8 +356,13 @@ class RecipeRepository extends ServiceEntityRepository
                 ->andWhere('r.country = :country')
                 ->setParameter('country', $country);
         }
+        if (MealType::tryFrom($mealType)) {
+            $query
+                ->andWhere('r.mealType = :mealType')
+                ->setParameter('mealType', $mealType);
+        }
 
-        if ($mealType == 'vegetarian') {
+        if ($meal == 'vegetarian') {
             $foodGroup = [];
             $meat = $this->foodGroupRepository->findOneBy(['name' => 'Meat']);
             $fish = $this->foodGroupRepository->findOneBy(['name' => 'Fish and Seafood']);
@@ -367,7 +372,7 @@ class RecipeRepository extends ServiceEntityRepository
                 ->andWhere('r.id NOT IN (SELECT r1.id FROM App\Entity\Recipe r1 LEFT JOIN r1.recipeIngredients ri1 LEFT JOIN ri1.ingredient i1 LEFT JOIN i1.foodGroup fg1 WHERE fg1.id IN (:mealTypeExcluded) GROUP BY r1.id)')
                 ->setParameter('mealTypeExcluded', $foodGroup);
         } else {
-            $foodGroup = $this->foodGroupRepository->findOneBy(['name' => $mealType]);
+            $foodGroup = $this->foodGroupRepository->findOneBy(['name' => $meal]);
             $query
                 ->andWhere('r.id IN (SELECT r1.id FROM App\Entity\Recipe r1 LEFT JOIN r1.recipeIngredients ri1 LEFT JOIN ri1.ingredient i1 LEFT JOIN i1.foodGroup fg1 WHERE fg1.id IN (:mealTypeIncluded) GROUP BY r1.id)')
                 ->setParameter('mealTypeIncluded', $foodGroup->getId());

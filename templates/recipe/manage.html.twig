@@ -11,7 +11,7 @@
             {% for recipe in recipes %}
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <div class="lg:grid lg:grid-cols-2 gap-x-10 xl:justify-self-end xl:w-5/6">
-                        <img class="object-cover overflow-hidden m-auto xl:m-0 h-96 rounded-xl"
+                        <img class="object-cover overflow-hidden xl:m-0 h-96 rounded-xl"
                              src="{{ vich_uploader_asset(recipe, 'image') }}"
                              alt="{{ recipe.name }}">
                         <div>
