@@ -2,12 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\General\Company;
 use App\Entity\Ingredients;
 use App\Service\FormService;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -24,13 +24,17 @@ class SearchFormType extends AbstractType
                     'label' => 'Search on ingredients',
                     'class' => Ingredients::class,
                     'choice_label' => 'Name',
-                    'placeholder' => 'Search',
                     'autocomplete' => true,
                     'multiple' => true,
                     'required' => false,
                     'data' => !empty($options['search']['search']) ? $this->formService->getEntityReferences(Ingredients::class, $options['search']['search']) : null,
                 ]
             )
+            ->add('name', TextType::class, [
+                'label' => 'Search on recipe name',
+                'required' => false,
+                'data' => $options['search']['name'] ?? null,
+            ])
             ->add('meat', CheckboxType::class, [
                 'label' => 'Meat',
                 'required' => false,
