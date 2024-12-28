@@ -6,6 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers/scroll_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/scroll_controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Recipe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/IngredientType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/IngredientType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RecipeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecipeType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/AddRecipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/AddRecipe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/AddRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/AddRecipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/edit.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,11 +247,11 @@
       <recent name="$PROJECT_DIR$/templates/components/Pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/components/Pages" />
       <recent name="$PROJECT_DIR$/templates/recipe" />
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/assets/icons" />
-      <recent name="$PROJECT_DIR$/templates/components" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -272,7 +286,8 @@
       <workItem from="1734709072248" duration="39000" />
       <workItem from="1734859957352" duration="11616000" />
       <workItem from="1734882773636" duration="45168000" />
-      <workItem from="1735385518319" duration="18000" />
+      <workItem from="1735385518319" duration="85000" />
+      <workItem from="1735385632140" duration="14005000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -546,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735385502666</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="images">
+      <option name="closed" value="true" />
+      <created>1735385561777</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1735385561777</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

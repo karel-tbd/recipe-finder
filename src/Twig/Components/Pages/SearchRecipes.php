@@ -29,11 +29,11 @@ final class SearchRecipes extends AbstractController
 
     public function getRecipes(): array
     {
-        $limit = 21;
-        $page = $this->requestStack->getCurrentRequest()->query->get('page', 1);
         $search = $this->getForm()->getData() ?? [];
+        $page = $this->requestStack->getCurrentRequest()->query->get('page', 1);
+        $limit = 21;
 
-        return $this->recipeRepository->search($search, $limit, $page);
+        return $this->recipeRepository->search($limit, $page, $search);
     }
 
     protected function instantiateForm(): FormInterface

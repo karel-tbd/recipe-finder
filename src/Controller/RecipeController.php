@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\General\Preregistration;
 use App\Entity\Recipe;
 use App\Entity\RecipeIngredients;
 use App\Entity\UserRecipeRating;
@@ -13,6 +12,7 @@ use App\Repository\RecipeIngredientsRepository;
 use App\Repository\RecipeRepository;
 use App\Repository\UserRecipeRatingRepository;
 use App\Repository\UserRecipeSavedRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Pontedilana\PhpWeasyPrint\Pdf;
 use Pontedilana\WeasyprintBundle\WeasyPrint\Response\PdfResponse;
@@ -28,12 +28,12 @@ use Twig\Environment;
 
 class RecipeController extends AbstractController
 {
-
-    #[Route('/recipes', name: 'recipe_index', methods: ['GET'])]
+    #[Route('/recipes', name: 'recipe_index')]
     public function index(): Response
     {
         return $this->render('recipe/index.html.twig');
     }
+
 
     #[Route('/recipe/add', name: 'recipe_add')]
     public function add(Request $request, EntityManagerInterface $entityManager): Response
@@ -43,18 +43,18 @@ class RecipeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $publish = $form->get('publish')->getData();
             $recipe = $form->getData();
-            foreach ($form->get('ingredients')->getData() as $data) {
+            foreach ($form->get('recipeIngredients')->getData() as $data) {
                 $recipeIngredient = new RecipeIngredients();
                 $recipeIngredient->setRecipe($recipe);
-                $recipeIngredient->setIngredient($data['ingredient']);
-                $recipeIngredient->setQuantity($data['quantity']);
-                $recipeIngredient->setUnit($data['unit']);
+                $recipeIngredient->setIngredient($data->getIngredient());
+                $recipeIngredient->setQuantity($data->getQuantity());
+                $recipeIngredient->setUnit($data->getUnit());
                 $entityManager->persist($recipeIngredient);
             }
             if ($publish) {
-                $recipe->setPublish(Publish::PENDING);
+                $recipe->setStatus(Publish::PENDING);
             } else {
-                $recipe->setPublish(Publish::PRIVATE);
+                $recipe->setStatus(Publish::PRIVATE);
             }
 
             $entityManager->persist($recipe);
@@ -90,10 +90,31 @@ class RecipeController extends AbstractController
     #[Route('/recipe/edit/{uuid}', name: 'recipe_edit')]
     public function edit(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager, RecipeIngredientsRepository $recipeIngredientsRepository): Response
     {
-        $recipeIngerdients = $recipeIngredientsRepository->findBy(['recipe' => $recipe]);
         $form = $this->createForm(RecipeType::class, $recipe, ['edit' => true]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $publish = $form->get('publish')->getData();
+            $recipe = $form->getData();
+            if (!$publish) {
+                $recipe->setStatus(Publish::PRIVATE);
+            }
+
+            $prevIngredients = new ArrayCollection($recipeIngredientsRepository->findBy(['recipe' => $recipe]));
+            $currentIngredients = $recipe->getRecipeIngredients();
+
+            foreach ($prevIngredients as $prevIngredient) {
+                if (!$currentIngredients->contains($prevIngredient)) {
+                    $entityManager->remove($prevIngredient);
+                }
+            }
+
+            foreach ($currentIngredients as $currentIngredient) {
+                if (!$prevIngredients->contains($currentIngredient)) {
+                    $currentIngredient->setRecipe($recipe);
+                    $entityManager->persist($currentIngredient);
+                }
+            }
+            
             $entityManager->persist($recipe);
             $entityManager->flush();
             return $this->redirectToRoute('recipe_index');
@@ -101,7 +122,6 @@ class RecipeController extends AbstractController
         return $this->render('recipe/edit.html.twig', [
             'form' => $form,
             'recipe' => $recipe,
-            'recipeIngredients' => $recipeIngerdients,
         ]);
     }
 

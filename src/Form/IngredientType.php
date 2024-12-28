@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Ingredients;
+use App\Entity\RecipeIngredients;
 use App\Enum\Unit;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -30,7 +31,7 @@ class IngredientType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => '2',
-                ]
+                ],
             ])
             ->add('unit', EnumType::class, [
                 'label' => 'Unit',
@@ -45,7 +46,7 @@ class IngredientType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'data_class' => RecipeIngredients::class,
         ]);
     }
 }

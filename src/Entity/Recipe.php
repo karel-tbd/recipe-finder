@@ -31,7 +31,6 @@ class Recipe
 
 
     #[Vich\UploadableField(mapping: 'recipe_files', fileNameProperty: 'imageName', size: 'imageSize')]
-    #[NotBlank(message: 'This value should not be blank.')]
     private ?File $image = null;
 
     #[ORM\Column(nullable: true)]
@@ -134,9 +133,8 @@ class Recipe
     {
         $this->image = $image;
 
-        if (null !== $image) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
+        if ($image instanceof File) {
+
             $this->updatedAt = new \DateTimeImmutable();
         }
     }

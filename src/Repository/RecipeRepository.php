@@ -24,7 +24,7 @@ class RecipeRepository extends ServiceEntityRepository
         $this->foodGroupRepository = $foodGroupRepository;
     }
 
-    public function search(array $search, int $limit, $offset): array
+    public function search(int $limit, int $offset, array $search = []): array
     {
         $query = $this->createQueryBuilder('r')
             ->leftJoin('r.recipeIngredients', 'ri')
@@ -43,7 +43,6 @@ class RecipeRepository extends ServiceEntityRepository
         if (QueryService::isNotEmpty($search, 'search')) {
             $ingredients = reset($search['search']);
             $number = count($ingredients);
-
             $or = [];
             foreach ($ingredients as $i => $ingredient) {
                 $or[] = 'i.name LIKE :ingredient' . $i;
@@ -191,8 +190,7 @@ class RecipeRepository extends ServiceEntityRepository
         }
 
         return $query
-            ->setMaxResults($limit)
-            ->setFirstResult($offset)
+            /*->setMaxResults($limit)*/
             ->getQuery()
             ->getResult();
     }
