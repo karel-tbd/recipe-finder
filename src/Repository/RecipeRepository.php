@@ -24,7 +24,7 @@ class RecipeRepository extends ServiceEntityRepository
         $this->foodGroupRepository = $foodGroupRepository;
     }
 
-    public function search(array $search = []): array
+    public function search(array $search, int $limit, $offset): array
     {
         $query = $this->createQueryBuilder('r')
             ->leftJoin('r.recipeIngredients', 'ri')
@@ -35,6 +35,11 @@ class RecipeRepository extends ServiceEntityRepository
             ->andWhere('r.status = :status')
             ->setParameter('status', Publish::PUBLISHED);
 
+        if (QueryService::isNotEmpty($search, 'name')) {
+            $query
+                ->andWhere('r.name LIKE :name')
+                ->setParameter('name', '%' . $search['name'] . '%');
+        }
         if (QueryService::isNotEmpty($search, 'search')) {
             $ingredients = reset($search['search']);
             $number = count($ingredients);
@@ -186,6 +191,8 @@ class RecipeRepository extends ServiceEntityRepository
         }
 
         return $query
+            ->setMaxResults($limit)
+            ->setFirstResult($offset)
             ->getQuery()
             ->getResult();
     }
@@ -206,6 +213,11 @@ class RecipeRepository extends ServiceEntityRepository
             ->setParameter(':status', [Publish::PUBLISHED, Publish::PRIVATE]);
 
         if (!empty($search)) {
+            if (QueryService::isNotEmpty($search, 'name')) {
+                $query
+                    ->andWhere('r.name LIKE :name')
+                    ->setParameter('name', '%' . $search['name'] . '%');
+            }
             $inGroup = [];
             $notInGroup = [];
             if (QueryService::isNotEmpty($search, 'meat')) {

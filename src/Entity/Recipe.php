@@ -27,7 +27,6 @@ class Recipe
     use BlameableTrait;
 
     #[ORM\Column(length: 255)]
-    #[NotBlank(message: 'This value should not be blank.')]
     private ?string $name = null;
 
 

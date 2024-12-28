@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Recipe;
-use App\Enum\EntryPermitSite;
 use App\Enum\MealType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
