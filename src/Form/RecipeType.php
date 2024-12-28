@@ -46,7 +46,7 @@ class RecipeType extends AbstractType
                     'placeholder' => '4',
                 ]
             ])
-            ->add('ingredients', LiveCollectionType::class, [
+            ->add('recipeIngredients', LiveCollectionType::class, [
                 'required' => false,
                 'label' => false,
                 'entry_type' => IngredientType::class,
@@ -59,7 +59,7 @@ class RecipeType extends AbstractType
                     new Count(['min' => 1]),
                     new NotBlank(['message' => 'Ingredient cannot be blank.']),
                 ],
-                'mapped' => false
+                'mapped' => false,
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Recipe description',
@@ -115,6 +115,23 @@ class RecipeType extends AbstractType
                 'mapped' => false,
             ]);
 
+        if ($options['edit']) {
+            $builder->remove('recipeIngredients')
+                ->add('recipeIngredients', LiveCollectionType::class, [
+                    'required' => false,
+                    'label' => false,
+                    'entry_type' => IngredientType::class,
+                    'entry_options' => ['label' => false],
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'by_reference' => false,
+                    'error_bubbling' => false,
+                    'constraints' => [
+                        new Count(['min' => 1]),
+                        new NotBlank(['message' => 'Ingredient cannot be blank.']),
+                    ],
+                ]);
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver): void

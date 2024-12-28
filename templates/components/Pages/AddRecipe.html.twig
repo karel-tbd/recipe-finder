@@ -26,7 +26,7 @@
                 {{ form_row(form.instructions) }}
             </div>
             <div class="w-full">
-                {% for ingredient in form.ingredients %}
+                {% for ingredient in form.recipeIngredients %}
                     <div class="pt-5">
                         {{ form_row(ingredient.ingredient) }}
                         <div class="xl:grid xl:grid-cols-2 xl:gap-x-2 xl:w-full">
@@ -37,7 +37,7 @@
                     <div class="pt-6 md:pb-0"> {{ form_row(ingredient.vars.button_delete, {label: "Delete", attr: {class: 'text-red-500 rounded border border-red-500 text-sm py-2 px-4'}}) }}</div>
                 {% endfor %}
                 <div class="pb-5">
-                    {{ form_widget(form.ingredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-6 px-4 text-sm'}}) }}
+                    {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-6 px-4 text-sm'}}) }}
                 </div>
             </div>
         </div>

@@ -23,9 +23,9 @@ class ImportRecipes extends Command
     public function __construct(private readonly string                 $kernelProjectDir,
                                 private readonly EntityManagerInterface $entityManager,
                                 private readonly IngredientsRepository  $ingredientsRepository,
-                                string                                  $name = null)
+    )
     {
-        parent::__construct($name);
+
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
