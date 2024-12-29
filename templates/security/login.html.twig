@@ -1,65 +1,60 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'label.login'|trans({'default': 'Login'}) }}!{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block body %}
     <section>
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <div class="w-full bg-white rounded-lg shadow-lg md:mt-0 sm:max-w-md xl:p-0">
-                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
-                        Login to your account
-                    </h1>
-                    <form method="post">
-                        {% if error %}
-                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                        {% endif %}
-                        <div class="mb-5">
-                            <label for="username" class="font-thin block mb-2 text-gray-900 ">
-                                Email
-                            </label>
-                            <input type="email" value="{{ last_username }}"  name="_username" id="email"
-                                   class=" form-control border border-gray-300 text-gray-900 rounded focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                                   placeholder="name@company.com" required="">
-                        </div>
-                        <div class="mb-5">
-                            <label for="password"
-                                   class="block mb-2 font-thin text-gray-900 ">
-                                Password
-                            </label>
-                            <input type="password" name="_password" id="password" placeholder="••••••••"
-                                   class="form-control border border-gray-300 text-gray-900 rounded focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                                   autocomplete="current-password" required>
-                        </div>
+        <div class="lg:grid lg:grid-cols-2 gap-x-5">
+            <div class="flex flex-col justify-center px-6 py-8 md:h-screen lg:py-0">
+                <div class="w-full bg-white rounded-lg shadow-lg md:mt-0 sm:max-w-md xl:p-0">
+                    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
+                            Login to your account
+                        </h1>
+                        <form method="post">
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+                            <div class="mb-5">
+                                <label for="username" class="font-thin block mb-2 text-gray-900 ">
+                                    Email
+                                </label>
+                                <input type="email" value="{{ last_username }}" name="_username" id="email"
+                                       class=" form-control border border-gray-300 text-gray-900 rounded focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                                       placeholder="name@company.com" required="">
+                            </div>
+                            <div class="mb-5">
+                                <label for="password"
+                                       class="block mb-2 font-thin text-gray-900 ">
+                                    Password
+                                </label>
+                                <input type="password" name="_password" id="password" placeholder="••••••••"
+                                       class="form-control border border-gray-300 text-gray-900 rounded focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                                       autocomplete="current-password" required>
+                            </div>
 
-                        <input type="hidden" name="_csrf_token"
-                               value="{{ csrf_token('authenticate') }}"
-                        >
+                            <input type="hidden" name="_csrf_token"
+                                   value="{{ csrf_token('authenticate') }}"
+                            >
 
-                        {#
-                        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                        See https://symfony.com/doc/current/security/remember_me.html
-
-                        <div class="checkbox mb-3">
-                            <input type="checkbox" name="_remember_me" id="_remember_me">
-                            <label for="_remember_me">Remember me</label>
-                        </div>
-                        #}
-
-                        <button type="submit"
-                                class="w-full text-white bg-blue-600 hover:bg-blue-400 rounded-lg px-5 py-2.5 text-center">
-                            Sign in
-                        </button>
-                        <p class="font-light text-gray-400">
-                            Don’t have an account yet
-                            <a href=""
-                               class="font-medium hover:underline text-primary-500">
-                                Sign Up
-                            </a>
-                        </p>
-                    </form>
+                            <button type="submit"
+                                    class="w-full text-white bg-red-500 hover:bg-red-400 rounded-lg px-5 py-2.5 text-center">
+                                Sign in
+                            </button>
+                            <p class="font-light text-gray-400 pt-5">
+                                Don’t have an account yet
+                                <a href="{{ path('app_register') }}"
+                                   class="font-medium hover:underline text-primary-500">
+                                    Sign Up
+                                </a>
+                            </p>
+                        </form>
+                    </div>
                 </div>
             </div>
+            <img class="rounded-2xl h-[80vh] w-full object-cover overflow-hidden hidden lg:flex"
+                 src="{{ asset('images/login.jpg') }}" alt="">
         </div>
+
     </section>
 {% endblock %}
