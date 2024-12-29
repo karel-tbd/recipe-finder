@@ -99,7 +99,7 @@ class RecipeController extends AbstractController
                 $form->get('publish')->setData(true);
             }
         }
-        
+
         if ($form->isSubmitted() && $form->isValid()) {
             $publish = $form->get('publish')->getData();
             $recipe = $form->getData();
@@ -188,7 +188,13 @@ class RecipeController extends AbstractController
 
         $recipes = $recipeRepository->findMeal($meal, $country, $difficulty, $mealType);
         $session = $request->getSession();
-        $session->set('recipes', $recipes);
+        $i = 0;
+        foreach ($recipes as $recipe) {
+            $session->set('recipe' . $i, $recipe->getUuid());
+            $i++;
+        }
+        $session->set('count', $i - 1);
+
         return new JsonResponse([
             'redirectUrl' => $this->generateUrl('recipe_found'),
         ]);
@@ -198,7 +204,13 @@ class RecipeController extends AbstractController
     public function found(Request $request, RecipeRepository $recipeRepository): Response
     {
         $session = $request->getSession();
-        $recipes = $session->get('recipes');
+        $recipes = [];
+        for ($i = 0; $i < $session->get('count'); $i++) {
+            $uuid = $session->get('recipe' . $i);
+            $recipe = $recipeRepository->findOneBy(['uuid' => $uuid]);
+            $recipes[] = $recipe;
+        }
+
         return $this->render('recipe/found.html.twig', [
             'recipes' => $recipes,
         ]);
