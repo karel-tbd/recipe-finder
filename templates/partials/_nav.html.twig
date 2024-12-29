@@ -30,7 +30,7 @@
                             path="{{ path('recipe_add') }}"
                             label="Add own recipies"
                     />
-                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                    {% if is_granted('ROLE_ADMIN') %}
                         <twig:Sidebar:Item
                                 path="{{ path('recipe_manage') }}"
                                 label="Manage recipes"
@@ -93,9 +93,10 @@
                             </div>
                             <ul class="py-1" role="none">
                                 <li>
-                                    <a href=""
+                                    <a href="{{ path('user_edit') }}"
                                        class="block px-4 py-2 hover:bg-gray-50"
-                                       role="menuitem">Edit account</a>
+                                       role="menuitem">Edit account
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="{{ path('app_logout') }}"
