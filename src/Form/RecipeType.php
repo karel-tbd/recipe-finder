@@ -74,18 +74,18 @@ class RecipeType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'rows' => 30,
-                    'placeholder' => 'Step by step instructions for making your dish'
-                ],
-                /*'quill_options' => [
-                    QuillGroup::build(
-                        new HeaderGroupField(),
-                        new BoldField(),
-                        new ItalicField(),
-                        new ListField(),
-                        new UnderlineField(),
-                        new cleanField(),
-                    )
-                ],*/
+                    'placeholder' => 'Step by step instructions on how to make your dish'
+                ]
+                /* 'quill_options' => [
+                     QuillGroup::build(
+                         new HeaderGroupField(),
+                         new BoldField(),
+                         new ItalicField(),
+                         new ListField(),
+                         new UnderlineField(),
+                         new cleanField(),
+                     )
+                 ],*/
             ])
             ->add('image', VichFileType::class, [
                 'label' => 'Recipe image',
@@ -100,6 +100,9 @@ class RecipeType extends AbstractType
                         ],
                         'mimeTypesMessage' => 'Please upload a valid PNG, JPEG or WEBP file',
                     ])
+                ],
+                'attr' => [
+                    'data-controller' => 'quill-extended'
                 ]
             ])
             ->add('time', NumberType::class, [
@@ -126,10 +129,6 @@ class RecipeType extends AbstractType
                     'allow_delete' => true,
                     'by_reference' => false,
                     'error_bubbling' => false,
-                    'constraints' => [
-                        new Count(['min' => 1]),
-                        new NotBlank(['message' => 'Ingredient cannot be blank.']),
-                    ],
                 ]);
         }
     }

@@ -1,5 +1,6 @@
 <div{{ attributes }}>
     <div>
+        {{ form_start(form) }}
         <div class="xl:flex xl:gap-x-5">
             <div class="w-full h-full">
                 {{ form_row(form.image) }}
@@ -25,10 +26,12 @@
                 {% for ingredient in form.recipeIngredients %}
                     <div class="pt-5">
                         {{ form_row(ingredient.ingredient) }}
-                        {{ form_row(ingredient.quantity) }}
-                        {{ form_row(ingredient.unit) }}
+                        <div class="grid grid-cols-2 gap-x-3">
+                            {{ form_row(ingredient.quantity) }}
+                            {{ form_row(ingredient.unit) }}
+                        </div>
                     </div>
-                    <div class="pt-6 md:pb-0">
+                    <div class=" md:pb-0">
                         {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 text-sm py-2 px-4' } }) }}
                     </div>
                 {% endfor %}

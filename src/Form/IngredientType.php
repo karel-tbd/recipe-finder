@@ -23,7 +23,6 @@ class IngredientType extends AbstractType
                 'choice_label' => 'name',
                 'required' => false,
                 'autocomplete' => true,
-                'multiple' => false,
                 'placeholder' => 'Tomatoes',
             ])
             ->add('quantity', TextType::class, [
@@ -46,6 +45,7 @@ class IngredientType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
+            /*'data_class' => null,*/
             'data_class' => RecipeIngredients::class,
         ]);
     }

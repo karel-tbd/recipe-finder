@@ -22,6 +22,7 @@ final class EditRecipe extends AbstractController
     #[LiveProp(fieldName: 'title')]
     public Recipe $recipe;
 
+
     protected function instantiateForm(): FormInterface
     {
         return $this->createForm(RecipeType::class, null, ['edit' => true]);

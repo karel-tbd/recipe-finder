@@ -7,3 +7,10 @@ import 'flatpickr/dist/flatpickr.min.css'
 window.document.addEventListener("turbo:render", (_event) => {
     window.initFlowbite()
 })
+
+if (!window.quillInitialized) {
+    const quill = new Quill('#editor', {
+        theme: 'snow',
+    });
+    window.quillInitialized = true;
+}

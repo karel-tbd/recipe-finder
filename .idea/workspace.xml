@@ -4,22 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="images">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="made it so you can edit ingredients of recipes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers/scroll_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/scroll_controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/beef-and-vegetable-stir-fry-6762e73cc567c529867393.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Recipe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/IngredientType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/IngredientType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/RecipeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecipeType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/AddRecipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/AddRecipe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/AddRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/AddRecipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Link.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Link.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/EditRecipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/EditRecipe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/AddRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/AddRecipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/EditRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/EditRecipe.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Sidebar/Item.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Sidebar/Item.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_sidebar.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recipe/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/recipe_items.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/recipe_items.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +290,7 @@
       <workItem from="1734859957352" duration="11616000" />
       <workItem from="1734882773636" duration="45168000" />
       <workItem from="1735385518319" duration="85000" />
-      <workItem from="1735385632140" duration="14005000" />
+      <workItem from="1735385632140" duration="21859000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -569,7 +572,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735385561777</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="made it so you can edit ingredients of recipes">
+      <option name="closed" value="true" />
+      <created>1735402646477</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1735402646477</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -598,7 +609,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start project from copple days" />
     <MESSAGE value="Gevoelige foto weg" />
     <MESSAGE value="Made registration" />
     <MESSAGE value="Made all igridient is db with foodgroup" />
@@ -623,6 +633,7 @@
     <MESSAGE value="made landing page bigger and better" />
     <MESSAGE value="ongoing infinite scroll" />
     <MESSAGE value="images" />
-    <option name="LAST_COMMIT_MESSAGE" value="images" />
+    <MESSAGE value="made it so you can edit ingredients of recipes" />
+    <option name="LAST_COMMIT_MESSAGE" value="made it so you can edit ingredients of recipes" />
   </component>
 </project>

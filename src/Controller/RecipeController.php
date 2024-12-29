@@ -92,6 +92,14 @@ class RecipeController extends AbstractController
     {
         $form = $this->createForm(RecipeType::class, $recipe, ['edit' => true]);
         $form->handleRequest($request);
+        if (!$form->isSubmitted()) {
+            if ($recipe->getStatus() == Publish::PRIVATE) {
+                $form->get('publish')->setData(false);
+            } else {
+                $form->get('publish')->setData(true);
+            }
+        }
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $publish = $form->get('publish')->getData();
             $recipe = $form->getData();
@@ -114,10 +122,10 @@ class RecipeController extends AbstractController
                     $entityManager->persist($currentIngredient);
                 }
             }
-            
+
             $entityManager->persist($recipe);
             $entityManager->flush();
-            return $this->redirectToRoute('recipe_index');
+            return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
         }
         return $this->render('recipe/edit.html.twig', [
             'form' => $form,
