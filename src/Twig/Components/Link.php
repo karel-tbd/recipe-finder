@@ -30,6 +30,7 @@ final class Link
     {
         return match ($this->variant) {
             'primary' => 'flex items-center py-2 bg-red-500 mt-5 px-4 rounded hover:bg-red-400 font-bold text-white tracking-wider h-fit w-fit',
+            'green' => 'flex items-center py-2 bg-green-500 mt-5 px-4 rounded hover:bg-green-400 font-bold text-white tracking-wider h-fit w-fit',
             'white' => 'flex items-center py-1 border text-center border-secondary mt-5 text-secondary rounded hover:bg-gray-100 font-bold text-base tracking-wider w-fit h-fit',
             default => throw new LogicException(sprintf('Unknown button type "%s"', $this->variant)),
         };
