@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Recipe;
 use App\Enum\MealType;
+use App\Enum\Publish;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
@@ -12,9 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Component\Validator\Constraints\File;
-use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
@@ -22,6 +21,9 @@ class RecipeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        /* @var Recipe $recipe */
+        $recipe = $options['data'];
+
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Recipe name',
@@ -51,15 +53,10 @@ class RecipeType extends AbstractType
                 'label' => false,
                 'entry_type' => IngredientType::class,
                 'entry_options' => ['label' => false],
+                'by_reference' => false,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'by_reference' => false,
                 'error_bubbling' => false,
-                'constraints' => [
-                    new Count(['min' => 1]),
-                    new NotBlank(['message' => 'Ingredient cannot be blank.']),
-                ],
-                'mapped' => false,
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Recipe description',
@@ -116,28 +113,15 @@ class RecipeType extends AbstractType
                 'label' => 'Publish',
                 'required' => false,
                 'mapped' => false,
+                'data' => !($recipe && $recipe->getStatus() == Publish::PRIVATE),
             ]);
 
-        if ($options['edit']) {
-            $builder->remove('recipeIngredients')
-                ->add('recipeIngredients', LiveCollectionType::class, [
-                    'required' => false,
-                    'label' => false,
-                    'entry_type' => IngredientType::class,
-                    'entry_options' => ['label' => false],
-                    'allow_add' => true,
-                    'allow_delete' => true,
-                    'by_reference' => false,
-                    'error_bubbling' => false,
-                ]);
-        }
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Recipe::class,
-            'edit' => null,
         ]);
     }
 }

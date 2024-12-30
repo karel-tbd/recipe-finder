@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Recipe;
-use App\Entity\RecipeIngredients;
 use App\Entity\UserRecipeRating;
 use App\Entity\UserRecipeSaved;
 use App\Enum\Publish;
@@ -12,7 +11,6 @@ use App\Repository\RecipeIngredientsRepository;
 use App\Repository\RecipeRepository;
 use App\Repository\UserRecipeRatingRepository;
 use App\Repository\UserRecipeSavedRepository;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Pontedilana\PhpWeasyPrint\Pdf;
 use Pontedilana\WeasyprintBundle\WeasyPrint\Response\PdfResponse;
@@ -38,19 +36,13 @@ class RecipeController extends AbstractController
     #[Route('/recipe/add', name: 'recipe_add')]
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(RecipeType::class);
+        $recipe = new Recipe();
+        $form = $this->createForm(RecipeType::class, $recipe);
+
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $publish = $form->get('publish')->getData();
-            $recipe = $form->getData();
-            foreach ($form->get('recipeIngredients')->getData() as $data) {
-                $recipeIngredient = new RecipeIngredients();
-                $recipeIngredient->setRecipe($recipe);
-                $recipeIngredient->setIngredient($data->getIngredient());
-                $recipeIngredient->setQuantity($data->getQuantity());
-                $recipeIngredient->setUnit($data->getUnit());
-                $entityManager->persist($recipeIngredient);
-            }
             if ($publish) {
                 $recipe->setStatus(Publish::PENDING);
             } else {
@@ -59,10 +51,13 @@ class RecipeController extends AbstractController
 
             $entityManager->persist($recipe);
             $entityManager->flush();
+
             return $this->redirectToRoute('recipe_index');
         }
+
         return $this->render('recipe/add.html.twig', [
             'form' => $form,
+            'recipe' => $recipe,
         ]);
     }
 
@@ -90,37 +85,15 @@ class RecipeController extends AbstractController
     #[Route('/recipe/edit/{uuid}', name: 'recipe_edit')]
     public function edit(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager, RecipeIngredientsRepository $recipeIngredientsRepository): Response
     {
-        $form = $this->createForm(RecipeType::class, $recipe, ['edit' => true]);
+        $form = $this->createForm(RecipeType::class, $recipe);
+        
         $form->handleRequest($request);
-        if (!$form->isSubmitted()) {
-            if ($recipe->getStatus() == Publish::PRIVATE) {
-                $form->get('publish')->setData(false);
-            } else {
-                $form->get('publish')->setData(true);
-            }
-        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             $publish = $form->get('publish')->getData();
-            $recipe = $form->getData();
+
             if (!$publish) {
                 $recipe->setStatus(Publish::PRIVATE);
-            }
-
-            $prevIngredients = new ArrayCollection($recipeIngredientsRepository->findBy(['recipe' => $recipe]));
-            $currentIngredients = $recipe->getRecipeIngredients();
-
-            foreach ($prevIngredients as $prevIngredient) {
-                if (!$currentIngredients->contains($prevIngredient)) {
-                    $entityManager->remove($prevIngredient);
-                }
-            }
-
-            foreach ($currentIngredients as $currentIngredient) {
-                if (!$prevIngredients->contains($currentIngredient)) {
-                    $currentIngredient->setRecipe($recipe);
-                    $entityManager->persist($currentIngredient);
-                }
             }
 
             $entityManager->persist($recipe);

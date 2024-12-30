@@ -1,4 +1,5 @@
 {% set recipes = this.recipes %}
+{% set i = 0 %}
 <div{{ attributes }}>
     <img src="{{ asset('/images/cta.jpg') }}"
          class="rounded-2xl w-full m-auto h-[50vh] object-cover overflow-hidden xl:mb-10" alt="">
@@ -105,15 +106,77 @@
                     <div class="text-black w-5">{{ ux_icon('trash') }}</div>
                 </button>
             </div>
-            <div id="recipe-container"{# data-controller="scroll" #}>
-                <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5" id="recipeBody">
-                    {{ include('recipe/recipe_items.html.twig') }}
+            <div class="recipeGrid" data-controller="scroll">
+                <div id="results" class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5 ">
+                    {% for recipe in recipes %}
+                        <article
+                                id="recipe--{{ page }}-{{ loop.index }}"
+                                class="recipeGrid_item rounded-2xl shadow"
+                                data-live-ignore
+                        >
+                            <a href="{{ path('recipe_show', {'uuid':recipe.recipe.uuid}) }}"
+                               class="w-full md:w-1/2 m-auto lg:w-full rounded-2xl  h-full">
+                                {% if recipe.recipe.imageName %}
+                                    <img class="w-full h-52 object-cover overflow-hidden rounded-t-xl"
+                                         src="{{ vich_uploader_asset(recipe.recipe, 'image') }}"
+                                         alt="{{ recipe.recipe.name }}">
+                                {% endif %}
+                                <div class="flex w-1/2 gap-x-2 py-2 px-3 m-auto lg:w-full justify-around">
+                                    <div class="flex gap-x-2 whitespace-nowrap">
+                                        <div class="w-4 self-center">{{ ux_icon('clock') }}</div>
+                                        <p>{{ recipe.recipe.time }} min</p>
+                                    </div>
+                                    <div class="flex gap-x-2 whitespace-nowrap">
+                                        <div class="w-4 self-center">{{ ux_icon('star-solid') }}</div>
+                                        <p>{{ recipe.recipe.rating['score'] }}({{ recipe.recipe.rating['count'] }})</p>
+                                    </div>
+                                    <div class="flex gap-x-2 whitespace-nowrap">
+                                        <div class="w-4 self-center">{{ ux_icon('user-group') }}</div>
+                                        <p>{{ recipe.recipe.people }}</p>
+                                    </div>
+
+                                </div>
+                                <h2 class="text-xl w-2/3 font-semibold text-center p-2 py-3 md:w-full m-auto">{{ recipe.recipe.name }}</h2>
+                                <div class="flex gap-x-2 p-2 rounded">
+
+                                </div>
+                            </a>
+                        </article>
+                    {% endfor %}
+
+                    {% if this.hasMore %}
+                        {% for i in 1..per_page %}
+                            <article id="item--{{ page + 1 }}-{{ i }}"
+                                     class="recipeGrid_item"
+                                     style="--i: {{ (page * per_page) + i - 1 }};"
+
+                                    {% if loop.first %}
+                                        data-scroll-target="loader"
+                                        data-action="scroll->live#action"
+                                        data-live-action-param="debounce(200)|more"
+                                    {% endif %}
+                            >
+                                <div class="shadow rounded-md w-full mx-auto">
+                                    <div class="animate-pulse w-full pb-8 ">
+                                        <div class="bg-gray-300 w-full h-52 object-cover overflow-hidden rounded-t-xl"></div>
+                                        <div class="flex w-1/2 gap-x-2 py-2 px-3 m-auto lg:w-full justify-around pt-3">
+                                            <div class="h-2 bg-gray-300 rounded w-1/2"></div>
+                                            <div class="h-2 bg-gray-300 rounded w-1/2"></div>
+                                            <div class="h-2 bg-gray-300 rounded w-1/2"></div>
+                                        </div>
+                                        <div class="h-2 bg-gray-300 rounded w-3/4 m-auto mt-7"></div>
+                                    </div>
+                                </div>
+                            </article>
+                        {% endfor %}
+                    {% endif %}
                 </div>
+                {% if not this.hasMore %}
+                    <div class="flex justify-center w-full py-5">
+                        <h4>No more recipes</h4>
+                    </div>
+                {% endif %}
             </div>
-
-
-            <div id="loading" style="display: none;">Loading more recipes...</div>
-
         </div>
     </div>
     {{ form_end(form) }}

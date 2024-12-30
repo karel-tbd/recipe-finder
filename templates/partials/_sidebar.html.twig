@@ -6,19 +6,19 @@
             <li class="py-4">
                 <twig:Sidebar:Item
                         path="{{ path('recipe_index') }}"
-                        label="Search recepies"
+                        label="Search recipes"
                 />
             </li>
             <li class="py-4">
                 <twig:Sidebar:Item
                         path="{{ path('recipe_saved') }}"
-                        label="My recepies"
+                        label="My recipes"
                 />
             </li>
             <li class="py-4">
                 <twig:Sidebar:Item
                         path="{{ path('recipe_add') }}"
-                        label="Add own recepies"
+                        label="Add own recipes"
                 />
             </li>
             {% if is_granted('ROLE_ADMIN') %}

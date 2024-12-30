@@ -4,9 +4,11 @@
         <div class="xl:flex xl:gap-x-5">
             <div class="w-full h-full">
                 {{ form_row(form.image) }}
-                <img class="object-cover overflow-hidden m-auto h-64 xl:m-0 h-60 rounded-xl"
-                     src="{{ vich_uploader_asset(recipe, 'image') }}"
-                     alt="{{ recipe.name }}">
+                {% if recipe and recipe.image is not empty %}
+                    <img class="object-cover overflow-hidden m-auto h-64 xl:m-0 h-60 rounded-xl"
+                         src="{{ vich_uploader_asset(recipe, 'image') }}"
+                         alt="{{ recipe.name }}">
+                {% endif %}
             </div>
             <div class="w-full">
                 <div>{{ form_row(form.name) }}</div>
