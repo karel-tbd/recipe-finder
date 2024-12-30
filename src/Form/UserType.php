@@ -24,6 +24,7 @@ class UserType extends AbstractType
             ->add('password', PasswordType::class, [
                 'label' => 'Password',
                 'required' => false,
+                'data' => '',
                 'constraints' => [
                     new Length([
                         'min' => 6,
@@ -36,6 +37,7 @@ class UserType extends AbstractType
                     'label' => 'Repeat Password',
                     'required' => false,
                     'mapped' => false,
+                    'data' => '',
                     'constraints' => [
                         new Length([
                             'min' => 6,

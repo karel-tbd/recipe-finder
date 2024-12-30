@@ -19,16 +19,16 @@
             <div class="gap-x-10 hidden lg:flex">
                 <twig:Sidebar:Item
                         path="{{ path('recipe_index') }}"
-                        label="Search recipies"
+                        label="Search recipes"
                 />
                 {% if app.user() %}
                     <twig:Sidebar:Item
                             path="{{ path('recipe_saved') }}"
-                            label="My recipies"
+                            label="My recipes"
                     />
                     <twig:Sidebar:Item
                             path="{{ path('recipe_add') }}"
-                            label="Add own recipies"
+                            label="Add own recipes"
                     />
                     {% if is_granted('ROLE_ADMIN') %}
                         <twig:Sidebar:Item

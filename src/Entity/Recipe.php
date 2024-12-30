@@ -27,8 +27,8 @@ class Recipe
     use BlameableTrait;
 
     #[ORM\Column(length: 255)]
+    #[NotBlank(message: 'This value should not be blank.')]
     private ?string $name = null;
-
 
     #[Vich\UploadableField(mapping: 'recipe_files', fileNameProperty: 'imageName', size: 'imageSize')]
     private ?File $image = null;
@@ -57,7 +57,7 @@ class Recipe
     /**
      * @var Collection<int, RecipeIngredients>
      */
-    #[ORM\OneToMany(targetEntity: RecipeIngredients::class, mappedBy: 'recipe')]
+    #[ORM\OneToMany(targetEntity: RecipeIngredients::class, mappedBy: 'recipe', cascade: ['persist', 'remove'])]
     private Collection $recipeIngredients;
 
     #[ORM\Column]

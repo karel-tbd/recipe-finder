@@ -1,6 +1,7 @@
+/*
 import {Controller} from '@hotwired/stimulus';
 
-/* stimulusFetch: 'lazy' */
+/!* stimulusFetch: 'lazy' *!/
 export default class extends Controller {
     connect() {
         this.page = 2;
@@ -32,5 +33,26 @@ export default class extends Controller {
                     this.loading.style.display = 'none';
                 });
         }
+    }
+}*/
+import {Controller} from '@hotwired/stimulus';
+
+/* stimulusFetch: 'lazy' */
+export default class extends Controller {
+    static targets = ['loader'];
+
+    loaderTargetConnected(element) {
+        this.observer ??= new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.dispatchEvent(new CustomEvent('scroll', {detail: {entry}}));
+                }
+            });
+        });
+        this.observer?.observe(element);
+    }
+
+    loaderTargetDisconnected(element) {
+        this.observer?.unobserve(element);
     }
 }
