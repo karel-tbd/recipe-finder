@@ -1,14 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Password Reset Email Sent{% endblock %}
+{% block title %}Forgot password{% endblock %}
 
 {% block body %}
-    <p>
-        If an account matching your email exists, then an email was just sent that contains a link that you can use to
-        reset your password.
-        This link will expire
-        in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-    </p>
-    <p>If you don't receive an email please check your spam folder or <a
-                href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+    <section>
+        <div class="lg:grid lg:grid-cols-2 gap-x-5">
+            <div class="my-auto shadow p-5">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl mb-5">
+                    Reset your password
+                </h1>
+
+                <p>
+                    If an account matching your email exists, then an email was just sent that contains a link
+                    that you can use to
+                    reset your password.
+                    This link will expire
+                    in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}
+                    .
+                </p>
+                <p class="mt-3">If you don't receive an email please check your spam folder.</p>
+                <twig:Link
+                        href="{{ path('app_forgot_password_request') }}"
+                        label="Try again"
+                        variant="white"/>
+
+            </div>
+            <img class="rounded-2xl h-[80vh] w-full object-cover overflow-hidden hidden lg:flex"
+                 src="{{ asset('images/login.jpg') }}" alt="">
+        </div>
+
+    </section>
 {% endblock %}
