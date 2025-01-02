@@ -9,51 +9,14 @@ export default class extends Controller {
         let desire = document.getElementById('desire');
         let countryBlock = document.getElementById('country');
         let mealTypeBlock = document.getElementById('mealType');
-        let w = window.innerWidth - 300;
-        let h = window.innerHeight - 200;
-        const forbiddenArea = {x1: w / 3, y1: h / 3, x2: (w / 3) * 2, y2: (h / 3) * 2};
-        const placedElements = [];
 
         this.selectedMealType;
         this.selectedCountry;
         this.selectedDifficulty;
         this.selectedMeal;
 
-        const getRandomPosition = () => {
-            let x, y, attempts = 0;
-
-            do {
-                x = Math.floor(Math.random() * w);
-                y = Math.floor(Math.random() * h) + 120;
-
-                if (
-                    x > forbiddenArea.x1 && x < forbiddenArea.x2 &&
-                    y > forbiddenArea.y1 && y < forbiddenArea.y2
-                ) {
-                    continue;
-                }
-
-                const isOverlapping = placedElements.some(el => {
-                    return Math.abs(el.x - x) < 100 && Math.abs(el.y - y) < 100; // 100px marge
-                });
-
-                if (!isOverlapping) {
-                    placedElements.push({x, y});
-                    break;
-                }
-            } while (attempts++ < 100);
-
-            return {x, y};
-        };
-
-        const positionElement = (element) => {
-            const {x, y} = getRandomPosition();
-            element.style.left = x + 'px';
-            element.style.top = y + 'px';
-        };
 
         for (const mealType of this.mealTypeTargets) {
-            positionElement(mealType);
             mealType.addEventListener('click', async (event) => {
                 let currentMealType = event.currentTarget;
                 this.selectedMealType = currentMealType.getAttribute('data-position');
@@ -63,7 +26,6 @@ export default class extends Controller {
         }
 
         for (const meal of this.mealTargets) {
-            positionElement(meal);
             meal.addEventListener('click', async (event) => {
                 let currentMeal = event.currentTarget;
                 this.selectedMeal = currentMeal.getAttribute('data-position');
@@ -73,7 +35,6 @@ export default class extends Controller {
         }
 
         for (const country of this.countryTargets) {
-            positionElement(country);
             country.addEventListener('click', async (event) => {
                 this.selectedCountry = event.currentTarget.getAttribute('data-position');
                 countryBlock.classList.add('hidden');
@@ -82,7 +43,6 @@ export default class extends Controller {
         }
 
         for (const time of this.difficultyTargets) {
-            positionElement(time);
             time.addEventListener('click', async (event) => {
                 this.selectedDifficulty = event.currentTarget.getAttribute('data-position');
                 difficultyBlock.classList.add('hidden');

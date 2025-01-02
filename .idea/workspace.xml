@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="made functionality reset password">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="styling reset password">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ChangePasswordFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ChangePasswordFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ResetPasswordRequestFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ResetPasswordRequestFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/request.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/request.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers/position_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/position_controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +277,7 @@
       <workItem from="1734859957352" duration="11616000" />
       <workItem from="1734882773636" duration="45168000" />
       <workItem from="1735385518319" duration="85000" />
-      <workItem from="1735385632140" duration="72857000" />
+      <workItem from="1735385632140" duration="74910000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -609,7 +607,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735823152844</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="styling reset password">
+      <option name="closed" value="true" />
+      <created>1735824182364</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1735824182364</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +644,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added show function + quil editor" />
     <MESSAGE value="login broke on symfony 7.2, Made it again" />
     <MESSAGE value="Fixed search on multible ingrediants" />
     <MESSAGE value="Made layout recipefinder page and started on show page" />
@@ -663,6 +668,7 @@
     <MESSAGE value="front end clean up + edit user ongoing password bug" />
     <MESSAGE value="fix infinite scroll and add ingredients on edit and add recipes" />
     <MESSAGE value="made functionality reset password" />
-    <option name="LAST_COMMIT_MESSAGE" value="made functionality reset password" />
+    <MESSAGE value="styling reset password" />
+    <option name="LAST_COMMIT_MESSAGE" value="styling reset password" />
   </component>
 </project>
