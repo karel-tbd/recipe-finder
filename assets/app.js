@@ -7,4 +7,3 @@ import 'flatpickr/dist/flatpickr.min.css'
 window.document.addEventListener("turbo:render", (_event) => {
     window.initFlowbite()
 })
-

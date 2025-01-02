@@ -4,11 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="styling reset password">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="fixed layout on landiong page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers/position_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/position_controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/beef-stir-fry-676857baeb3b9234051203.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/beef-stroganoff-6762e61aca5b7909930920.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/chicken-breast-stir-fry-676856b938a85362347577.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/creamy-shrimp-pasta-676855216cdee547637709.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/falafel-wraps-676854066df9e552398350.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/farfalle-with-chicken-and-pesto-6768567604627052001341.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/penne-arrabbiata-6768555d4f027536118348.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/ponzu-tofu-poke-bowl-8733c67-67651d736d14a387574574.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/ravioli-with-butter-sage-sauce-6768560ba56ee104893554.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/roast-chicken-6762e686ac986986410566.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/scampi-diabolique-bonapetit3-6763e11950d5b939417176.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/vegetable-curry-676853c219c52263874706.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/UserRecipeSaved.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/UserRecipeSaved.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/pdf.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/pdf.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +292,7 @@
       <workItem from="1734859957352" duration="11616000" />
       <workItem from="1734882773636" duration="45168000" />
       <workItem from="1735385518319" duration="85000" />
-      <workItem from="1735385632140" duration="74910000" />
+      <workItem from="1735385632140" duration="81527000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -615,7 +630,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735824182364</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="fixed layout on landiong page">
+      <option name="closed" value="true" />
+      <created>1735826248590</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1735826248590</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,7 +667,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="login broke on symfony 7.2, Made it again" />
     <MESSAGE value="Fixed search on multible ingrediants" />
     <MESSAGE value="Made layout recipefinder page and started on show page" />
     <MESSAGE value="layout recipe finder page made" />
@@ -669,6 +691,7 @@
     <MESSAGE value="fix infinite scroll and add ingredients on edit and add recipes" />
     <MESSAGE value="made functionality reset password" />
     <MESSAGE value="styling reset password" />
-    <option name="LAST_COMMIT_MESSAGE" value="styling reset password" />
+    <MESSAGE value="fixed layout on landiong page" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed layout on landiong page" />
   </component>
 </project>
