@@ -47,7 +47,7 @@ final class SearchRecipes extends AbstractController
                 'recipe' => $recipe,
             ];
         }
-
+        
         return $recipeCollection;
     }
 

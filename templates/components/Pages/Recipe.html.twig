@@ -1,6 +1,6 @@
 <div{{ attributes }}>
+    {{ form_start(form) }}
     <div>
-        {{ form_start(form) }}
         <div class="xl:flex xl:gap-x-5">
             <div class="w-full h-full">
                 {{ form_row(form.image) }}
@@ -21,8 +21,9 @@
             </div>
         </div>
         <div class="xl:flex xl:gap-x-5">
-            <div class="w-full">
-                {{ form_row(form.instructions) }}
+
+            <div class="w-full" data-live-ignore>
+                {{ form_row(form.instructions)|raw }}
             </div>
             <div class="w-full">
                 {% for ingredient in form.recipeIngredients %}
@@ -45,7 +46,7 @@
     </div>
     {{ form_row(form.publish) }}
     <twig:Button
-            label="Edit recipe"
+            label="Submit"
             class="mb-10"
     />
 

@@ -16,7 +16,7 @@ class UserRecipeSaved
     #[ORM\ManyToOne(inversedBy: 'userRecipeSaveds')]
     private ?User $user = null;
 
-    #[ORM\ManyToOne(inversedBy: 'userRecipeSaveds')]
+    #[ORM\ManyToOne(targetEntity: Recipe::class, cascade: ['persist', 'remove'], inversedBy: 'userRecipeSaveds')]
     private ?Recipe $recipe = null;
 
     public function getId(): ?int

@@ -5,6 +5,14 @@ namespace App\Form;
 use App\Entity\Recipe;
 use App\Enum\MealType;
 use App\Enum\Publish;
+use Ehyiah\QuillJsBundle\DTO\Fields\BlockField\HeaderGroupField;
+use Ehyiah\QuillJsBundle\DTO\Fields\BlockField\ListField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\BoldField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\CleanField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\ItalicField;
+use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\UnderlineField;
+use Ehyiah\QuillJsBundle\DTO\QuillGroup;
+use Ehyiah\QuillJsBundle\Form\QuillType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
@@ -14,6 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
@@ -23,7 +32,6 @@ class RecipeType extends AbstractType
     {
         /* @var Recipe $recipe */
         $recipe = $options['data'];
-
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Recipe name',
@@ -66,23 +74,29 @@ class RecipeType extends AbstractType
                     'placeholder' => 'Short description of your dish'
                 ],
             ])
-            ->add('instructions', TextareaType::class, [
+            ->add('instructions', QuillType::class, [
                 'label' => 'Recipe Instructions',
                 'required' => false,
-                'attr' => [
-                    'rows' => 30,
-                    'placeholder' => 'Step by step instructions on how to make your dish'
+                'quill_extra_options' => [
+                    'height' => '780px',
+                    'theme' => 'snow',
+                    'placeholder' => 'Step 1. Boil water',
+                ],
+                'quill_options' => [
+                    QuillGroup::build(
+                        new HeaderGroupField(),
+                        new BoldField(),
+                        new ItalicField(),
+                        new ListField(),
+                        new UnderlineField(),
+                        new cleanField(),
+                    )
+                ],
+                'constraints' => [
+                    new NotBlank(
+                        ['message' => 'This value should not be blank.']
+                    ),
                 ]
-                /* 'quill_options' => [
-                     QuillGroup::build(
-                         new HeaderGroupField(),
-                         new BoldField(),
-                         new ItalicField(),
-                         new ListField(),
-                         new UnderlineField(),
-                         new cleanField(),
-                     )
-                 ],*/
             ])
             ->add('image', VichFileType::class, [
                 'label' => 'Recipe image',

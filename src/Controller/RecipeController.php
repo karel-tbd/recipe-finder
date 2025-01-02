@@ -86,7 +86,7 @@ class RecipeController extends AbstractController
     public function edit(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager, RecipeIngredientsRepository $recipeIngredientsRepository): Response
     {
         $form = $this->createForm(RecipeType::class, $recipe);
-        
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
