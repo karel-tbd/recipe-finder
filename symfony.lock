@@ -27,7 +27,7 @@
         ]
     },
     "ehyiah/ux-quill": {
-        "version": "2.0.5"
+        "version": "2.0.6"
     },
     "phpunit/phpunit": {
         "version": "9.6",
@@ -384,6 +384,18 @@
         "files": [
             "config/packages/web_profiler.yaml",
             "config/routes/web_profiler.yaml"
+        ]
+    },
+    "symfonycasts/reset-password-bundle": {
+        "version": "1.23",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "97c1627c0384534997ae1047b93be517ca16de43"
+        },
+        "files": [
+            "config/packages/reset_password.yaml"
         ]
     },
     "symfonycasts/tailwind-bundle": {

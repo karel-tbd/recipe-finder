@@ -8,11 +8,6 @@
     display: none;
 }
 
-ol li {
-    margin-left: 30px;
-    list-style: upper-roman;
-}
-
 .recipe h1 {
     color: red;
     font-weight: 300;
@@ -29,7 +24,12 @@ ol li {
 
 .recipe p {
     padding-top: 20px;
-    margin-left: 30px;
+    margin-left: 15px;
+}
+
+.recipe ol {
+    padding-left: 40px;
+    list-style: lower-alpha;
 }
 
 .recipe hr {

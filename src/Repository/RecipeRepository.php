@@ -44,12 +44,12 @@ class RecipeRepository extends ServiceEntityRepository
                 ->setParameter('status', Publish::PUBLISHED);
         }
 
-
         if (QueryService::isNotEmpty($search, 'name')) {
             $query
                 ->andWhere('r.name LIKE :name')
                 ->setParameter('name', '%' . $search['name'] . '%');
         }
+
         if (QueryService::isNotEmpty($search, 'search')) {
             $ingredients = reset($search['search']);
             $number = count($ingredients);
@@ -161,7 +161,6 @@ class RecipeRepository extends ServiceEntityRepository
                     ->andWhere('r.mealType LIKE :cocktail')
                     ->setParameter('cocktail', '%' . MealType::COCKTAIL->value . '%');
             }
-
             if (QueryService::isNotEmpty($search, 'italian')) {
                 $query
                     ->orWhere('r.country = :italian')
@@ -205,7 +204,7 @@ class RecipeRepository extends ServiceEntityRepository
                 ->getQuery()
                 ->getResult();
         }
-
+    
         return $query
             ->groupBy('r.id')
             ->setMaxResults($limit)
