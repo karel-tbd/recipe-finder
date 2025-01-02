@@ -76,9 +76,8 @@ class RecipeController extends AbstractController
         }
         return $this->render('recipe/show.html.twig', [
             'recipe' => $recipe,
-            'searchIngredients' => $searchIngredients,
-            'recipeSavedByUser' => $recipeSavedByUser,
             'score' => $score,
+            'people' => $recipe->getPeople(),
         ]);
     }
 
@@ -107,9 +106,10 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/recipe/save/{uuid}', name: 'recipe_save')]
-    public function save(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager, UserRecipeSavedRepository $userRecipeSavedRepository, Security $security): Response
+    public function save(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, EntityManagerInterface $entityManager, UserRecipeSavedRepository $userRecipeSavedRepository, Security $security): Response
     {
-        if (!$userRecipeSaved = $userRecipeSavedRepository->findOneBy(['recipe' => $recipe, 'user' => $security->getUser()])) {
+        $userRecipeSaved = $userRecipeSavedRepository->findOneBy(['recipe' => $recipe, 'user' => $security->getUser()]);
+        if (!$userRecipeSaved) {
             $userRecipeSaved = new UserRecipeSaved();
             $userRecipeSaved->setRecipe($recipe);
             $userRecipeSaved->setUser($security->getUser());
@@ -120,6 +120,7 @@ class RecipeController extends AbstractController
             $this->addFlash('error', 'Recipe removed from saved!');
         }
         $entityManager->flush();
+
         return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
     }
 
