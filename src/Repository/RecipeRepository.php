@@ -204,7 +204,7 @@ class RecipeRepository extends ServiceEntityRepository
                 ->getQuery()
                 ->getResult();
         }
-    
+
         return $query
             ->groupBy('r.id')
             ->setMaxResults($limit)
@@ -254,15 +254,15 @@ class RecipeRepository extends ServiceEntityRepository
         }
         if ($difficulty == 'normal') {
             $query
-                ->andWhere('r.time <= :maxTime')
-                ->setParameter('maxTime', 30)
+                ->andWhere('r.time < :maxTime')
+                ->setParameter('maxTime', 45)
                 ->andWhere('r.time > :minTime')
                 ->setParameter('minTime', 15);
         }
         if ($difficulty == 'hard') {
             $query
-                ->andWhere('r.time > :hardTime')
-                ->setParameter('hardTime', 30);
+                ->andWhere('r.time >= :hardTime')
+                ->setParameter('hardTime', 45);
         }
 
         return $query
