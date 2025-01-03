@@ -1,0 +1,99 @@
+<div{{ attributes.defaults({'id': id}) }}>
+    {{ form_start(form) }}
+    {% if step == 1 %}
+        <div class="flex justify-around w-full">
+            <div class="">
+                <div class="rounded-full w-6 h-6 bg-red-500 flex justify-center items-center">
+                    <div class="w-4 h-4 rounded-full text-white shrink-0">{{ ux_icon('check-solid') }}</div>
+                </div>
+                step 1
+            </div>
+            <div class="">
+                <div class="rounded-full w-6 h-6 bg-gray-100 flex justify-center items-center">
+                    <div class="w-4 h-4 rounded-full text-gray-800 shrink-0">{{ ux_icon('check-solid') }}</div>
+                </div>
+                step 2
+            </div>
+            <div class="">
+                <div class="rounded-full w-6 h-6 bg-gray-100 flex justify-center items-center">
+                    <div class="w-4 h-4 rounded-full text-gray-800 shrink-0">{{ ux_icon('check-solid') }}</div>
+                </div>
+                step 3
+            </div>
+        </div>
+
+        <div>
+            <div data-live-ignore> {{ form_row(form.image) }}</div>
+            <div>{{ form_row(form.description) }}</div>
+
+            <div class="w-full">
+                <div>{{ form_row(form.name) }}</div>
+                <div>{{ form_row(form.mealType) }}</div>
+                <div class="flex gap-x-5 w-full">
+                    <div class="w-full">{{ form_row(form.time) }}</div>
+                    <div class="w-full">{{ form_row(form.people) }}</div>
+                </div>
+            </div>
+        </div>
+        <twig:Button
+                data-action="click->live#action"
+                data-live-action-param="next"
+                label="Go to next step"
+                type="button"
+                class="text-sm font-normal"/>
+    {% endif %}
+
+    {% if step == 2 %}
+        <div class="w-full">
+            {% for ingredient in form.recipeIngredients %}
+                <div class="pt-5 xl:flex gap-x-3">
+                    <div class="flex-grow">
+                        {{ form_row(ingredient.ingredient) }}
+                    </div>
+                    <div class="grid grid-cols-2 gap-x-3">
+                        <div class="">{{ form_row(ingredient.quantity) }}</div>
+                        {{ form_row(ingredient.unit) }}
+                    </div>
+                    <div class=" md:pb-0 xl:mt-6">
+                        {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 text-sm py-2 px-4' } }) }}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="pb-5">
+                {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {type: 'button', class: 'bg-red-500 text-white rounded py-2 mt-6 px-4 text-sm'}}) }}
+            </div>
+        </div>
+        <twig:Button
+                data-action="click->live#action"
+                data-live-action-param="prev"
+                type="button"
+                label="Go to previous step"
+                class="text-sm font-normal"
+                variant="white"/>
+
+        <twig:Button
+                data-action="click->live#action"
+                data-live-action-param="next"
+                label="Go to next step"
+                type="button"
+                class="text-sm font-normal"/>
+    {% endif %}
+
+    {% if step == 3 %}
+        <div class="w-full" id="addInstruction" data-live-ignore>
+            {{ form_row(form.instructions)|raw }}
+            {{ form_row(form.publish) }}
+            <twig:Button
+                    data-action="click->live#action"
+                    data-live-action-param="prev"
+                    label="Go to previous step"
+                    class="text-sm font-normal"
+                    variant="white"/>
+            <twig:Button
+                    label="Submit"
+                    class="mb-10"
+            />
+        </div>
+    {% endif %}
+    {{ form_end(form) }}
+</div>

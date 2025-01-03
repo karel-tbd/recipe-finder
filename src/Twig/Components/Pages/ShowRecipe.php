@@ -3,6 +3,7 @@
 namespace App\Twig\Components\Pages;
 
 use App\Entity\Recipe;
+use App\Entity\UserRecipeSaved;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveArg;
@@ -22,7 +23,10 @@ final class ShowRecipe
     public int $people;
 
     #[LiveProp]
-    public int $score;
+    public ?UserRecipeSaved $recipeSavedByUser;
+
+    #[LiveProp]
+    public ?int $score;
 
     #[PostMount]
     public function postMount(): void

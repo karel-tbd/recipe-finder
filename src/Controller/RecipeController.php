@@ -6,6 +6,7 @@ use App\Entity\Recipe;
 use App\Entity\UserRecipeRating;
 use App\Entity\UserRecipeSaved;
 use App\Enum\Publish;
+use App\Form\RecipeAddType;
 use App\Form\RecipeType;
 use App\Repository\RecipeIngredientsRepository;
 use App\Repository\RecipeRepository;
@@ -37,16 +38,18 @@ class RecipeController extends AbstractController
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
         $recipe = new Recipe();
-        $form = $this->createForm(RecipeType::class, $recipe);
-
+        $form = $this->createForm(RecipeAddType::class, $recipe);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $publish = $form->get('publish')->getData();
-            if ($publish) {
-                $recipe->setStatus(Publish::PENDING);
-            } else {
-                $recipe->setStatus(Publish::PRIVATE);
+            try {
+                $publish = $form->get('publish')->getData();
+                if ($publish) {
+                    $recipe->setStatus(Publish::PENDING);
+                } else {
+                    $recipe->setStatus(Publish::PRIVATE);
+                }
+            } catch (\Exception $e) {
             }
 
             $entityManager->persist($recipe);
@@ -62,13 +65,8 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/recipe/show/{uuid}', name: 'recipe_show')]
-    public function show(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager, UserRecipeRatingRepository $userRecipeRatingRepository, UserRecipeSavedRepository $userRecipeSavedRepository): Response
+    public function show(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, UserRecipeRatingRepository $userRecipeRatingRepository, UserRecipeSavedRepository $userRecipeSavedRepository): Response
     {
-        $session = $request->getSession();
-        $searchIngredients = null;
-        if (isset($session->get('ingredient_search')['search'])) {
-            $searchIngredients = $session->get('ingredient_search')['search'];
-        }
         $recipeSavedByUser = $userRecipeSavedRepository->findOneBy(['recipe' => $recipe, 'user' => $this->getUser()]);
         $score = $userRecipeRatingRepository->findOneBy(['recipe' => $recipe, 'user' => $this->getUser()]);
         if (!empty($score)) {
@@ -77,7 +75,7 @@ class RecipeController extends AbstractController
         return $this->render('recipe/show.html.twig', [
             'recipe' => $recipe,
             'score' => $score,
-            'people' => $recipe->getPeople(),
+            'recipeSavedByUser' => $recipeSavedByUser,
         ]);
     }
 

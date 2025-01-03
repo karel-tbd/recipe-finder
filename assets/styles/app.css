@@ -9,22 +9,38 @@
 }
 
 .recipe h1 {
+    padding-top: 20px;
     color: red;
-    font-weight: 300;
+    font-size: large;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    width: fit-content;
+    background-color: white;
+    padding-right: 10px;
 }
 
 .recipe h2 {
+    padding-top: 20px;
     color: red;
     font-size: large;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
 }
 
 .recipe h3 {
+    padding-top: 20px;
     color: red;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
 }
 
 .recipe p {
     padding-top: 20px;
     margin-left: 15px;
+}
+
+.vich-file a {
+    display: none;
 }
 
 .recipe ol {
@@ -33,9 +49,11 @@
 }
 
 .recipe hr {
-    width: 90%;
+    width: 100%;
     justify-self: end;
-    margin-top: -13px
+    margin-top: -13px;
+    position: absolute;
+    z-index: -1;
 }
 
 
@@ -72,4 +90,14 @@
     color: #721c24;
     border: 1px solid #f5c6cb;
     width: fit-content;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (min-width: 1000px) {
+    .recipe hr {
+        width: 40%;
+    }
 }

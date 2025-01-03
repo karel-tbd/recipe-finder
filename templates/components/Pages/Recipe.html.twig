@@ -4,51 +4,52 @@
         <div class="xl:flex xl:gap-x-5">
             <div class="w-full h-full">
                 {{ form_row(form.image) }}
-                {% if recipe and recipe.image is not empty %}
-                    <img class="object-cover overflow-hidden m-auto h-64 xl:m-0 h-60 rounded-xl"
-                         src="{{ vich_uploader_asset(recipe, 'image') }}"
-                         alt="{{ recipe.name }}">
-                {% endif %}
+                <div>{{ form_row(form.description) }}</div>
             </div>
             <div class="w-full">
                 <div>{{ form_row(form.name) }}</div>
                 <div>{{ form_row(form.mealType) }}</div>
-                <div>{{ form_row(form.description) }}</div>
+
                 <div class="flex gap-x-5 w-full">
                     <div class="w-full">{{ form_row(form.time) }}</div>
                     <div class="w-full">{{ form_row(form.people) }}</div>
                 </div>
             </div>
         </div>
-        <div class="xl:flex xl:gap-x-5">
 
-            <div class="w-full" data-live-ignore>
-                {{ form_row(form.instructions)|raw }}
-            </div>
+        <div class="">
             <div class="w-full">
                 {% for ingredient in form.recipeIngredients %}
-                    <div class="pt-5">
-                        {{ form_row(ingredient.ingredient) }}
+                    <div class="pt-5 xl:flex gap-x-3">
+                        <div class="flex-grow">
+                            {{ form_row(ingredient.ingredient) }}
+                        </div>
                         <div class="grid grid-cols-2 gap-x-3">
-                            {{ form_row(ingredient.quantity) }}
+                            <div class="">{{ form_row(ingredient.quantity) }}</div>
                             {{ form_row(ingredient.unit) }}
                         </div>
+                        <div class=" md:pb-0 xl:mt-6">
+                            {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 text-sm py-2 px-4' } }) }}
+                        </div>
                     </div>
-                    <div class=" md:pb-0">
-                        {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 text-sm py-2 px-4' } }) }}
-                    </div>
+
                 {% endfor %}
                 <div class="pb-5">
                     {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-6 px-4 text-sm'}}) }}
                 </div>
+
             </div>
+            <div class="w-full" data-live-ignore>
+                {{ form_row(form.instructions)|raw }}
+                {{ form_row(form.publish) }}
+                <twig:Button
+                        label="Submit"
+                        class="mb-10"
+                />
+            </div>
+
         </div>
     </div>
-    {{ form_row(form.publish) }}
-    <twig:Button
-            label="Submit"
-            class="mb-10"
-    />
 
     {{ form_end(form) }}
 </div>

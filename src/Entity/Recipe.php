@@ -50,8 +50,7 @@ class Recipe
     #[NotBlank(message: 'This value should not be blank.')]
     private ?float $time = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    #[NotBlank(message: 'This value should not be blank.')]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $instructions = null;
 
     /**

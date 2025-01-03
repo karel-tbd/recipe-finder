@@ -24,13 +24,12 @@
 
                 <div class="text-center cursor-pointer" id="dropdownDefaultButton"
                      data-dropdown-toggle="peopleDropdown">
-                    <div class="w-8 m-auto  text-gray-500">{{ ux_icon('user-group') }}</div>
+                    <div class="w-8 m-auto text-gray-500">{{ ux_icon('user-group') }}</div>
                     <p class="py-2 font-semibold text-lg">Yield</p>
                     <p>Serves <span id="peopleDisplay">{{ people }}</span></p>
                 </div>
 
                 <div id="peopleDropdown"
-                     data-controller="recipe-people"
                      class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-20">
                     <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
                         <li>
@@ -67,13 +66,13 @@
                 </p>
                 <div class="flex gap-x-5">
                     {% if app.user %}
-                        {# {% if recipe.userRecipeSaveds == null %}
+                        {% if recipeSavedByUser == null %}
                             <a href="{{ path('recipe_save', {'uuid':recipe.uuid}) }}" title="Save recipe"
                                class="w-4 text-gray-500 hover:text-red-500">{{ ux_icon('bookmark-regular') }}</a>
                         {% else %}
                             <a href="{{ path('recipe_save', {'uuid':recipe.uuid}) }}" title="Save recipe"
                                class="w-4 text-red-500 hover:text-red-400">{{ ux_icon('bookmark') }}</a>
-                        {% endif %} #}
+                        {% endif %}
                     {% endif %}
                     <a href="{{ path('recipe_pdf', {'uuid':recipe.uuid}) }}" title="pdf"
                        class="w-5  text-gray-500 hover:text-red-500">{{ ux_icon('print') }}</a>
@@ -89,7 +88,7 @@
                     class="font-semibold mb-5 "
                     label="How to make it"/>
             <div class="recipe">
-                {{ recipe.instructions|replace({'</h2>' : '</h2> <hr>', '<h2>': '<h2 class="uppercase tracking-wide	">'})|raw }}
+                {{ recipe.instructions|replace({'</h1>' : '</h1> <hr>'})|raw }}
             </div>
             {% if current_user() == recipe.createdBy or is_granted('ROLE_ADMIN') %}
                 <div class="hidden lg:flex gap-x-3">
