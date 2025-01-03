@@ -78,7 +78,7 @@ class RecipeType extends AbstractType
                 'label' => 'Recipe Instructions',
                 'required' => false,
                 'quill_extra_options' => [
-                    'height' => '780px',
+                    'height' => '600px',
                     'theme' => 'snow',
                     'placeholder' => 'Step 1. Boil water',
                 ],
@@ -112,9 +112,6 @@ class RecipeType extends AbstractType
                         'mimeTypesMessage' => 'Please upload a valid PNG, JPEG or WEBP file',
                     ])
                 ],
-                'attr' => [
-                    'data-controller' => 'quill-extended'
-                ]
             ])
             ->add('time', NumberType::class, [
                 'label' => 'Cooking time (in minutes)',

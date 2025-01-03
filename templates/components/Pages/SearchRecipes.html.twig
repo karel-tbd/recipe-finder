@@ -87,6 +87,8 @@
                 </twig:Accordion:Item>
             </twig:Accordion>
         </div>
+
+
         <div class="lg:w-3/4">
             <div class="flex items-center gap-x-5">
                 <div class="flex-1" data-controller="prevent-enter">
@@ -171,8 +173,12 @@
                     {% endif %}
                 </div>
                 {% if not this.hasMore %}
-                    <div class="flex justify-center w-full py-5">
-                        <h4>No more recipes</h4>
+                    <div class="flex flex-row justify-center w-full py-5">
+                        <twig:Button
+                                label="Go to top"
+                                onclick="topFunction()"
+                                variant="white"
+                        />
                     </div>
                 {% endif %}
             </div>
