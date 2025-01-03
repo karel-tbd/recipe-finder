@@ -1,5 +1,6 @@
 <div{{ attributes.defaults({'id': id}) }}>
     {{ form_start(form) }}
+    {{ dump(step) }}
     {% if step == 1 %}
         <div class="flex justify-around w-full">
             <div class="">
@@ -80,20 +81,20 @@
     {% endif %}
 
     {% if step == 3 %}
-        <div class="w-full" id="addInstruction" data-live-ignore>
+        <div class="w-full" data-live-ignore>
             {{ form_row(form.instructions)|raw }}
-            {{ form_row(form.publish) }}
-            <twig:Button
-                    data-action="click->live#action"
-                    data-live-action-param="prev"
-                    label="Go to previous step"
-                    class="text-sm font-normal"
-                    variant="white"/>
-            <twig:Button
-                    label="Submit"
-                    class="mb-10"
-            />
         </div>
+        {{ form_row(form.publish) }}
+        <twig:Button
+                data-action="click->live#action"
+                data-live-action-param="prev"
+                label="Go to previous step"
+                class="text-sm font-normal"
+                variant="white"/>
+        <twig:Button
+                label="Submit"
+                class="mb-10"
+        />
     {% endif %}
     {{ form_end(form) }}
 </div>
