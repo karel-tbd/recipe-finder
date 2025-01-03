@@ -25,8 +25,8 @@ final class RecipeAddForm extends AbstractController
     #[LiveProp(fieldName: 'formData')]
     public ?RecipeEntity $recipe = null;
 
-    #[LiveProp(writable: true)]
-    public int $step = 1;
+    #[LiveProp]
+    public int $step;
 
     #[LiveAction]
     public function next(): void

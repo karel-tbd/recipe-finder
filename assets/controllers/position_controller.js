@@ -57,7 +57,6 @@ export default class extends Controller {
                         country: this.selectedCountry,
                         difficulty: this.selectedDifficulty,
                         mealType: this.selectedMealType
-
                     }),
                 }).then(async (response) => {
                     if (!response.ok) {
