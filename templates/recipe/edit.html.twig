@@ -4,6 +4,6 @@
 
 {% block body %}
     <twig:Title
-            label="Edit recipe"/>
+            label="Edit '{{ recipe.name }}'"/>
     <twig:Pages:Recipe form="{{ form }}" recipe="{{ recipe }}"/>
 {% endblock %}

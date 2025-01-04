@@ -74,7 +74,7 @@ class RecipeType extends AbstractType
                 ],
             ])
             ->add('instructions', QuillType::class, [
-                'label' => 'Recipe Instructions',
+                'label' => false,
                 'required' => false,
                 'quill_extra_options' => [
                     'height' => '600px',

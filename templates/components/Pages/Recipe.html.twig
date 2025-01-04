@@ -1,8 +1,12 @@
 <div{{ attributes }}>
     {{ form_start(form) }}
-    <div>
-        <div class="xl:flex xl:gap-x-5">
-            <div class="w-full h-full">
+    <div class="xl:flex xl:gap-x-5">
+        <div class="w-full">
+            <twig:Subtitle
+                    tag="h3"
+                    label="General information"
+                    class="pb-5"/>
+            <div class="w-full">
                 {{ form_row(form.image) }}
                 <div>{{ form_row(form.description) }}</div>
             </div>
@@ -16,40 +20,57 @@
                 </div>
             </div>
         </div>
-        
-        <div class="">
-            <div class="w-full">
-                {% for ingredient in form.recipeIngredients %}
-                    <div class="pt-5 xl:flex gap-x-3">
-                        <div class="flex-grow">
-                            {{ form_row(ingredient.ingredient) }}
-                        </div>
-                        <div class="grid grid-cols-2 gap-x-3">
-                            <div class="">{{ form_row(ingredient.quantity) }}</div>
-                            {{ form_row(ingredient.unit) }}
-                        </div>
-                        <div class=" md:pb-0 xl:mt-6">
-                            {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 text-sm py-2 px-4' } }) }}
-                        </div>
+        <img class="rounded-2xl h-[50vh] w-full object-cover overflow-hidden hidden xl:flex mt-16"
+             src="{{ asset('images/pexels-dapur-melodi-192125-1109197.jpg') }}" alt="">
+    </div>
+
+    <div class="xl:flex xl:gap-x-5 xl:pt-10">
+        <img class="rounded-2xl h-full w-full object-cover overflow-hidden hidden xl:flex mt-10"
+             src="{{ asset('images/pexels-vanmalidate-784633.jpg') }}" alt="">
+        <div class="w-full">
+            <twig:Subtitle
+                    tag="h3"
+                    label="Ingredient information"/>
+
+            {% for ingredient in form.recipeIngredients %}
+                <div class="pt-5 xl:flex gap-x-3">
+                    <div class="flex-grow">
+                        {{ form_row(ingredient.ingredient) }}
                     </div>
-
-                {% endfor %}
-                <div class="pb-5">
-                    {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-6 px-4 text-sm'}}) }}
+                    <div class="grid grid-cols-2 gap-x-3">
+                        <div class="">{{ form_row(ingredient.quantity) }}</div>
+                        {{ form_row(ingredient.unit) }}
+                    </div>
                 </div>
+                <div class=" md:pb-0">
+                    {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 text-sm py-2 px-4' } }) }}
+                </div>
+            {% endfor %}
 
+            <div class="pb-5">
+                {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-6 px-4 text-sm'}}) }}
             </div>
-            <div class="w-full" data-live-ignore>
-                {{ form_row(form.instructions)|raw }}
-                {{ form_row(form.publish) }}
-                <twig:Button
-                        label="Submit"
-                        class="mb-10"
-                />
-            </div>
-
         </div>
+    </div>
+
+    <div class="xl:flex xl:gap-x-5">
+        <div class="w-full" data-live-ignore>
+            <twig:Subtitle
+                    tag="h3"
+                    label="Recipe instruction"
+                    class="pt-10"/>
+            {{ form_row(form.instructions)|raw }}
+            {{ form_row(form.publish) }}
+            <twig:Button
+                    label="Submit"
+                    class="mb-10"
+            />
+        </div>
+        <img class="rounded-2xl h-[73vh] w-full object-cover overflow-hidden hidden xl:flex mt-16"
+             src="{{ asset('images/pexels-willpicturethis-2641886.jpg') }}" alt="">
     </div>
 
     {{ form_end(form) }}
 </div>
+
+

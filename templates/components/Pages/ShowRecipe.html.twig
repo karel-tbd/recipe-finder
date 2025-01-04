@@ -23,43 +23,49 @@
                 </div>
 
                 <div class="text-center cursor-pointer hover:text-red-500 text-gray-700" id="dropdownDefaultButton"
-                     data-dropdown-toggle="peopleDropdown" data-controller="dropdown">
+                     data-dropdown-toggle="peopleDropdown">
                     <div class="w-8 m-auto">{{ ux_icon('user-group') }}</div>
                     <p class="py-2 font-semibold text-lg">Yield</p>
                     <p>Serves <span id="peopleDisplay">{{ people }}</span></p>
                 </div>
 
                 <div id="peopleDropdown"
+                     data-controller="dropdown"
                      class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-20">
                     <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
                         <li>
                             <span data-action="click->live#action"
                                   data-live-action-param="updatePeople"
                                   data-live-people-param="2"
+                                  data-dropdown-target="item"
                                   class="block px-4 py-2 hover:bg-gray-100 text-center">2</span>
                         </li>
                         <li>
                             <span data-action="click->live#action"
                                   data-live-action-param="updatePeople"
                                   data-live-people-param="4"
+                                  data-dropdown-target="item"
                                   class="block px-4 py-2 hover:bg-gray-100 text-center">4</span>
                         </li>
                         <li>
                             <span data-action="click->live#action"
                                   data-live-action-param="updatePeople"
                                   data-live-people-param="6"
+                                  data-dropdown-target="item"
                                   class="block px-4 py-2 hover:bg-gray-100 text-center">6</span>
                         </li>
                         <li>
                             <span data-action="click->live#action"
                                   data-live-action-param="updatePeople"
                                   data-live-people-param="8"
+                                  data-dropdown-target="item"
                                   class="block px-4 py-2 hover:bg-gray-100 text-center">8</span>
                         </li>
                         <li>
                             <span data-action="click->live#action"
                                   data-live-action-param="updatePeople"
                                   data-live-people-param="10"
+                                  data-dropdown-target="item"
                                   class="block px-4 py-2 hover:bg-gray-100 text-center">10</span>
                         </li>
                     </ul>

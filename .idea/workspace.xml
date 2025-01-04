@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="finalising front end + add recipe update + start front end edit recipe">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="changed layout edit recipes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/RecipeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecipeType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recipe/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/edit.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -281,15 +282,7 @@
       <workItem from="1735385518319" duration="85000" />
       <workItem from="1735385632140" duration="103336000" />
       <workItem from="1735987778937" duration="809000" />
-      <workItem from="1735988757249" duration="18698000" />
-    </task>
-    <task id="LOCAL-00002" summary="installation packages">
-      <option name="closed" value="true" />
-      <created>1733247471215</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1733247471215</updated>
+      <workItem from="1735988757249" duration="19627000" />
     </task>
     <task id="LOCAL-00003" summary="installation packages">
       <option name="closed" value="true" />
@@ -675,7 +668,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736008376674</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="changed layout edit recipes">
+      <option name="closed" value="true" />
+      <created>1736010034808</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1736010034808</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +705,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="made search live and added dish type in search" />
     <MESSAGE value="Made side filters work" />
     <MESSAGE value="ongoing landig page" />
     <MESSAGE value="made carousel for found recipes" />
@@ -729,6 +729,7 @@
     <MESSAGE value="made recipe filter on mobile" />
     <MESSAGE value="added security messages on site" />
     <MESSAGE value="finalising front end + add recipe update + start front end edit recipe" />
-    <option name="LAST_COMMIT_MESSAGE" value="finalising front end + add recipe update + start front end edit recipe" />
+    <MESSAGE value="changed layout edit recipes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed layout edit recipes" />
   </component>
 </project>

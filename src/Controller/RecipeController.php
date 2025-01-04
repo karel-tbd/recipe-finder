@@ -85,6 +85,9 @@ class RecipeController extends AbstractController
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
+                if (!$security->isGranted('ROLE_ADMIN')) {
+                    $recipe->setStatus(Publish::PENDING);
+                }
                 $entityManager->persist($recipe);
                 $entityManager->flush();
                 return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
