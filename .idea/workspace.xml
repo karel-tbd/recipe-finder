@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="changed layout edit recipes">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="show recipe changes on dropdown">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RecipeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecipeType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,15 +278,7 @@
       <workItem from="1735385518319" duration="85000" />
       <workItem from="1735385632140" duration="103336000" />
       <workItem from="1735987778937" duration="809000" />
-      <workItem from="1735988757249" duration="19627000" />
-    </task>
-    <task id="LOCAL-00003" summary="installation packages">
-      <option name="closed" value="true" />
-      <created>1733249418510</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1733249418510</updated>
+      <workItem from="1735988757249" duration="20565000" />
     </task>
     <task id="LOCAL-00004" summary="Start project from copple days">
       <option name="closed" value="true" />
@@ -676,7 +664,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736010034808</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="show recipe changes on dropdown">
+      <option name="closed" value="true" />
+      <created>1736010980783</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1736010980783</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -705,7 +701,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Made side filters work" />
     <MESSAGE value="ongoing landig page" />
     <MESSAGE value="made carousel for found recipes" />
     <MESSAGE value="styled carousel" />
@@ -730,6 +725,7 @@
     <MESSAGE value="added security messages on site" />
     <MESSAGE value="finalising front end + add recipe update + start front end edit recipe" />
     <MESSAGE value="changed layout edit recipes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed layout edit recipes" />
+    <MESSAGE value="show recipe changes on dropdown" />
+    <option name="LAST_COMMIT_MESSAGE" value="show recipe changes on dropdown" />
   </component>
 </project>

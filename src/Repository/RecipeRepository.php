@@ -163,39 +163,40 @@ use Symfony\Bundle\SecurityBundle\Security;
                     ->andWhere('r.mealType LIKE :cocktail')
                     ->setParameter('cocktail', '%' . MealType::COCKTAIL->value . '%');
             }
+
             if (QueryService::isNotEmpty($search, 'italian')) {
                 $query
-                    ->orWhere('r.country = :italian')
+                    ->andWhere('r.country = :italian')
                     ->setParameter('italian', MealCountry::ITALIAN->value);
             }
             if (QueryService::isNotEmpty($search, 'mexican')) {
                 $query
-                    ->orWhere('r.country = :mexican')
+                    ->andWhere('r.country = :mexican')
                     ->setParameter('mexican', MealCountry::MEXICAN->value);
             }
             if (QueryService::isNotEmpty($search, 'greek')) {
                 $query
-                    ->orWhere('r.country = :greek')
+                    ->andWhere('r.country = :greek')
                     ->setParameter('greek', MealCountry::GREEK->value);
             }
             if (QueryService::isNotEmpty($search, 'chinese')) {
                 $query
-                    ->orWhere('r.country = :chinese')
+                    ->andWhere('r.country = :chinese')
                     ->setParameter('chinese', MealCountry::CHINESE->value);
             }
             if (QueryService::isNotEmpty($search, 'japanese')) {
                 $query
-                    ->orWhere('r.country = :japanese')
+                    ->andWhere('r.country = :japanese')
                     ->setParameter('japanese', MealCountry::JAPANESE->value);
             }
             if (QueryService::isNotEmpty($search, 'french')) {
                 $query
-                    ->orWhere('r.country = :french')
+                    ->andWhere('r.country = :french')
                     ->setParameter('french', MealCountry::FRENCH->value);
             }
             if (QueryService::isNotEmpty($search, 'american')) {
                 $query
-                    ->orWhere('r.country = :american')
+                    ->andWhere('r.country = :american')
                     ->setParameter('american', MealCountry::AMERICAN->value);
             }
         }
