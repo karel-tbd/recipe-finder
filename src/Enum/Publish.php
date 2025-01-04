@@ -9,7 +9,6 @@ enum Publish: string implements TranslatableInterface
 {
     use TranslatableTrait;
 
-    case PRIVATE = 'private';
     case PENDING = 'pending';
-    case PUBLISHED = 'published';
+    case ACCEPTED = 'accepted';
 }

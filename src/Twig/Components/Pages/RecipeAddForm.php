@@ -32,9 +32,7 @@ final class RecipeAddForm extends AbstractController
     public function next(): void
     {
         $this->submitForm();
-
         $values = $this->formValues;
-
         unset($values['_token']);
 
         $this->emit('next', [

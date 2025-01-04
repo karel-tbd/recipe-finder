@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\Recipe;
 use App\Enum\MealType;
-use App\Enum\Publish;
 use Ehyiah\QuillJsBundle\DTO\Fields\BlockField\HeaderGroupField;
 use Ehyiah\QuillJsBundle\DTO\Fields\BlockField\ListField;
 use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\BoldField;
@@ -123,8 +122,6 @@ class RecipeType extends AbstractType
             ->add('publish', CheckboxType::class, [
                 'label' => 'Publish',
                 'required' => false,
-                'mapped' => false,
-                'data' => !($recipe && $recipe->getStatus() == Publish::PRIVATE),
             ]);
 
     }

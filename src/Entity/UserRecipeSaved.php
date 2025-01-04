@@ -17,6 +17,7 @@ class UserRecipeSaved
     private ?User $user = null;
 
     #[ORM\ManyToOne(targetEntity: Recipe::class, inversedBy: 'userRecipeSaveds')]
+    #[ORM\JoinColumn(name: 'recipe_id', referencedColumnName: "id", onDelete: "CASCADE")]
     private ?Recipe $recipe = null;
 
     public function getId(): ?int

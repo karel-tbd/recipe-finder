@@ -31,6 +31,10 @@ final class RecipeAdd extends AbstractController
     {
         $this->recipeValues = array_merge($this->recipeValues, $values);
         $this->step++;
+
+        if ($this->step == 4) {
+            dd($this->recipeValues);
+        }
     }
 
     #[LiveListener('prev')]

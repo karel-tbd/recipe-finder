@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\Recipe;
 use App\Enum\MealType;
-use App\Enum\Publish;
 use Ehyiah\QuillJsBundle\DTO\Fields\BlockField\HeaderGroupField;
 use Ehyiah\QuillJsBundle\DTO\Fields\BlockField\ListField;
 use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\BoldField;
@@ -30,9 +29,6 @@ class RecipeAddType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        /* @var Recipe $recipe */
-        $recipe = $options['data'];
-
         if ($options['step'] === 1) {
             $builder
                 ->add('name', TextType::class, [
@@ -133,8 +129,6 @@ class RecipeAddType extends AbstractType
                 ->add('publish', CheckboxType::class, [
                     'label' => 'Publish',
                     'required' => false,
-                    'mapped' => false,
-                    'data' => !($recipe && $recipe->getStatus() == Publish::PRIVATE),
                 ]);
         }
     }

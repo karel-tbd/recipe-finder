@@ -70,7 +70,7 @@ class Recipe
     /**
      * @var Collection<int, UserRecipeSaved>
      */
-    #[ORM\OneToMany(targetEntity: UserRecipeSaved::class, mappedBy: 'recipe')]
+    #[ORM\OneToMany(targetEntity: UserRecipeSaved::class, mappedBy: 'recipe', cascade: ['remove'])]
     private Collection $userRecipeSaveds;
 
     /**
@@ -84,6 +84,9 @@ class Recipe
 
     #[ORM\Column(enumType: Publish::class)]
     private ?Publish $status = null;
+
+    #[ORM\Column]
+    private ?bool $publish = null;
 
     public function __construct()
     {
@@ -275,7 +278,7 @@ class Recipe
             $totalScore = $totalScore / $count;
         }
         return [
-            'score' => $totalScore,
+            'score' => round($totalScore, 1),
             'count' => $count,
         ];
     }
@@ -330,6 +333,18 @@ class Recipe
     public function setStatus(Publish $status): static
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function isPublish(): ?bool
+    {
+        return $this->publish;
+    }
+
+    public function setPublish(bool $publish): static
+    {
+        $this->publish = $publish;
 
         return $this;
     }

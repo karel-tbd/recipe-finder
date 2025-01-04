@@ -42,16 +42,7 @@ class RecipeController extends AbstractController
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
-                try {
-                    $publish = $form->get('publish')->getData();
-                    if ($publish) {
-                        $recipe->setStatus(Publish::PENDING);
-                    } else {
-                        $recipe->setStatus(Publish::PRIVATE);
-                    }
-                } catch (\Exception $e) {
-                }
-
+                $recipe->setStatus(Publish::PENDING);
                 $entityManager->persist($recipe);
                 $entityManager->flush();
 
@@ -85,28 +76,26 @@ class RecipeController extends AbstractController
     #[Route('/recipe/edit/{uuid}', name: 'recipe_edit')]
     public function edit(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager, Security $security): Response
     {
-        if ($security->getUser() === null || $security->getUser() !== $recipe->getCreatedBy()) {
+        if ($security->getUser() === null) {
             $this->addFlash('error', 'You can only edit recipes that are owned by you.');
             return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
         }
-        $form = $this->createForm(RecipeType::class, $recipe);
-        $form->handleRequest($request);
+        if ($security->getUser() === $recipe->getCreatedBy() || $security->isGranted('ROLE_ADMIN')) {
+            $form = $this->createForm(RecipeType::class, $recipe);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $publish = $form->get('publish')->getData();
-
-            if (!$publish) {
-                $recipe->setStatus(Publish::PRIVATE);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager->persist($recipe);
+                $entityManager->flush();
+                return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
             }
-
-            $entityManager->persist($recipe);
-            $entityManager->flush();
-            return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
+            return $this->render('recipe/edit.html.twig', [
+                'form' => $form,
+                'recipe' => $recipe,
+            ]);
         }
-        return $this->render('recipe/edit.html.twig', [
-            'form' => $form,
-            'recipe' => $recipe,
-        ]);
+        $this->addFlash('error', 'You can only edit recipes that are owned by you.');
+        return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
     }
 
     #[Route('/recipe/save/{uuid}', name: 'recipe_save')]
@@ -239,7 +228,7 @@ class RecipeController extends AbstractController
     public function accept(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Security $security, EntityManagerInterface $entityManager, RecipeRepository $recipeRepository): Response
     {
         if ($security->isGranted('ROLE_ADMIN')) {
-            $recipe->setStatus(Publish::PUBLISHED);
+            $recipe->setStatus(Publish::ACCEPTED);
             $entityManager->flush();
             $recipes = $recipeRepository->findBy(['status' => Publish::PENDING]);
             return $this->render('recipe/manage.html.twig', [

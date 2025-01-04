@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use AllowDynamicProperties;
 use App\Entity\Recipe;
 use App\Enum\MealCountry;
 use App\Enum\MealType;
@@ -14,7 +15,7 @@ use Symfony\Bundle\SecurityBundle\Security;
 /**
  * @extends ServiceEntityRepository<Recipe>
  */
-class RecipeRepository extends ServiceEntityRepository
+#[AllowDynamicProperties] class RecipeRepository extends ServiceEntityRepository
 {
     private FoodGroupRepository $foodGroupRepository;
 
@@ -41,7 +42,8 @@ class RecipeRepository extends ServiceEntityRepository
                 ->leftJoin('r.recipeIngredients', 'ri')
                 ->leftJoin('ri.ingredient', 'i')
                 ->andWhere('r.status = :status')
-                ->setParameter('status', Publish::PUBLISHED);
+                ->setParameter('status', Publish::ACCEPTED)
+                ->andWhere('r.publish = 1');
         }
 
         if (QueryService::isNotEmpty($search, 'name')) {
