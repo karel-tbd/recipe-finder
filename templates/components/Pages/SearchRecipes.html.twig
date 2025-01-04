@@ -31,6 +31,13 @@
 {% set americanField = form_row(form.american) %}
 
 <div{{ attributes }}>
+    {% for  type, messages in app.flashes %}
+        {% for message in messages %}
+            <twig:Alert
+                    type="{{ type }}"
+                    message="{{ message }}"/>
+        {% endfor %}
+    {% endfor %}
     <img src="{{ asset('/images/cta.jpg') }}"
          class="rounded-2xl w-full m-auto h-[50vh] object-cover overflow-hidden xl:mb-10" alt="">
     {{ form_start(form, {'method': 'GET'}) }}

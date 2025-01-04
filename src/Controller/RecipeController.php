@@ -8,7 +8,6 @@ use App\Entity\UserRecipeSaved;
 use App\Enum\Publish;
 use App\Form\RecipeAddType;
 use App\Form\RecipeType;
-use App\Repository\RecipeIngredientsRepository;
 use App\Repository\RecipeRepository;
 use App\Repository\UserRecipeRatingRepository;
 use App\Repository\UserRecipeSavedRepository;
@@ -35,33 +34,37 @@ class RecipeController extends AbstractController
 
 
     #[Route('/recipe/add', name: 'recipe_add')]
-    public function add(Request $request, EntityManagerInterface $entityManager): Response
+    public function add(Request $request, Security $security, EntityManagerInterface $entityManager): Response
     {
-        $recipe = new Recipe();
-        $form = $this->createForm(RecipeAddType::class, $recipe);
-        $form->handleRequest($request);
+        if (!empty($security->getUser())) {
+            $recipe = new Recipe();
+            $form = $this->createForm(RecipeAddType::class, $recipe);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            try {
-                $publish = $form->get('publish')->getData();
-                if ($publish) {
-                    $recipe->setStatus(Publish::PENDING);
-                } else {
-                    $recipe->setStatus(Publish::PRIVATE);
+            if ($form->isSubmitted() && $form->isValid()) {
+                try {
+                    $publish = $form->get('publish')->getData();
+                    if ($publish) {
+                        $recipe->setStatus(Publish::PENDING);
+                    } else {
+                        $recipe->setStatus(Publish::PRIVATE);
+                    }
+                } catch (\Exception $e) {
                 }
-            } catch (\Exception $e) {
+
+                $entityManager->persist($recipe);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('recipe_index');
             }
 
-            $entityManager->persist($recipe);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('recipe_index');
+            return $this->render('recipe/add.html.twig', [
+                'form' => $form,
+                'recipe' => $recipe,
+            ]);
         }
-
-        return $this->render('recipe/add.html.twig', [
-            'form' => $form,
-            'recipe' => $recipe,
-        ]);
+        $this->addFlash('error', 'You must be logged in to add a recipe.');
+        return $this->redirectToRoute('app_login');
     }
 
     #[Route('/recipe/show/{uuid}', name: 'recipe_show')]
@@ -80,10 +83,13 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/recipe/edit/{uuid}', name: 'recipe_edit')]
-    public function edit(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager, RecipeIngredientsRepository $recipeIngredientsRepository): Response
+    public function edit(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Request $request, EntityManagerInterface $entityManager, Security $security): Response
     {
+        if ($security->getUser() === null || $security->getUser() !== $recipe->getCreatedBy()) {
+            $this->addFlash('error', 'You can only edit recipes that are owned by you.');
+            return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
+        }
         $form = $this->createForm(RecipeType::class, $recipe);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -106,26 +112,38 @@ class RecipeController extends AbstractController
     #[Route('/recipe/save/{uuid}', name: 'recipe_save')]
     public function save(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, EntityManagerInterface $entityManager, UserRecipeSavedRepository $userRecipeSavedRepository, Security $security): Response
     {
-        $userRecipeSaved = $userRecipeSavedRepository->findOneBy(['recipe' => $recipe, 'user' => $security->getUser()]);
-        if (!$userRecipeSaved) {
-            $userRecipeSaved = new UserRecipeSaved();
-            $userRecipeSaved->setRecipe($recipe);
-            $userRecipeSaved->setUser($security->getUser());
-            $entityManager->persist($userRecipeSaved);
-            $this->addFlash('success', 'Recipe saved!');
-        } else {
-            $entityManager->remove($userRecipeSaved);
-            $this->addFlash('error', 'Recipe removed from saved!');
-        }
-        $entityManager->flush();
+        if (!empty($security->getUser())) {
+            if ($recipe->getCreatedBy() === $security->getUser()) {
+                $this->addFlash('error', 'You can only save recipes that are not owned by you.');
+                return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
+            }
+            $userRecipeSaved = $userRecipeSavedRepository->findOneBy(['recipe' => $recipe, 'user' => $security->getUser()]);
+            if (!$userRecipeSaved) {
+                $userRecipeSaved = new UserRecipeSaved();
+                $userRecipeSaved->setRecipe($recipe);
+                $userRecipeSaved->setUser($security->getUser());
+                $entityManager->persist($userRecipeSaved);
+                $this->addFlash('success', 'Recipe saved!');
+            } else {
+                $entityManager->remove($userRecipeSaved);
+                $this->addFlash('error', 'Recipe removed from saved!');
+            }
+            $entityManager->flush();
 
-        return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
+            return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
+        }
+        $this->addFlash('error', 'You must be logged in to save a recipe.');
+        return $this->redirectToRoute('app_login');
     }
 
     #[Route('/my-recipes', name: 'recipe_saved')]
-    public function saved(): Response
+    public function saved(Security $security): Response
     {
-        return $this->render('my-recipes/index.html.twig');
+        if ($security->getUser()) {
+            return $this->render('my-recipes/index.html.twig');
+        }
+        $this->addFlash('error', 'You must be logged in!');
+        return $this->redirectToRoute('app_login');
     }
 
     #[Route('/recipe/rating', name: 'recipe_set_rating', methods: ['POST'])]
@@ -189,36 +207,47 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/recipe/manage', name: 'recipe_manage')]
-    public function manage(RecipeRepository $recipeRepository): Response
+    public function manage(RecipeRepository $recipeRepository, Security $security): Response
     {
-        $recipes = $recipeRepository->findBy(['status' => Publish::PENDING]);
-        return $this->render('recipe/manage.html.twig', [
-            'recipes' => $recipes,
-        ]);
+        if ($security->isGranted('ROLE_ADMIN')) {
+            $recipes = $recipeRepository->findBy(['status' => Publish::PENDING]);
+            return $this->render('recipe/manage.html.twig', [
+                'recipes' => $recipes,
+            ]);
+        }
+        $this->addFlash('error', 'You are not allowed to manage recipes.');
+        return $this->redirectToRoute('recipe_index');
+
     }
 
     #[Route('/recipe/manage/reject/{uuid}', name: 'recipe_manage_reject')]
-    public function reject(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, EntityManagerInterface $entityManager, RecipeRepository $recipeRepository): Response
+    public function reject(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Security $security, EntityManagerInterface $entityManager, RecipeRepository $recipeRepository): Response
     {
-        $entityManager->remove($recipe);
-        $entityManager->flush();
-
-        $recipes = $recipeRepository->findBy(['status' => Publish::PENDING]);
-        return $this->render('recipe/manage.html.twig', [
-            'recipes' => $recipes,
-        ]);
+        if ($security->isGranted('ROLE_ADMIN')) {
+            $entityManager->remove($recipe);
+            $entityManager->flush();
+            $recipes = $recipeRepository->findBy(['status' => Publish::PENDING]);
+            return $this->render('recipe/manage.html.twig', [
+                'recipes' => $recipes,
+            ]);
+        }
+        $this->addFlash('error', 'You are not authorized to accept or reject this recipe.');
+        return $this->redirectToRoute('recipe_index');
     }
 
     #[Route('/recipe/manage/accept/{uuid}', name: 'recipe_manage_accept')]
-    public function accept(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, EntityManagerInterface $entityManager, RecipeRepository $recipeRepository): Response
+    public function accept(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Security $security, EntityManagerInterface $entityManager, RecipeRepository $recipeRepository): Response
     {
-        $recipe->setStatus(Publish::PUBLISHED);
-        $entityManager->flush();
-
-        $recipes = $recipeRepository->findBy(['status' => Publish::PENDING]);
-        return $this->render('recipe/manage.html.twig', [
-            'recipes' => $recipes,
-        ]);
+        if ($security->isGranted('ROLE_ADMIN')) {
+            $recipe->setStatus(Publish::PUBLISHED);
+            $entityManager->flush();
+            $recipes = $recipeRepository->findBy(['status' => Publish::PENDING]);
+            return $this->render('recipe/manage.html.twig', [
+                'recipes' => $recipes,
+            ]);
+        }
+        $this->addFlash('error', 'You are not authorized to accept or reject this recipe.');
+        return $this->redirectToRoute('recipe_index');
     }
 
     #[Route('/recipe/pdf/{uuid}', name: 'recipe_pdf'), ]
@@ -243,15 +272,18 @@ class RecipeController extends AbstractController
     #[Route('/recipe/delete/{uuid}', name: 'recipe_delete')]
     public function delete(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, EntityManagerInterface $entityManager, Security $security): Response
     {
-        if ($recipe->getCreatedBy() === $security->getUser() or $this->isGranted('ROLE_ADMIN')) {
-            foreach ($recipe->getRecipeIngredients() as $ingredient) {
-                $entityManager->remove($ingredient);
+        if (!empty($security->getUser())) {
+            if ($recipe->getCreatedBy() === $security->getUser() or $security->isGranted('ROLE_ADMIN')) {
+                foreach ($recipe->getRecipeIngredients() as $ingredient) {
+                    $entityManager->remove($ingredient);
+                }
+                $entityManager->remove($recipe);
+                $entityManager->flush();
+                return $this->redirectToRoute('recipe_index');
             }
-            $entityManager->remove($recipe);
-            $entityManager->flush();
-            return $this->redirectToRoute('recipe_index');
         }
-        return $this->redirectToRoute('recipe_index');
+        $this->addFlash('error', 'You can only delete recipes that are owned by you.');
+        return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
     }
 }
 

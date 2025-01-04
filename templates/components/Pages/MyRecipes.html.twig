@@ -246,6 +246,15 @@
                                         <div class="w-4 self-center">{{ ux_icon('user-group') }}</div>
                                         <p>{{ recipe.recipe.people }}</p>
                                     </div>
+                                    {% if recipe.recipe.createdBy == app.user %}
+                                        <div class="flex gap-x-2 whitespace-nowrap">
+                                            <div class="w-3 self-center">{{ ux_icon('user-solid') }}</div>
+                                        </div>
+                                    {% else %}
+                                        <div class="flex gap-x-2 whitespace-nowrap">
+                                            <div class="w-3 self-center">{{ ux_icon('bookmark') }}</div>
+                                        </div>
+                                    {% endif %}
 
                                 </div>
                                 <h2 class="text-xl w-2/3 font-semibold text-center p-2 py-3 md:w-full m-auto">{{ recipe.recipe.name }}</h2>
