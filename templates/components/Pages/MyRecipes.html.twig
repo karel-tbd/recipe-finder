@@ -1,11 +1,41 @@
 {% set recipes = this.recipes %}
 {% set i = 0 %}
+
+{# Dish Type Fields #}
+{% set meatField = form_row(form.meat) %}
+{% set seaFoodField = form_row(form.seaFood) %}
+{% set vegetarianField = form_row(form.vegetarian) %}
+{% set proteinFoodsField = form_row(form.proteinFoods) %}
+{% set pastasField = form_row(form.pastas) %}
+
+{# Meal Type Fields #}
+{% set breakfastField = form_row(form.breakfast) %}
+{% set brunchField = form_row(form.brunch) %}
+{% set lunchField = form_row(form.lunch) %}
+{% set dinnerField = form_row(form.dinner) %}
+{% set cocktailField = form_row(form.cocktail) %}
+
+{# Allergies Fields #}
+{% set nutsField = form_row(form.nuts) %}
+{% set glutenField = form_row(form.gluten) %}
+{% set seaFoodAllergiesField = form_row(form.seaFoodAllergies) %}
+{% set dairyField = form_row(form.dairy) %}
+
+{# World Cuisine Fields #}
+{% set italianField = form_row(form.italian) %}
+{% set mexicanField = form_row(form.mexican) %}
+{% set greekField = form_row(form.greek) %}
+{% set chineseField = form_row(form.chinese) %}
+{% set japaneseField = form_row(form.japanese) %}
+{% set frenchField = form_row(form.french) %}
+{% set americanField = form_row(form.american) %}
+
 <div{{ attributes }}>
-    <img src="{{ asset('/images/cta.jpg') }}"
+    <img src="{{ asset('/images/posible-cta2.jpg') }}"
          class="rounded-2xl w-full m-auto h-[50vh] object-cover overflow-hidden xl:mb-10" alt="">
     {{ form_start(form, {'method': 'GET'}) }}
     <div class="lg:flex lg:gap-10 pt-10">
-        <div class="w-1/4 hidden lg:block h-fit">
+        <div class="w-1/4 hidden lg:block h-fit ">
             <div class="flex gap-x-5 items-center">
                 <twig:Subtitle
                         tag="h2"
@@ -14,88 +44,171 @@
             </div>
             <twig:Accordion label="Dish Type" id="dish-type">
                 <twig:Accordion:Item>
-                    {{ form_row(form.meat) }}
+                    {{ meatField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.seaFood) }}
+                    {{ seaFoodField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.vegetarian) }}
+                    {{ vegetarianField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.proteinFoods) }}
+                    {{ proteinFoodsField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.pastas) }}
+                    {{ pastasField|raw }}
                 </twig:Accordion:Item>
             </twig:Accordion>
 
             <twig:Accordion label="Meal Type" id="meal-type">
                 <twig:Accordion:Item>
-                    {{ form_row(form.breakfast) }}
+                    {{ breakfastField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.brunch) }}
+                    {{ brunchField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.lunch) }}
+                    {{ lunchField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.dinner) }}
+                    {{ dinnerField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.cocktail) }}
+                    {{ cocktailField|raw }}
                 </twig:Accordion:Item>
             </twig:Accordion>
 
             <twig:Accordion label="Allergies" id="allergies">
                 <twig:Accordion:Item>
-                    {{ form_row(form.nuts) }}
+                    {{ nutsField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.gluten) }}
+                    {{ glutenField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.seaFoodAllergies) }}
+                    {{ seaFoodAllergiesField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.dairy) }}
+                    {{ dairyField|raw }}
                 </twig:Accordion:Item>
             </twig:Accordion>
 
             <twig:Accordion label="World Cuisine" id="worldCuisine">
                 <twig:Accordion:Item>
-                    {{ form_row(form.italian) }}
+                    {{ italianField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.mexican) }}
+                    {{ mexicanField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.greek) }}
+                    {{ greekField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.chinese) }}
+                    {{ chineseField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.japanese) }}
+                    {{ japaneseField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.french) }}
+                    {{ frenchField|raw }}
                 </twig:Accordion:Item>
                 <twig:Accordion:Item>
-                    {{ form_row(form.american) }}
+                    {{ americanField|raw }}
                 </twig:Accordion:Item>
             </twig:Accordion>
         </div>
+
+
         <div class="lg:w-3/4">
             <div class="flex items-center gap-x-5">
                 <div class="flex-1" data-controller="prevent-enter">
                     {{ form_row(form.name) }}
                 </div>
-                <button class="mt-2 mr-2 invisible" data-controller="reset-search" data-action="reset-search#reset"
-                        title="Clear Filter">
-                    <div class="text-black w-5">{{ ux_icon('trash') }}</div>
+                <button id="multiLevelDropdownButton" data-dropdown-toggle="multi-dropdown"
+                        data-dropdown-placement="right-start"
+                        class="text-black mt-2 mr-2 lg:invisible"
+                        type="button">
+                    <div class="text-black w-5">{{ ux_icon('filter') }}</div>
                 </button>
+
+                <!-- Dropdown menu -->
+                <div id="multi-dropdown"
+                     class="z-10 bg-white hidden divide-y divide-gray-100 rounded w-2/3 shadow p-5">
+                    <twig:Accordion label="Dish Type" id="dish-type-mobile">
+                        <twig:Accordion:Item>
+                            {{ meatField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ seaFoodField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ vegetarianField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ proteinFoodsField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ pastasField|raw }}
+                        </twig:Accordion:Item>
+                    </twig:Accordion>
+
+                    <twig:Accordion label="Meal Type" id="meal-type-mobile">
+                        <twig:Accordion:Item>
+                            {{ breakfastField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ brunchField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ lunchField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ dinnerField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ cocktailField|raw }}
+                        </twig:Accordion:Item>
+                    </twig:Accordion>
+
+                    <twig:Accordion label="Allergies" id="allergies-mobile">
+                        <twig:Accordion:Item>
+                            {{ nutsField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ glutenField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ seaFoodAllergiesField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ dairyField|raw }}
+                        </twig:Accordion:Item>
+                    </twig:Accordion>
+
+                    <twig:Accordion label="World Cuisine" id="world-cuisine-mobile">
+                        <twig:Accordion:Item>
+                            {{ italianField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ mexicanField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ greekField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ chineseField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ japaneseField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ frenchField|raw }}
+                        </twig:Accordion:Item>
+                        <twig:Accordion:Item>
+                            {{ americanField|raw }}
+                        </twig:Accordion:Item>
+                    </twig:Accordion>
+                </div>
             </div>
             <div class="flex items-center gap-x-5">
                 <div class="flex-1">
@@ -114,7 +227,7 @@
                                 class="recipeGrid_item rounded-2xl shadow"
                         >
                             <a href="{{ path('recipe_show', {'uuid':recipe.recipe.uuid}) }}"
-                               class="w-full md:w-1/2 m-auto lg:w-full">
+                               class="w-full md:w-1/2 m-auto lg:w-full rounded-2xl  h-full">
                                 {% if recipe.recipe.imageName %}
                                     <img class="w-full h-52 object-cover overflow-hidden rounded-t-xl"
                                          src="{{ vich_uploader_asset(recipe.recipe, 'image') }}"
@@ -133,16 +246,6 @@
                                         <div class="w-4 self-center">{{ ux_icon('user-group') }}</div>
                                         <p>{{ recipe.recipe.people }}</p>
                                     </div>
-                                    {% if recipe.recipe.createdBy == app.user %}
-                                        <div class="flex gap-x-2 whitespace-nowrap">
-                                            <div class="w-3 self-center">{{ ux_icon('user-solid') }}</div>
-                                        </div>
-                                    {% else %}
-                                        <div class="flex gap-x-2 whitespace-nowrap">
-                                            <div class="w-3 self-center">{{ ux_icon('bookmark') }}</div>
-                                        </div>
-                                    {% endif %}
-
 
                                 </div>
                                 <h2 class="text-xl w-2/3 font-semibold text-center p-2 py-3 md:w-full m-auto">{{ recipe.recipe.name }}</h2>
@@ -181,7 +284,7 @@
                     {% endif %}
                 </div>
                 {% if not this.hasMore %}
-                    <div class="flex justify-center w-full py-5">
+                    <div class="flex flex-row justify-center w-full py-5">
                         <twig:Button
                                 label="Go to top"
                                 onclick="topFunction()"
@@ -190,7 +293,6 @@
                     </div>
                 {% endif %}
             </div>
-
         </div>
     </div>
     {{ form_end(form) }}

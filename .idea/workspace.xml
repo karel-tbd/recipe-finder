@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="tried to make add recipe form in multible parts">
-      <change afterPath="$PROJECT_DIR$/assets/icons/filter.svg" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="front end on recipe index page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Accordion.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Accordion.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -278,7 +279,8 @@
       <workItem from="1734882773636" duration="45168000" />
       <workItem from="1735385518319" duration="85000" />
       <workItem from="1735385632140" duration="103336000" />
-      <workItem from="1735987778937" duration="756000" />
+      <workItem from="1735987778937" duration="809000" />
+      <workItem from="1735988757249" duration="2377000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -648,7 +650,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735919448053</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="front end on recipe index page">
+      <option name="closed" value="true" />
+      <created>1735988725073</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1735988725073</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -677,7 +687,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="layout recipe finder page made" />
     <MESSAGE value="before ManyToMany Manualy" />
     <MESSAGE value="added extra klasses to filter en search on + layout pages updated" />
     <MESSAGE value="made the my recipe page with your saved recipes and the ones youve writen yourself&#10;&#10;made a star review function on show page" />
@@ -702,6 +711,7 @@
     <MESSAGE value="fixed layout on landiong page" />
     <MESSAGE value="amount on show is fixible" />
     <MESSAGE value="tried to make add recipe form in multible parts" />
-    <option name="LAST_COMMIT_MESSAGE" value="tried to make add recipe form in multible parts" />
+    <MESSAGE value="front end on recipe index page" />
+    <option name="LAST_COMMIT_MESSAGE" value="front end on recipe index page" />
   </component>
 </project>
