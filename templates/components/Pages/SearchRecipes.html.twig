@@ -94,10 +94,53 @@
                 <div class="flex-1" data-controller="prevent-enter">
                     {{ form_row(form.name) }}
                 </div>
-                <button class="mt-2 mr-2 invisible" data-controller="reset-search" data-action="reset-search#reset"
-                        title="Clear Filter">
-                    <div class="text-black w-5">{{ ux_icon('trash') }}</div>
+                <button id="multiLevelDropdownButton" data-dropdown-toggle="multi-dropdown"
+                        class="text-black w-5"
+                        type="button">
+                    <div class="text-black w-5">{{ ux_icon('filter') }}</div>
                 </button>
+
+                <!-- Dropdown menu -->
+                <div id="multi-dropdown"
+                     class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                        aria-labelledby="multiLevelDropdownButton">
+                        <li>
+                            <a href="#"
+                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                        </li>
+                        <li>
+                            <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown"
+                                    data-dropdown-placement="right-start" type="button"
+                                    class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+
+                            </button>
+                            <div id="doubleDropdown"
+                                 class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                    aria-labelledby="doubleDropdownButton">
+                                    <li>
+                                        <a href="#"
+                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Overview</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My
+                                            downloads</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Billing</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Rewards</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="flex items-center gap-x-5">
                 <div class="flex-1">
