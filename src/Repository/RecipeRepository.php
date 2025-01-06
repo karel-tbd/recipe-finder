@@ -164,40 +164,13 @@ use Symfony\Bundle\SecurityBundle\Security;
                     ->setParameter('cocktail', '%' . MealType::COCKTAIL->value . '%');
             }
 
-            if (QueryService::isNotEmpty($search, 'italian')) {
-                $query
-                    ->andWhere('r.country = :italian')
-                    ->setParameter('italian', MealCountry::ITALIAN->value);
-            }
-            if (QueryService::isNotEmpty($search, 'mexican')) {
-                $query
-                    ->andWhere('r.country = :mexican')
-                    ->setParameter('mexican', MealCountry::MEXICAN->value);
-            }
-            if (QueryService::isNotEmpty($search, 'greek')) {
-                $query
-                    ->andWhere('r.country = :greek')
-                    ->setParameter('greek', MealCountry::GREEK->value);
-            }
-            if (QueryService::isNotEmpty($search, 'chinese')) {
-                $query
-                    ->andWhere('r.country = :chinese')
-                    ->setParameter('chinese', MealCountry::CHINESE->value);
-            }
-            if (QueryService::isNotEmpty($search, 'japanese')) {
-                $query
-                    ->andWhere('r.country = :japanese')
-                    ->setParameter('japanese', MealCountry::JAPANESE->value);
-            }
-            if (QueryService::isNotEmpty($search, 'french')) {
-                $query
-                    ->andWhere('r.country = :french')
-                    ->setParameter('french', MealCountry::FRENCH->value);
-            }
-            if (QueryService::isNotEmpty($search, 'american')) {
-                $query
-                    ->andWhere('r.country = :american')
-                    ->setParameter('american', MealCountry::AMERICAN->value);
+            if (QueryService::isNotEmpty($search, 'cuisine')) {
+                $country = $search['cuisine'];
+                if (MealCountry::tryFrom($country)) {
+                    $query
+                        ->andWhere('r.country = :cuisine')
+                        ->setParameter('cuisine', MealCountry::tryFrom($country));
+                }
             }
         }
 

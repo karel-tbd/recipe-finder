@@ -32,12 +32,25 @@
     block w-full text-sm text-gray-900 border border-gray-300 rounded cursor-pointer file:bg-red-500 file:text-white file:hover:bg-red-400 file:border-0 file:py-2.5 file:px-4
 {%- endblock class_input_file %}
 
-{% block class_input_radio -%}
-    w-4 h-4 bg-gray-100 border-gray-300 {# focus:ring-red-500 #} focus:ring-2 text-red-500
-{%- endblock class_input_radio %}
+{% block _search_form_cuisine_row %}
+    {% for choice in form.vars.choices %}
+        <div class="mb-3 pt-3 hover:text-red-500">
+            <label class="flex items-center cursor-pointer">
+                <input type="radio"
+                       id="{{ form.vars.id }}"
+                       name="{{ form.vars.full_name }}"
+                       value="{{ choice.value }}"
+                       class="sr-only peer">
+                <span class="relative w-11 h-6 bg-gray-200 peer-checked:bg-red-500 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></span>
+                <span class="ms-3 text-primary-90"> {{ choice.label }}</span>
+            </label>
+        </div>
+    {% endfor %}
+    {{ form_errors(form) }}
+{% endblock %}
 
 {% block checkbox_row %}
-    <div class="mb-3">
+    <div class="mb-3 pt-3 hover:text-red-500">
         <label class="flex items-center cursor-pointer">
             <input type="checkbox"{% if form.vars.checked or 'checked' in form.vars.attr|keys %} checked{% endif %}
                    id="{{ form.vars.id }}"
@@ -45,9 +58,11 @@
                    value="{{ form.vars.value }}"
                    class="sr-only peer">
             <span class="relative w-11 h-6 bg-gray-200 peer-checked:bg-red-500 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></span>
-            <span class="ms-3 text-primary-90">{{ form.vars.label|trans({'default': label_translation_parameters['default'] ?? form.vars.label }) }}</span>
+            <span class="ms-3 text-primary-90">{{ form.vars.label }}</span>
         </label>
         {{ form_errors(form) }}
     </div>
 {% endblock %}
+
+
 

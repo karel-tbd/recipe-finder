@@ -6,7 +6,7 @@
                     message="{{ message }}"/>
         {% endfor %}
     {% endfor %}
-    <div class="lg:grid lg:grid-cols-2 gap-x-10 w-4/5 m-auto ">
+    <div class="lg:grid lg:grid-cols-2 gap-x-10 lg:w-4/5 m-auto ">
         <img class="w-full md:w-1/2 lg:w-fit object-cover overflow-hidden m-0 h-96 rounded-xl"
              src="{{ vich_uploader_asset(recipe, 'image') }}"
              alt="{{ recipe.name }}">

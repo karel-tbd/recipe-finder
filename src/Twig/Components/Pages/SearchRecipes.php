@@ -39,6 +39,7 @@ final class SearchRecipes extends AbstractController
     public function getRecipes(): array
     {
         $search = $this->getForm()->getData() ?? [];
+        
         $recipeCollection = [];
         $recipes = $this->recipeRepository->search($search, (self::PER_PAGE * $this->page));
         foreach ($recipes as $i => $recipe) {
@@ -47,7 +48,7 @@ final class SearchRecipes extends AbstractController
                 'recipe' => $recipe,
             ];
         }
-        
+
         return $recipeCollection;
     }
 

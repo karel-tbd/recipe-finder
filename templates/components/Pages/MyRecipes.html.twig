@@ -22,13 +22,7 @@
 {% set dairyField = form_row(form.dairy) %}
 
 {# World Cuisine Fields #}
-{% set italianField = form_row(form.italian) %}
-{% set mexicanField = form_row(form.mexican) %}
-{% set greekField = form_row(form.greek) %}
-{% set chineseField = form_row(form.chinese) %}
-{% set japaneseField = form_row(form.japanese) %}
-{% set frenchField = form_row(form.french) %}
-{% set americanField = form_row(form.american) %}
+{% set country = form_row(form.cuisine) %}
 
 <div{{ attributes }}>
     <img src="{{ asset('/images/posible-cta2.jpg') }}"
@@ -95,25 +89,7 @@
 
             <twig:Accordion label="World Cuisine" id="worldCuisine">
                 <twig:Accordion:Item>
-                    {{ italianField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
-                    {{ mexicanField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
-                    {{ greekField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
-                    {{ chineseField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
-                    {{ japaneseField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
-                    {{ frenchField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
-                    {{ americanField|raw }}
+                    {{ country|raw }}
                 </twig:Accordion:Item>
             </twig:Accordion>
         </div>
@@ -187,25 +163,7 @@
 
                     <twig:Accordion label="World Cuisine" id="world-cuisine-mobile">
                         <twig:Accordion:Item>
-                            {{ italianField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
-                            {{ mexicanField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
-                            {{ greekField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
-                            {{ chineseField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
-                            {{ japaneseField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
-                            {{ frenchField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
-                            {{ americanField|raw }}
+                            {{ country|raw }}
                         </twig:Accordion:Item>
                     </twig:Accordion>
                 </div>
@@ -293,12 +251,15 @@
                     {% endif %}
                 </div>
                 {% if not this.hasMore %}
-                    <div class="flex flex-row justify-center w-full py-5">
+                    <div class="flex justify-center w-full pt-5">
                         <twig:Button
                                 label="Go to top"
                                 onclick="topFunction()"
                                 variant="white"
                         />
+                    </div>
+                    <div class="flex justify-center w-full text-red-500 text-sm py-3">
+                        This will clear your filter
                     </div>
                 {% endif %}
             </div>
