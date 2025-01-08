@@ -6,7 +6,6 @@ use App\Entity\Recipe;
 use App\Entity\UserRecipeRating;
 use App\Entity\UserRecipeSaved;
 use App\Enum\Publish;
-use App\Form\RecipeAddType;
 use App\Form\RecipeType;
 use App\Repository\RecipeRepository;
 use App\Repository\UserRecipeRatingRepository;
@@ -26,7 +25,7 @@ use Twig\Environment;
 
 class RecipeController extends AbstractController
 {
-    #[Route('/recipes', name: 'recipe_index')]
+    #[Route('/', name: 'recipe_index')]
     public function index(): Response
     {
         return $this->render('recipe/index.html.twig');
@@ -38,10 +37,11 @@ class RecipeController extends AbstractController
     {
         if (!empty($security->getUser())) {
             $recipe = new Recipe();
-            $form = $this->createForm(RecipeAddType::class, $recipe);
+            $form = $this->createForm(RecipeType::class, $recipe);
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
+                dd($form->getData());
                 $recipe->setStatus(Publish::PENDING);
                 $entityManager->persist($recipe);
                 $entityManager->flush();

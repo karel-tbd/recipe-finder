@@ -14,7 +14,6 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\Validator\Constraints\NotBlank;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: RecipeRepository::class)]
@@ -27,7 +26,6 @@ class Recipe
     use BlameableTrait;
 
     #[ORM\Column(length: 255)]
-    #[NotBlank(message: 'This value should not be blank.')]
     private ?string $name = null;
 
     #[Vich\UploadableField(mapping: 'recipe_files', fileNameProperty: 'imageName', size: 'imageSize')]
@@ -40,14 +38,9 @@ class Recipe
     private ?int $imageSize = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[NotBlank(message: 'This value should not be blank.')]
     private ?string $description = null;
 
-    /**
-     * @var Collection<int, Ingredients>
-     */
     #[ORM\Column]
-    #[NotBlank(message: 'This value should not be blank.')]
     private ?float $time = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
@@ -60,11 +53,9 @@ class Recipe
     private Collection $recipeIngredients;
 
     #[ORM\Column]
-    #[NotBlank(message: 'This value should not be blank.')]
     private ?int $people = null;
 
     #[ORM\Column(type: Types::SIMPLE_ARRAY, nullable: true, enumType: MealType::class)]
-    #[NotBlank(message: 'This value should not be blank.')]
     private ?array $mealType = [];
 
     /**

@@ -10,7 +10,7 @@ class HomeController extends AbstractController
 {
 
 
-    #[Route('/', name: 'app_home', methods: ['GET', 'POST'])]
+    #[Route('/find', name: 'app_home', methods: ['GET', 'POST'])]
     public function index(): Response
     {
         $recipes = [];

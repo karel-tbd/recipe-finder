@@ -136,13 +136,17 @@ return [
     'quill-resize-image' => [
         'version' => '1.0.5',
     ],
-    'ajv-formats' => [
-        'version' => '2.1.1',
+    'quill/dist/quill.core.css' => [
+        'version' => '2.0.3',
+        'type' => 'css',
     ],
-    'fast-uri' => [
+    'ajv-formats' => [
         'version' => '3.0.1',
     ],
+    'fast-uri' => [
+        'version' => '3.0.5',
+    ],
     'ajv/dist/compile/codegen' => [
-        'version' => '8.12.0',
+        'version' => '8.17.1',
     ],
 ];

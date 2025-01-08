@@ -1,6 +1,8 @@
 <div{{ attributes.defaults({'id': id}) }}>
     {{ form_start(form) }}
-    {{ step }}
+    child: {{ step }}
+    {{ dump(step) }}
+
     {% if step == 1 %}
         <div class="lg:flex gap-x-5">
             <div class="w-full">
@@ -29,7 +31,7 @@
                     <div> {{ form_row(form.image) }}</div>
                     <div>{{ form_row(form.description) }}</div>
 
-                    <div class="w-full">
+                    <div>
                         <div>{{ form_row(form.name) }}</div>
                         <div>{{ form_row(form.mealType) }}</div>
                         <div class="flex gap-x-5 w-full">
@@ -48,7 +50,6 @@
             <img class="rounded-2xl h-[70vh] w-full object-cover overflow-hidden hidden lg:flex"
                  src="{{ asset('images/step2.jpg') }}" alt="">
         </div>
-
     {% endif %}
 
     {% if step == 2 %}
@@ -74,6 +75,7 @@
                         step 3
                     </div>
                 </div>
+
                 <div class="w-full">
                     {% for ingredient in form.recipeIngredients %}
                         <div class="pt-5 xl:flex gap-x-3">
@@ -90,8 +92,16 @@
                         </div>
                     {% endfor %}
                     <div class="pb-5">
-                        {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {type: 'button', class: 'bg-red-500 text-white rounded py-2 mt-6 px-4 text-sm'}}) }}
+                        <span data-action="click->live#action" data-live-action-param="stay">
+                        {{ form_widget(form.recipeIngredients.vars.button_add,
+                            {
+                                label: 'Add Ingredient',
+                                attr: { class: 'bg-red-500 text-white rounded py-2 mt-6 px-4 text-sm',
+                            },
+                            }) }}
+                            </span>
                     </div>
+                    {{ form_errors(form.recipeIngredients) }}
                 </div>
                 <twig:Button
                         data-action="click->live#action"
@@ -111,7 +121,6 @@
             <img class="rounded-2xl h-[70vh] w-full object-cover overflow-hidden hidden lg:flex"
                  src="{{ asset('images/step3.jpg') }}" alt="">
         </div>
-
     {% endif %}
 
     {% if step == 3 %}
@@ -137,10 +146,12 @@
                         step 3
                     </div>
                 </div>
-                <div class="w-full" data-live-ignore>
-                    {{ form_row(form.instructions)|raw }}
+                <div class="w-full">
+                    {{ form_row(form.instructions) }}
                 </div>
-                {{ form_row(form.publish) }}
+                <div class="mt-20">
+                    {{ form_row(form.publish) }}
+                </div>
                 <twig:Button
                         data-action="click->live#action"
                         data-live-action-param="prev"
@@ -157,8 +168,8 @@
             <img class="rounded-2xl h-[70vh] w-full object-cover overflow-hidden hidden lg:flex"
                  src="{{ asset('images/step4.jpg') }}" alt="">
         </div>
-
     {% endif %}
+
     {{ form_end(form) }}
 </div>
 

@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class IngredientType extends AbstractType
 {
@@ -24,6 +25,7 @@ class IngredientType extends AbstractType
                 'required' => false,
                 'autocomplete' => true,
                 'placeholder' => 'Tomatoes',
+                'constraints' => [new NotBlank()],
             ])
             ->add('quantity', TextType::class, [
                 'label' => 'Quantity',
@@ -31,6 +33,7 @@ class IngredientType extends AbstractType
                 'attr' => [
                     'placeholder' => '2',
                 ],
+                'constraints' => [new NotBlank()],
             ])
             ->add('unit', EnumType::class, [
                 'label' => 'Unit',

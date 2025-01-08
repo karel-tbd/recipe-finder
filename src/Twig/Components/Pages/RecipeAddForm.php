@@ -25,8 +25,11 @@ final class RecipeAddForm extends AbstractController
     #[LiveProp(fieldName: 'formData')]
     public ?RecipeEntity $recipe = null;
 
-    #[LiveProp]
+    #[LiveProp(writable: true)]
     public int $step;
+
+    #[LiveProp(writable: true)]
+    public array $recipeValues = [];
 
     #[LiveAction]
     public function next(): void
@@ -34,10 +37,12 @@ final class RecipeAddForm extends AbstractController
         $this->submitForm();
         $values = $this->formValues;
         unset($values['_token']);
-
         $this->emit('next', [
             'values' => $values,
         ]);
+        if ($this->step == 3) {
+            dd('test');
+        }
     }
 
     #[LiveAction]
@@ -46,8 +51,14 @@ final class RecipeAddForm extends AbstractController
         $this->emit('prev');
     }
 
+    #[LiveAction]
+    public function stay(): void
+    {
+        $this->step = 2;
+    }
+
     protected function instantiateForm(): FormInterface
     {
-        return $this->createForm(RecipeAddType::class, $this->recipe, ['step' => $this->step]);
+        return $this->createForm(RecipeAddType::class, $this->recipe, ['step' => $this->step, 'recipeValues' => $this->recipeValues]);
     }
 }
