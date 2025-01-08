@@ -7,7 +7,6 @@ use App\Service\FormService;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -92,19 +91,32 @@ class SearchFormType extends AbstractType
                 'label' => 'Dairy',
                 'required' => false,
             ])
-            ->add('cuisine', ChoiceType::class, [
-                'label' => false,
-                'choices' => [
-                    'Italian' => 'italian',
-                    'Mexican' => 'mexican',
-                    'Greek' => 'greek',
-                    'Chinese' => 'chinese',
-                    'Japanese' => 'japanese',
-                    'French' => 'french',
-                    'American' => 'american',
-                ],
-                'expanded' => true,
-                'multiple' => false,
+            ->add('italian', CheckboxType::class, [
+                'label' => 'Italian',
+                'required' => false,
+            ])
+            ->add('mexican', CheckboxType::class, [
+                'label' => 'Mexican',
+                'required' => false,
+            ])
+            ->add('greek', CheckboxType::class, [
+                'label' => 'Greek',
+                'required' => false,
+            ])
+            ->add('chinese', CheckboxType::class, [
+                'label' => 'Chinese',
+                'required' => false,
+            ])
+            ->add('japanese', CheckboxType::class, [
+                'label' => 'Japanese',
+                'required' => false,
+            ])
+            ->add('french', CheckboxType::class, [
+                'label' => 'French',
+                'required' => false,
+            ])
+            ->add('american', CheckboxType::class, [
+                'label' => 'American',
                 'required' => false,
             ]);
     }

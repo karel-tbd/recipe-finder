@@ -140,9 +140,6 @@ use Symfony\Bundle\SecurityBundle\Security;
 
             $foodGroup = [];
             if (QueryService::isNotEmpty($search, 'breakfast')) {
-                /*  $query
-                      ->andWhere('r.mealType IN (:meal_type) ')
-                      ->setParameter('meal_type', ['breakfast', 'cocktail']);*/
                 $foodGroup[] = MealType::BREAKFAST->value;
             }
             if (QueryService::isNotEmpty($search, 'brunch')) {
@@ -164,13 +161,34 @@ use Symfony\Bundle\SecurityBundle\Security;
                     ->setParameter('foodGroup', $foodGroup);
             }
 
-            if (QueryService::isNotEmpty($search, 'cuisine')) {
-                $country = $search['cuisine'];
-                if (MealCountry::tryFrom($country)) {
-                    $query
-                        ->andWhere('r.country = :cuisine')
-                        ->setParameter('cuisine', MealCountry::tryFrom($country));
-                }
+            $country = [];
+            if (QueryService::isNotEmpty($search, 'italian')) {
+
+                $country[] = MealCountry::ITALIAN->value;
+            }
+            if (QueryService::isNotEmpty($search, 'mexican')) {
+                $country[] = MealCountry::MEXICAN->value;
+            }
+            if (QueryService::isNotEmpty($search, 'greek')) {
+                $country[] = MealCountry::GREEK->value;
+            }
+            if (QueryService::isNotEmpty($search, 'chinese')) {
+                $country[] = MealCountry::CHINESE->value;
+            }
+            if (QueryService::isNotEmpty($search, 'japanese')) {
+                $country[] = MealCountry::JAPANESE->value;
+            }
+            if (QueryService::isNotEmpty($search, 'french')) {
+                $country[] = MealCountry::FRENCH->value;
+            }
+            if (QueryService::isNotEmpty($search, 'american')) {
+                $country[] = MealCountry::AMERICAN->value;
+            }
+
+            if (!empty($country)) {
+                $query
+                    ->andWhere('r.country IN (:country)')
+                    ->setParameter('country', $country);
             }
         }
 

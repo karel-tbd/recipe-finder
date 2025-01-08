@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="changed front end again starting on search fixes">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Fixed Meal Type search">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SearchFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchFormType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,15 +283,7 @@
       <workItem from="1735987778937" duration="809000" />
       <workItem from="1735988757249" duration="20687000" />
       <workItem from="1736150095933" duration="56086000" />
-      <workItem from="1736353282901" duration="1077000" />
-    </task>
-    <task id="LOCAL-00010" summary="can make recipes and add images to them">
-      <option name="closed" value="true" />
-      <created>1734272947106</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1734272947106</updated>
+      <workItem from="1736353282901" duration="1595000" />
     </task>
     <task id="LOCAL-00011" summary="added show function + quil editor">
       <option name="closed" value="true" />
@@ -675,7 +669,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736352973023</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Fixed Meal Type search">
+      <option name="closed" value="true" />
+      <created>1736354478033</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1736354478034</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +706,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="made landing page bigger and better" />
     <MESSAGE value="ongoing infinite scroll" />
     <MESSAGE value="images" />
     <MESSAGE value="made it so you can edit ingredients of recipes" />
@@ -729,6 +730,7 @@
     <MESSAGE value="ongoing front end on edit and add recipe + bug fix on manage page" />
     <MESSAGE value="fixed front end edit and add recipe" />
     <MESSAGE value="changed front end again starting on search fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed front end again starting on search fixes" />
+    <MESSAGE value="Fixed Meal Type search" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Meal Type search" />
   </component>
 </project>
