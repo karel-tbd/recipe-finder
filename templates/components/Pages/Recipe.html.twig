@@ -25,9 +25,9 @@
     </div>
 
     <div class="xl:flex xl:gap-x-5 xl:pt-10">
-        <img class="rounded-2xl h-full w-full object-cover overflow-hidden hidden xl:flex mt-10"
+        <img class="rounded-2xl h-[60vh] w-full object-cover overflow-hidden hidden xl:flex mt-10"
              src="{{ asset('images/pexels-vanmalidate-784633.jpg') }}" alt="">
-        <div class="w-full">
+        <div class="w-full xl:mt-10">
             <twig:Subtitle
                     tag="h3"
                     label="Ingredient information"/>
@@ -41,10 +41,11 @@
                         <div class="">{{ form_row(ingredient.quantity) }}</div>
                         {{ form_row(ingredient.unit) }}
                     </div>
+                    <div class=" md:pb-0 mt-6">
+                        {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 text-sm py-2 px-4' } }) }}
+                    </div>
                 </div>
-                <div class=" md:pb-0">
-                    {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 text-sm py-2 px-4' } }) }}
-                </div>
+
             {% endfor %}
 
             <div class="pb-5">
@@ -60,7 +61,7 @@
                     label="Recipe instruction"
                     class="pt-10"/>
             {{ form_row(form.instructions)|raw }}
-            {{ form_row(form.publish) }}
+            <div class="mt-12">{{ form_row(form.publish) }}</div>
             <twig:Button
                     label="Submit"
                     class="mb-10"

@@ -41,7 +41,6 @@ class RecipeController extends AbstractController
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
-                dd($form->getData());
                 $recipe->setStatus(Publish::PENDING);
                 $entityManager->persist($recipe);
                 $entityManager->flush();
@@ -81,7 +80,7 @@ class RecipeController extends AbstractController
             return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
         }
         if ($security->getUser() === $recipe->getCreatedBy() || $security->isGranted('ROLE_ADMIN')) {
-            $form = $this->createForm(RecipeType::class, $recipe);
+            $form = $this->createForm(RecipeType::class, $recipe, ['edit' => true]);
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
@@ -213,30 +212,25 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/recipe/manage/reject/{uuid}', name: 'recipe_manage_reject')]
-    public function reject(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Security $security, EntityManagerInterface $entityManager, RecipeRepository $recipeRepository): Response
+    public function reject(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Security $security, EntityManagerInterface $entityManager): Response
     {
         if ($security->isGranted('ROLE_ADMIN')) {
             $entityManager->remove($recipe);
             $entityManager->flush();
-            $recipes = $recipeRepository->findBy(['status' => Publish::PENDING]);
-            return $this->render('recipe/manage.html.twig', [
-                'recipes' => $recipes,
-            ]);
+            return $this->redirectToRoute('recipe_manage');
         }
         $this->addFlash('error', 'You are not authorized to accept or reject this recipe.');
         return $this->redirectToRoute('recipe_index');
     }
 
     #[Route('/recipe/manage/accept/{uuid}', name: 'recipe_manage_accept')]
-    public function accept(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Security $security, EntityManagerInterface $entityManager, RecipeRepository $recipeRepository): Response
+    public function accept(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Security $security, EntityManagerInterface $entityManager): Response
     {
         if ($security->isGranted('ROLE_ADMIN')) {
             $recipe->setStatus(Publish::ACCEPTED);
+            $entityManager->persist($recipe);
             $entityManager->flush();
-            $recipes = $recipeRepository->findBy(['status' => Publish::PENDING]);
-            return $this->render('recipe/manage.html.twig', [
-                'recipes' => $recipes,
-            ]);
+            return $this->redirectToRoute('recipe_manage');
         }
         $this->addFlash('error', 'You are not authorized to accept or reject this recipe.');
         return $this->redirectToRoute('recipe_index');

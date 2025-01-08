@@ -4,14 +4,6 @@ namespace App\Form;
 
 use App\Entity\Recipe;
 use App\Enum\MealType;
-use Ehyiah\QuillJsBundle\DTO\Fields\BlockField\HeaderGroupField;
-use Ehyiah\QuillJsBundle\DTO\Fields\BlockField\ListField;
-use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\BoldField;
-use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\CleanField;
-use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\ItalicField;
-use Ehyiah\QuillJsBundle\DTO\Fields\InlineField\UnderlineField;
-use Ehyiah\QuillJsBundle\DTO\QuillGroup;
-use Ehyiah\QuillJsBundle\Form\QuillType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
@@ -73,24 +65,9 @@ class RecipeType extends AbstractType
                     'placeholder' => 'Short description of your dish'
                 ],
             ])
-            ->add('instructions', QuillType::class, [
-                'label' => false,
+            ->add('instructions', TextareaType::class, [
+                'label' => 'Instructions',
                 'required' => false,
-                'quill_extra_options' => [
-                    'height' => '600px',
-                    'theme' => 'snow',
-                    'placeholder' => 'Step 1. Boil water',
-                ],
-                'quill_options' => [
-                    QuillGroup::build(
-                        new HeaderGroupField(),
-                        new BoldField(),
-                        new ItalicField(),
-                        new ListField(),
-                        new UnderlineField(),
-                        new cleanField(),
-                    )
-                ],
                 'constraints' => [
                     new NotBlank(
                         ['message' => 'This value should not be blank.']
@@ -109,6 +86,9 @@ class RecipeType extends AbstractType
                             'image/webp',
                         ],
                         'mimeTypesMessage' => 'Please upload a valid PNG, JPEG or WEBP file',
+                    ]),
+                    new NotBlank([
+
                     ])
                 ],
             ])
@@ -124,12 +104,32 @@ class RecipeType extends AbstractType
                 'required' => false,
             ]);
 
+        if ($options['edit']) {
+            $builder
+                ->remove('image')
+                ->add('image', VichFileType::class, [
+                    'label' => 'Recipe image',
+                    'required' => false,
+                    'allow_delete' => false,
+                    'constraints' => [
+                        new File([
+                            'mimeTypes' => [
+                                'image/png',
+                                'image/jpeg',
+                                'image/webp',
+                            ],
+                            'mimeTypesMessage' => 'Please upload a valid PNG, JPEG or WEBP file',
+                        ]),
+                    ],
+                ]);
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Recipe::class,
+            'edit' => null
         ]);
     }
 }
