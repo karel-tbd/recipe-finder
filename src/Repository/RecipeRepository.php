@@ -138,30 +138,30 @@ use Symfony\Bundle\SecurityBundle\Security;
                     ->setParameter('excludedGroup', $notInGroup);
             }
 
+            $foodGroup = [];
             if (QueryService::isNotEmpty($search, 'breakfast')) {
-                $query
-                    ->andWhere('r.mealType LIKE :breakfast')
-                    ->setParameter('breakfast', '%' . MealType::BREAKFAST->value . '%');
+                /*  $query
+                      ->andWhere('r.mealType IN (:meal_type) ')
+                      ->setParameter('meal_type', ['breakfast', 'cocktail']);*/
+                $foodGroup[] = MealType::BREAKFAST->value;
             }
             if (QueryService::isNotEmpty($search, 'brunch')) {
-                $query
-                    ->andWhere('r.mealType LIKE :brunch')
-                    ->setParameter('brunch', '%' . MealType::BRUNCH->value . '%');
+                $foodGroup[] = MealType::BRUNCH->value;
             }
             if (QueryService::isNotEmpty($search, 'lunch')) {
-                $query
-                    ->andWhere('r.mealType LIKE :lunch')
-                    ->setParameter('lunch', '%' . MealType::LUNCH->value . '%');
+                $foodGroup[] = MealType::LUNCH->value;
             }
             if (QueryService::isNotEmpty($search, 'dinner')) {
-                $query
-                    ->andWhere('r.mealType LIKE :dinner')
-                    ->setParameter('dinner', '%' . MealType::DINNER->value . '%');
+                $foodGroup[] = MealType::DINNER->value;
             }
             if (QueryService::isNotEmpty($search, 'cocktail')) {
+                $foodGroup[] = MealType::COCKTAIL->value;
+            }
+
+            if (!empty($foodGroup)) {
                 $query
-                    ->andWhere('r.mealType LIKE :cocktail')
-                    ->setParameter('cocktail', '%' . MealType::COCKTAIL->value . '%');
+                    ->andWhere('r.mealType IN (:foodGroup)')
+                    ->setParameter('foodGroup', $foodGroup);
             }
 
             if (QueryService::isNotEmpty($search, 'cuisine')) {

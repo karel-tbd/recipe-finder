@@ -4,26 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="fixed front end edit and add recipe">
-      <change afterPath="$PROJECT_DIR$/assets/icons/angle-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Dropdown.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Dropdown/Item.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/Dropdown.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/Dropdown/Item.html.twig" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="changed front end again starting on search fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/chili-con-carne-676852cf61245388596367.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RecipeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecipeType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Subtitle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Subtitle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/fields.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,22 +212,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/assets/icons",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "editing.templates",
-    "ts.external.directory.path": "/Applications/PhpStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/karelscheers/Sites/recipe-finder/assets/icons&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/PhpStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/icons" />
@@ -297,15 +280,8 @@
       <workItem from="1735385632140" duration="103336000" />
       <workItem from="1735987778937" duration="809000" />
       <workItem from="1735988757249" duration="20687000" />
-      <workItem from="1736150095933" duration="55846000" />
-    </task>
-    <task id="LOCAL-00009" summary="can make recipes and add images to them">
-      <option name="closed" value="true" />
-      <created>1734272938994</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1734272938994</updated>
+      <workItem from="1736150095933" duration="56086000" />
+      <workItem from="1736353282901" duration="1077000" />
     </task>
     <task id="LOCAL-00010" summary="can make recipes and add images to them">
       <option name="closed" value="true" />
@@ -691,7 +667,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736345866846</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="changed front end again starting on search fixes">
+      <option name="closed" value="true" />
+      <created>1736352973023</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1736352973023</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -720,7 +704,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="recipe index on 1 page so infinite scoll doesnt work made pdf + status and manage status on recipes" />
     <MESSAGE value="made landing page bigger and better" />
     <MESSAGE value="ongoing infinite scroll" />
     <MESSAGE value="images" />
@@ -745,6 +728,7 @@
     <MESSAGE value="small front end changes + gave up splitting add form in 3 steps. Not possible" />
     <MESSAGE value="ongoing front end on edit and add recipe + bug fix on manage page" />
     <MESSAGE value="fixed front end edit and add recipe" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed front end edit and add recipe" />
+    <MESSAGE value="changed front end again starting on search fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed front end again starting on search fixes" />
   </component>
 </project>
