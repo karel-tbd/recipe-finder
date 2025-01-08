@@ -65,12 +65,13 @@
 {% endblock %}
 
 {%- block _recipe_instructions_row -%}
-    <div class="mb-4 h-[500px]" data-controller="quill">
+    <div class="mb-6 h-[500px]" data-controller="quill">
         <div class="hidden"> {{ form_label(form, null, {'label_attr': {'data-quill-target': 'label'}}) }}</div>
         <div data-quill-target="editor" id="{{ form.vars.id }}"></div>
         <input data-quill-target="input" type="hidden"
                name="{{ form.vars.full_name }}"{% if value is not empty %} value="{{ value }}"{% endif %} />
     </div>
+    {{ form_errors(form) }}
 {%- endblock -%}
 
 

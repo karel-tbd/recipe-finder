@@ -89,6 +89,7 @@ class RecipeController extends AbstractController
                 }
                 $entityManager->persist($recipe);
                 $entityManager->flush();
+                $this->addFlash('success', 'Recipe updated successfully.');
                 return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
             }
             return $this->render('recipe/edit.html.twig', [

@@ -14,6 +14,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: RecipeRepository::class)]
@@ -26,6 +27,7 @@ class Recipe
     use BlameableTrait;
 
     #[ORM\Column(length: 255)]
+    #[NotBlank]
     private ?string $name = null;
 
     #[Vich\UploadableField(mapping: 'recipe_files', fileNameProperty: 'imageName', size: 'imageSize')]
@@ -38,12 +40,15 @@ class Recipe
     private ?int $imageSize = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[NotBlank]
     private ?string $description = null;
 
     #[ORM\Column]
+    #[NotBlank]
     private ?float $time = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[NotBlank]
     private ?string $instructions = null;
 
     /**
@@ -53,9 +58,11 @@ class Recipe
     private Collection $recipeIngredients;
 
     #[ORM\Column]
+    #[NotBlank]
     private ?int $people = null;
 
     #[ORM\Column(type: Types::SIMPLE_ARRAY, nullable: true, enumType: MealType::class)]
+    #[NotBlank]
     private ?array $mealType = [];
 
     /**

@@ -1,7 +1,7 @@
 <div{{ attributes }} >
     {{ form_start(form) }}
 
-    <div class="w-full shadow p-3 ">
+    <div class="w-full shadow px-2 py-5 rounded ">
         <twig:Subtitle tag="h2" label="General information" class="font-normal pb-2"/>
         <div class="xl:flex gap-x-5 ">
             <div class="w-full">
@@ -20,8 +20,10 @@
     </div>
 
 
-    <div class="w-full shadow p-3 mt-5 ">
+    <div class="w-full shadow px-2 py-5 rounded mt-5">
         <twig:Subtitle tag="h2" label="Recipe ingredients" class="font-normal pb-2"/>
+        <p>Here you can add the necessary ingredients to your dish. <br>You can leave the 'unit' field empty, if you do
+            we will consider it as an amount. </p>
         {% for ingredient in form.recipeIngredients %}
             <div class="py-2 xl:flex gap-x-3">
                 <div class="flex-grow">
@@ -37,15 +39,18 @@
             </div>
 
         {% endfor %}
-
         <div class="pb-5">
-            {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-6 px-4 text-sm'}}) }}
+            {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-4 px-4 text-sm'}}) }}
         </div>
         {{ form_errors(form.recipeIngredients) }}
     </div>
 
-    <div class="w-full shadow mt-5 p-3">
+    <div class="w-full shadow px-2 py-5 rounded mt-5">
         <twig:Subtitle tag="h2" label="Recipe instructions" class="font-normal pb-2"/>
+        <p class="pb-3">Here you can write a step by step plan on how to make your dish. <br>Your headers/titles will be
+            marked
+            red and your
+            header 1 will have a line to indicate a new step for example. </p>
         <div class="w-full mb-14" data-live-ignore>
             {{ form_row(form.instructions) }}
         </div>

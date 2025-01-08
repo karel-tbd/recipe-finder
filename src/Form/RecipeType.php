@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Recipe;
+use App\Enum\MealCountry;
 use App\Enum\MealType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -12,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
@@ -38,7 +40,20 @@ class RecipeType extends AbstractType
                 'class' => MealType::class,
                 'choice_label' => fn(MealType $mealType) => $mealType->value,
                 'autocomplete' => true,
-                'placeholder' => 'Dinner',
+                'attr' => [
+                    'placeholder' => 'Dinner',
+                ]
+            ])
+            ->add('country', EnumType::class, [
+                'label' => 'Country',
+                'required' => false,
+                'multiple' => false,
+                'class' => MealCountry::class,
+                'choice_label' => fn(MealCountry $mealCountry) => $mealCountry->value,
+                'autocomplete' => true,
+                'attr' => [
+                    'placeholder' => 'None',
+                ]
             ])
             ->add('people', NumberType::class, [
                 'label' => 'Serves people',
@@ -56,6 +71,10 @@ class RecipeType extends AbstractType
                 'allow_add' => true,
                 'allow_delete' => true,
                 'error_bubbling' => false,
+                'constraints' => [
+                    new Count(['min' => 1]),
+
+                ]
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Recipe description',
