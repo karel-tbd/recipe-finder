@@ -1,0 +1,14 @@
+<div{{ attributes }}>
+    <button type="button" aria-controls="{{ uuid }}"
+            data-collapse-toggle="{{ uuid }}"
+            aria-expanded="{{ this.isHidden ? 'false' : 'true' }}"
+            class="w-full flex items-center">
+        <span class="flex-1 grow text-left whitespace-nowrap aria-expanded:font-medium ">{{ label }}</span>
+        <div class="w-4 h-4"> {{ ux_icon('angle-down') }}</div>
+    </button>
+
+    <ul id="{{ uuid }}"
+        class="{% if this.isHidden %}hidden {% endif %}">
+        {% block content %}{% endblock %}
+    </ul>
+</div>

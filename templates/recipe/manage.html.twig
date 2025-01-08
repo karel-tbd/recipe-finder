@@ -56,9 +56,11 @@
                                          label="Edit recipe"/>
                             <div class=" gap-x-3 pb-10 hidden xl:flex">
                                 <twig:Link
+                                        data-turbo-prefetch="false"
                                         label="Reject"
                                         href="{{ path('recipe_manage_reject', {'uuid': recipe.uuid}) }}"/>
                                 <twig:Link
+                                        data-turbo-prefetch="false"
                                         label="Accept"
                                         href="{{ path('recipe_manage_accept', {'uuid': recipe.uuid}) }}"
                                         variant="green"/>
@@ -81,9 +83,11 @@
                         </div>
                         <div class="flex gap-x-3 pb-10 xl:hidden">
                             <twig:Link
+                                    data-turbo-prefetch="false"
                                     label="Reject"
                                     href="{{ path('recipe_manage_reject', {'uuid': recipe.uuid}) }}"/>
                             <twig:Link
+                                    data-turbo-prefetch="false"
                                     label="Accept"
                                     href="{{ path('recipe_manage_accept', {'uuid': recipe.uuid}) }}"
                                     variant="green"/>

@@ -18,7 +18,8 @@ final class Subtitle
             'h2' => 'text-3xl',
             'h3' => 'text-2xl',
             'h4' => 'text-xl',
-            default => throw new LogicException(sprintf('Unknown button type "%s"', $this->tag)),
+            'h5' => 'text-lg',
+            default => throw new LogicException(sprintf('Unknown subtitle type "%s"', $this->tag)),
         };
     }
 

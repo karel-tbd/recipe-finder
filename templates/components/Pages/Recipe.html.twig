@@ -1,82 +1,76 @@
 <div{{ attributes }} >
     {{ form_start(form) }}
-    <div class="xl:flex gap-x-5">
-        <img class="rounded-2xl h-[105vh] w-full object-cover overflow-hidden hidden mt-16 lg:flex {% if recipe.image != null %} mt-24 {% endif %}"
-             src="{{ asset('images/step4.jpg') }}" alt="">
-        <div class="w-full">
-            <div class="w-full">
-                <twig:Subtitle tag="h2" label="General information" class="font-normal pb-2"/>
-                {% if recipe.image != null %}
-                    <p class="pb-3">If you don't change your recipes image it will stay the same as before.</p>
-                {% endif %}
-                <div class="">
-                    <div class="w-full">
-                        <div> {{ form_row(form.image) }}</div>
-                        <div>{{ form_row(form.description) }}</div>
+    <div class="w-full">
+        <twig:Subtitle tag="h5" label="Step 1: General information"
+                       class="w-fit px-5 py-3 rounded-t-lg  text-white bg-red-500"/>
+        <div class="border p-5 rounded-b-lg rounded-tr-lg shadow w-full">
+            {% if recipe.image != null %}
+                <p class="pb-3">If you don't change your recipes image it will stay the same as before.</p>
+            {% endif %}
+            <div class="xl:flex gap-x-5 ">
+                <div class="w-full">
+                    <div> {{ form_row(form.image) }}</div>
+                    <div>{{ form_row(form.description) }}</div>
+                </div>
+                <div class="w-full">
+                    <div>{{ form_row(form.name) }}</div>
+                    <div class="flex gap-x-5 w-full">
+                        <div class="w-full">{{ form_row(form.mealType) }}</div>
+                        <div class="w-full">{{ form_row(form.country) }}</div>
                     </div>
-                    <div class="w-full">
-                        <div>{{ form_row(form.name) }}</div>
-                        <div class="flex gap-x-5 w-full">
-                            <div class="w-full">{{ form_row(form.mealType) }}</div>
-                            <div class="w-full">{{ form_row(form.country) }}</div>
-                        </div>
-                        <div class="flex gap-x-5 w-full">
-                            <div class="w-full">{{ form_row(form.time) }}</div>
-                            <div class="w-full">{{ form_row(form.people) }}</div>
-                        </div>
+                    <div class="flex gap-x-5 w-full">
+                        <div class="w-full">{{ form_row(form.time) }}</div>
+                        <div class="w-full">{{ form_row(form.people) }}</div>
                     </div>
                 </div>
-            </div>
-
-            <hr class="mt-5">
-
-            <div class="w-full py-3">
-                <twig:Subtitle tag="h2" label="Recipe ingredients" class="font-normal pb-2"/>
-                <p class="pb-5">Here you can add the necessary ingredients to your dish. <br>You can leave the 'unit'
-                    field
-                    empty, if you do
-                    we will consider it as an amount. </p>
-                {% for ingredient in form.recipeIngredients %}
-                    <div class="py-2 xl:flex gap-x-3">
-                        <div class="flex-grow">
-                            {{ form_row(ingredient.ingredient) }}
-                        </div>
-                        <div class="grid grid-cols-2 gap-x-3">
-                            <div class="">{{ form_row(ingredient.quantity) }}</div>
-                            {{ form_row(ingredient.unit) }}
-                        </div>
-                        <div class=" md:pb-0">
-                            {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 text-sm py-2.5 px-4 mt-6' } }) }}
-                        </div>
-                    </div>
-
-                {% endfor %}
-                <div class="pb-5">
-                    {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-4 px-4 text-sm'}}) }}
-                </div>
-                {{ form_errors(form.recipeIngredients) }}
-            </div>
-
-            <hr class="mb-1">
-
-            <div class="w-full py-3">
-                <twig:Subtitle tag="h2" label="Recipe instructions" class="font-normal pb-2"/>
-                <p class="pb-5">Here you can write a step by step plan on how to make your dish. <br>Your headers/titles
-                    will be
-                    marked
-                    red and your
-                    header 1 will have a line to indicate a new step for example. </p>
-                <div class="w-full mb-14" data-live-ignore>
-                    {{ form_row(form.instructions) }}
-                </div>
-                {{ form_row(form.publish) }}
-                <twig:Button
-                        label="Submit"/>
             </div>
         </div>
 
-    </div>
+        <twig:Subtitle tag="h5" label="Step 2: Recipe ingredients"
+                       class="w-fit px-5 py-3 text-white bg-red-500 rounded-t-lg mt-10"/>
+        <div class="border p-5 rounded-b-lg rounded-tr-lg shadow w-full">
+            <p class="pb-5">Here you can add the necessary ingredients to your dish. <br>You can leave the 'unit'
+                field
+                empty, if you do
+                we will consider it as an amount. </p>
+            {% for ingredient in form.recipeIngredients %}
+                <div class="py-2 xl:flex gap-x-3">
+                    <div class="flex-grow">
+                        {{ form_row(ingredient.ingredient) }}
+                    </div>
+                    <div class="grid grid-cols-2 gap-x-3">
+                        <div class="">{{ form_row(ingredient.quantity) }}</div>
+                        {{ form_row(ingredient.unit) }}
+                    </div>
+                    <div class=" md:pb-0 xl:mt-6">
+                        {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 text-sm py-2.5 px-4' } }) }}
+                    </div>
+                </div>
 
+            {% endfor %}
+            <div class="pb-5">
+                {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-3 px-4 text-sm'}}) }}
+            </div>
+            {{ form_errors(form.recipeIngredients) }}
+        </div>
+
+        <twig:Subtitle tag="h5" label="Step 3: Recipe instructions"
+                       class="w-fit px-5 py-3 text-white bg-red-500 rounded-t-lg mt-10"/>
+        <div class="border p-5 rounded-b-lg rounded-tr-lg shadow w-full mb-5">
+            <twig:Subtitle tag="h2" label="Recipe instructions" class="font-normal pb-2"/>
+            <p class="pb-5">Here you can write a step by step plan on how to make your dish. <br>Your headers/titles
+                will be
+                marked
+                red and your
+                header 1 will have a line to indicate a new step for example. </p>
+            <div class="w-full pb-5" data-live-ignore>
+                {{ form_row(form.instructions) }}
+            </div>
+        </div>
+    </div>
+    {{ form_row(form.publish) }}
+    <twig:Button
+            label="Submit"/>
     {{ form_end(form) }}
 </div>
 

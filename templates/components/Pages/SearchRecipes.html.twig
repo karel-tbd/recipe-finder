@@ -43,62 +43,62 @@
                         label="Recipes"
                         class="pt-3"/>
             </div>
-            <twig:Accordion label="Dish Type" id="dish-type">
-                <twig:Accordion:Item>
+            <twig:Dropdown label="Dish Type" class="mt-10">
+                <twig:Dropdown:Item>
                     {{ meatField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
                     {{ seaFoodField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
                     {{ vegetarianField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
                     {{ proteinFoodsField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
                     {{ pastasField|raw }}
-                </twig:Accordion:Item>
-            </twig:Accordion>
+                </twig:Dropdown:Item>
+            </twig:Dropdown>
 
-            <twig:Accordion label="Meal Type" id="meal-type">
-                <twig:Accordion:Item>
+            <twig:Dropdown label="Meal Type" class="mt-10">
+                <twig:Dropdown:Item>
                     {{ breakfastField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
                     {{ brunchField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
                     {{ lunchField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
                     {{ dinnerField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
                     {{ cocktailField|raw }}
-                </twig:Accordion:Item>
-            </twig:Accordion>
+                </twig:Dropdown:Item>
+            </twig:Dropdown>
 
-            <twig:Accordion label="Allergies" id="allergies">
-                <twig:Accordion:Item>
+            <twig:Dropdown label="Allergies" class="mt-10">
+                <twig:Dropdown:Item>
                     {{ nutsField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
                     {{ glutenField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
                     {{ seaFoodAllergiesField|raw }}
-                </twig:Accordion:Item>
-                <twig:Accordion:Item>
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
                     {{ dairyField|raw }}
-                </twig:Accordion:Item>
-            </twig:Accordion>
+                </twig:Dropdown:Item>
+            </twig:Dropdown>
 
-            <twig:Accordion label="World Cuisine" id="worldCuisine">
-                <twig:Accordion:Item>
+            <twig:Dropdown label="World Cuisine" class="mt-10">
+                <twig:Dropdown:Item>
                     {{ country|raw }}
-                </twig:Accordion:Item>
-            </twig:Accordion>
+                </twig:Dropdown:Item>
+            </twig:Dropdown>
         </div>
 
 
@@ -116,63 +116,63 @@
 
                 <!-- Dropdown menu -->
                 <div id="multi-dropdown"
-                     class="z-10 bg-white hidden divide-y divide-gray-100 rounded w-2/3 shadow p-5">
-                    <twig:Accordion label="Dish Type" id="dish-type-mobile">
-                        <twig:Accordion:Item>
+                     class="z-10 bg-white hidden divide-y divide-gray-100 rounded w-4/5 shadow">
+                    <twig:Dropdown label="Dish Type" class="p-3">
+                        <twig:Dropdown:Item>
                             {{ meatField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
                             {{ seaFoodField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
                             {{ vegetarianField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
                             {{ proteinFoodsField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
                             {{ pastasField|raw }}
-                        </twig:Accordion:Item>
-                    </twig:Accordion>
+                        </twig:Dropdown:Item>
+                    </twig:Dropdown>
 
-                    <twig:Accordion label="Meal Type" id="meal-type-mobile">
-                        <twig:Accordion:Item>
+                    <twig:Dropdown label="Meal Type" class="p-3">
+                        <twig:Dropdown:Item>
                             {{ breakfastField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
                             {{ brunchField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
                             {{ lunchField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
                             {{ dinnerField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
                             {{ cocktailField|raw }}
-                        </twig:Accordion:Item>
-                    </twig:Accordion>
+                        </twig:Dropdown:Item>
+                    </twig:Dropdown>
 
-                    <twig:Accordion label="Allergies" id="allergies-mobile">
-                        <twig:Accordion:Item>
+                    <twig:Dropdown label="Allergies" class="p-3">
+                        <twig:Dropdown:Item>
                             {{ nutsField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
                             {{ glutenField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
                             {{ seaFoodAllergiesField|raw }}
-                        </twig:Accordion:Item>
-                        <twig:Accordion:Item>
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
                             {{ dairyField|raw }}
-                        </twig:Accordion:Item>
-                    </twig:Accordion>
+                        </twig:Dropdown:Item>
+                    </twig:Dropdown>
 
-                    <twig:Accordion label="World Cuisine" id="world-cuisine-mobile">
-                        <twig:Accordion:Item>
+                    <twig:Dropdown label="World Cuisine" class="p-3">
+                        <twig:Dropdown:Item>
                             {{ country|raw }}
-                        </twig:Accordion:Item>
-                    </twig:Accordion>
+                        </twig:Dropdown:Item>
+                    </twig:Dropdown>
                 </div>
             </div>
             <div class="flex items-center gap-x-5">

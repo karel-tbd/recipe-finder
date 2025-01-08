@@ -1,114 +1,87 @@
 <nav class="fixed {{ is_granted('IS_IMPERSONATOR') ? 'top-10' : 'top-0' }} left-0 z-50 w-full h-18 bg-white">
-    <div class="px-3 py-4 lg:px-5 lg:pl-3">
-        <div class="flex items-center justify-between w-4/5 mx-auto">
-            <div class="flex items-center justify-start rtl:justify-end">
-                <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
-                        type="button"
-                        class="inline-flex items-center p-2 rounded-lg lg:hidden text-black hover:text-gray-700">
-                    <span class="sr-only">Open sidebar</span>
-                    <svg class="w-8 h-8" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" fill-rule="evenodd"
-                              d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
-                    </svg>
-                </button>
-                <a href="{{ path('app_home') }}" class="ml-5 lg:me-24">
-                    <img src="{{ asset('images/logo.png') }}" class="h-14 pt-3 lg:pt-0" alt="From Fridge to Feast"/>
-                </a>
-            </div>
-            <div class="gap-x-10 hidden lg:flex">
+    <div class="flex items-center justify-between container mx-auto p-4">
+        <div class="flex items-center justify-start rtl:justify-end">
+            <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
+                    type="button"
+                    class="inline-flex items-center p-2 rounded-lg lg:hidden text-black hover:text-gray-700">
+                <span class="sr-only">Open sidebar</span>
+                <svg class="w-8 h-8" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" fill-rule="evenodd"
+                          d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                </svg>
+            </button>
+            <a href="{{ path('app_home') }}">
+                <img src="{{ asset('images/logo.png') }}" class="h-14 pt-3 lg:pt-0" alt="From Fridge to Feast"/>
+            </a>
+        </div>
+        <div class="gap-x-10 hidden lg:flex">
+            <twig:Sidebar:Item
+                    path="{{ path('recipe_index') }}"
+                    label="Search recipes"
+            />
+            {% if app.user() %}
                 <twig:Sidebar:Item
-                        path="{{ path('recipe_index') }}"
-                        label="Search recipes"
+                        path="{{ path('recipe_saved') }}"
+                        label="My recipes"
                 />
-                {% if app.user() %}
+                <twig:Sidebar:Item
+                        path="{{ path('recipe_add') }}"
+                        label="Add own recipes"
+                />
+                {% if is_granted('ROLE_ADMIN') %}
                     <twig:Sidebar:Item
-                            path="{{ path('recipe_saved') }}"
-                            label="My recipes"
-                    />
-                    <twig:Sidebar:Item
-                            path="{{ path('recipe_add') }}"
-                            label="Add own recipes"
-                    />
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <twig:Sidebar:Item
-                                path="{{ path('recipe_manage') }}"
-                                label="Manage recipes"
-                        />
-                    {% endif %}
-
-                {% else %}
-                    <twig:Sidebar:Item
-                            path="{{ path('app_login') }}"
-                            label="Login"
-                    />
-                    <twig:Sidebar:Item
-                            path="{{ path('app_register') }}"
-                            label="Register"
+                            path="{{ path('recipe_manage') }}"
+                            label="Manage recipes"
                     />
                 {% endif %}
 
+            {% else %}
+                <twig:Sidebar:Item
+                        path="{{ path('app_login') }}"
+                        label="Login"
+                />
+                <twig:Sidebar:Item
+                        path="{{ path('app_register') }}"
+                        label="Register"
+                />
+            {% endif %}
 
-                {# Language #}
-                {# <button
-                            type="button"
-                            aria-expanded="false" data-dropdown-toggle="dropdown-lang"
-                            class="text-white flex gap-3 "
-                    >
-
-                        language icon and tekst in header
-                       <div class="w-6 md:relative md:right-0 md:top-0">
-                            {{ ux_icon('earth') }}
-                        </div>
-                        <div class="hidden md:block text-lg">
-                            {% if app.request.locale == 'en' %}
-                                English
-                            {% endif %}
-                            {% if app.request.locale == 'nl' %}
-                                Nederlands
-                            {% endif %}
-                        </div>
-                    </button>
-                    <div class="z-50 hidden my-4 text-sm list-none divide-y rounded shadow bg-black justify-content-center divide-gray-600"
-                         id="dropdown-lang">
-                        {{ include('includes/languageMenu.html.twig') }}
-                    </div> #}
-                {% if app.user %}
+            {% if app.user %}
+                <div>
                     <div>
-                        <div>
-                            <button type="button"
-                                    class=" flex text-sm rounded-full"
-                                    aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                                <span class="sr-only">Open user menu</span>
-                                <img class="w-10 rounded-full"
-                                     src="{{ asset('images/placeholder.png') }}" alt="user photo">
-                            </button>
-                        </div>
-                        <div class="z-50 hidden border my-4 text-sm list-none divide-y rounded shadow bg-white divide-gray-300"
-                             id="dropdown-user">
-                            <div class="px-4 py-3" role="none">
-                                <p class="font-medium truncate" role="none">
-                                    {{ app.user.email }}
-                                </p>
-                            </div>
-                            <ul class="py-1" role="none">
-                                <li>
-                                    <a href="{{ path('user_edit') }}"
-                                       class="block px-4 py-2 hover:bg-gray-50"
-                                       role="menuitem">Edit account
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('app_logout') }}"
-                                       class="block px-4 py-2 hover:bg-gray-50"
-                                       role="menuitem">Logout</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <button type="button"
+                                class=" flex text-sm rounded-full"
+                                aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                            <span class="sr-only">Open user menu</span>
+                            <img class="w-10 rounded-full"
+                                 src="{{ asset('images/placeholder.png') }}" alt="user photo">
+                        </button>
                     </div>
-                {% endif %}
+                    <div class="z-50 hidden border my-4 text-sm list-none divide-y rounded shadow bg-white divide-gray-300"
+                         id="dropdown-user">
+                        <div class="px-4 py-3" role="none">
+                            <p class="font-medium truncate" role="none">
+                                {{ app.user.email }}
+                            </p>
+                        </div>
+                        <ul class="py-1" role="none">
+                            <li>
+                                <a href="{{ path('user_edit') }}"
+                                   class="block px-4 py-2 hover:bg-gray-50"
+                                   role="menuitem">Edit account
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_logout') }}"
+                                   class="block px-4 py-2 hover:bg-gray-50"
+                                   role="menuitem">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
 
-            </div>
         </div>
     </div>
 </nav>

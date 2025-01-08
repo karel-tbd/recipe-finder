@@ -6,8 +6,8 @@
                     message="{{ message }}"/>
         {% endfor %}
     {% endfor %}
-    <div class="lg:grid lg:grid-cols-2 gap-x-10 lg:w-4/5 m-auto ">
-        <img class="w-full md:w-1/2 lg:w-fit object-cover overflow-hidden m-0 h-96 rounded-xl"
+    <div class="lg:grid lg:grid-cols-2 gap-x-10 m-auto ">
+        <img class="w-full md:w-full lg:w-2/3 object-cover overflow-hidden m-0 h-96 rounded-xl"
              src="{{ vich_uploader_asset(recipe, 'image') }}"
              alt="{{ recipe.name }}">
         <div>
@@ -72,7 +72,7 @@
                 </div>
             </div>
             <hr>
-            <div class="flex justify-between w-4/5 m-auto lg:w-full mt-10">
+            <div class="flex justify-between mt-10">
                 <p>Created by <span
                             class="text-red-500">{% if recipe.createdBy == null %}From Fridge to Feast {% else %}{{ recipe.createdBy.email }}{% endif %}</span>
                 </p>
@@ -96,7 +96,7 @@
         </div>
     </div>
 
-    <div class="lg:flex w-4/5 m-auto gap-x-20 pt-20">
+    <div class="lg:flex m-auto gap-x-20 pt-20">
         <div class="lg:w-2/3">
             <twig:Subtitle
                     tag="h3"
@@ -112,6 +112,7 @@
                                 href="{{ path('recipe_edit', {'uuid':recipe.uuid}) }}"
                                 label="Edit recipe"/>
                         <twig:Link
+                                data-turbo-prefetch="false"
                                 href="{{ path('recipe_delete', {'uuid':recipe.uuid}) }}"
                                 label="Delete recipe"
                                 variant="white"/>
@@ -159,6 +160,7 @@
                             href="{{ path('recipe_edit', {'uuid':recipe.uuid}) }}"
                             label="Edit recipe"/>
                     <twig:Link
+                            data-turbo-prefetch="false"
                             href="{{ path('recipe_delete', {'uuid':recipe.uuid}) }}"
                             label="Delete recipe"
                             variant="white"/>

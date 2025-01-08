@@ -4,17 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="ongoing front end on edit and add recipe + bug fix on manage page">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="fixed front end edit and add recipe">
+      <change afterPath="$PROJECT_DIR$/assets/icons/angle-down.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Dropdown.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/Components/Dropdown/Item.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/Dropdown.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/Dropdown/Item.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers/quill_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/quill_controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Recipe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/chili-con-carne-676852cf61245388596367.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/RecipeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecipeType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Subtitle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Subtitle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/RecipeAdd.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/RecipeAdd.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/form/fields.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recipe/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/add.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recipe/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +233,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/assets/controllers",
+    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/assets/icons",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -238,18 +247,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/controllers" />
-      <recent name="$PROJECT_DIR$/src/Twig" />
       <recent name="$PROJECT_DIR$/assets/icons" />
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/templates/components/Pages" />
+      <recent name="$PROJECT_DIR$/templates/components/Dropdown" />
+      <recent name="$PROJECT_DIR$/src/Twig/Components" />
+      <recent name="$PROJECT_DIR$/templates/components" />
+      <recent name="$PROJECT_DIR$/assets/controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/assets/icons" />
       <recent name="$PROJECT_DIR$/templates/components/Pages" />
       <recent name="$PROJECT_DIR$/src/Twig/Components/Pages" />
       <recent name="$PROJECT_DIR$/templates/recipe" />
-      <recent name="$PROJECT_DIR$/public/images" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -288,15 +297,7 @@
       <workItem from="1735385632140" duration="103336000" />
       <workItem from="1735987778937" duration="809000" />
       <workItem from="1735988757249" duration="20687000" />
-      <workItem from="1736150095933" duration="48978000" />
-    </task>
-    <task id="LOCAL-00008" summary="Made new entity + fixed git bug">
-      <option name="closed" value="true" />
-      <created>1734176038656</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1734176038656</updated>
+      <workItem from="1736150095933" duration="55846000" />
     </task>
     <task id="LOCAL-00009" summary="can make recipes and add images to them">
       <option name="closed" value="true" />
@@ -682,7 +683,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736342102712</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="fixed front end edit and add recipe">
+      <option name="closed" value="true" />
+      <created>1736345866845</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1736345866846</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -711,7 +720,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added infinite scroll + ongoing layout form" />
     <MESSAGE value="recipe index on 1 page so infinite scoll doesnt work made pdf + status and manage status on recipes" />
     <MESSAGE value="made landing page bigger and better" />
     <MESSAGE value="ongoing infinite scroll" />
@@ -736,6 +744,7 @@
     <MESSAGE value="added font and made country filter a radio type" />
     <MESSAGE value="small front end changes + gave up splitting add form in 3 steps. Not possible" />
     <MESSAGE value="ongoing front end on edit and add recipe + bug fix on manage page" />
-    <option name="LAST_COMMIT_MESSAGE" value="ongoing front end on edit and add recipe + bug fix on manage page" />
+    <MESSAGE value="fixed front end edit and add recipe" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed front end edit and add recipe" />
   </component>
 </project>
