@@ -52,8 +52,8 @@ use Symfony\Bundle\SecurityBundle\Security;
                 ->setParameter('name', '%' . $search['name'] . '%');
         }
 
-        if (QueryService::isNotEmpty($search, 'search')) {
-            $ingredients = reset($search['search']);
+        if (QueryService::isNotEmpty($search, 'ingredients')) {
+            $ingredients = reset($search['ingredients']);
             $number = count($ingredients);
             $or = [];
             foreach ($ingredients as $i => $ingredient) {

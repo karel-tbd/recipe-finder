@@ -38,15 +38,21 @@
                     message="{{ message }}"/>
         {% endfor %}
     {% endfor %}
+
+    {# Header / CTA #}
     <img src="{{ asset('/images/cta.jpg') }}"
          class="rounded-2xl w-full m-auto h-[50vh] object-cover overflow-hidden xl:mb-10" alt="">
 
     <div class="absolute ml-3 lg:ml-20 mt-[-18rem] xl:mt-[-22rem] bg-black/40 p-5 rounded-lg">
         <h1 class="text-white text-4xl">
-            Choose from <br>thousands of recipes
+            Choose from
+            <br>
+            thousands of recipes
         </h1>
         <p class="text-white mt-10">
-            Don't know what to eat yet?<br> Try our fun way to find new recipes!
+            Don't know what to eat yet?
+            <br>
+            Try our fun way to find new recipes!
         </p>
         <twig:Link
                 label="Find new recipes"
@@ -54,8 +60,12 @@
                 icon="{{ ux_icon('arrow-right-solid') }}"
         />
     </div>
+
     {{ form_start(form, {'method': 'GET'}) }}
+
     <div class="lg:flex lg:gap-10 pt-10">
+
+        {# Recipe filter desctop #}
         <div class="w-1/4 hidden lg:block h-fit ">
             <div class="flex gap-x-5 items-center">
                 <twig:Subtitle
@@ -139,12 +149,15 @@
             </twig:Dropdown>
         </div>
 
-
+        {# View of search fields and recipes #}
         <div class="lg:w-3/4">
             <div class="flex items-center gap-x-5">
+                {# Search on name #}
                 <div class="flex-1" data-controller="prevent-enter">
                     {{ form_row(form.name) }}
                 </div>
+
+                {# Recipe filter mobile #}
                 <button id="multiLevelDropdownButton" data-dropdown-toggle="multi-dropdown"
                         data-dropdown-placement="right-start"
                         class="text-black mt-2 mr-2 lg:invisible"
@@ -152,7 +165,6 @@
                     <div class="text-black w-5">{{ ux_icon('filter') }}</div>
                 </button>
 
-                <!-- Dropdown menu -->
                 <div id="multi-dropdown"
                      class="z-10 bg-white hidden divide-y divide-gray-100 rounded w-4/5 shadow">
                     <twig:Dropdown label="Dish Type" class="p-3">
@@ -231,15 +243,19 @@
                     </twig:Dropdown>
                 </div>
             </div>
+
+            {# Search on ingredient #}
             <div class="flex items-center gap-x-5">
                 <div class="flex-1" data-controller="prevent-enter">
-                    {{ form_row(form.search) }}
+                    {{ form_row(form.ingredients) }}
                 </div>
                 <button class="mt-2 mr-2" data-controller="reset-search" data-action="reset-search#reset"
                         title="Clear Filter">
                     <div class="text-black w-5">{{ ux_icon('trash') }}</div>
                 </button>
             </div>
+
+            {# Recipes display #}
             <div class="recipeGrid" data-controller="scroll">
                 <div id="results" class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5 ">
                     {% for recipe in recipes %}

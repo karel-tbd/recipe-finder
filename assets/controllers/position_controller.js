@@ -21,7 +21,7 @@ export default class extends Controller {
                 let currentMealType = event.currentTarget;
                 this.selectedMealType = currentMealType.getAttribute('data-position');
                 console.log(this.selectedMealType);
-                if (this.selectedMealType === 'dessert' || this.selectedMealType === 'breakfast') {
+                if (this.selectedMealType === 'dessert' || this.selectedMealType === 'breakfast' || this.selectedMealType === 'brunch') {
                     mealTypeBlock.classList.add('hidden');
                     countryBlock.classList.remove('hidden');
                 } else {

@@ -6,10 +6,13 @@
                     message="{{ message }}"/>
         {% endfor %}
     {% endfor %}
+
     <div class="lg:grid lg:grid-cols-2 gap-x-10 m-auto ">
         <img class="w-full md:w-full lg:w-2/3 object-cover overflow-hidden m-0 h-96 rounded-xl"
              src="{{ vich_uploader_asset(recipe, 'image') }}"
              alt="{{ recipe.name }}">
+
+        {# General information #}
         <div>
             <h1 class="text-3xl pt-5 lg:pt-0 font-bold py-2 lg:w-3/4">{{ recipe.name }}</h1>
             <p class="lg:w-3/4 py-5">
@@ -22,6 +25,7 @@
                     <p>{{ recipe.time }} min</p>
                 </div>
 
+                {# People dropdown #}
                 <div class="text-center cursor-pointer hover:text-red-500 text-gray-800" id="dropdownDefaultButton"
                      data-dropdown-toggle="peopleDropdown">
                     <div class="w-8 m-auto">{{ ux_icon('user-group') }}</div>
@@ -71,13 +75,22 @@
                     </ul>
                 </div>
             </div>
-            <hr>
-            <div class="flex justify-between mt-10">
-                <p>Created by <span
-                            class="text-red-500">{% if recipe.createdBy == null %}From Fridge to Feast {% else %}{{ recipe.createdBy.email }}{% endif %}</span>
-                </p>
-                <div class="flex gap-x-5">
 
+            <hr class="mt-5">
+
+            {# Created by, Save, Pdf #}
+            <div class="flex justify-between mt-10">
+                <p>Created by
+                    <span class="text-red-500">
+                        {% if recipe.createdBy == null %}
+                            From Fridge to Feast
+                        {% else %}
+                            {{ recipe.createdBy.email }}
+                        {% endif %}
+                    </span>
+                </p>
+
+                <div class="flex gap-x-5">
                     {% if app.user %}
                         {% if recipe.createdBy != current_user() %}
                             {% if recipeSavedByUser == null %}
@@ -99,6 +112,7 @@
     </div>
 
     <div class="lg:flex m-auto gap-x-20 pt-20">
+        {# Instructions #}
         <div class="lg:w-2/3">
             <twig:Subtitle
                     tag="h3"
@@ -107,6 +121,7 @@
             <div class="recipe">
                 {{ recipe.instructions|replace({'</h1>' : '</h1> <hr>'})|raw }}
             </div>
+            {# Edit/Delete buttons Desctop #}
             {% if current_user() is not null %}
                 {% if current_user() == recipe.createdBy or is_granted('ROLE_ADMIN') %}
                     <div class="hidden lg:flex gap-x-3">
@@ -122,6 +137,8 @@
                 {% endif %}
             {% endif %}
         </div>
+
+        {# Ingredient list #}
         <div class="lg:w-1/3 pt-5 xl:pt-0">
             <twig:Subtitle
                     tag="h3"
@@ -137,6 +154,7 @@
                 {% endfor %}
             </ul>
 
+            {# Recipte Rating #}
             {% if app.user %}
                 <twig:Subtitle
                         tag="h4"
@@ -155,6 +173,8 @@
                 </div>
             {% endif %}
         </div>
+
+        {# Edit/Delete buttons mobile #}
         {% if current_user() is not null %}
             {% if current_user() == recipe.createdBy or is_granted('ROLE_ADMIN') %}
                 <div class="lg:hidden flex gap-x-3 pb-5">

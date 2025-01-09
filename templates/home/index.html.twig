@@ -3,90 +3,86 @@
 {% block title %}Find a recipe{% endblock %}
 
 {% block body %}
-
     <div class="relative h-screen">
+        {# bg-image #}
         <img class="w-full h-full object-cover" src="{{ asset('images/bg-landing.jpg') }}" alt="">
+
         <div data-controller="position">
 
+            {# Question 1: Mealtype #}
             <div id="mealType" class="">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <twig:Title class="bg-gray-200 bg-opacity-70 rounded-xl px-4 py-2"
-                                label="What meal are you looking for?"/>
-                </div>
+                <twig:Question
+                        label="What meal are you looking for?">
 
-                <div class="absolute inset-0 flex flex-wrap items-center justify-center gap-3 h-fit w-fit top-[55%] mx-auto">
-                    <a class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 hover:bg-opacity-80 bg-opacity-70 inset-0 flex top-10 z-10 cursor-pointer whitespace-nowrap animate-bounce"
-                       data-position="breakfast"
-                       data-position-target="mealType">
-                        <h2 class="text-xl xl:text-3xl">&#129386; Breakfast &#129472; </h2>
-                    </a>
+                    <twig:Question:Answer
+                            dataPosition="breakfast"
+                            dataTarget="mealType">
+                        &#129386; Breakfast &#129472;
+                    </twig:Question:Answer>
 
-                    <a data-position="lunch"
-                       data-position-target="mealType"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer whitespace-nowrap animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#127833; Lunch &#127832;</h2>
-                    </a>
+                    <twig:Question:Answer
+                            dataPosition="brunch"
+                            dataTarget="mealType">
+                        &#127849; Brunch &#129374;
+                    </twig:Question:Answer>
 
-                    <a data-position="dinner"
-                       data-position-target="mealType"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer whitespace-nowrap animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#127791; Dinner &#127829;</h2>
-                    </a>
+                    <twig:Question:Answer
+                            dataPosition="lunch"
+                            dataTarget="mealType">
+                        &#127833; Lunch &#127832;
+                    </twig:Question:Answer>
 
-                    <a data-position="dessert"
-                       data-position-target="mealType"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer whitespace-nowrap animate-bounce">
-                        <h2 class="text-xl xl:text-3xl"> &#127846; Dessert &#127856;</h2>
-                    </a>
-                </div>
+                    <twig:Question:Answer
+                            dataPosition="dinner"
+                            dataTarget="mealType">
+                        &#127791; Dinner &#127829;
+                    </twig:Question:Answer>
+
+                    <twig:Question:Answer
+                            dataPosition="dessert"
+                            dataTarget="mealType">
+                        &#127846; Dessert &#127856;
+                    </twig:Question:Answer>
+
+                </twig:Question>
             </div>
 
+            {# Question 2: Meal #}
             <div id="desire" class="hidden">
-                <div class="absolute inset-0 flex items-center justify-center z-10 ">
-                    <twig:Title class="bg-gray-200 bg-opacity-70 rounded-xl px-4 py-2"
-                                label="What’s your craving today?"/>
-                </div>
+                <twig:Question
+                        label="What’s your craving today?">
 
-                <div class="absolute inset-0 flex flex-wrap items-center justify-center gap-3 h-fit w-fit top-[55%] mx-auto">
-                    <a class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 hover:bg-opacity-80 bg-opacity-70 inset-0 flex top-10 z-10 cursor-pointer animate-bounce"
-                       data-position="Pasta"
-                       data-position-target="meal">
-                        <h2 class="text-xl xl:text-3xl">&#127806; Pasta Party &#127837; </h2>
+                    <twig:Question:Answer
+                            dataTarget="meal"
+                            dataPosition="Pasta">
+                        &#127806; Pasta Party &#127837;
+                    </twig:Question:Answer>
 
-                    </a>
+                    <twig:Question:Answer
+                            dataTarget="meal"
+                            dataPosition="Meat">
+                        &#128019; Meaty Madness &#129363;
+                    </twig:Question:Answer>
 
-                    <a data-position="Meat"
-                       data-position-target="meal"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#128019; Meaty Madness &#129363;</h2>
+                    <twig:Question:Answer
+                            dataTarget="meal"
+                            dataPosition="vegetarian">
+                        &#129367; Veggie delight &#129388;
+                    </twig:Question:Answer>
 
-                    </a>
+                    <twig:Question:Answer
+                            dataTarget="meal"
+                            dataPosition="Proteins">
+                        &#128035; Protein power meal &#128170;
+                    </twig:Question:Answer>
 
-                    <a data-position="vegetarian"
-                       data-position-target="meal"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#129367; Veggie delight &#129388;</h2>
-                    </a>
+                    <twig:Question:Answer
+                            dataTarget="meal"
+                            dataPosition="Fish and Seafood">
+                        &#128032; Fish Fest &#129424;
+                    </twig:Question:Answer>
 
-                    <a data-position="Proteins"
-                       data-position-target="meal"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl"> &#128035; Protein power meal &#128170;</h2>
-                    </a>
-
-                    <a data-position="Fish and Seafood"
-                       data-position-target="meal"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#128032; Fish Fest &#129424;</h2>
-                    </a>
-                </div>
+                </twig:Question>
                 <div class="absolute inset-0 flex flex-wrap items-center justify-center gap-3 h-fit w-fit top-[90%] mx-auto">
                     <a data-position="back"
                        data-position-target="meal"
@@ -96,69 +92,62 @@
                     </a>
                 </div>
             </div>
+
+            {# Question 3: Coutry #}
             <div id="country" class="hidden">
-                <div class="absolute inset-0 flex items-center justify-center z-10 ">
-                    <twig:Title class="bg-gray-200 bg-opacity-70 rounded-xl px-4 py-2"
-                                label="Which country is serving up these flavors? "/>
-                </div>
+                <twig:Question
+                        label="Which country is serving up these flavors?">
 
-                <div class="absolute inset-0 flex flex-wrap items-center justify-center gap-3 h-fit w-fit top-[55%] mx-auto">
-                    <a data-position="italian"
-                       data-position-target="country"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#127470;&#127481; Italian &#127470;&#127481;</h2>
-                    </a>
+                    <twig:Question:Answer
+                            dataTarget="country"
+                            dataPosition="italian">
+                        &#127470;&#127481; Italian &#127470;&#127481;
+                    </twig:Question:Answer>
 
-                    <a data-position="mexican"
-                       data-position-target="country"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#127474;&#127485; Mexican &#127474;&#127485;</h2>
-                    </a>
+                    <twig:Question:Answer
+                            dataTarget="country"
+                            dataPosition="mexican">
+                        &#127474;&#127485; Mexican &#127474;&#127485;
+                    </twig:Question:Answer>
 
-                    <a data-position="greek"
-                       data-position-target="country"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#127468;&#127479; Greek &#127468;&#127479;</h2>
-                    </a>
+                    <twig:Question:Answer
+                            dataTarget="country"
+                            dataPosition="greek">
+                        &#127468;&#127479; Greek &#127468;&#127479;
+                    </twig:Question:Answer>
 
-                    <a data-position="chinese"
-                       data-position-target="country"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#127464;&#127475; Chinese &#127464;&#127475;</h2>
-                    </a>
+                    <twig:Question:Answer
+                            dataTarget="country"
+                            dataPosition="chinese">
+                        &#127464;&#127475; Chinese &#127464;&#127475;
+                    </twig:Question:Answer>
 
-                    <a data-position="japanese"
-                       data-position-target="country"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#127471;&#127477; Japanese &#127471;&#127477;</h2>
-                    </a>
+                    <twig:Question:Answer
+                            dataTarget="country"
+                            dataPosition="japanese">
+                        &#127471;&#127477; Japanese &#127471;&#127477;
+                    </twig:Question:Answer>
 
-                    <a data-position="french"
-                       data-position-target="country"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#127467;&#127479; French &#127467;&#127479;</h2>
-                    </a>
+                    <twig:Question:Answer
+                            dataTarget="country"
+                            dataPosition="french">
+                        &#127467;&#127479; French &#127467;&#127479;
+                    </twig:Question:Answer>
 
-                    <a data-position="american"
-                       data-position-target="country"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#127482;&#127480; American &#127482;&#127480;</h2>
-                    </a>
+                    <twig:Question:Answer
+                            dataTarget="country"
+                            dataPosition="american">
+                        &#127482;&#127480; American &#127482;&#127480;
+                    </twig:Question:Answer>
 
-                    <a data-position="all"
-                       data-position-target="country"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#127758; All around the world &#127758;</h2>
-                    </a>
-                </div>
+                    <twig:Question:Answer
+                            dataTarget="country"
+                            dataPosition="all">
+                        &#127758; All around the world &#127758;
+                    </twig:Question:Answer>
+
+                </twig:Question>
+
                 <div class="absolute inset-0 flex flex-wrap items-center justify-center gap-3 h-fit w-fit top-[90%] mx-auto">
                     <a data-position="back"
                        data-position-target="country"
@@ -168,33 +157,38 @@
                     </a>
                 </div>
             </div>
+
+            {# Question 4: Time #}
             <div id="difficulty" class="hidden">
-                <div class="absolute inset-0 flex items-center justify-center z-10 ">
-                    <twig:Title class="bg-gray-200 bg-opacity-70 rounded-xl px-4 py-2"
-                                label="How much time do we have to cook?"/>
-                </div>
-                <div class="absolute inset-0 flex flex-wrap items-center justify-center gap-3 h-fit w-fit top-[55%] mx-auto">
-                    <a data-position="easy"
-                       data-position-target="difficulty"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#128336; 15 minutes or less &#128336;</h2>
-                    </a>
+                <twig:Question
+                        label="How much time do we have to cook?">
 
-                    <a data-position="normal"
-                       data-position-target="difficulty"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
-                            z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#128352; Half an hour &#128352;</h2>
-                    </a>
+                    <twig:Question:Answer
+                            dataTarget="difficulty"
+                            dataPosition="easy">
+                        &#128336; 15 minutes or less &#128336;
+                    </twig:Question:Answer>
 
-                    <a data-position="hard"
-                       data-position-target="difficulty"
-                       class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
+                    <twig:Question:Answer
+                            dataTarget="difficulty"
+                            dataPosition="normal">
+                        &#128352; Half an hour &#128352;
+                    </twig:Question:Answer>
+
+                    <twig:Question:Answer
+                            dataTarget="difficulty"
+                            dataPosition="easy">
+                        &#128336; 15 minutes or less &#128336;
+                    </twig:Question:Answer>
+
+                </twig:Question>
+                <a data-position="hard"
+                   data-position-target="difficulty"
+                   class="rounded-xl w-fit h-fit px-4 py-2 border bg-gray-200 bg-opacity-70 hover:bg-opacity-80 inset-0 flex top-10
                             z-10 cursor-pointer animate-bounce">
-                        <h2 class="text-xl xl:text-3xl">&#128357; 45 minutes or more &#128357;</h2>
-                    </a>
-                </div>
+                    &#128357; 45 minutes or more &#128357;
+                </a>
+
                 <div class="absolute inset-0 flex flex-wrap items-center justify-center gap-3 h-fit w-fit top-[90%] mx-auto">
                     <a data-position="back"
                        data-position-target="difficulty"

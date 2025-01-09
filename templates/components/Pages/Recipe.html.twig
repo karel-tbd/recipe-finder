@@ -1,5 +1,7 @@
 <div{{ attributes }} >
     {{ form_start(form) }}
+
+    {# Step 1 #}
     <div class="w-full xl:flex gap-x-5">
         <div class="w-full">
             <twig:Subtitle tag="h5" label="Step 1: General information"
@@ -34,21 +36,21 @@
             <img class="rounded-2xl h-[48vh] w-full object-cover overflow-hidden hidden lg:flex"
                  src="{{ vich_uploader_asset(recipe, 'image') }}" alt="">
         {% endif %}
-
     </div>
 
     {# Step 2 #}
     <div class="w-full xl:flex gap-x-5">
         <img class="rounded-2xl h-[80vh] mt-10 w-full object-cover overflow-hidden hidden lg:flex"
              src="{{ asset('images/step3.jpg') }}" alt="">
+
         <div class="w-full ">
             <twig:Subtitle tag="h5" label="Step 2: Recipe ingredients"
                            class="w-fit px-5 py-3 text-white bg-red-500 rounded-t-lg mt-10"/>
             <div class="border p-5 rounded-b-lg rounded-tr-lg shadow w-full">
-                <p class="pb-5">Here you can add the necessary ingredients to your dish. <br>You can leave the 'unit'
-                    field
-                    empty, if you do
-                    we will consider it as an amount. </p>
+                <p class="pb-5">
+                    Here you can add the necessary ingredients to your dish. <br>You can leave the 'unit'
+                    field empty, if you do we will consider it as an amount.
+                </p>
                 {% for ingredient in form.recipeIngredients %}
                     <div class="py-2 xl:flex gap-x-3">
                         <div class="flex-grow">
@@ -62,9 +64,9 @@
                             {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 text-sm py-2.5 px-4' } }) }}
                         </div>
                     </div>
-
                 {% endfor %}
-                <div class="pb-5">
+
+                <div>
                     {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-3 px-4 text-sm'}}) }}
                 </div>
                 {{ form_errors(form.recipeIngredients) }}

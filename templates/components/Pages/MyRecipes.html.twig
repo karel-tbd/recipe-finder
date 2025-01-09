@@ -31,10 +31,14 @@
 {% set american = form_row(form.american) %}
 
 <div{{ attributes }}>
+
+    {# header img #}
     <img src="{{ asset('/images/posible-cta2.jpg') }}"
          class="rounded-2xl w-full m-auto h-[50vh] object-cover overflow-hidden xl:mb-10" alt="">
 
     {{ form_start(form, {'method': 'GET'}) }}
+
+    {# Recipe filter desctop #}
     <div class="lg:flex lg:gap-10 pt-10">
         <div class="w-1/4 hidden lg:block h-fit ">
             <div class="flex gap-x-5 items-center">
@@ -119,12 +123,15 @@
             </twig:Dropdown>
         </div>
 
-
+        {# Search field and recipe display #}
         <div class="lg:w-3/4">
             <div class="flex items-center gap-x-5">
+                {# Search on name #}
                 <div class="flex-1" data-controller="prevent-enter">
                     {{ form_row(form.name) }}
                 </div>
+
+                {# Recipe filter mobile #}
                 <button id="multiLevelDropdownButton" data-dropdown-toggle="multi-dropdown"
                         data-dropdown-placement="right-start"
                         class="text-black mt-2 mr-2 lg:invisible"
@@ -132,7 +139,6 @@
                     <div class="text-black w-5">{{ ux_icon('filter') }}</div>
                 </button>
 
-                <!-- Dropdown menu -->
                 <div id="multi-dropdown"
                      class="z-10 bg-white hidden divide-y divide-gray-100 rounded w-4/5 shadow">
                     <twig:Dropdown label="Dish Type" class="p-3">
@@ -211,17 +217,21 @@
                     </twig:Dropdown>
                 </div>
             </div>
+
             <div class="flex items-center gap-x-5">
+                {# Search on ingredient #}
                 <div class="flex-1" data-controller="prevent-enter">
-                    {{ form_row(form.search) }}
+                    {{ form_row(form.ingredients) }}
                 </div>
                 <button class="mt-2 mr-2" data-controller="reset-search" data-action="reset-search#reset"
                         title="Clear Filter">
                     <div class="text-black w-5">{{ ux_icon('trash') }}</div>
                 </button>
             </div>
-            <div class="recipeGrid" data-controller="scroll">
-                <div id="results" class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5 ">
+
+            {# Recipe display #}
+            <div data-controller="scroll">
+                <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5 ">
                     {% for recipe in recipes %}
                         <article
                                 id="recipe--{{ page }}-{{ loop.index }}"
@@ -275,7 +285,7 @@
                                     {% if loop.first %}
                                         data-scroll-target="loader"
                                         data-action="scroll->live#action"
-                                        data-live-action-param="debounce(200)|more"
+                                        data-live-action-param="debounce(250)|more"
                                     {% endif %}
                             >
                                 <div class="shadow rounded-md w-full mx-auto">
