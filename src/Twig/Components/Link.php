@@ -12,6 +12,7 @@ final class Link
     public string $label;
     public string $size = 'md';
     public string $tag = 'a';
+    public ?string $icon = null;
     public string $variant = 'primary';
     public string $extraClasses = '';
     public bool $fullWidth = false;

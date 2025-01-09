@@ -3,7 +3,13 @@
     'href': href
 }) }}>
 {% if label is defined and label is not empty %}
-    {{ label|raw }}
+    <div class="flex gap-x-3 items-center">
+        <div>{{ label|raw }}</div>
+        {% if icon != null %}
+            <div class="w-4 h-4">{{ icon|raw }}</div>
+        {% endif %}
+    </div>
+
 {% else %}
     {% block content %}{% endblock content %}
 {% endif %}

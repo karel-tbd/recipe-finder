@@ -22,11 +22,18 @@
 {% set dairyField = form_row(form.dairy) %}
 
 {# World Cuisine Fields #}
-{% set country = form_row(form.cuisine) %}
+{% set italian = form_row(form.italian) %}
+{% set mexican = form_row(form.mexican) %}
+{% set greek = form_row(form.greek) %}
+{% set chinese = form_row(form.chinese) %}
+{% set japanese = form_row(form.japanese) %}
+{% set french = form_row(form.french) %}
+{% set american = form_row(form.american) %}
 
 <div{{ attributes }}>
     <img src="{{ asset('/images/posible-cta2.jpg') }}"
          class="rounded-2xl w-full m-auto h-[50vh] object-cover overflow-hidden xl:mb-10" alt="">
+    
     {{ form_start(form, {'method': 'GET'}) }}
     <div class="lg:flex lg:gap-10 pt-10">
         <div class="w-1/4 hidden lg:block h-fit ">
@@ -89,7 +96,25 @@
 
             <twig:Dropdown label="World Cuisine" class="mt-10">
                 <twig:Dropdown:Item>
-                    {{ country|raw }}
+                    {{ italian|raw }}
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
+                    {{ mexican|raw }}
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
+                    {{ greek|raw }}
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
+                    {{ chinese|raw }}
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
+                    {{ japanese|raw }}
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
+                    {{ french|raw }}
+                </twig:Dropdown:Item>
+                <twig:Dropdown:Item>
+                    {{ american|raw }}
                 </twig:Dropdown:Item>
             </twig:Dropdown>
         </div>
@@ -163,7 +188,25 @@
 
                     <twig:Dropdown label="World Cuisine" class="p-3">
                         <twig:Dropdown:Item>
-                            {{ country|raw }}
+                            {{ italian|raw }}
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
+                            {{ mexican|raw }}
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
+                            {{ greek|raw }}
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
+                            {{ chinese|raw }}
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
+                            {{ japanese|raw }}
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
+                            {{ french|raw }}
+                        </twig:Dropdown:Item>
+                        <twig:Dropdown:Item>
+                            {{ american|raw }}
                         </twig:Dropdown:Item>
                     </twig:Dropdown>
                 </div>

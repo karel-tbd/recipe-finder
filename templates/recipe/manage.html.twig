@@ -51,9 +51,9 @@
                                 <i class="fa-circle-check"></i>
                                 {{ recipe.instructions|replace({'</h2>' : '</h2> <hr>', '<p>': '<p class="text-gray-700">', '<h2>': '<h2 class="uppercase tracking-wide	">'})|raw }}
                             </div>
-                            <twig:Button tag="a"
-                                         href="{{ path('recipe_edit', {'uuid':recipe.uuid}) }}"
-                                         label="Edit recipe"/>
+                            <twig:Link
+                                    href="{{ path('recipe_edit', {'uuid':recipe.uuid}) }}"
+                                    label="Edit recipe"/>
                             <div class=" gap-x-3 pb-10 hidden xl:flex">
                                 <twig:Link
                                         data-turbo-prefetch="false"

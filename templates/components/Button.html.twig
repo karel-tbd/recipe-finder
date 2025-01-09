@@ -3,7 +3,7 @@
     'type': type,
 }) }}>
 {% if label is defined and label is not empty %}
-    {{ label|raw }}
+    <div>{{ label|raw }}</div>
 {% else %}
     {% block content %}{% endblock content %}
 {% endif %}

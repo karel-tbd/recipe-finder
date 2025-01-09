@@ -237,11 +237,12 @@ class RecipeController extends AbstractController
         return $this->redirectToRoute('recipe_index');
     }
 
-    #[Route('/recipe/pdf/{uuid}', name: 'recipe_pdf'), ]
-    public function pdf(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, Environment $twig, Pdf $weasyPrint): PdfResponse
+    #[Route('/recipe/pdf/{uuid}/{people}', name: 'recipe_pdf'), ]
+    public function pdf(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, #[MapEntity(mapping: ['people' => 'people'])] int $people, Environment $twig, Pdf $weasyPrint): PdfResponse
     {
         $html = $twig->render('recipe/pdf.html.twig', [
                 'recipe' => $recipe,
+                'people' => $people,
             ]
         );
         $pdfContent = $weasyPrint->getOutputFromHtml($html);

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet"
-          href="https://cdn.curlwind.com?classes=border,border-b,text-2xl,pt-2,pt-10,pt-5,text-center,text-lg,pt-3,rounded-lg,text-3xl,pl-5,w-80,h-52,object-cover,overflow-hidden">
+          href="https://cdn.curlwind.com?classes=border,border-b,text-top,text-2xl,align-top,pt-2,pt-10,pt-5,text-center,text-lg,pt-3,rounded-lg,text-3xl,pl-5,w-80,h-52,object-cover,overflow-hidden,flex,justify-between">
     <title>{{ recipe.name }}</title>
 </head>
 <body>
@@ -21,12 +21,16 @@
                 <p class="pl-5 pt-3 text-lg">
                     {{ recipe.description }}
                 </p>
+                <div class="flex justify-between pl-5 pt-3 text-lg">
+                    <div>{{ recipe.time }} min.</div>
+                    <div>Serves {{ people }}</div>
+                </div>
             </div>
         </td>
     </tr>
     <tr>
-        <td style="width: 60%">
-            <div class="text-lg pt-5">
+        <td style="width: 60%" class="align-top">
+            <div class="text-lg pt-10 text-top">
                 {{ recipe.instructions|raw }}
             </div>
         </td>
@@ -35,7 +39,7 @@
                 <ul>
                     {% for ingredient in recipe.recipeIngredients %}
                         <li class="pt-2 border-b">
-                            {{ ingredient.quantity }}
+                            {{ ingredient.quantity / recipe.people * people }}
                             {{ ingredient.unit ? ingredient.unit.value }}
                             {{ ingredient.ingredient.name }}
                         </li>
