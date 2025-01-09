@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-security.html.twig' %}
 
 {% block title %}Login{% endblock %}
 
@@ -23,7 +23,7 @@
                                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                             {% endif %}
                             <div class="mb-5">
-                                <label for="username" class="font-thin block mb-2 text-gray-900 ">
+                                <label for="username" class=" block mb-2 font-normal text-gray-900 text-sm">
                                     Email
                                 </label>
                                 <input type="email" value="{{ last_username }}" name="_username" id="email"
@@ -32,7 +32,7 @@
                             </div>
                             <div class="mb-5">
                                 <label for="password"
-                                       class="block mb-2 font-thin text-gray-900 ">
+                                       class=" block mb-2 font-normal text-gray-900 text-sm">
                                     Password
                                 </label>
                                 <input type="password" name="_password" id="password" placeholder="••••••••"
@@ -50,7 +50,7 @@
                             </button>
 
                             <a href="{{ path('app_forgot_password_request') }}"
-                               class="text-gray-400">
+                               class="text-gray-400 hover:underline">
                                 Forgot password?
                             </a>
 

@@ -11,18 +11,18 @@
              src="{{ vich_uploader_asset(recipe, 'image') }}"
              alt="{{ recipe.name }}">
         <div>
-            <h2 class="text-3xl pt-5 lg:pt-0 font-bold py-2 lg:w-3/4">{{ recipe.name }}</h2>
+            <h1 class="text-3xl pt-5 lg:pt-0 font-bold py-2 lg:w-3/4">{{ recipe.name }}</h1>
             <p class="lg:w-3/4 py-5">
                 {{ recipe.description }}
             </p>
             <div class="grid grid-cols-2 mt-5 pb-5 ">
-                <div class="text-center border-r text-gray-700">
+                <div class="text-center border-r text-gray-800">
                     <div class="w-8 m-auto">{{ ux_icon('clock-regular') }}</div>
                     <p class="py-2 font-semibold text-lg">Total Time</p>
                     <p>{{ recipe.time }} min</p>
                 </div>
 
-                <div class="text-center cursor-pointer hover:text-red-500 text-gray-700" id="dropdownDefaultButton"
+                <div class="text-center cursor-pointer hover:text-red-500 text-gray-800" id="dropdownDefaultButton"
                      data-dropdown-toggle="peopleDropdown">
                     <div class="w-8 m-auto">{{ ux_icon('user-group') }}</div>
                     <p class="py-2 font-semibold text-lg">Yield</p>
@@ -32,7 +32,7 @@
                 <div id="peopleDropdown"
                      data-controller="dropdown"
                      class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-20">
-                    <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
+                    <ul class="py-2 text-sm text-gray-800" aria-labelledby="dropdownDefaultButton">
                         <li>
                             <span data-action="click->live#action"
                                   data-live-action-param="updatePeople"
@@ -129,7 +129,7 @@
                     label="Ingredients"/>
             <ul class="pt-5">
                 {% for ingredient in recipe.recipeIngredients %}
-                    <li class="py-4 border-b text-gray-700 list-none pl-3">
+                    <li class="py-4 border-b list-none pl-3">
                         {{ ingredient.quantity/recipe.people*people }}
                         {{ ingredient.unit ? ingredient.unit.value }}
                         {{ ingredient.ingredient.name }}

@@ -267,6 +267,7 @@ class RecipeController extends AbstractController
                 }
                 $entityManager->remove($recipe);
                 $entityManager->flush();
+                $this->addFlash('success', 'Recipe has been deleted.');
                 return $this->redirectToRoute('recipe_index');
             }
         }

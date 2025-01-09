@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-security.html.twig' %}
 
 {% block title %}Registration{% endblock %}
 
@@ -16,10 +16,10 @@
                         {{ form_row(form.plainPassword) }}
                         {{ form_row(form.repeatPlainPassword) }}
                         <button type="submit"
-                                class="w-full text-white mt-5 bg-red-500 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                class="w-full text-white mt-5 bg-red-500 hover:bg-red-400 rounded-lg px-5 py-2.5 text-center">
                             Create an account
                         </button>
-                        <p class="text-sm font-light text-gray-500 mt-5 ">
+                        <p class="font-light text-gray-500 mt-5 ">
                             Already have an account? <a href="{{ path('app_login') }}"
                                                         class="font-medium text-primary-600 hover:underline">Login
                                 here</a>

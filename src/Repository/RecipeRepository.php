@@ -128,13 +128,13 @@ use Symfony\Bundle\SecurityBundle\Security;
             if (!empty($inGroup)) {
                 $number = count($inGroup);
                 $query
-                    ->andWhere('r.id IN (SELECT r2.id FROM App\Entity\Recipe r2 LEFT JOIN r2.recipeIngredients ri2 LEFT JOIN ri2.ingredient i2 LEFT JOIN i2.foodGroup fg2 WHERE fg2.id IN (:includedGroup) GROUP BY r2.id HAVING COUNT(DISTINCT fg2.id) = :number)')
+                    ->andWhere('r.id IN (SELECT r2.id FROM App\Entity\Recipe r2 LEFT JOIN r2.recipeIngredients ri2 LEFT JOIN ri2.ingredient i2 LEFT JOIN i2.foodgroup fg2 WHERE fg2.id IN (:includedGroup) GROUP BY r2.id HAVING COUNT(DISTINCT fg2.id) = :number)')
                     ->setParameter('includedGroup', $inGroup)
                     ->setParameter('number', $number);
             }
             if (!empty($notInGroup)) {
                 $query
-                    ->andWhere('r.id NOT IN (SELECT r3.id FROM App\Entity\Recipe r3 LEFT JOIN r3.recipeIngredients ri3 LEFT JOIN ri3.ingredient i3 LEFT JOIN i3.foodGroup fg3 WHERE fg3.id IN (:excludedGroup))')
+                    ->andWhere('r.id NOT IN (SELECT r3.id FROM App\Entity\Recipe r3 LEFT JOIN r3.recipeIngredients ri3 LEFT JOIN ri3.ingredient i3 LEFT JOIN i3.foodgroup fg3 WHERE fg3.id IN (:excludedGroup))')
                     ->setParameter('excludedGroup', $notInGroup);
             }
 
@@ -200,6 +200,7 @@ use Symfony\Bundle\SecurityBundle\Security;
         }
 
         return $query
+            ->orderBy('r.createdAt')
             ->groupBy('r.id')
             ->setMaxResults($limit)
             ->getQuery()
@@ -233,12 +234,12 @@ use Symfony\Bundle\SecurityBundle\Security;
                 $foodGroup[] = $meat->getId();
                 $foodGroup[] = $fish->getId();
                 $query
-                    ->andWhere('r.id NOT IN (SELECT r1.id FROM App\Entity\Recipe r1 LEFT JOIN r1.recipeIngredients ri1 LEFT JOIN ri1.ingredient i1 LEFT JOIN i1.foodGroup fg1 WHERE fg1.id IN (:mealTypeExcluded) GROUP BY r1.id)')
+                    ->andWhere('r.id NOT IN (SELECT r1.id FROM App\Entity\Recipe r1 LEFT JOIN r1.recipeIngredients ri1 LEFT JOIN ri1.ingredient i1 LEFT JOIN i1.foodgroup fg1 WHERE fg1.id IN (:mealTypeExcluded) GROUP BY r1.id)')
                     ->setParameter('mealTypeExcluded', $foodGroup);
             } else {
                 $foodGroup = $this->foodGroupRepository->findOneBy(['name' => $meal]);
                 $query
-                    ->andWhere('r.id IN (SELECT r1.id FROM App\Entity\Recipe r1 LEFT JOIN r1.recipeIngredients ri1 LEFT JOIN ri1.ingredient i1 LEFT JOIN i1.foodGroup fg1 WHERE fg1.id IN (:mealTypeIncluded) GROUP BY r1.id)')
+                    ->andWhere('r.id IN (SELECT r1.id FROM App\Entity\Recipe r1 LEFT JOIN r1.recipeIngredients ri1 LEFT JOIN ri1.ingredient i1 LEFT JOIN i1.foodgroup fg1 WHERE fg1.id IN (:mealTypeIncluded) GROUP BY r1.id)')
                     ->setParameter('mealTypeIncluded', $foodGroup->getId());
             }
         }

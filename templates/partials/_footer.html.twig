@@ -1,0 +1,53 @@
+<div class="bg-black w-full mt-10">
+    <div class="container text-white m-auto px-4 py-8 xl:flex gap-x-5 justify-between">
+        <div class="xl:max-w-[40%] hidden xl:block">
+            <h2 class="text-2xl leading-10">Discover recipes that match your taste!<br> Get inspired by dishes that
+                perfectly align
+                with your preferences!</h2>
+            <twig:Link
+                    href="{{ path('app_home') }}"
+                    label="Find recipes"
+                    icon="{{ ux_icon('arrow-right-solid') }}"
+            />
+        </div>
+        <div>
+            <twig:Subtitle
+                    label="Contact"
+                    class="pb-2"/>
+            <ul>
+                <li class="py-2">
+                    <a href="mailto:fromFridge2Feast@info.be" class="hover:text-red-500">E-mail:
+                        fromFridge2Feast@info.be</a>
+                </li>
+                <li class="py-2">
+                    <a href="tel:0491733859" class="hover:text-red-500">Tel: 04 91 73 38 59</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mt-10 xl:mt-0">
+            <twig:Subtitle
+                    label="Explore"
+                    class="pb-2"/>
+            <ul>
+                <li class="py-2">
+                    <a href="{{ path('recipe_index') }}" class="hover:text-red-500">Search recipes</a>
+                </li>
+                {% if current_user() != null %}
+                    <li class="py-2">
+                        <a href="{{ path('recipe_saved') }}" class="hover:text-red-500">My recipes</a>
+                    </li>
+                    <li class="py-2">
+                        <a href="{{ path('recipe_add') }}" class="hover:text-red-500">Add recipe</a>
+                    </li>
+                    <li class="py-2">
+                        <a href="{{ path('app_logout') }}" class="hover:text-red-500">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="py-2">
+                        <a href="{{ path('app_login') }}" class="hover:text-red-500">Login</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

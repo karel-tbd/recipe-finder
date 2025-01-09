@@ -6,17 +6,14 @@ use App\Entity\Recipe;
 use App\Entity\RecipeIngredients;
 use App\Enum\MealCountry;
 use App\Enum\MealType;
+use App\Enum\Publish;
 use App\Enum\Unit;
 use App\Repository\IngredientsRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(
-    name: 'app:import-recipes',
-)]
 class ImportRecipes extends Command
 {
 
@@ -25,7 +22,7 @@ class ImportRecipes extends Command
                                 private readonly IngredientsRepository  $ingredientsRepository,
     )
     {
-
+        parent::__construct('app:import-recipes');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -45,6 +42,8 @@ class ImportRecipes extends Command
                 $recipe->setTime($data[3]);
                 $recipe->setInstructions($data[4]);
                 $recipe->setPeople($data[5]);
+                $recipe->setPublish(true);
+                $recipe->setStatus(Publish::ACCEPTED);
                 if (!empty($data[6])) {
                     $recipe->setMealType([MealType::tryFrom(trim($data[6]))]);
                 }

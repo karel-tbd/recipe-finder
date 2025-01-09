@@ -4,23 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="ongoing world cuisine filter">
-      <change afterPath="$PROJECT_DIR$/assets/icons/arrow-right-solid.svg" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="made cta + Put animation on search recipes + pdf is dynamic with mount of people">
+      <change afterPath="$PROJECT_DIR$/templates/partials/_footer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/chicken-caesar-salad-6768605dde64a418439946.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/lentil-soup-123-6768604019475631640989.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/scrambled-eggs-with-spinach-6768582e4adca645579436.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/Import.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Import.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Link.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Link.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Button.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Button.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Link.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Link.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/FoodGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/FoodGroup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Ingredients.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ingredients.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base-security.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base-security.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/pdf.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/pdf.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/fields.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reset_password/request.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/request.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,29 +229,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/karelscheers/Sites/recipe-finder/assets/icons&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/PhpStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/karelscheers/Sites/recipe-finder/templates/partials",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "editing.templates",
+    "ts.external.directory.path": "/Applications/PhpStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/partials" />
       <recent name="$PROJECT_DIR$/assets/icons" />
       <recent name="$PROJECT_DIR$/templates/components/Dropdown" />
       <recent name="$PROJECT_DIR$/src/Twig/Components" />
       <recent name="$PROJECT_DIR$/templates/components" />
-      <recent name="$PROJECT_DIR$/assets/controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/icons" />
@@ -295,15 +298,7 @@
       <workItem from="1735987778937" duration="809000" />
       <workItem from="1735988757249" duration="20687000" />
       <workItem from="1736150095933" duration="56086000" />
-      <workItem from="1736353282901" duration="6338000" />
-    </task>
-    <task id="LOCAL-00012" summary="login broke on symfony 7.2, Made it again">
-      <option name="closed" value="true" />
-      <created>1734371368617</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1734371368617</updated>
+      <workItem from="1736353282901" duration="19974000" />
     </task>
     <task id="LOCAL-00013" summary="Fixed search on multible ingrediants">
       <option name="closed" value="true" />
@@ -689,7 +684,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736354945823</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="made cta + Put animation on search recipes + pdf is dynamic with mount of people">
+      <option name="closed" value="true" />
+      <created>1736414123536</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1736414123536</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -718,7 +721,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="images" />
     <MESSAGE value="made it so you can edit ingredients of recipes" />
     <MESSAGE value="Fixed publish toggle on edit + made site responsive" />
     <MESSAGE value="Fixed landing recipe search" />
@@ -743,6 +745,7 @@
     <MESSAGE value="changed front end again starting on search fixes" />
     <MESSAGE value="Fixed Meal Type search" />
     <MESSAGE value="ongoing world cuisine filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="ongoing world cuisine filter" />
+    <MESSAGE value="made cta + Put animation on search recipes + pdf is dynamic with mount of people" />
+    <option name="LAST_COMMIT_MESSAGE" value="made cta + Put animation on search recipes + pdf is dynamic with mount of people" />
   </component>
 </project>

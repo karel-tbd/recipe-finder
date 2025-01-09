@@ -2,13 +2,10 @@
 
 namespace App\Entity;
 
-use App\Entity\Trait\BlameableTrait;
-use App\Entity\Trait\DefaultTrait;
 use App\Repository\IngredientsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 #[ORM\Entity(repositoryClass: IngredientsRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -26,9 +23,6 @@ class Ingredients
     #[ORM\Column(nullable: true)]
     private ?float $price = null;
 
-    #[ORM\ManyToOne(inversedBy: 'ingredients')]
-    private ?FoodGroup $foodGroup = null;
-
     /**
      * @var Collection<int, RecipeIngredients>
      */
@@ -38,9 +32,16 @@ class Ingredients
     #[ORM\Column(nullable: true)]
     private ?int $calories = null;
 
+    /**
+     * @var Collection<int, FoodGroup>
+     */
+    #[ORM\ManyToMany(targetEntity: FoodGroup::class, inversedBy: 'ingredients')]
+    private Collection $foodgroup;
+
     public function __construct()
     {
         $this->recipeIngredients = new ArrayCollection();
+        $this->foodgroup = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -68,18 +69,6 @@ class Ingredients
     public function setPrice(float $price): static
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-    public function getFoodGroup(): ?FoodGroup
-    {
-        return $this->foodGroup;
-    }
-
-    public function setFoodGroup(?FoodGroup $foodGroup): static
-    {
-        $this->foodGroup = $foodGroup;
 
         return $this;
     }
@@ -122,6 +111,30 @@ class Ingredients
     public function setCalories(?int $calories): static
     {
         $this->calories = $calories;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, FoodGroup>
+     */
+    public function getFoodgroup(): Collection
+    {
+        return $this->foodgroup;
+    }
+
+    public function addFoodgroup(FoodGroup $foodgroup): static
+    {
+        if (!$this->foodgroup->contains($foodgroup)) {
+            $this->foodgroup->add($foodgroup);
+        }
+
+        return $this;
+    }
+
+    public function removeFoodgroup(FoodGroup $foodgroup): static
+    {
+        $this->foodgroup->removeElement($foodgroup);
 
         return $this;
     }

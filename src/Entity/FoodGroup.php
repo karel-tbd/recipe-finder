@@ -22,13 +22,18 @@ class FoodGroup
     /**
      * @var Collection<int, Ingredients>
      */
-    #[ORM\OneToMany(targetEntity: Ingredients::class, mappedBy: 'foodGroup')]
+    #[ORM\ManyToMany(targetEntity: Ingredients::class, mappedBy: 'foodgroup')]
     private Collection $ingredients;
 
     public function __construct()
     {
         $this->ingredients = new ArrayCollection();
     }
+
+    /**
+     * @var Collection<int, Ingredients>
+     */
+
 
     public function getId(): ?int
     {
@@ -50,6 +55,10 @@ class FoodGroup
     /**
      * @return Collection<int, Ingredients>
      */
+
+    /**
+     * @return Collection<int, Ingredients>
+     */
     public function getIngredients(): Collection
     {
         return $this->ingredients;
@@ -59,7 +68,7 @@ class FoodGroup
     {
         if (!$this->ingredients->contains($ingredient)) {
             $this->ingredients->add($ingredient);
-            $ingredient->setFoodGroup($this);
+            $ingredient->addFoodgroup($this);
         }
 
         return $this;
@@ -68,12 +77,10 @@ class FoodGroup
     public function removeIngredient(Ingredients $ingredient): static
     {
         if ($this->ingredients->removeElement($ingredient)) {
-            // set the owning side to null (unless already changed)
-            if ($ingredient->getFoodGroup() === $this) {
-                $ingredient->setFoodGroup(null);
-            }
+            $ingredient->removeFoodgroup($this);
         }
 
         return $this;
     }
+
 }
