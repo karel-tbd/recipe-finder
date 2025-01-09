@@ -9,13 +9,13 @@
             <div class="absolute inset-0 flex items-center justify-center z-10 p-4">
                 <div class="relative w-full md:w-3/4 xl:w-1/2">
                     <div class="relative rounded-lg shadow bg-white">
+                        {# Carousel title #}
                         <div class="flex items-center justify-between p-4 border-b rounded-t">
-                            <h3 class="text-xl font-medium text-blue-950">
-                                Recipes for you
-                            </h3>
+                            <twig:Subtitle tag="h4" label="Recipes for you"/>
                         </div>
                         <div class="p-4">
                             <div id="controls-carousel" class="relative w-full" data-carousel="static">
+                                {# Carousel Empty Body #}
                                 <div class="relative overflow-hidden rounded-lg h-[50vh]  md:h-72">
                                     {% if recipes == null %}
                                     <div class="flex justify-center pt-10 text-xl">
@@ -32,8 +32,8 @@
                                                 label="Go to search recipes"
                                                 variant="white"/>
                                     </div>
-
                                     {% else %}
+                                    {# Carousel Body #}
                                     {% for recipe in recipes %}
                                         <div class="hidden duration-700 ease-in-out md:px-20 w-full"
                                              data-carousel-item>
@@ -75,7 +75,7 @@
                                     {% endfor %}
                                 </div>
                                 {% if recipes|length > 1 %}
-                                    <!-- Slider controls -->
+                                    {# Carousel control buttons #}
                                     <button type="button"
                                             class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                                             data-carousel-prev>

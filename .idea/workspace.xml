@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="changed front end again, made find recipe working again, cleaned up php-storm">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="added comments to code and made twig component for find recipe functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers/position_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/position_controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SearchFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Alert.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Alert.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/found.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/found.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,15 +282,7 @@
       <workItem from="1735987778937" duration="809000" />
       <workItem from="1735988757249" duration="20687000" />
       <workItem from="1736150095933" duration="56086000" />
-      <workItem from="1736353282901" duration="29554000" />
-    </task>
-    <task id="LOCAL-00015" summary="Made layout recipefinder page and started on show page">
-      <option name="closed" value="true" />
-      <created>1734458624876</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1734458624876</updated>
+      <workItem from="1736353282901" duration="30109000" />
     </task>
     <task id="LOCAL-00016" summary="layout recipe finder page made">
       <option name="closed" value="true" />
@@ -683,7 +668,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736436631941</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="added comments to code and made twig component for find recipe functionality">
+      <option name="closed" value="true" />
+      <created>1736440328673</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1736440328673</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -712,7 +705,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed landing recipe search" />
     <MESSAGE value="front end clean up + edit user ongoing password bug" />
     <MESSAGE value="fix infinite scroll and add ingredients on edit and add recipes" />
     <MESSAGE value="made functionality reset password" />
@@ -737,6 +729,7 @@
     <MESSAGE value="made cta + Put animation on search recipes + pdf is dynamic with mount of people" />
     <MESSAGE value="made database all new becuse of foodgroup bug" />
     <MESSAGE value="changed front end again, made find recipe working again, cleaned up php-storm" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed front end again, made find recipe working again, cleaned up php-storm" />
+    <MESSAGE value="added comments to code and made twig component for find recipe functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comments to code and made twig component for find recipe functionality" />
   </component>
 </project>
