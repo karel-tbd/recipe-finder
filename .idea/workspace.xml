@@ -4,26 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="made cta + Put animation on search recipes + pdf is dynamic with mount of people">
-      <change afterPath="$PROJECT_DIR$/templates/partials/_footer.html.twig" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="made database all new becuse of foodgroup bug">
+      <change afterPath="$PROJECT_DIR$/public/images/landing-option1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/Import.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Import.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers/quill_extended_controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/bacon-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/bowl-food-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/burger-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/champagne-glasses-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/check-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/cheese-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/filter-circle-xmark-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/filter-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/fire.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/martini-glass-citrus-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/symfony.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/FoodGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/FoodGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ingredients.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ingredients.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RecipeAddType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RecipeFinderType.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base-security.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base-security.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Accordion.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Accordion/Item.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/RecipeAdd.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Table/Body.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Table/Cell.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Table/Head.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Table/Row.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Table/SortableHeader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Extension/LanguageExtension.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Extension/UserExtention.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Accordion.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Accordion/Item.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/RecipeAdd.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Table.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Table/Body.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Table/Cell.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Table/Head.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Table/Row.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Table/SortableHeader.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/form/fields.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/request.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/request.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/found.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/found.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/recipe_items.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,11 +280,11 @@
       <recent name="$PROJECT_DIR$/templates/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/assets/icons" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/templates/components/Pages" />
       <recent name="$PROJECT_DIR$/src/Twig/Components/Pages" />
-      <recent name="$PROJECT_DIR$/templates/recipe" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -298,15 +324,7 @@
       <workItem from="1735987778937" duration="809000" />
       <workItem from="1735988757249" duration="20687000" />
       <workItem from="1736150095933" duration="56086000" />
-      <workItem from="1736353282901" duration="19974000" />
-    </task>
-    <task id="LOCAL-00013" summary="Fixed search on multible ingrediants">
-      <option name="closed" value="true" />
-      <created>1734373419740</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1734373419740</updated>
+      <workItem from="1736353282901" duration="25772000" />
     </task>
     <task id="LOCAL-00014" summary="Made layout recipefinder page and started on show page">
       <option name="closed" value="true" />
@@ -692,7 +710,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736414123536</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="made database all new becuse of foodgroup bug">
+      <option name="closed" value="true" />
+      <created>1736430608717</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1736430608717</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -721,7 +747,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="made it so you can edit ingredients of recipes" />
     <MESSAGE value="Fixed publish toggle on edit + made site responsive" />
     <MESSAGE value="Fixed landing recipe search" />
     <MESSAGE value="front end clean up + edit user ongoing password bug" />
@@ -746,6 +771,7 @@
     <MESSAGE value="Fixed Meal Type search" />
     <MESSAGE value="ongoing world cuisine filter" />
     <MESSAGE value="made cta + Put animation on search recipes + pdf is dynamic with mount of people" />
-    <option name="LAST_COMMIT_MESSAGE" value="made cta + Put animation on search recipes + pdf is dynamic with mount of people" />
+    <MESSAGE value="made database all new becuse of foodgroup bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="made database all new becuse of foodgroup bug" />
   </component>
 </project>

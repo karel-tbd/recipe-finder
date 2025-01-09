@@ -170,7 +170,7 @@ class RecipeController extends AbstractController
 
         $recipes = $recipeRepository->findMeal($meal, $country, $difficulty, $mealType);
         $session = $request->getSession();
-        $i = 0;
+        $i = 1;
         foreach ($recipes as $recipe) {
             $session->set('recipe' . $i, $recipe->getUuid());
             $i++;

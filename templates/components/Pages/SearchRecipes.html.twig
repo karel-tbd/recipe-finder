@@ -41,7 +41,7 @@
     <img src="{{ asset('/images/cta.jpg') }}"
          class="rounded-2xl w-full m-auto h-[50vh] object-cover overflow-hidden xl:mb-10" alt="">
 
-    <div class="absolute ml-3 lg:ml-20 mt-[-20rem] bg-black/40 p-5 rounded-lg">
+    <div class="absolute ml-3 lg:ml-20 mt-[-18rem] xl:mt-[-22rem] bg-black/40 p-5 rounded-lg">
         <h1 class="text-white text-4xl">
             Choose from <br>thousands of recipes
         </h1>
@@ -232,7 +232,7 @@
                 </div>
             </div>
             <div class="flex items-center gap-x-5">
-                <div class="flex-1">
+                <div class="flex-1" data-controller="prevent-enter">
                     {{ form_row(form.search) }}
                 </div>
                 <button class="mt-2 mr-2" data-controller="reset-search" data-action="reset-search#reset"

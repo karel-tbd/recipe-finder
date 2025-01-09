@@ -1,7 +1,0 @@
-<{{ tag }}{{ attributes.defaults({'class': 'px-6 py-4 whitespace-nowrap font-normal'}) }}>
-{% if value is defined %}
-    {{ value|raw }}
-{% else %}
-    {% block content %}{% endblock %}
-{% endif %}
-</{{ tag }}>

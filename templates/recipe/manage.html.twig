@@ -10,12 +10,12 @@
             {% endif %}
             {% for recipe in recipes %}
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <div class="lg:grid lg:grid-cols-2 gap-x-10 xl:justify-self-end xl:w-5/6">
-                        <img class="object-cover overflow-hidden xl:m-0 h-96 rounded-xl"
+                    <div class="lg:grid lg:grid-cols-2 gap-x-10">
+                        <img class="w-full md:w-full lg:w-2/3 object-cover overflow-hidden m-0 h-96 rounded-xl"
                              src="{{ vich_uploader_asset(recipe, 'image') }}"
                              alt="{{ recipe.name }}">
                         <div>
-                            <h2 class="text-3xl font-bold py-2 lg:w-3/4">{{ recipe.name }}</h2>
+                            <h2 class="text-3xl font-bold py-2 lg:w-3/4">Manage: '{{ recipe.name }}'</h2>
                             <p class="lg:w-3/4 py-5">
                                 {{ recipe.description }}
                             </p>
@@ -41,8 +41,8 @@
                         </div>
                     </div>
 
-                    <div class="xl:flex xl:w-4/5 m-auto gap-x-20 pt-20">
-                        <div class="w-2/3">
+                    <div class="xl:flex m-auto gap-x-20 pt-20">
+                        <div class="xl:w-2/3">
                             <twig:Subtitle
                                     tag="h3"
                                     class="font-semibold pb-5"
@@ -51,9 +51,6 @@
                                 <i class="fa-circle-check"></i>
                                 {{ recipe.instructions|replace({'</h2>' : '</h2> <hr>', '<p>': '<p class="text-gray-700">', '<h2>': '<h2 class="uppercase tracking-wide	">'})|raw }}
                             </div>
-                            <twig:Link
-                                    href="{{ path('recipe_edit', {'uuid':recipe.uuid}) }}"
-                                    label="Edit recipe"/>
                             <div class=" gap-x-3 pb-10 hidden xl:flex">
                                 <twig:Link
                                         data-turbo-prefetch="false"

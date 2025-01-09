@@ -209,7 +209,6 @@ use Symfony\Bundle\SecurityBundle\Security;
 
     public function findMeal(string $meal = null, string $country, string $difficulty, string $mealType)
     {
-
         $query = $this->createQueryBuilder('r')
             ->leftJoin('r.recipeIngredients', 'ri')
             ->leftJoin('ri.ingredient', 'i')
@@ -217,8 +216,8 @@ use Symfony\Bundle\SecurityBundle\Security;
 
         if (MealCountry::tryFrom($country)) {
             $query
-                ->andWhere('r.country = :country')
-                ->setParameter('country', $country);
+                ->andWhere('r.country = :findCountry')
+                ->setParameter('findCountry', $country);
         }
         if (MealType::tryFrom($mealType)) {
             $query
@@ -262,7 +261,6 @@ use Symfony\Bundle\SecurityBundle\Security;
                 ->andWhere('r.time >= :hardTime')
                 ->setParameter('hardTime', 45);
         }
-
         return $query
             ->getQuery()
             ->getResult();
