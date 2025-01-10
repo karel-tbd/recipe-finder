@@ -1,5 +1,5 @@
 @import './overwrites/tom-select.css';
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap');
+@import './overwrites/quill.css';
 
 @tailwind base;
 @tailwind components;
@@ -96,6 +96,10 @@
     color: #721c24;
     border: 1px solid #f5c6cb;
     width: fit-content;
+}
+
+div[title]:hover:after {
+    text-size: 30px
 }
 
 html {

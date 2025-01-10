@@ -1,0 +1,467 @@
+[data-controller="quill"] {
+    .ql-snow.ql-container {
+        font-family: 'Source Sans 3', Helvetica, Arial, sans-serif;
+        @apply border border-gray-200 dark:border-gray-600 rounded-b-lg;
+    }
+
+    .ql-snow.ql-toolbar {
+        @apply border border-gray-200 dark:border-gray-600 rounded-t-lg;
+    }
+
+    .ql-snow.ql-toolbar .ql-picker.ql-expanded .ql-picker-label {
+        @apply border border-gray-200 dark:border-gray-600 rounded-t-lg;
+    }
+
+    .ql-snow.ql-toolbar .ql-picker.ql-expanded .ql-picker-label[aria-expanded="true"] {
+        @apply text-orange-400;
+    }
+
+    .ql-snow.ql-toolbar .ql-picker.ql-expanded .ql-picker-label[aria-expanded="true"] .ql-stroke {
+        @apply stroke-orange-400;
+    }
+
+    .ql-snow .ql-picker.ql-expanded .ql-picker-label {
+        @apply text-blue-950 dark:text-white;
+    }
+
+    .ql-snow.ql-toolbar .ql-picker.ql-expanded .ql-picker-options {
+        @apply border border-gray-200 dark:border-gray-600 rounded-b-lg rounded-tr-lg shadow-none bg-white dark:bg-blue-950;
+    }
+
+    @media (pointer: coarse) {
+        .ql-snow.ql-toolbar button:hover:not(.ql-active),
+        .ql-snow .ql-toolbar button:hover:not(.ql-active) {
+            color: var(--color-blue-950);
+        }
+
+        .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-fill,
+        .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-fill,
+        .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill,
+        .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill {
+            @apply fill-blue-950 dark:fill-white;
+        }
+
+        .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke,
+        .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke,
+        .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter,
+        .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter {
+            @apply stroke-blue-950 dark:stroke-white
+        }
+    }
+
+    .ql-snow .ql-stroke {
+        @apply stroke-blue-950 dark:stroke-white
+    }
+
+    .ql-snow .ql-stroke-miter {
+        @apply stroke-blue-950 dark:stroke-white
+    }
+
+    .ql-snow .ql-fill,
+    .ql-snow .ql-stroke.ql-fill {
+        @apply fill-blue-950 dark:fill-white;
+    }
+
+    .ql-snow .ql-tooltip::before {
+        @apply text-blue-950 dark:text-white;
+    }
+
+    .ql-snow .ql-tooltip {
+        @apply shadow-none z-40 rounded-lg border border-gray-200 dark:border-gray-600;
+    }
+
+    .ql-snow.ql-toolbar button:hover,
+    .ql-snow .ql-toolbar button:hover,
+    .ql-snow.ql-toolbar button:focus,
+    .ql-snow .ql-toolbar button:focus,
+    .ql-snow.ql-toolbar button.ql-active,
+    .ql-snow .ql-toolbar button.ql-active,
+    .ql-snow.ql-toolbar .ql-picker-label:hover,
+    .ql-snow .ql-toolbar .ql-picker-label:hover,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active,
+    .ql-snow.ql-toolbar .ql-picker-item:hover,
+    .ql-snow .ql-toolbar .ql-picker-item:hover,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected {
+        @apply text-orange-400;
+    }
+
+    .ql-snow.ql-toolbar button:hover .ql-fill,
+    .ql-snow .ql-toolbar button:hover .ql-fill,
+    .ql-snow.ql-toolbar button:focus .ql-fill,
+    .ql-snow .ql-toolbar button:focus .ql-fill,
+    .ql-snow.ql-toolbar button.ql-active .ql-fill,
+    .ql-snow .ql-toolbar button.ql-active .ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+    .ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
+        @apply fill-orange-400;
+    }
+
+    .ql-snow.ql-toolbar button:hover .ql-stroke,
+    .ql-snow .ql-toolbar button:hover .ql-stroke,
+    .ql-snow.ql-toolbar button:focus .ql-stroke,
+    .ql-snow .ql-toolbar button:focus .ql-stroke,
+    .ql-snow.ql-toolbar button.ql-active .ql-stroke,
+    .ql-snow .ql-toolbar button.ql-active .ql-stroke,
+    .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
+    .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+    .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
+    .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+    .ql-snow.ql-toolbar button:hover .ql-stroke-miter,
+    .ql-snow .ql-toolbar button:hover .ql-stroke-miter,
+    .ql-snow.ql-toolbar button:focus .ql-stroke-miter,
+    .ql-snow .ql-toolbar button:focus .ql-stroke-miter,
+    .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,
+    .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,
+    .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+    .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+    .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+    .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
+        @apply stroke-orange-400;
+    }
+
+    .ql-snow .ql-picker {
+        @apply text-blue-950 dark:text-white;
+    }
+
+    .ql-editor p,
+    .ql-editor ol,
+    .ql-editor ul {
+        @apply pl-3;
+    }
+
+    .ql-editor h1,
+    .ql-editor h2,
+    .ql-editor h3,
+    .ql-editor h4,
+    .ql-editor h5,
+    .ql-editor h6 {
+        @apply text-red-500;
+    }
+
+    .ql-snow .ql-editor p,
+    .ql-snow .ql-editor ol,
+    .ql-snow .ql-editor ul {
+        @apply text-base mb-3;
+    }
+
+    .ql-editor ol,
+    .ql-editor ul {
+        @apply pl-6;
+    }
+
+    .ql-editor li.ql-indent-1:not(.ql-direction-rtl) {
+        @apply pl-[3rem];
+    }
+
+    .ql-editor li.ql-indent-2:not(.ql-direction-rtl) {
+        @apply pl-[4.5rem];
+    }
+
+    .ql-editor li.ql-indent-3:not(.ql-direction-rtl) {
+        @apply pl-[6rem];
+    }
+
+    .ql-editor li.ql-indent-4:not(.ql-direction-rtl) {
+        @apply pl-[7.5rem];
+    }
+
+    .ql-editor li.ql-indent-5:not(.ql-direction-rtl) {
+        @apply pl-[9rem];
+    }
+
+    .ql-editor li.ql-indent-6:not(.ql-direction-rtl) {
+        @apply pl-[10.5rem];
+    }
+
+    .ql-editor li.ql-indent-7:not(.ql-direction-rtl) {
+        @apply pl-[12rem];
+    }
+
+    .ql-editor li.ql-indent-8:not(.ql-direction-rtl) {
+        @apply pl-[13.5rem];
+    }
+
+    .ql-editor li.ql-indent-9:not(.ql-direction-rtl) {
+        @apply pl-[15rem];
+    }
+
+    .ql-editor li::before {
+        @apply inline-block whitespace-nowrap w-5;
+    }
+
+    .ql-editor li:not(.ql-direction-rtl)::before {
+        @apply text-right -ml-6 mr-1.5
+    }
+
+    .ql-snow .ql-editor a,
+    .ql-snow a {
+        @apply no-underline text-orange-400;
+    }
+
+    .ql-snow .ql-editor h1 {
+        @apply text-3xl font-bold mb-4;
+    }
+
+    .ql-snow .ql-editor h2 {
+        @apply text-2xl font-bold mb-4;
+    }
+
+    .ql-snow .ql-editor h3 {
+        @apply text-xl font-bold mb-4;
+    }
+
+    .ql-snow .ql-editor h4 {
+        @apply text-lg font-bold mb-4;
+    }
+
+    .ql-snow .ql-editor h5 {
+        @apply text-base font-bold mb-4;
+    }
+
+    .ql-snow .ql-editor h6 {
+        @apply text-sm font-bold mb-4;
+    }
+}
+
+.ql-content a {
+    @apply no-underline text-orange-400;
+}
+
+.ql-content p,
+.ql-content ol,
+.ql-content ul {
+    @apply pl-3;
+}
+
+.ql-content h1,
+.ql-content h2,
+.ql-content h3,
+.ql-content h4,
+.ql-content h5,
+.ql-content h6 {
+    @apply text-red-500;
+}
+
+.ql-content p,
+.ql-content ol,
+.ql-content ul {
+    @apply text-base mb-3;
+}
+
+.ql-content ol,
+.ql-content ul,
+.ql-content ol > li,
+.ql-content ul > li {
+    @apply pl-6;
+}
+
+.ql-content li.ql-indent-1 {
+    @apply pl-[3rem];
+}
+
+.ql-content li.ql-indent-2 {
+    @apply pl-[4.5rem];
+}
+
+.ql-content li.ql-indent-3 {
+    @apply pl-[6rem];
+}
+
+.ql-content li.ql-indent-4 {
+    @apply pl-[7.5rem];
+}
+
+.ql-content li.ql-indent-5 {
+    @apply pl-[9rem];
+}
+
+.ql-content li.ql-indent-6 {
+    @apply pl-[10.5rem];
+}
+
+.ql-content li.ql-indent-7 {
+    @apply pl-[12rem];
+}
+
+.ql-content li.ql-indent-8 {
+    @apply pl-[13.5rem];
+}
+
+.ql-content li.ql-indent-9 {
+    @apply pl-[15rem];
+}
+
+.ql-content ol li {
+    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+    counter-increment: list-0;
+}
+
+.ql-content ol li:before {
+    content: counter(list-0, decimal) '. ';
+}
+
+.ql-content ol li.ql-indent-1 {
+    counter-increment: list-1;
+}
+
+.ql-content ol li.ql-indent-1:before {
+    content: counter(list-1, lower-alpha) '. ';
+}
+
+.ql-content ol li.ql-indent-1 {
+    counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+
+.ql-content ol li.ql-indent-2 {
+    counter-increment: list-2;
+}
+
+.ql-content ol li.ql-indent-2:before {
+    content: counter(list-2, lower-roman) '. ';
+}
+
+.ql-content ol li.ql-indent-2 {
+    counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+
+.ql-content ol li.ql-indent-3 {
+    counter-increment: list-3;
+}
+
+.ql-content ol li.ql-indent-3:before {
+    content: counter(list-3, decimal) '. ';
+}
+
+.ql-content ol li.ql-indent-3 {
+    counter-reset: list-4 list-5 list-6 list-7 list-8 list-9;
+}
+
+.ql-content ol li.ql-indent-4 {
+    counter-increment: list-4;
+}
+
+.ql-content ol li.ql-indent-4:before {
+    content: counter(list-4, lower-alpha) '. ';
+}
+
+.ql-content ol li.ql-indent-4 {
+    counter-reset: list-5 list-6 list-7 list-8 list-9;
+}
+
+.ql-content ol li.ql-indent-5 {
+    counter-increment: list-5;
+}
+
+.ql-content ol li.ql-indent-5:before {
+    content: counter(list-5, lower-roman) '. ';
+}
+
+.ql-content ol li.ql-indent-5 {
+    counter-reset: list-6 list-7 list-8 list-9;
+}
+
+.ql-content ol li.ql-indent-6 {
+    counter-increment: list-6;
+}
+
+.ql-content ol li.ql-indent-6:before {
+    content: counter(list-6, decimal) '. ';
+}
+
+.ql-content ol li.ql-indent-6 {
+    counter-reset: list-7 list-8 list-9;
+}
+
+.ql-content ol li.ql-indent-7 {
+    counter-increment: list-7;
+}
+
+.ql-content ol li.ql-indent-7:before {
+    content: counter(list-7, lower-alpha) '. ';
+}
+
+.ql-content ol li.ql-indent-7 {
+    counter-reset: list-8 list-9;
+}
+
+.ql-content ol li.ql-indent-8 {
+    counter-increment: list-8;
+}
+
+.ql-content ol li.ql-indent-8:before {
+    content: counter(list-8, lower-roman) '. ';
+}
+
+.ql-content ol li.ql-indent-8 {
+    counter-reset: list-9;
+}
+
+.ql-content ol li.ql-indent-9 {
+    counter-increment: list-9;
+}
+
+.ql-content ol li.ql-indent-9:before {
+    content: counter(list-9, decimal) '. ';
+}
+
+.ql-content ul > li::before {
+    content: '\2022';
+}
+
+.ql-content li::before {
+    @apply text-right inline-block whitespace-nowrap -ml-6 mr-1.5 w-5;
+}
+
+.ql-content h1 {
+    @apply text-3xl font-bold mb-4;
+}
+
+.ql-content h2 {
+    @apply text-2xl font-bold mb-4;
+}
+
+.ql-content h3 {
+    @apply text-xl font-bold mb-4;
+}
+
+.ql-content h4 {
+    @apply text-lg font-bold mb-4;
+}
+
+.ql-content h5 {
+    @apply text-base font-bold mb-4;
+}
+
+.ql-content h6 {
+    @apply text-sm font-bold mb-4;
+}

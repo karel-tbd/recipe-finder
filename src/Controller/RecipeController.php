@@ -41,6 +41,7 @@ class RecipeController extends AbstractController
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
+                $recipe->setTime(round($form->get('time')->getData()));
                 $recipe->setStatus(Publish::PENDING);
                 $entityManager->persist($recipe);
                 $entityManager->flush();
@@ -87,6 +88,7 @@ class RecipeController extends AbstractController
                 if (!$security->isGranted('ROLE_ADMIN')) {
                     $recipe->setStatus(Publish::PENDING);
                 }
+                $recipe->setTime(round($form->get('time')->getData()));
                 $entityManager->persist($recipe);
                 $entityManager->flush();
                 $this->addFlash('success', 'Recipe updated successfully.');
@@ -118,7 +120,7 @@ class RecipeController extends AbstractController
                 $this->addFlash('success', 'Recipe saved!');
             } else {
                 $entityManager->remove($userRecipeSaved);
-                $this->addFlash('error', 'Recipe removed from saved!');
+                $this->addFlash('success', 'Recipe removed from saved!');
             }
             $entityManager->flush();
 
@@ -172,6 +174,7 @@ class RecipeController extends AbstractController
         $session = $request->getSession();
         $i = 1;
         foreach ($recipes as $recipe) {
+            //dd($recipe->getUuid());
             $session->set('recipe' . $i, $recipe->getUuid());
             $i++;
         }
@@ -187,7 +190,8 @@ class RecipeController extends AbstractController
     {
         $session = $request->getSession();
         $recipes = [];
-        for ($i = 0; $i < $session->get('count'); $i++) {
+
+        for ($i = 1; $i <= $session->get('count'); $i++) {
             $uuid = $session->get('recipe' . $i);
             $recipe = $recipeRepository->findOneBy(['uuid' => $uuid]);
             $recipes[] = $recipe;

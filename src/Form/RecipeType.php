@@ -30,6 +30,7 @@ class RecipeType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Grilled Steak',
+                    'autocomplete' => 'off',
                 ]
             ])
             ->add('mealType', EnumType::class, [

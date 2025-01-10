@@ -5,7 +5,7 @@
 {%- endblock class_label %}
 
 {% block class_input_text -%}
-    text-gray-900 rounded text-sm block w-full p-2.5 border border-gray-300 focus:z-10 focus:ring-blue-500 focus:border-blue-500
+    text-gray-900 rounded text-sm block w-full p-2.5 border border-gray-300
 {%- endblock class_input_text %}
 
 {% block class_select -%}
@@ -68,7 +68,7 @@
 {%- block _recipe_instructions_row -%}
     <div class="mb-6 h-[500px]" data-controller="quill">
         <div class="hidden"> {{ form_label(form, null, {'label_attr': {'data-quill-target': 'label'}}) }}</div>
-        <div data-quill-target="editor" id="{{ form.vars.id }}" class="max-w-full"></div>
+        <div data-quill-target="editor" id="{{ form.vars.id }}" class="max-w-full ql-content"></div>
         <input data-quill-target="input" type="hidden" class="max-w-full"
                name="{{ form.vars.full_name }}"{% if value is not empty %} value="{{ value }}"{% endif %} />
     </div>

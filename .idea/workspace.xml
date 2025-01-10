@@ -4,8 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="added comments to code and made twig component for find recipe functionality">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="added comments to code + cleaned up code">
+      <change afterPath="$PROJECT_DIR$/assets/icons/question-solid.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/overwrites/quill.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers/quill_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/quill_controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/chicken-parmesan-677fd15af2cda403618156.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/IngredientType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/IngredientType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RecipeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecipeType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/fields.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_footer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recipe/found.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/found.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
     </list>
@@ -238,11 +253,11 @@
       <recent name="$PROJECT_DIR$/templates/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/assets/icons" />
+      <recent name="$PROJECT_DIR$/assets" />
+      <recent name="$PROJECT_DIR$/assets/styles/overwrites" />
+      <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/templates/components/Pages" />
-      <recent name="$PROJECT_DIR$/src/Twig/Components/Pages" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -282,15 +297,7 @@
       <workItem from="1735987778937" duration="809000" />
       <workItem from="1735988757249" duration="20687000" />
       <workItem from="1736150095933" duration="56086000" />
-      <workItem from="1736353282901" duration="30109000" />
-    </task>
-    <task id="LOCAL-00016" summary="layout recipe finder page made">
-      <option name="closed" value="true" />
-      <created>1734512998056</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1734512998057</updated>
+      <workItem from="1736353282901" duration="38600000" />
     </task>
     <task id="LOCAL-00017" summary="before ManyToMany Manualy">
       <option name="closed" value="true" />
@@ -676,7 +683,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736440328673</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="added comments to code + cleaned up code">
+      <option name="closed" value="true" />
+      <created>1736440862488</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1736440862488</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -705,7 +720,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="front end clean up + edit user ongoing password bug" />
     <MESSAGE value="fix infinite scroll and add ingredients on edit and add recipes" />
     <MESSAGE value="made functionality reset password" />
     <MESSAGE value="styling reset password" />
@@ -730,6 +744,7 @@
     <MESSAGE value="made database all new becuse of foodgroup bug" />
     <MESSAGE value="changed front end again, made find recipe working again, cleaned up php-storm" />
     <MESSAGE value="added comments to code and made twig component for find recipe functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="added comments to code and made twig component for find recipe functionality" />
+    <MESSAGE value="added comments to code + cleaned up code" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comments to code + cleaned up code" />
   </component>
 </project>

@@ -32,6 +32,7 @@ class IngredientType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => '2',
+                    'autocomplete' => 'off',
                 ],
                 'constraints' => [new NotBlank()],
             ])

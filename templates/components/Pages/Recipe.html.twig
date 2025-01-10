@@ -4,17 +4,13 @@
     {# Step 1 #}
     <div class="w-full xl:flex gap-x-5">
         <div class="w-full">
-            <twig:Subtitle tag="h5" label="Step 1: General information"
-                           class="w-fit px-5 py-3 rounded-t-lg  text-white bg-red-500"/>
+            <twig:Subtitle label="Step 1: General information"
+                           class="w-fit px-5 py-3 rounded-t-lg  text-white bg-red-500 !text-lg"/>
             <div class="border p-5 rounded-b-lg rounded-tr-lg shadow w-full">
                 {% if recipe.image != null %}
                     <p class="pb-3">If you don't change your recipes image it will stay the same as before.</p>
                 {% endif %}
                 <div {# class="xl:flex gap-x-5 " #}>
-                    <div class="w-full">
-                        <div> {{ form_row(form.image) }}</div>
-                        <div>{{ form_row(form.description) }}</div>
-                    </div>
                     <div class="w-full">
                         <div>{{ form_row(form.name) }}</div>
                         <div class="flex gap-x-5 w-full">
@@ -26,16 +22,15 @@
                             <div class="w-full">{{ form_row(form.people) }}</div>
                         </div>
                     </div>
+                    <div class="w-full">
+                        <div>{{ form_row(form.description) }}</div>
+                        <div> {{ form_row(form.image) }}</div>
+                    </div>
                 </div>
             </div>
         </div>
-        {% if recipe.image == null %}
-            <img class="rounded-2xl h-[45vh] w-full object-cover overflow-hidden hidden lg:flex"
-                 src="{{ asset('images/step4.jpg') }}" alt="">
-        {% else %}
-            <img class="rounded-2xl h-[48vh] w-full object-cover overflow-hidden hidden lg:flex"
-                 src="{{ vich_uploader_asset(recipe, 'image') }}" alt="">
-        {% endif %}
+        <img class="rounded-2xl h-[48vh] w-full object-cover overflow-hidden hidden lg:flex"
+             src="{{ asset('images/step4.jpg') }}" alt="">
     </div>
 
     {# Step 2 #}
@@ -44,8 +39,8 @@
              src="{{ asset('images/step3.jpg') }}" alt="">
 
         <div class="w-full ">
-            <twig:Subtitle tag="h5" label="Step 2: Recipe ingredients"
-                           class="w-fit px-5 py-3 text-white bg-red-500 rounded-t-lg mt-10"/>
+            <twig:Subtitle label="Step 2: Recipe ingredients"
+                           class="w-fit px-5 py-3 text-white bg-red-500 rounded-t-lg mt-10 !text-lg"/>
             <div class="border p-5 rounded-b-lg rounded-tr-lg shadow w-full">
                 <p class="pb-5">
                     Here you can add the necessary ingredients to your dish. <br>You can leave the 'unit'
@@ -75,10 +70,10 @@
     </div>
 
     <div class="w-full xl:flex gap-x-5">
-        <div class="w-full max-w-[49%]">
-            <twig:Subtitle tag="h5" label="Step 3: Recipe instructions"
-                           class="w-fit px-5 py-3 text-white bg-red-500 rounded-t-lg mt-10"/>
-            <div class="border p-5 rounded-b-lg rounded-tl-lg shadow w-full mb-5 pb-10 xl:pb-5">
+        <div class="w-full xl:max-w-[49%]">
+            <twig:Subtitle label="Step 3: Recipe instructions"
+                           class="w-fit px-5 py-3 text-white bg-red-500 rounded-t-lg mt-10 !text-lg"/>
+            <div class="border p-5 rounded-b-lg rounded-tl-lg shadow w-full mb-5 pb-10 xl:pb-5 ">
                 <p class="pb-5">Here you can write a step by step plan on how to make your dish. <br>Your headers/titles
                     will be marked red and your header 1 will have a line to indicate a new step for example. </p>
                 <div class="w-full pb-5" data-live-ignore>
@@ -86,10 +81,22 @@
                 </div>
             </div>
         </div>
-        <img class="rounded-2xl w-full h-[56vh] mt-10 w-full object-cover overflow-hidden hidden lg:flex"
+        <img class="rounded-2xl w-full h-[60vh] mt-10 w-full object-cover overflow-hidden hidden lg:flex"
              src="{{ asset('images/step2.jpg') }}" alt="">
     </div>
-    {{ form_row(form.publish) }}
+    <div class="flex gap-x-3 items-center mt-[-40px]">
+        {{ form_row(form.publish) }}
+        <div id="tooltip-default" role="tooltip"
+             class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            Do you want to post this recipe for everyone or keep it to yourself?
+            <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <div class="bg-red-500 text-white px-2 rounded-lg text-xl cursor-pointer" data-tooltip-target="tooltip-default"
+             title="">?
+        </div>
+    </div>
+
+
     <twig:Button
             label="Submit"/>
     {{ form_end(form) }}
