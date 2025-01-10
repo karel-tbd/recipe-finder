@@ -19,6 +19,7 @@ class SearchFormType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        // dd($options);
         $builder
             ->add('ingredients', EntityType::class, [
                     'label' => 'Search on ingredients',

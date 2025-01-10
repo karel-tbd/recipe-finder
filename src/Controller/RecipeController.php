@@ -174,7 +174,6 @@ class RecipeController extends AbstractController
         $session = $request->getSession();
         $i = 1;
         foreach ($recipes as $recipe) {
-            //dd($recipe->getUuid());
             $session->set('recipe' . $i, $recipe->getUuid());
             $i++;
         }

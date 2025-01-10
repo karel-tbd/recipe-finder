@@ -29,13 +29,13 @@
                 </div>
             </div>
         </div>
-        <img class="rounded-2xl h-[48vh] w-full object-cover overflow-hidden hidden lg:flex"
+        <img class="rounded-2xl h-[48vh] w-full object-cover overflow-hidden hidden xl:flex"
              src="{{ asset('images/step4.jpg') }}" alt="">
     </div>
 
     {# Step 2 #}
     <div class="w-full xl:flex gap-x-5">
-        <img class="rounded-2xl h-[80vh] mt-10 w-full object-cover overflow-hidden hidden lg:flex"
+        <img class="rounded-2xl h-[80vh] mt-10 w-full object-cover overflow-hidden hidden xl:flex"
              src="{{ asset('images/step3.jpg') }}" alt="">
 
         <div class="w-full ">
@@ -76,15 +76,15 @@
             <div class="border p-5 rounded-b-lg rounded-tl-lg shadow w-full mb-5 pb-10 xl:pb-5 ">
                 <p class="pb-5">Here you can write a step by step plan on how to make your dish. <br>Your headers/titles
                     will be marked red and your header 1 will have a line to indicate a new step for example. </p>
-                <div class="w-full pb-5" data-live-ignore>
+                <div class="w-full xl:pb-5" data-live-ignore>
                     {{ form_row(form.instructions) }}
                 </div>
             </div>
         </div>
-        <img class="rounded-2xl w-full h-[60vh] mt-10 w-full object-cover overflow-hidden hidden lg:flex"
+        <img class="rounded-2xl w-full h-[60vh] mt-10 w-full object-cover overflow-hidden hidden xl:flex"
              src="{{ asset('images/step2.jpg') }}" alt="">
     </div>
-    <div class="flex gap-x-3 items-center mt-[-40px]">
+    <div class="flex gap-x-3 items-center mt-[-20px]">
         {{ form_row(form.publish) }}
         <div id="tooltip-default" role="tooltip"
              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">

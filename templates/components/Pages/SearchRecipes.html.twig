@@ -70,16 +70,17 @@
     <div class="lg:flex lg:gap-10 pt-5">
         {# Recipe filter desctop #}
         <div class="lg:w-1/4 h-fit">
-            <div class="xl:flex gap-x-5 items-center justify-between">
+            <div class="flex lg:block xl:flex gap-x-5 items-center justify-between">
                 <twig:Subtitle
                         tag="h2"
                         label="Filter recipes"
                 />
                 <twig:Button
                         label="Clear filter"
-                        class="!text-sm font-normal mt-7 lg:mt-3 !py-2 mb-5 lg:mb-0"
+                        class="!text-sm font-normal xl:mt-7 mt-3 !py-2 xl:mb-5 lg:mb-0"
                         variant="white"
-                        data-controller="reset-search" data-action="reset-search#reset"/>
+                        data-action="live#action"
+                        data-live-action-param="clearFilter"/>
             </div>
 
             <div class="flex items-center items-center gap-x-3">
@@ -102,7 +103,8 @@
 
             <div class="bg-white divide-y xl:divide-none divide-gray-100  hidden lg:block">
                 <twig:Dropdown label="Dish Type" class="mt-5" isHidden="{{ false }}">
-                    <twig:Dropdown:Item>
+                    <twig:Dropdown:Item
+                            label="meat">
                         {{ meatField|raw }}
                     </twig:Dropdown:Item>
                     <twig:Dropdown:Item>
@@ -287,8 +289,7 @@
                                     </div>
                                     <div class="flex gap-x-2 whitespace-nowrap">
                                         <div class="w-4 self-center">{{ ux_icon('star-solid') }}</div>
-                                        <p>{{ recipe.recipe.rating['score'] }}({{ recipe.recipe.rating['count'] }}
-                                            )</p>
+                                        <p>{{ recipe.recipe.rating['score'] }}({{ recipe.recipe.rating['count'] }})</p>
                                     </div>
                                     <div class="flex gap-x-2 whitespace-nowrap">
                                         <div class="w-4 self-center">{{ ux_icon('user-group') }}</div>

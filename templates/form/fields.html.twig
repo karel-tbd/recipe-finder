@@ -65,6 +65,21 @@
     </div>
 {% endblock %}
 
+{% block _recipe_publish_row %}
+    <div class="mb-3 pt-3 hover:text-red-500">
+        <label class="flex items-center cursor-pointer">
+            <input type="checkbox"{% if form.vars.checked or 'checked' in form.vars.attr|keys %} checked{% endif %}
+                   id="{{ form.vars.id }}"
+                   name="{{ form.vars.full_name }}"
+                   value="{{ form.vars.value }}"
+                   class="sr-only peer">
+            <span class="relative w-11 h-6 bg-gray-200 peer-checked:bg-red-500 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></span>
+            <span class="ms-3 text-primary-90">{{ form.vars.label }}</span>
+        </label>
+        {{ form_errors(form) }}
+    </div>
+{% endblock %}
+
 {%- block _recipe_instructions_row -%}
     <div class="mb-6 h-[500px]" data-controller="quill">
         <div class="hidden"> {{ form_label(form, null, {'label_attr': {'data-quill-target': 'label'}}) }}</div>

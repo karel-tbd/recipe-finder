@@ -4,27 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Added styling for quill editor plus front end ux changes added">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="ux changes and filter layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/overwrites/quill.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/overwrites/quill.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/beef-tacos-677fc0a688087032547198.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegisterFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegisterFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Link.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Link.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/MyRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/MyRecipes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SearchFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Dropdown/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Dropdown/Item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/SearchRecipes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Dropdown/Item.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Dropdown/Item.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/found.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/found.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/fields.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,15 +290,7 @@
       <workItem from="1735987778937" duration="809000" />
       <workItem from="1735988757249" duration="20687000" />
       <workItem from="1736150095933" duration="56086000" />
-      <workItem from="1736353282901" duration="47994000" />
-    </task>
-    <task id="LOCAL-00018" summary="added extra klasses to filter en search on + layout pages updated">
-      <option name="closed" value="true" />
-      <created>1734544752198</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1734544752199</updated>
+      <workItem from="1736353282901" duration="56221000" />
     </task>
     <task id="LOCAL-00019" summary="made the my recipe page with your saved recipes and the ones youve writen yourself&#10;&#10;made a star review function on show page">
       <option name="closed" value="true" />
@@ -693,7 +676,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736497796111</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="ux changes and filter layout">
+      <option name="closed" value="true" />
+      <created>1736507375826</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1736507375827</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -722,7 +713,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="made functionality reset password" />
     <MESSAGE value="styling reset password" />
     <MESSAGE value="fixed layout on landiong page" />
     <MESSAGE value="amount on show is fixible" />
@@ -747,6 +737,7 @@
     <MESSAGE value="added comments to code and made twig component for find recipe functionality" />
     <MESSAGE value="added comments to code + cleaned up code" />
     <MESSAGE value="Added styling for quill editor plus front end ux changes added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added styling for quill editor plus front end ux changes added" />
+    <MESSAGE value="ux changes and filter layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="ux changes and filter layout" />
   </component>
 </project>

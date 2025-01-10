@@ -85,6 +85,13 @@ final class SearchRecipes extends AbstractController
         ++$this->page;
     }
 
+    #[LiveAction]
+    public function clearFilter()
+    {
+        $session = $this->requestStack->getSession();
+        $session->set('mainSearch', null);
+    }
+
     private function getDataModelValue(): ?string
     {
         return 'on(input)|*';
