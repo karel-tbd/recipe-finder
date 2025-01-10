@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -29,9 +30,21 @@ class RegisterFormType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'Email',
                 'attr' => ['placeholder' => 'name@example.com'],
+                'required' => false,
+            ])
+            ->add('firstName', TextType::class, [
+                'label' => 'First name',
+                'attr' => ['placeholder' => 'Jon'],
+                'required' => false,
+            ])
+            ->add('lastName', TextType::class, [
+                'label' => 'Last name',
+                'attr' => ['placeholder' => 'Doe'],
+                'required' => false,
             ])
             ->add('plainPassword', PasswordType::class, [
                 'label' => 'Password',
+                'required' => false,
                 'mapped' => false,
                 'attr' => [
                     'placeholder' => '••••••••',
@@ -43,10 +56,14 @@ class RegisterFormType extends AbstractType
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
-                    ],
+                    new NotBlank([
+                        'message' => 'This value should not be blank.',
+                    ]),
+                ],
             ])
             ->add('repeatPlainPassword', PasswordType::class, [
                 'label' => 'Repeat password',
+                'required' => false,
                 'mapped' => false,
                 'attr' => [
                     'placeholder' => '••••••••',
@@ -57,6 +74,9 @@ class RegisterFormType extends AbstractType
                         'minMessage' => 'Your password should be at least {{ limit }} characters',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
+                    ]),
+                    new NotBlank([
+                        'message' => 'This value should not be blank.',
                     ]),
                     new Callback(function ($object, ExecutionContextInterface $context) {
                         $form = $context->getRoot();

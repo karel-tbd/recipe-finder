@@ -87,7 +87,7 @@
                     {% if recipe.createdBy == null %}
                         <b>From Fridge to Feast</b>
                     {% else %}
-                        <b>{{ recipe.createdBy.email }}</b>
+                        <b>{{ recipe.createdBy.firstName }} {{ recipe.createdBy.lastName }}</b>
                     {% endif %}
                 </p>
 

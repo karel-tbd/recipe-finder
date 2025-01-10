@@ -62,11 +62,19 @@ final class MyRecipes extends AbstractController
         return self::PER_PAGE;
     }
 
+    public function getAmount(): int
+    {
+        $search = $this->getForm()->getData() ?? [];
+        $countRecipes = $this->recipeRepository->search($search, count: true, myRecipes: true);
+
+        return count($countRecipes);
+    }
+
     public function hasMore(): bool
     {
         $search = $this->getForm()->getData() ?? [];
         $countRecipes = $this->recipeRepository->search($search, count: true, myRecipes: true);
-        
+
         return count($countRecipes) > ($this->page * self::PER_PAGE);
     }
 

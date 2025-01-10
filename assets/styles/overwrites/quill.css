@@ -156,7 +156,7 @@
     .ql-editor p,
     .ql-editor ol,
     .ql-editor ul {
-        @apply pl-3;
+        @apply pl-3 text-black;
     }
 
     .ql-editor h1,
@@ -275,7 +275,7 @@
 .ql-content p,
 .ql-content ol,
 .ql-content ul {
-    @apply text-base mb-3;
+    @apply text-base mb-3 text-black;
 }
 
 .ql-content ol,
@@ -440,14 +440,6 @@
 
 .ql-content li::before {
     @apply text-right inline-block whitespace-nowrap -ml-6 mr-1.5 w-5;
-}
-
-.ql-content h1 {
-    @apply text-3xl font-bold mb-4;
-}
-
-.ql-content h2 {
-    @apply text-2xl font-bold mb-4;
 }
 
 .ql-content h3 {

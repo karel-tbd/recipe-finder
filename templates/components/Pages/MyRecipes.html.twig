@@ -30,117 +30,164 @@
 {% set french = form_row(form.french) %}
 {% set american = form_row(form.american) %}
 
-<div{{ attributes }}>
+<div{{ attributes }} class="mb-32">
+    {% for  type, messages in app.flashes %}
+        {% for message in messages %}
+            <twig:Alert
+                    type="{{ type }}"
+                    message="{{ message }}"/>
+        {% endfor %}
+    {% endfor %}
 
-    {# header img #}
+    {# Header / CTA #}
     <img src="{{ asset('/images/posible-cta2.jpg') }}"
          class="rounded-2xl w-full m-auto h-[50vh] object-cover overflow-hidden xl:mb-10" alt="">
+    <div class="xl:mt-[-35px]">
+        Showing <b>{{ this.amount }}</b> recipes
+    </div>
 
+    <div class="absolute ml-3 lg:ml-20 mt-[-18rem] xl:mt-[-22rem] bg-black/40 p-5 rounded-lg">
+        <h1 class="text-white text-2xl sm:text-4xl">
+            Choose from
+            <br>
+            thousands of recipes
+        </h1>
+        <p class="text-white mt-10">
+            Don't know what to eat yet?
+            <br>
+            Try our fun way to find new recipes!
+        </p>
+        <twig:Link
+                label="Find new recipes"
+                href="{{ path('app_home') }}"
+                icon="{{ ux_icon('arrow-right-solid') }}"
+        />
+    </div>
+    {# End header / CTA #}
+
+    {# Start content #}
     {{ form_start(form, {'method': 'GET'}) }}
-
-    {# Recipe filter desctop #}
-    <div class="lg:flex lg:gap-10 pt-10">
-        <div class="w-1/4 hidden lg:block h-fit ">
-            <div class="flex gap-x-5 items-center">
+    <div class="lg:flex lg:gap-10 pt-5">
+        {# Recipe filter desctop #}
+        <div class="lg:w-1/4 h-fit">
+            <div class="xl:flex gap-x-5 items-center justify-between">
                 <twig:Subtitle
                         tag="h2"
-                        label="Recipes"
-                        class="pt-3"/>
+                        label="Filter recipes"
+                />
+                <twig:Button
+                        label="Clear filter"
+                        class="!text-sm font-normal mt-7 lg:mt-3 !py-2 mb-5 lg:mb-0"
+                        variant="white"
+                        data-controller="reset-search" data-action="reset-search#reset"/>
             </div>
-            <twig:Dropdown label="Dish Type" class="mt-10">
-                <twig:Dropdown:Item>
-                    {{ meatField|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ seaFoodField|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ vegetarianField|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ proteinFoodsField|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ pastasField|raw }}
-                </twig:Dropdown:Item>
-            </twig:Dropdown>
 
-            <twig:Dropdown label="Meal Type" class="mt-10">
-                <twig:Dropdown:Item>
-                    {{ breakfastField|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ brunchField|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ lunchField|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ dinnerField|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ cocktailField|raw }}
-                </twig:Dropdown:Item>
-            </twig:Dropdown>
-
-            <twig:Dropdown label="Allergies" class="mt-10">
-                <twig:Dropdown:Item>
-                    {{ nutsField|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ glutenField|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ seaFoodAllergiesField|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ dairyField|raw }}
-                </twig:Dropdown:Item>
-            </twig:Dropdown>
-
-            <twig:Dropdown label="World Cuisine" class="mt-10">
-                <twig:Dropdown:Item>
-                    {{ italian|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ mexican|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ greek|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ chinese|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ japanese|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ french|raw }}
-                </twig:Dropdown:Item>
-                <twig:Dropdown:Item>
-                    {{ american|raw }}
-                </twig:Dropdown:Item>
-            </twig:Dropdown>
-        </div>
-
-        {# Search field and recipe display #}
-        <div class="lg:w-3/4">
-            <div class="flex items-center gap-x-5">
-                {# Search on name #}
-                <div class="flex-1" data-controller="prevent-enter">
+            <div class="flex items-center items-center gap-x-3">
+                <div class="mt-5 flex-1" data-controller="prevent-enter">
                     {{ form_row(form.name) }}
                 </div>
-
-                {# Recipe filter mobile #}
-                <button id="multiLevelDropdownButton" data-dropdown-toggle="multi-dropdown"
-                        data-dropdown-placement="right-start"
-                        class="text-black mt-2 mr-2 lg:invisible"
+                <button id="multiLevelDropdownButton" data-dropdown-toggle="multi-dropdown-mobile"
+                        data-dropdown-placement="left-start"
+                        class="text-black mt-8 mr-2 lg:hidden"
                         type="button">
                     <div class="text-black w-5">{{ ux_icon('filter') }}</div>
                 </button>
+            </div>
 
-                <div id="multi-dropdown"
-                     class="z-10 bg-white hidden divide-y divide-gray-100 rounded w-4/5 shadow">
+            <div class="flex items-center gap-x-3">
+                <div class="flex-1" data-controller="prevent-enter">
+                    {{ form_row(form.ingredients) }}
+                </div>
+            </div>
+
+            <div class="bg-white divide-y xl:divide-none divide-gray-100  hidden lg:block">
+                <twig:Dropdown label="Dish Type" class="mt-5" isHidden="{{ false }}">
+                    <twig:Dropdown:Item>
+                        {{ meatField|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ seaFoodField|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ vegetarianField|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ proteinFoodsField|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ pastasField|raw }}
+                    </twig:Dropdown:Item>
+                </twig:Dropdown>
+
+                <twig:Dropdown label="Meal Type" class="mt-5" isHidden="{{ false }}">
+                    <twig:Dropdown:Item>
+                        {{ breakfastField|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ brunchField|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ lunchField|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ dinnerField|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ cocktailField|raw }}
+                    </twig:Dropdown:Item>
+                </twig:Dropdown>
+
+                <twig:Dropdown label="Allergies" class="mt-5" isHidden="{{ false }}">
+                    <twig:Dropdown:Item>
+                        {{ nutsField|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ glutenField|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ seaFoodAllergiesField|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ dairyField|raw }}
+                    </twig:Dropdown:Item>
+                </twig:Dropdown>
+
+                <twig:Dropdown label="World Cuisine" class="mt-5" isHidden="{{ false }}">
+                    <twig:Dropdown:Item>
+                        {{ italian|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ mexican|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ greek|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ chinese|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ japanese|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ french|raw }}
+                    </twig:Dropdown:Item>
+                    <twig:Dropdown:Item>
+                        {{ american|raw }}
+                    </twig:Dropdown:Item>
+                </twig:Dropdown>
+            </div>
+        </div>
+
+        {# View of search fields and recipes #}
+        <div class="lg:w-3/4">
+            <div class="flex items-center gap-x-5">
+                {# Search on name #}
+
+
+                {# Recipe filter mobile #}
+
+                <div id="multi-dropdown-mobile"
+                     class="z-10 bg-white hidden divide-y divide-gray-100 rounded w-3/4 shadow absolute lg:hidden">
                     <twig:Dropdown label="Dish Type" class="p-3">
                         <twig:Dropdown:Item>
                             {{ meatField|raw }}
@@ -218,20 +265,9 @@
                 </div>
             </div>
 
-            <div class="flex items-center gap-x-5">
-                {# Search on ingredient #}
-                <div class="flex-1" data-controller="prevent-enter">
-                    {{ form_row(form.ingredients) }}
-                </div>
-                <button class="mt-2 mr-2" data-controller="reset-search" data-action="reset-search#reset"
-                        title="Clear Filter">
-                    <div class="text-black w-5">{{ ux_icon('trash') }}</div>
-                </button>
-            </div>
-
-            {# Recipe display #}
-            <div data-controller="scroll">
-                <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5 ">
+            {# Recipes display #}
+            <div class="recipeGrid" data-controller="scroll">
+                <div id="results" class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5 ">
                     {% for recipe in recipes %}
                         <article
                                 id="recipe--{{ page }}-{{ loop.index }}"
@@ -251,7 +287,8 @@
                                     </div>
                                     <div class="flex gap-x-2 whitespace-nowrap">
                                         <div class="w-4 self-center">{{ ux_icon('star-solid') }}</div>
-                                        <p>{{ recipe.recipe.rating['score'] }}({{ recipe.recipe.rating['count'] }})</p>
+                                        <p>{{ recipe.recipe.rating['score'] }}({{ recipe.recipe.rating['count'] }}
+                                            )</p>
                                     </div>
                                     <div class="flex gap-x-2 whitespace-nowrap">
                                         <div class="w-4 self-center">{{ ux_icon('user-group') }}</div>
@@ -285,7 +322,7 @@
                                     {% if loop.first %}
                                         data-scroll-target="loader"
                                         data-action="scroll->live#action"
-                                        data-live-action-param="debounce(250)|more"
+                                        data-live-action-param="debounce(200)|more"
                                     {% endif %}
                             >
                                 <div class="shadow rounded-md w-full mx-auto">
@@ -303,20 +340,22 @@
                         {% endfor %}
                     {% endif %}
                 </div>
-                {% if not this.hasMore %}
-                    <div class="flex justify-center w-full pt-5">
-                        <twig:Button
-                                label="Go to top"
-                                onclick="topFunction()"
-                                variant="white"
-                        />
-                    </div>
-                    <div class="flex justify-center w-full text-red-500 text-sm py-3">
-                        This will clear your filter
-                    </div>
-                {% endif %}
             </div>
         </div>
     </div>
     {{ form_end(form) }}
+    {% if not this.hasMore %}
+        <div class="absolute flex flex-col w-full lg:w-4/5">
+            <div class="flex justify-center w-full pt-5">
+                <twig:Button
+                        label="Go to top"
+                        onclick="topFunction()"
+                        variant="white"
+                />
+            </div>
+            <p class="flex justify-center w-full text-red-500 text-sm py-3">
+                This will clear your filter
+            </p>
+        </div>
+    {% endif %}
 </div>

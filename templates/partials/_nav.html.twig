@@ -49,16 +49,15 @@
 
             {% if app.user %}
                 <div>
-                    <div>
-                        <button type="button"
-                                class=" flex text-sm rounded-full"
-                                aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                            <span class="sr-only">Open user menu</span>
-                            <img class="w-10 rounded-full"
-                                 src="{{ asset('images/placeholder.png') }}" alt="user photo">
-                        </button>
-                    </div>
-                    <div class="z-50 hidden border my-4 text-sm list-none divide-y rounded shadow bg-white divide-gray-300"
+                    <button type="button"
+                            class=" flex text-sm rounded-full"
+                            aria-expanded="false" data-dropdown-toggle="dropdown-user"
+                            data-dropdown-placement="left-end">
+                        <span class="sr-only">Open user menu</span>
+                        <img class="w-10 rounded-full"
+                             src="{{ asset('images/placeholder.png') }}" alt="user photo">
+                    </button>
+                    <div class="z-50 hidden border my-4 text-sm list-none divide-y rounded shadow bg-white divide-gray-300 absolute mt-20"
                          id="dropdown-user">
                         <div class="px-4 py-3" role="none">
                             <p class="font-medium truncate" role="none">

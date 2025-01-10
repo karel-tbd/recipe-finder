@@ -9,59 +9,9 @@
     display: none;
 }
 
-.recipe h1 {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: red;
-    font-size: large;
-    text-transform: uppercase;
-    letter-spacing: 0.025em;
-    width: fit-content;
-    background-color: white;
-    padding-right: 10px;
-}
-
-.cta {
-    font-family: 'Playwrite-AU+SA', serif;
-    font-weight: 100;
-}
-
-.recipe h2 {
-    padding-top: 20px;
-    color: red;
-    font-size: large;
-    text-transform: uppercase;
-    letter-spacing: 0.025em;
-}
-
-.recipe h3 {
-    padding-top: 20px;
-    color: red;
-    text-transform: uppercase;
-    letter-spacing: 0.025em;
-}
-
-.recipe p {
-    margin-left: 15px;
-}
-
 .vich-file a {
     display: none;
 }
-
-.recipe ol {
-    padding-left: 40px;
-    list-style: lower-alpha;
-}
-
-.recipe hr {
-    width: 100%;
-    justify-self: end;
-    margin-top: -33px;
-    position: absolute;
-    z-index: -1;
-}
-
 
 .flash-message {
     opacity: 1;
@@ -98,19 +48,9 @@
     width: fit-content;
 }
 
-div[title]:hover:after {
-    text-size: 30px
-}
-
 html {
     scroll-behavior: smooth;
     font-family: "Lato", serif;
     font-weight: 400;
     font-style: normal;
-}
-
-@media (min-width: 1000px) {
-    .recipe hr {
-        width: 40%;
-    }
 }

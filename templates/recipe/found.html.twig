@@ -9,13 +9,13 @@
             <div class="absolute inset-0 flex items-center justify-center z-10 p-4">
                 <div class="relative w-full md:w-3/4 xl:w-1/2">
                     <div class="relative rounded-lg shadow bg-white">
-                        {# Carousel title #}
+                        {# Modal title #}
                         <div class="flex items-center justify-between p-4 border-b rounded-t">
                             <twig:Subtitle tag="h4" label="Recipes for you"/>
                         </div>
                         <div class="p-4">
                             <div id="controls-carousel" class="relative w-full" data-carousel="static">
-                                {# Carousel Empty Body #}
+                                {# Modal Empty Body #}
                                 <div class="relative overflow-hidden rounded-lg h-[50vh]  md:h-72">
                                     {% if recipes == null %}
                                         <div class="flex justify-center pt-10 text-xl">
@@ -33,7 +33,7 @@
                                                     variant="white"/>
                                         </div>
                                     {% else %}
-                                        {# Carousel Body #}
+                                        {# Modal Body #}
                                         {% for recipe in recipes %}
                                             <div class="hidden duration-700 ease-in-out md:px-20 w-full"
                                                  data-carousel-item>

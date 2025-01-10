@@ -200,7 +200,7 @@ use Symfony\Bundle\SecurityBundle\Security;
         }
 
         return $query
-            ->orderBy('r.createdAt')
+            ->orderBy('r.createdAt', 'DESC')
             ->groupBy('r.id')
             ->setMaxResults($limit)
             ->getQuery()
