@@ -15,7 +15,7 @@
         {# General information #}
         <div>
             <h1 class="text-3xl pt-5 lg:pt-0 font-bold py-2 lg:w-3/4">{{ recipe.name }}</h1>
-            <p class="lg:w-3/4 py-5">
+            <p class="lg:w-3/4 py-3 max-h-28">
                 {{ recipe.description }}
             </p>
             <div class="grid grid-cols-2 mt-5 pb-5 ">
@@ -119,13 +119,13 @@
             <twig:Subtitle
                     class="font-semibold mb-5 "
                     label="How to make it"/>
-            <div class="ql-content">
+            <div class="ql-content pl-5">
                 {{ recipe.instructions|raw }}
             </div>
             {# Edit/Delete buttons Desctop #}
             {% if current_user() is not null %}
                 {% if current_user() == recipe.createdBy or is_granted('ROLE_ADMIN') %}
-                    <div class="hidden lg:flex gap-x-3">
+                    <div class="hidden lg:flex gap-x-3 mt-5">
                         <twig:Link
                                 href="{{ path('recipe_edit', {'uuid':recipe.uuid}) }}"
                                 label="Edit recipe"/>

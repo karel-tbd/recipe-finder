@@ -24,12 +24,12 @@
                     </div>
                     <div class="w-full">
                         <div>{{ form_row(form.description) }}</div>
-                        <div> {{ form_row(form.image) }}</div>
+                        <div class="mb-[-0.75rem]"> {{ form_row(form.image) }}</div>
                     </div>
                 </div>
             </div>
         </div>
-        <img class="rounded-2xl h-[48vh] w-full object-cover overflow-hidden hidden xl:flex"
+        <img class="rounded-2xl h-[65vh] w-full object-cover overflow-hidden hidden xl:flex"
              src="{{ asset('images/step4.jpg') }}" alt="">
     </div>
 
@@ -74,14 +74,13 @@
             <twig:Subtitle label="Step 3: Recipe instructions"
                            class="w-fit px-5 py-3 text-white bg-red-500 rounded-t-lg mt-10 !text-lg"/>
             <div class="border p-5 rounded-b-lg rounded-tl-lg shadow w-full mb-5 pb-10 xl:pb-5 ">
-                <p class="pb-5">Here you can write a step by step plan on how to make your dish. <br>Your headers/titles
-                    will be marked red and your header 1 will have a line to indicate a new step for example. </p>
+                <p class="pb-5">Here you can write a step by step plan on how to make your dish. </p>
                 <div class="w-full xl:pb-5" data-live-ignore>
                     {{ form_row(form.instructions) }}
                 </div>
             </div>
         </div>
-        <img class="rounded-2xl w-full h-[60vh] mt-10 w-full object-cover overflow-hidden hidden xl:flex"
+        <img class="rounded-2xl w-full h-[80vh] mt-10 w-full object-cover overflow-hidden hidden xl:flex"
              src="{{ asset('images/step2.jpg') }}" alt="">
     </div>
     <div class="flex gap-x-3 items-center mt-[-20px]">

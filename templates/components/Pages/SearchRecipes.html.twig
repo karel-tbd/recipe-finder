@@ -67,7 +67,7 @@
 
     {# Start content #}
     {{ form_start(form, {'method': 'GET'}) }}
-    <div class="lg:flex lg:gap-10 pt-5">
+    <div class="lg:flex lg:gap-10">
         {# Recipe filter desctop #}
         <div class="lg:w-1/4 h-fit">
             <div class="flex lg:block xl:flex gap-x-5 items-center justify-between">
@@ -269,7 +269,7 @@
 
             {# Recipes display #}
             <div class="recipeGrid" data-controller="scroll">
-                <div id="results" class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5 ">
+                <div id="results" class="grid lg:grid-cols-2 xl:grid-cols-3 gap-5 ">
                     {% for recipe in recipes %}
                         <article
                                 id="recipe--{{ page }}-{{ loop.index }}"

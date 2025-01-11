@@ -338,22 +338,20 @@
                         {% endfor %}
                     {% endif %}
                 </div>
+                {% if not this.hasMore %}
+                    <div class="flex justify-center w-full pt-5">
+                        <twig:Button
+                                label="Go to top"
+                                onclick="topFunction()"
+                                variant="white"
+                        />
+                    </div>
+                    <div class="flex justify-center w-full text-red-500 text-sm py-3">
+                        This will clear your filter
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
     {{ form_end(form) }}
-    {% if not this.hasMore %}
-        <div class="absolute flex flex-col w-full lg:w-4/5">
-            <div class="flex justify-center w-full pt-5">
-                <twig:Button
-                        label="Go to top"
-                        onclick="topFunction()"
-                        variant="white"
-                />
-            </div>
-            <p class="flex justify-center w-full text-red-500 text-sm py-3">
-                This will clear your filter
-            </p>
-        </div>
-    {% endif %}
 </div>

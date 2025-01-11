@@ -16,6 +16,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\WordCount;
 use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
@@ -79,6 +80,9 @@ class RecipeType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Recipe description',
                 'required' => false,
+                'constraints' => [
+                    new WordCount(1, 255),
+                ],
                 'attr' => [
                     'rows' => 5,
                     'placeholder' => 'Short description of your dish'
