@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="changed htacces to lead to public folder">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="deleted htacces to lead to public folder">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/messenger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/messenger.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reset_password/request.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/request.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,14 +287,6 @@
       <workItem from="1736150095933" duration="56086000" />
       <workItem from="1736353282901" duration="56747000" />
       <workItem from="1736609288013" duration="4398000" />
-    </task>
-    <task id="LOCAL-00026" summary="added more recipes and added world cuisine filter">
-      <option name="closed" value="true" />
-      <created>1734895933964</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1734895933964</updated>
     </task>
     <task id="LOCAL-00027" summary="added infinite scroll + ongoing layout form">
       <option name="closed" value="true" />
@@ -675,7 +672,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736780865581</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="deleted htacces to lead to public folder">
+      <option name="closed" value="true" />
+      <created>1736781097236</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1736781097236</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +709,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="made recipe filter on mobile" />
     <MESSAGE value="added security messages on site" />
     <MESSAGE value="finalising front end + add recipe update + start front end edit recipe" />
     <MESSAGE value="changed layout edit recipes" />
@@ -729,6 +733,7 @@
     <MESSAGE value="changes on manage page" />
     <MESSAGE value="made project ready for deployment" />
     <MESSAGE value="changed htacces to lead to public folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed htacces to lead to public folder" />
+    <MESSAGE value="deleted htacces to lead to public folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted htacces to lead to public folder" />
   </component>
 </project>

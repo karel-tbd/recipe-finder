@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-security.html.twig' %}
 
 {% block title %}Forgot password{% endblock %}
 
@@ -12,7 +12,7 @@
                             Reset your password
                         </h1>
                         {% for flash_error in app.flashes('reset_password_error') %}
-                            <div class="alert alert-danger font-thin block mb-2 text-red-500"
+                            <div class="alert alert-danger block mb-2 text-red-500"
                                  role="alert">{{ flash_error }}</div>
                         {% endfor %}
                         <p class="block mb-2 text-gray-900 ">
