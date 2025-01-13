@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="made project ready for deployment">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="changed htacces to lead to public folder">
       <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -283,14 +282,6 @@
       <workItem from="1736150095933" duration="56086000" />
       <workItem from="1736353282901" duration="56747000" />
       <workItem from="1736609288013" duration="4398000" />
-    </task>
-    <task id="LOCAL-00025" summary="added more recipes and added world cuisine filter">
-      <option name="closed" value="true" />
-      <created>1734895927622</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1734895927622</updated>
     </task>
     <task id="LOCAL-00026" summary="added more recipes and added world cuisine filter">
       <option name="closed" value="true" />
@@ -676,7 +667,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736776603142</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="changed htacces to lead to public folder">
+      <option name="closed" value="true" />
+      <created>1736780865581</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1736780865581</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -705,7 +704,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="front end on recipe index page" />
     <MESSAGE value="made recipe filter on mobile" />
     <MESSAGE value="added security messages on site" />
     <MESSAGE value="finalising front end + add recipe update + start front end edit recipe" />
@@ -730,6 +728,7 @@
     <MESSAGE value="final frontend / bug fixes" />
     <MESSAGE value="changes on manage page" />
     <MESSAGE value="made project ready for deployment" />
-    <option name="LAST_COMMIT_MESSAGE" value="made project ready for deployment" />
+    <MESSAGE value="changed htacces to lead to public folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed htacces to lead to public folder" />
   </component>
 </project>
