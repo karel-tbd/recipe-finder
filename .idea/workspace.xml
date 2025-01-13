@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="final padding and layout changes">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="final frontend / bug fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/overwrites/tom-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/overwrites/tom-select.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Recipe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enum/Unit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enum/Unit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RecipeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecipeType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/Recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/Recipe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/_footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,14 +285,6 @@
       <workItem from="1736150095933" duration="56086000" />
       <workItem from="1736353282901" duration="56747000" />
       <workItem from="1736609288013" duration="4398000" />
-    </task>
-    <task id="LOCAL-00020" summary="made search live and added dish type in search">
-      <option name="closed" value="true" />
-      <created>1734631855541</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1734631855541</updated>
     </task>
     <task id="LOCAL-00021" summary="Made side filters work">
       <option name="closed" value="true" />
@@ -686,7 +670,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736524554142</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="final frontend / bug fixes">
+      <option name="closed" value="true" />
+      <created>1736772475584</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1736772475584</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -715,7 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed layout on landiong page" />
     <MESSAGE value="amount on show is fixible" />
     <MESSAGE value="tried to make add recipe form in multible parts" />
     <MESSAGE value="front end on recipe index page" />
@@ -740,6 +731,7 @@
     <MESSAGE value="Added styling for quill editor plus front end ux changes added" />
     <MESSAGE value="ux changes and filter layout" />
     <MESSAGE value="responsive changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="responsive changes" />
+    <MESSAGE value="final frontend / bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="final frontend / bug fixes" />
   </component>
 </project>
