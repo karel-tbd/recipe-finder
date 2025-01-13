@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="changes on manage page">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="made project ready for deployment">
+      <change afterPath="$PROJECT_DIR$/.env.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.dev" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,14 +286,6 @@
       <workItem from="1736150095933" duration="56086000" />
       <workItem from="1736353282901" duration="56747000" />
       <workItem from="1736609288013" duration="4398000" />
-    </task>
-    <task id="LOCAL-00022" summary="ongoing landig page">
-      <option name="closed" value="true" />
-      <created>1734709104035</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1734709104035</updated>
     </task>
     <task id="LOCAL-00023" summary="made carousel for found recipes">
       <option name="closed" value="true" />
@@ -679,7 +671,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736773277803</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="made project ready for deployment">
+      <option name="closed" value="true" />
+      <created>1736774441677</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1736774441677</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,7 +708,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tried to make add recipe form in multible parts" />
     <MESSAGE value="front end on recipe index page" />
     <MESSAGE value="made recipe filter on mobile" />
     <MESSAGE value="added security messages on site" />
@@ -733,6 +732,7 @@
     <MESSAGE value="responsive changes" />
     <MESSAGE value="final frontend / bug fixes" />
     <MESSAGE value="changes on manage page" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes on manage page" />
+    <MESSAGE value="made project ready for deployment" />
+    <option name="LAST_COMMIT_MESSAGE" value="made project ready for deployment" />
   </component>
 </project>
