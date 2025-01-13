@@ -163,6 +163,7 @@ use Symfony\Bundle\SecurityBundle\Security;
 
             $country = [];
             if (QueryService::isNotEmpty($search, 'italian')) {
+
                 $country[] = MealCountry::ITALIAN->value;
             }
             if (QueryService::isNotEmpty($search, 'mexican')) {
