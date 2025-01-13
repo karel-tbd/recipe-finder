@@ -26,16 +26,16 @@ input[data-controller="symfony--ux-autocomplete--autocomplete"] {
     @apply rounded-md px-2.5 text-sm bg-red-500 text-white;
 }
 
+.ts-wrapper.single .item {
+    @apply px-0 text-sm;
+}
+
 .ts-wrapper .item {
     @apply rounded-md px-2.5 text-sm;
 }
 
 .ts-wrapper.multi .remove {
     @apply ms-2.5;
-}
-
-.ts-wrapper.single .item {
-    @apply text-sm text-gray-900;
 }
 
 .ts-wrapper .option {

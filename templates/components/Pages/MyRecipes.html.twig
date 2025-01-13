@@ -30,7 +30,7 @@
 {% set french = form_row(form.french) %}
 {% set american = form_row(form.american) %}
 
-<div{{ attributes }} class="mb-32">
+<div{{ attributes }}>
     {% for  type, messages in app.flashes %}
         {% for message in messages %}
             <twig:Alert
@@ -65,23 +65,24 @@
 
     {# Start content #}
     {{ form_start(form, {'method': 'GET'}) }}
-    <div class="lg:flex lg:gap-10 pt-5">
+    <div class="lg:flex lg:gap-10">
         {# Recipe filter desctop #}
         <div class="lg:w-1/4 h-fit">
-            <div class="xl:flex gap-x-5 items-center justify-between">
+            <div class="flex lg:block xl:flex gap-x-5 items-center justify-between">
                 <twig:Subtitle
                         tag="h2"
                         label="Filter recipes"
                 />
                 <twig:Button
                         label="Clear filter"
-                        class="!text-sm font-normal mt-7 lg:mt-3 !py-2 mb-5 lg:mb-0"
+                        class="!text-sm font-normal lg:mt-3 xl:mt-2 !py-2 "
                         variant="white"
-                        data-controller="reset-search" data-action="reset-search#reset"/>
+                        data-action="live#action"
+                        data-live-action-param="clearFilter"/>
             </div>
 
             <div class="flex items-center items-center gap-x-3">
-                <div class="mt-5 flex-1" data-controller="prevent-enter">
+                <div class="flex-1" data-controller="prevent-enter">
                     {{ form_row(form.name) }}
                 </div>
                 <button id="multiLevelDropdownButton" data-dropdown-toggle="multi-dropdown-mobile"
@@ -99,8 +100,9 @@
             </div>
 
             <div class="bg-white divide-y xl:divide-none divide-gray-100  hidden lg:block">
-                <twig:Dropdown label="Dish Type" class="mt-5" isHidden="{{ false }}">
-                    <twig:Dropdown:Item>
+                <twig:Dropdown label="Dish Type" class="mt-3" isHidden="{{ false }}">
+                    <twig:Dropdown:Item
+                            label="meat">
                         {{ meatField|raw }}
                     </twig:Dropdown:Item>
                     <twig:Dropdown:Item>
@@ -265,7 +267,7 @@
 
             {# Recipes display #}
             <div class="recipeGrid" data-controller="scroll">
-                <div id="results" class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-5 ">
+                <div id="results" class="grid lg:grid-cols-2 xl:grid-cols-3 gap-5 ">
                     {% for recipe in recipes %}
                         <article
                                 id="recipe--{{ page }}-{{ loop.index }}"
@@ -274,19 +276,18 @@
                             <a href="{{ path('recipe_show', {'uuid':recipe.recipe.uuid}) }}"
                                class="w-full md:w-1/2 m-auto lg:w-full rounded-2xl  h-full">
                                 {% if recipe.recipe.imageName %}
-                                    <img class="w-full h-52 object-cover overflow-hidden rounded-t-xl"
+                                    <img class="w-full h-52 object-cover overflow-hidden rounded-t-2xl"
                                          src="{{ vich_uploader_asset(recipe.recipe, 'image') }}"
                                          alt="{{ recipe.recipe.name }}">
                                 {% endif %}
-                                <div class="flex w-1/2 gap-x-2 py-2 px-3 m-auto lg:w-full justify-around">
+                                <div class="flex gap-x-2 py-2 px-3 m-auto justify-around">
                                     <div class="flex gap-x-2 whitespace-nowrap">
                                         <div class="w-4 self-center">{{ ux_icon('clock') }}</div>
                                         <p>{{ recipe.recipe.time }} min</p>
                                     </div>
                                     <div class="flex gap-x-2 whitespace-nowrap">
                                         <div class="w-4 self-center">{{ ux_icon('star-solid') }}</div>
-                                        <p>{{ recipe.recipe.rating['score'] }}({{ recipe.recipe.rating['count'] }}
-                                            )</p>
+                                        <p>{{ recipe.recipe.rating['score'] }}({{ recipe.recipe.rating['count'] }})</p>
                                     </div>
                                     <div class="flex gap-x-2 whitespace-nowrap">
                                         <div class="w-4 self-center">{{ ux_icon('user-group') }}</div>
@@ -301,7 +302,6 @@
                                             <div class="w-3 self-center">{{ ux_icon('bookmark') }}</div>
                                         </div>
                                     {% endif %}
-
                                 </div>
                                 <h2 class="text-xl w-2/3 font-semibold text-center p-2 py-3 md:w-full m-auto">{{ recipe.recipe.name }}</h2>
                                 <div class="flex gap-x-2 p-2 rounded">

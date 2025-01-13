@@ -8,17 +8,17 @@
     {% endfor %}
 
     <div class="lg:grid lg:grid-cols-2 gap-x-10 m-auto ">
-        <img class="w-full md:w-full  object-cover overflow-hidden m-0 h-96 rounded-xl"
+        <img class="w-full md:w-full  object-cover overflow-hidden m-0 h-96 rounded-2xl"
              src="{{ vich_uploader_asset(recipe, 'image') }}"
              alt="{{ recipe.name }}">
 
         {# General information #}
         <div>
-            <h1 class="text-3xl pt-5 lg:pt-0 font-bold py-2 lg:w-3/4">{{ recipe.name }}</h1>
-            <p class="lg:w-3/4 py-3 max-h-28">
+            <h1 class="text-3xl pt-5 lg:pt-0 font-bold">{{ recipe.name }}</h1>
+            <p class="pt-3 max-h-36 h-36 overflow-scroll">
                 {{ recipe.description }}
             </p>
-            <div class="grid grid-cols-2 mt-5 pb-5 ">
+            <div class="grid grid-cols-2 my-5 ">
                 <div class="text-center border-r text-gray-800">
                     <div class="w-8 m-auto">{{ ux_icon('clock-regular') }}</div>
                     <p class="py-2 font-semibold text-lg">Total Time</p>
@@ -79,10 +79,10 @@
                 </div>
             </div>
 
-            <hr class="mt-5">
+            <hr>
 
             {# Created by, Save, Pdf #}
-            <div class="flex justify-between mt-10">
+            <div class="flex justify-between mt-3">
                 <p>Created by
                     {% if recipe.createdBy == null %}
                         <b>From Fridge to Feast</b>
@@ -113,13 +113,13 @@
         </div>
     </div>
 
-    <div class="lg:flex m-auto gap-x-20 pt-10">
+    <div class="lg:flex m-auto gap-x-20 pt-5">
         {# Instructions #}
         <div class="lg:w-2/3">
             <twig:Subtitle
-                    class="font-semibold mb-5 "
+                    class="font-semibold mb-3 "
                     label="How to make it"/>
-            <div class="ql-content pl-5">
+            <div class="ql-content">
                 {{ recipe.instructions|raw }}
             </div>
             {# Edit/Delete buttons Desctop #}
@@ -157,11 +157,11 @@
             {# Recipte Rating #}
             {% if app.user %}
                 <twig:Subtitle
-                        tag="h4"
+                        tag="h3"
                         label="Rate recipe"
-                        class="pt-10"/>
+                        class="mt-5"/>
 
-                <div class="flex gap-x-2 pt-3 pb-10"
+                <div class="flex gap-x-2 pt-3 pb-5"
                      data-controller="rating"
                      data-rating-score-value="{{ score }}"
                      data-rating-uuid-value="{{ recipe.uuid }}">
@@ -177,7 +177,7 @@
         {# Edit/Delete buttons mobile #}
         {% if current_user() is not null %}
             {% if current_user() == recipe.createdBy or is_granted('ROLE_ADMIN') %}
-                <div class="lg:hidden flex gap-x-3 pb-5">
+                <div class="lg:hidden flex gap-x-3">
                     <twig:Link
                             href="{{ path('recipe_edit', {'uuid':recipe.uuid}) }}"
                             label="Edit recipe"/>

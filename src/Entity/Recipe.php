@@ -98,7 +98,7 @@ class Recipe
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(?string $name): static
     {
         $this->name = $name;
 
@@ -110,7 +110,7 @@ class Recipe
         return $this->description;
     }
 
-    public function setDescription(string $description): static
+    public function setDescription(?string $description): static
     {
         $this->description = $description;
 
@@ -122,7 +122,7 @@ class Recipe
         return $this->time;
     }
 
-    public function setTime(float $time): static
+    public function setTime(?float $time): static
     {
         $this->time = $time;
 
@@ -169,7 +169,7 @@ class Recipe
         return $this->instructions;
     }
 
-    public function setInstructions(string $instructions): static
+    public function setInstructions(?string $instructions): static
     {
         $this->instructions = $instructions;
 
@@ -211,7 +211,7 @@ class Recipe
         return $this->people;
     }
 
-    public function setPeople(int $people): static
+    public function setPeople(?int $people): static
     {
         $this->people = $people;
 

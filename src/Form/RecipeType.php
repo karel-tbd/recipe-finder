@@ -43,6 +43,7 @@ class RecipeType extends AbstractType
                 'autocomplete' => true,
                 'attr' => [
                     'placeholder' => 'Dinner',
+                    'autocomplete' => 'off',
                 ]
             ])
             ->add('country', EnumType::class, [
@@ -54,6 +55,7 @@ class RecipeType extends AbstractType
                 'autocomplete' => true,
                 'attr' => [
                     'placeholder' => 'None',
+                    'autocomplete' => 'off',
                 ]
             ])
             ->add('people', NumberType::class, [
@@ -61,6 +63,7 @@ class RecipeType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => '4',
+                    'autocomplete' => 'off',
                 ]
             ])
             ->add('recipeIngredients', LiveCollectionType::class, [
@@ -81,7 +84,7 @@ class RecipeType extends AbstractType
                 'label' => 'Recipe description',
                 'required' => false,
                 'constraints' => [
-                    new WordCount(1, 255),
+                    new WordCount(1, 100),
                 ],
                 'attr' => [
                     'rows' => 5,
@@ -120,6 +123,7 @@ class RecipeType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => '80',
+                    'autocomplete' => 'off',
                 ]
             ])
             ->add('publish', CheckboxType::class, [

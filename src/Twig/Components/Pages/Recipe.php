@@ -17,7 +17,7 @@ final class Recipe extends AbstractController
     use DefaultActionTrait;
     use LiveCollectionTrait;
 
-    #[LiveProp(fieldName: 'formData')]
+    #[LiveProp(writable: true, fieldName: 'formData')]
     public ?RecipeEntity $recipe = null;
 
     protected function instantiateForm(): FormInterface
