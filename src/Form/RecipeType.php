@@ -61,6 +61,7 @@ class RecipeType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => '4',
+                    'autocomplete' => 'off',
                 ]
             ])
             ->add('recipeIngredients', LiveCollectionType::class, [
@@ -81,7 +82,7 @@ class RecipeType extends AbstractType
                 'label' => 'Recipe description',
                 'required' => false,
                 'constraints' => [
-                    new WordCount(1, 255),
+                    new WordCount(1, 150),
                 ],
                 'attr' => [
                     'rows' => 5,
@@ -120,6 +121,7 @@ class RecipeType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => '80',
+                    'autocomplete' => 'off',
                 ]
             ])
             ->add('publish', CheckboxType::class, [
