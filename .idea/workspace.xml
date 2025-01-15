@@ -4,12 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="pdf via different package">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="fixed titles and front end login / register">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/overwrites/tom-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/overwrites/tom-select.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/fields.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_sidebar.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reset_password/request.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/request.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/forgot.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/forgot.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/edit.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,14 +301,6 @@
       <workItem from="1736150095933" duration="56086000" />
       <workItem from="1736353282901" duration="56747000" />
       <workItem from="1736609288013" duration="4398000" />
-    </task>
-    <task id="LOCAL-00034" summary="images">
-      <option name="closed" value="true" />
-      <created>1735385502666</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1735385502666</updated>
     </task>
     <task id="LOCAL-00035" summary="images">
       <option name="closed" value="true" />
@@ -681,7 +686,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736953336090</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="fixed titles and front end login / register">
+      <option name="closed" value="true" />
+      <created>1736954037933</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1736954037933</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +723,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed bug on recipe search" />
     <MESSAGE value="added font and made country filter a radio type" />
     <MESSAGE value="small front end changes + gave up splitting add form in 3 steps. Not possible" />
     <MESSAGE value="ongoing front end on edit and add recipe + bug fix on manage page" />
@@ -735,6 +747,7 @@
     <MESSAGE value="fixed recipe name bug and added rounding to ingredient amount" />
     <MESSAGE value="scroll fix on description" />
     <MESSAGE value="pdf via different package" />
-    <option name="LAST_COMMIT_MESSAGE" value="pdf via different package" />
+    <MESSAGE value="fixed titles and front end login / register" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed titles and front end login / register" />
   </component>
 </project>

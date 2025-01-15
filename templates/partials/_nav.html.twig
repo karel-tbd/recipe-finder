@@ -3,7 +3,7 @@
         <div class="flex items-center justify-start rtl:justify-end">
             <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
                     type="button"
-                    class="inline-flex items-center p-2 rounded-lg lg:hidden text-black hover:text-gray-700">
+                    class="inline-flex items-center p-2 rounded-lg xl:hidden text-black hover:text-gray-700">
                 <span class="sr-only">Open sidebar</span>
                 <svg class="w-8 h-8" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                      xmlns="http://www.w3.org/2000/svg">
@@ -12,10 +12,10 @@
                 </svg>
             </button>
             <a href="{{ path('app_home') }}">
-                <img src="{{ asset('images/logo.png') }}" class="h-14 pt-3 lg:pt-0" alt="From Fridge to Feast"/>
+                <img src="{{ asset('images/logo.png') }}" class="h-14 pt-3 xl:pt-0" alt="From Fridge to Feast"/>
             </a>
         </div>
-        <div class="gap-x-10 hidden lg:flex bg-white z-30">
+        <div class="gap-x-10 hidden xl:flex bg-white z-30">
             <twig:Sidebar:Item
                     path="{{ path('recipe_index') }}"
                     label="Search recipes"

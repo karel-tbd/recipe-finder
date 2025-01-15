@@ -7,7 +7,7 @@ input[data-controller="symfony--ux-autocomplete--autocomplete"] {
 }
 
 .ts-wrapper {
-    @apply relative p-0 text-sm;
+    @apply relative p-0;
 }
 
 .ts-wrapper.dropdown-active {
@@ -19,19 +19,19 @@ input[data-controller="symfony--ux-autocomplete--autocomplete"] {
 }
 
 .ts-control {
-    @apply flex flex-wrap items-center gap-2.5  text-gray-900 rounded text-sm w-full border-b border-b-gray-50 focus:ring-red-100 ;
+    @apply flex flex-wrap items-center gap-2.5  text-gray-900 rounded w-full border-b border-b-gray-50 focus:ring-red-100 ;
 }
 
 .ts-wrapper.multi .item {
-    @apply rounded-md px-2.5 text-sm bg-red-500 text-white;
+    @apply rounded-md px-2.5 bg-red-500 text-white;
 }
 
 .ts-wrapper.single .item {
-    @apply px-0 text-sm;
+    @apply px-0;
 }
 
 .ts-wrapper .item {
-    @apply rounded-md px-2.5 text-sm;
+    @apply rounded-md px-2.5;
 }
 
 .ts-wrapper.multi .remove {
@@ -39,11 +39,11 @@ input[data-controller="symfony--ux-autocomplete--autocomplete"] {
 }
 
 .ts-wrapper .option {
-    @apply p-2.5 cursor-pointer hover:bg-gray-100 hover:text-gray-800 text-sm font-normal;
+    @apply p-2.5 cursor-pointer hover:bg-gray-100 hover:text-gray-800 font-normal;
 }
 
 .ts-wrapper .no-results {
-    @apply p-2.5 text-sm;
+    @apply p-2.5;
 }
 
 .ts-wrapper .clear-button {
@@ -51,7 +51,7 @@ input[data-controller="symfony--ux-autocomplete--autocomplete"] {
 }
 
 .ts-wrapper.single.has-items .clear-button {
-    @apply block text-sm cursor-pointer;
+    @apply block cursor-pointer;
 }
 
 .ts-wrapper.single .option.selected {
@@ -59,7 +59,7 @@ input[data-controller="symfony--ux-autocomplete--autocomplete"] {
 }
 
 .ts-control > input {
-    @apply grow p-0 bg-transparent outline-none text-sm border-0 shadow-none;
+    @apply grow p-0 bg-transparent outline-none border-0 shadow-none;
 }
 
 .ts-control > input:focus {
@@ -80,7 +80,7 @@ input[data-controller="symfony--ux-autocomplete--autocomplete"] {
 }
 
 .ts-dropdown .create {
-    @apply p-2.5 text-sm cursor-pointer
+    @apply p-2.5 cursor-pointer
 }
 
 .ts-wrapper .remove {

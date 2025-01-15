@@ -46,7 +46,7 @@
         Showing <b>{{ this.amount }}</b> recipes
     </div>
 
-    <div class="absolute ml-3 lg:ml-20 mt-[-18rem] xl:mt-[-22rem] bg-black/40 p-5 rounded-lg">
+    <div class="absolute ml-3 xl:ml-20 mt-[-18rem] xl:mt-[-22rem] bg-black/40 p-5 rounded-lg">
         <h1 class="text-white text-2xl sm:text-4xl">
             Explore Your Saved <br>and Created Recipes
         </h1>
@@ -66,17 +66,17 @@
 
     {# Start content #}
     {{ form_start(form, {'method': 'GET'}) }}
-    <div class="lg:flex lg:gap-10">
+    <div class="xl:flex xl:gap-10">
         {# Recipe filter desctop #}
-        <div class="lg:w-1/4 h-fit">
-            <div class="flex lg:block xl:flex gap-x-5 items-center justify-between">
+        <div class="xl:w-1/4 h-fit">
+            <div class="flex xl:block xl:flex gap-x-5 items-center justify-between">
                 <twig:Subtitle
                         tag="h2"
                         label="Filter recipes"
                 />
                 <twig:Button
                         label="Clear filter"
-                        class="!text-sm font-normal lg:mt-3 xl:mt-2 !py-2 "
+                        class="!text-sm font-normal xl:mt-3 xl:mt-2 !py-2 "
                         variant="white"
                         data-action="live#action"
                         data-live-action-param="clearFilter"/>
@@ -88,7 +88,7 @@
                 </div>
                 <button id="multiLevelDropdownButton" data-dropdown-toggle="multi-dropdown-mobile"
                         data-dropdown-placement="left-start"
-                        class="text-black mt-8 mr-2 lg:hidden"
+                        class="text-black mt-8 mr-2 xl:hidden"
                         type="button">
                     <div class="text-black w-5">{{ ux_icon('filter') }}</div>
                 </button>
@@ -100,7 +100,7 @@
                 </div>
             </div>
 
-            <div class="bg-white divide-y xl:divide-none divide-gray-100  hidden lg:block">
+            <div class="bg-white divide-y xl:divide-none divide-gray-100  hidden xl:block">
                 <twig:Dropdown label="Dish Type" class="mt-3" isHidden="{{ false }}">
                     <twig:Dropdown:Item
                             label="meat">
@@ -180,7 +180,7 @@
         </div>
 
         {# View of search fields and recipes #}
-        <div class="lg:w-3/4">
+        <div class="xl:w-3/4">
             <div class="flex items-center gap-x-5">
                 {# Search on name #}
 
@@ -188,7 +188,7 @@
                 {# Recipe filter mobile #}
 
                 <div id="multi-dropdown-mobile"
-                     class="z-10 bg-white hidden divide-y divide-gray-100 rounded w-3/4 shadow absolute lg:hidden">
+                     class="z-10 bg-white hidden divide-y divide-gray-100 rounded w-3/4 shadow absolute xl:hidden">
                     <twig:Dropdown label="Dish Type" class="p-3">
                         <twig:Dropdown:Item>
                             {{ meatField|raw }}
@@ -268,14 +268,14 @@
 
             {# Recipes display #}
             <div class="recipeGrid" data-controller="scroll">
-                <div id="results" class="grid lg:grid-cols-2 xl:grid-cols-3 gap-5 ">
+                <div id="results" class="grid xl:grid-cols-2 xl:grid-cols-3 gap-5 ">
                     {% for recipe in recipes %}
                         <article
                                 id="recipe--{{ page }}-{{ loop.index }}"
                                 class="recipeGrid_item rounded-2xl shadow"
                         >
                             <a href="{{ path('recipe_show', {'uuid':recipe.recipe.uuid}) }}"
-                               class="w-full md:w-1/2 m-auto lg:w-full rounded-2xl  h-full">
+                               class="w-full md:w-1/2 m-auto xl:w-full rounded-2xl  h-full">
                                 {% if recipe.recipe.imageName %}
                                     <img class="w-full h-52 object-cover overflow-hidden rounded-t-2xl"
                                          src="{{ vich_uploader_asset(recipe.recipe, 'image') }}"
@@ -327,7 +327,7 @@
                                 <div class="shadow rounded-md w-full mx-auto">
                                     <div class="animate-pulse w-full pb-8 ">
                                         <div class="bg-gray-300 w-full h-52 object-cover overflow-hidden rounded-t-xl"></div>
-                                        <div class="flex w-1/2 gap-x-2 py-2 px-3 m-auto lg:w-full justify-around pt-3">
+                                        <div class="flex w-1/2 gap-x-2 py-2 px-3 m-auto xl:w-full justify-around pt-3">
                                             <div class="h-2 bg-gray-300 rounded w-1/2"></div>
                                             <div class="h-2 bg-gray-300 rounded w-1/2"></div>
                                             <div class="h-2 bg-gray-300 rounded w-1/2"></div>
