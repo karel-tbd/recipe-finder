@@ -95,6 +95,7 @@ class RecipeController extends AbstractController
                 return $this->redirectToRoute('recipe_show', ['uuid' => $recipe->getUuid()]);
             }
             return $this->render('recipe/edit.html.twig', [
+                'edit' => true,
                 'form' => $form,
                 'recipe' => $recipe,
             ]);

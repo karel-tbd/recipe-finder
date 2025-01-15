@@ -17,6 +17,7 @@ final class Recipe extends AbstractController
     use DefaultActionTrait;
     use LiveCollectionTrait;
 
+    public bool $edit = false;
     #[LiveProp(writable: true, fieldName: 'formData')]
     public ?RecipeEntity $recipe = null;
 

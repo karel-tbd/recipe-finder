@@ -7,7 +7,7 @@
             <twig:Subtitle label="Step 1: General information"
                            class="w-fit px-5 py-3 rounded-t-lg  text-white bg-red-500 !text-lg"/>
             <div class="border p-5 rounded-b-lg rounded-tr-lg shadow w-full ">
-                {% if recipe.name != null %}
+                {% if edit %}
                     <p class="pb-3">If you don't change your recipes image it will stay the same as before.</p>
                 {% endif %}
                 <div {# class="lg:flex gap-x-5 " #}>
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <img class="rounded-2xl h-[573px] w-full object-cover overflow-hidden hidden lg:flex {% if recipe.name != null %} h-[610px] {% endif %}"
+        <img class="rounded-2xl h-[573px] w-full object-cover overflow-hidden hidden lg:flex {% if edit %} h-[610px] {% endif %}"
              src="{{ asset('images/step4.jpg') }}" alt="">
     </div>
 
