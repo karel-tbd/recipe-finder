@@ -39,7 +39,7 @@
                 <ul>
                     {% for ingredient in recipe.recipeIngredients %}
                         <li class="pt-2 border-b">
-                            {{ ingredient.quantity / recipe.people * people }}
+                            {{ (ingredient.quantity/recipe.people*people)|round(1) }}
                             {{ ingredient.unit ? ingredient.unit.value }}
                             {{ ingredient.ingredient.name }}
                         </li>
