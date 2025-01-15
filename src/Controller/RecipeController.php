@@ -11,17 +11,15 @@ use App\Repository\RecipeRepository;
 use App\Repository\UserRecipeRatingRepository;
 use App\Repository\UserRecipeSavedRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 use Pontedilana\PhpWeasyPrint\Pdf;
-use Pontedilana\WeasyprintBundle\WeasyPrint\Response\PdfResponse;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Attribute\Route;
-use Twig\Environment;
 
 class RecipeController extends AbstractController
 {
@@ -242,23 +240,34 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/recipe/pdf/{uuid}/{people}', name: 'recipe_pdf'), ]
-    public function pdf(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, #[MapEntity(mapping: ['people' => 'people'])] int $people, Environment $twig, Pdf $weasyPrint): PdfResponse
+    public function pdf(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, #[MapEntity(mapping: ['people' => 'people'])] int $people, Pdf $knpSnappyPdf): PdfResponse
     {
-        $html = $twig->render('recipe/pdf.html.twig', [
-                'recipe' => $recipe,
-                'people' => $people,
-            ]
-        );
-        $pdfContent = $weasyPrint->getOutputFromHtml($html);
+        $html = $this->renderView('recipe/pdf.html.twig', array(
+            'recipe' => $recipe,
+            'people' => $people,
+        ));
 
         return new PdfResponse(
-            content: $pdfContent,
-            fileName: 'recipe.pdf',
-            contentType: 'application/pdf',
-            contentDisposition: ResponseHeaderBag::DISPOSITION_INLINE,
-            status: 200,
-            headers: []
+            $knpSnappyPdf->getOutputFromHtml($html),
+            'file.pdf',
+            'application/pdf',
+            'inline'
         );
+        /*   $html = $twig->render('recipe/pdf.html.twig', [
+                   'recipe' => $recipe,
+                   'people' => $people,
+               ]
+           );
+           $pdfContent = $weasyPrint->getOutputFromHtml($html);
+
+           return new PdfResponse(
+               content: $pdfContent,
+               fileName: 'recipe.pdf',
+               contentType: 'application/pdf',
+               contentDisposition: ResponseHeaderBag::DISPOSITION_INLINE,
+               status: 200,
+               headers: []
+           );*/
     }
 
     #[Route('/recipe/delete/{uuid}', name: 'recipe_delete')]
