@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="messenger change and front end password reset">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="fixed recipe name bug and added rounding to ingredient amount">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Twig/Components/Pages/Recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/Components/Pages/Recipe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/RecipeIngredients.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/RecipeIngredients.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/edit.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,14 +284,6 @@
       <workItem from="1736150095933" duration="56086000" />
       <workItem from="1736353282901" duration="56747000" />
       <workItem from="1736609288013" duration="4398000" />
-    </task>
-    <task id="LOCAL-00029" summary="recipe index on 1 page so infinite scoll doesnt work made pdf + status and manage status on recipes">
-      <option name="closed" value="true" />
-      <created>1735312279546</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1735312279546</updated>
     </task>
     <task id="LOCAL-00030" summary="recipe index on 1 page so infinite scoll doesnt work made pdf + status and manage status on recipes">
       <option name="closed" value="true" />
@@ -682,7 +669,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736788046561</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="fixed recipe name bug and added rounding to ingredient amount">
+      <option name="closed" value="true" />
+      <created>1736950262773</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1736950262773</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -711,7 +706,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="finalising front end + add recipe update + start front end edit recipe" />
     <MESSAGE value="changed layout edit recipes" />
     <MESSAGE value="show recipe changes on dropdown" />
     <MESSAGE value="fixed bug on recipe search" />
@@ -736,6 +730,7 @@
     <MESSAGE value="changed htacces to lead to public folder" />
     <MESSAGE value="deleted htacces to lead to public folder" />
     <MESSAGE value="messenger change and front end password reset" />
-    <option name="LAST_COMMIT_MESSAGE" value="messenger change and front end password reset" />
+    <MESSAGE value="fixed recipe name bug and added rounding to ingredient amount" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed recipe name bug and added rounding to ingredient amount" />
   </component>
 </project>

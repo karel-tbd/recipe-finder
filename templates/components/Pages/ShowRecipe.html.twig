@@ -147,7 +147,7 @@
             <ul class="pt-5">
                 {% for ingredient in recipe.recipeIngredients %}
                     <li class="py-4 border-b list-none pl-3">
-                        {{ (ingredient.quantity/recipe.people*people)|round(1) }}
+                        {{ ingredient.quantity/recipe.people*people }}
                         {{ ingredient.unit ? ingredient.unit.value }}
                         {{ ingredient.ingredient.name }}
                     </li>
