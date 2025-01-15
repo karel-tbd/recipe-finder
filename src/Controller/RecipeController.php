@@ -11,8 +11,7 @@ use App\Repository\RecipeRepository;
 use App\Repository\UserRecipeRatingRepository;
 use App\Repository\UserRecipeSavedRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
-use Knp\Snappy\Pdf;
+use Dompdf\Dompdf;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
@@ -240,34 +239,23 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/recipe/pdf/{uuid}/{people}', name: 'recipe_pdf'), ]
-    public function pdf(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, #[MapEntity(mapping: ['people' => 'people'])] int $people, Pdf $knpSnappyPdf): PdfResponse
+    public function pdf(#[MapEntity(mapping: ['uuid' => 'uuid'])] Recipe $recipe, #[MapEntity(mapping: ['people' => 'people'])] int $people): Response
     {
         $html = $this->renderView('recipe/pdf.html.twig', array(
             'recipe' => $recipe,
             'people' => $people,
         ));
 
-        return new PdfResponse(
-            $knpSnappyPdf->getOutputFromHtml($html),
-            'file.pdf',
-            'application/pdf',
-            'inline'
-        );
-        /*   $html = $twig->render('recipe/pdf.html.twig', [
-                   'recipe' => $recipe,
-                   'people' => $people,
-               ]
-           );
-           $pdfContent = $weasyPrint->getOutputFromHtml($html);
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml($html);
+        $dompdf->render();
 
-           return new PdfResponse(
-               content: $pdfContent,
-               fileName: 'recipe.pdf',
-               contentType: 'application/pdf',
-               contentDisposition: ResponseHeaderBag::DISPOSITION_INLINE,
-               status: 200,
-               headers: []
-           );*/
+
+        return new Response (
+            $dompdf->stream('resume', ["Attachment" => false]),
+            Response::HTTP_OK,
+            ['Content-Type' => 'application/pdf']
+        );
     }
 
     #[Route('/recipe/delete/{uuid}', name: 'recipe_delete')]
