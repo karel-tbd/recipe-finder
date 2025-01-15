@@ -12,7 +12,7 @@ use App\Repository\UserRecipeRatingRepository;
 use App\Repository\UserRecipeSavedRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
-use Pontedilana\PhpWeasyPrint\Pdf;
+use Knp\Snappy\Pdf;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;

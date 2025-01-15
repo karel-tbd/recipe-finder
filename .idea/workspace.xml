@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="changed lg: to xl:">
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="fixed hight on recipe page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/knp_snappy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/knp_snappy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecipeController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,14 +286,6 @@
       <workItem from="1736150095933" duration="56086000" />
       <workItem from="1736353282901" duration="56747000" />
       <workItem from="1736609288013" duration="4398000" />
-    </task>
-    <task id="LOCAL-00036" summary="made it so you can edit ingredients of recipes">
-      <option name="closed" value="true" />
-      <created>1735402646477</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1735402646477</updated>
     </task>
     <task id="LOCAL-00037" summary="Fixed publish toggle on edit + made site responsive">
       <option name="closed" value="true" />
@@ -678,7 +671,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736954715353</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="fixed hight on recipe page">
+      <option name="closed" value="true" />
+      <created>1736955265864</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1736955265864</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -707,7 +708,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="small front end changes + gave up splitting add form in 3 steps. Not possible" />
     <MESSAGE value="ongoing front end on edit and add recipe + bug fix on manage page" />
     <MESSAGE value="fixed front end edit and add recipe" />
     <MESSAGE value="changed front end again starting on search fixes" />
@@ -732,6 +732,7 @@
     <MESSAGE value="pdf via different package" />
     <MESSAGE value="fixed titles and front end login / register" />
     <MESSAGE value="changed lg: to xl:" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed lg: to xl:" />
+    <MESSAGE value="fixed hight on recipe page" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed hight on recipe page" />
   </component>
 </project>
