@@ -128,8 +128,6 @@
       <path value="$PROJECT_DIR$/vendor/jms/metadata" />
       <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/ux-icons" />
-      <path value="$PROJECT_DIR$/vendor/pontedilana/php-weasyprint" />
-      <path value="$PROJECT_DIR$/vendor/pontedilana/weasyprint-bundle" />
       <path value="$PROJECT_DIR$/vendor/league/uri" />
       <path value="$PROJECT_DIR$/vendor/league/uri-interfaces" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
