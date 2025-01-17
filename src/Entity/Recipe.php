@@ -74,7 +74,7 @@ class Recipe
     /**
      * @var Collection<int, UserRecipeRating>
      */
-    #[ORM\OneToMany(targetEntity: UserRecipeRating::class, mappedBy: 'recipe')]
+    #[ORM\OneToMany(targetEntity: UserRecipeRating::class, mappedBy: 'recipe', cascade: ["remove"])]
     private Collection $userRecipeRatings;
 
     #[ORM\Column(nullable: true, enumType: MealCountry::class)]

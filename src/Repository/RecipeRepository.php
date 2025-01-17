@@ -207,7 +207,7 @@ use Symfony\Bundle\SecurityBundle\Security;
             ->getResult();
     }
 
-    public function findMeal(string $meal = null, string $country, string $difficulty, string $mealType)
+    public function findMeal(?string $meal, string $country, string $difficulty, string $mealType)
     {
         $query = $this->createQueryBuilder('r')
             ->leftJoin('r.recipeIngredients', 'ri')
