@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="pdf fix 2.0">
-      <change beforePath="$PROJECT_DIR$/.env.old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/beef-stir-fry-67829176429a4110119732.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/quinoa-salad-with-chickpeas-6782918b5591a591928807.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Recipe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecipeRepository.php" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="fix deleted rated recipe bug fixed">
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -304,15 +294,7 @@
       <workItem from="1737031230664" duration="1423000" />
       <workItem from="1737033180949" duration="391000" />
       <workItem from="1737115939620" duration="2736000" />
-      <workItem from="1737118700938" duration="663000" />
-    </task>
-    <task id="LOCAL-00039" summary="front end clean up + edit user ongoing password bug">
-      <option name="closed" value="true" />
-      <created>1735487230251</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1735487230251</updated>
+      <workItem from="1737118700938" duration="1258000" />
     </task>
     <task id="LOCAL-00040" summary="fix infinite scroll and add ingredients on edit and add recipes">
       <option name="closed" value="true" />
@@ -698,7 +680,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736970975136</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="fix deleted rated recipe bug fixed">
+      <option name="closed" value="true" />
+      <created>1737119504504</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1737119504505</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -727,7 +717,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed front end edit and add recipe" />
     <MESSAGE value="changed front end again starting on search fixes" />
     <MESSAGE value="Fixed Meal Type search" />
     <MESSAGE value="ongoing world cuisine filter" />
@@ -752,6 +741,7 @@
     <MESSAGE value="changed lg: to xl:" />
     <MESSAGE value="fixed hight on recipe page" />
     <MESSAGE value="pdf fix 2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="pdf fix 2.0" />
+    <MESSAGE value="fix deleted rated recipe bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix deleted rated recipe bug fixed" />
   </component>
 </project>
