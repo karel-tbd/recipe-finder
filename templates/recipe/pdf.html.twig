@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="stylesheet"
-          href="https://cdn.curlwind.com?classes=border,border-b,text-top,text-2xl,align-top,pt-2,pt-10,pt-5,text-center,text-lg,pt-3,rounded-lg,text-3xl,pl-5,w-80,h-52,object-cover,overflow-hidden,flex,justify-between">
     <title>{{ recipe.name }}</title>
 </head>
 <body>
@@ -10,18 +8,18 @@
     <tr>
         <td style="width: 50%">
             <img src="data:image/png;base64,{{ encodeImage('.' ~ asset('images/' ~ recipe.imageName)) }}"
-                 class="w-80 h-52 object-cover overflow-hidden m-auto rounded-lg"
+                 style="width: 320px; height: 208px; object-fit: cover; overflow: hidden; margin: auto; border-radius: 8px; text-align: top;"
                  alt="{{ recipe.name }}">
         </td>
         <td style="width: 50%">
-            <div class="w-full">
-                <h1 class="text-3xl pl-5">
+            <div style="width: 100%;">
+                <h1 style="font-size: 1.875rem; padding-left: 1.25rem;">
                     {{ recipe.name }}
                 </h1>
-                <p class="pl-5 pt-3 text-lg">
+                <p style="padding-left: 1.25rem; padding-top: 0.75rem; font-size: 1.125rem;">
                     {{ recipe.description }}
                 </p>
-                <div class="flex justify-between pl-5 pt-3 text-lg">
+                <div style="display: flex; justify-content: space-between; padding-left: 1.25rem; padding-top: 0.75rem; font-size: 1.125rem;">
                     <div>{{ recipe.time }} min.</div>
                     <div>Serves {{ people }}</div>
                 </div>
@@ -29,16 +27,16 @@
         </td>
     </tr>
     <tr>
-        <td style="width: 60%" class="align-top">
-            <div class="text-lg pt-10 text-top">
+        <td style="width: 60%; vertical-align: top;">
+            <div style="font-size: 1.125rem; padding-top: 2.5rem; text-align: top;">
                 {{ recipe.instructions|raw }}
             </div>
         </td>
         <td style="width: 40%">
-            <div class="pl-5 text-lg pt-5">
+            <div style="padding-left: 1.25rem; font-size: 1.125rem; padding-top: 1.25rem;">
                 <ul>
                     {% for ingredient in recipe.recipeIngredients %}
-                        <li class="pt-2 border-b">
+                        <li style="padding-top: 0.5rem; border-bottom: 1px solid #ccc;">
                             {{ (ingredient.quantity/recipe.people*people)|round(1) }}
                             {{ ingredient.unit ? ingredient.unit.value }}
                             {{ ingredient.ingredient.name }}
