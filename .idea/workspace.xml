@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="fix deleted rated recipe bug fixed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="pdf styling fix">
+      <change beforePath="$PROJECT_DIR$/templates/components/Question.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Question.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,15 +294,7 @@
       <workItem from="1737031230664" duration="1423000" />
       <workItem from="1737033180949" duration="391000" />
       <workItem from="1737115939620" duration="2736000" />
-      <workItem from="1737118700938" duration="2011000" />
-    </task>
-    <task id="LOCAL-00041" summary="made functionality reset password">
-      <option name="closed" value="true" />
-      <created>1735823152844</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1735823152844</updated>
+      <workItem from="1737118700938" duration="2481000" />
     </task>
     <task id="LOCAL-00042" summary="styling reset password">
       <option name="closed" value="true" />
@@ -688,7 +680,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737120040869</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="pdf styling fix">
+      <option name="closed" value="true" />
+      <created>1737120960723</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1737120960723</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -717,7 +717,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed front end again starting on search fixes" />
     <MESSAGE value="Fixed Meal Type search" />
     <MESSAGE value="ongoing world cuisine filter" />
     <MESSAGE value="made cta + Put animation on search recipes + pdf is dynamic with mount of people" />
@@ -742,6 +741,7 @@
     <MESSAGE value="fixed hight on recipe page" />
     <MESSAGE value="pdf fix 2.0" />
     <MESSAGE value="fix deleted rated recipe bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix deleted rated recipe bug fixed" />
+    <MESSAGE value="pdf styling fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="pdf styling fix" />
   </component>
 </project>
