@@ -32,19 +32,16 @@ class Import extends Command
         $filename = $this->kernelProjectDir . '/private/imports/seeds.txt';
 
         $file = fopen($filename, "r");
-        $i = 0;
+        $foodgroup = $this->foodGroupRepository->find(19);
+
         while (($data = fgetcsv($file, 100, ",")) !== FALSE) {
-            $foodgroup = $this->foodGroupRepository->find(19);
-            if ($i >= 0) {
-                $ingredient = $this->ingredientsRepository->findOneBy(['name' => $data[0]]);
-                if (!$ingredient) {
-                    $ingredient = new Ingredients();
-                    $ingredient->setName($data[0]);
-                }
-                $ingredient->addFoodgroup($foodgroup);
-                $this->entityManager->persist($ingredient);
+            $ingredient = $this->ingredientsRepository->findOneBy(['name' => $data[0]]);
+            if (!$ingredient) {
+                $ingredient = new Ingredients();
+                $ingredient->setName($data[0]);
             }
-            $i++;
+            $ingredient->addFoodgroup($foodgroup);
+            $this->entityManager->persist($ingredient);
         }
         $this->entityManager->flush();
 

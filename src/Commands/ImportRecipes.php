@@ -30,62 +30,60 @@ class ImportRecipes extends Command
         $filename = $this->kernelProjectDir . '/private/imports/__recipes.txt';
 
         $file = fopen($filename, "r");
-        $i = 0;
         $publish = true;
 
         while (($data = fgetcsv($file, 10000, ";")) !== FALSE) {
-            if ($i >= 0) {
-                $recipe = new Recipe();
-                $invalidIngredients = [];
-                $recipe->setName($data[0]);
-                $recipe->setDescription($data[2]);
-                $recipe->setTime($data[3]);
-                $recipe->setInstructions($data[4]);
-                $recipe->setPeople($data[5]);
-                $recipe->setPublish(true);
-                $recipe->setStatus(Publish::ACCEPTED);
-                if (!empty($data[6])) {
-                    $recipe->setMealType([MealType::tryFrom(trim($data[6]))]);
-                }
-                if (!empty($data[7])) {
-                    $recipe->setCountry(MealCountry::tryFrom(trim($data[7])));
-                }
-                $this->entityManager->persist($recipe);
-                $ingredients = explode(",", $data[1]);
+            $recipe = new Recipe();
+            $invalidIngredients = [];
+            $recipe->setName($data[0]);
+            $recipe->setDescription($data[2]);
+            $recipe->setTime($data[3]);
+            $recipe->setInstructions($data[4]);
+            $recipe->setPeople($data[5]);
+            $recipe->setPublish(true);
+            $recipe->setStatus(Publish::ACCEPTED);
+            if (!empty($data[6])) {
+                $recipe->setMealType([MealType::tryFrom(trim($data[6]))]);
+            }
+            if (!empty($data[7])) {
+                $recipe->setCountry(MealCountry::tryFrom(trim($data[7])));
+            }
+            $this->entityManager->persist($recipe);
+            $ingredients = explode(",", $data[1]);
 
-                foreach ($ingredients as $ingredientInfo) {
-                    $recipeIngredient = new RecipeIngredients();
-                    $ingredient = explode(':', trim($ingredientInfo));
-                    $ingredientName = $ingredient[0];
-                    $ingredientQuantity = $ingredient[1];
-                    $ingredientUnit = $ingredient[2];
-                    $knownIngredient = $this->ingredientsRepository->findOneBy(['name' => $ingredientName]);
+            foreach ($ingredients as $ingredientInfo) {
+                $recipeIngredient = new RecipeIngredients();
+                $ingredient = explode(':', trim($ingredientInfo));
+                $ingredientName = $ingredient[0];
+                $ingredientQuantity = $ingredient[1];
+                $ingredientUnit = $ingredient[2];
+                $knownIngredient = $this->ingredientsRepository->findOneBy(['name' => $ingredientName]);
 
-                    if ($knownIngredient) {
-                        $recipeIngredient->setRecipe($recipe);
-                        $recipeIngredient->setIngredient($knownIngredient);
-                        $recipeIngredient->setQuantity($ingredientQuantity);
-                        $recipeIngredient->setUnit(Unit::tryFrom($ingredientUnit));
-                    } else {
-                        $invalidIngredients[] = $ingredientName;
-                        $publish = false;
-                    }
-
-                    $this->entityManager->persist($recipeIngredient);
-                }
-
-                if ($publish) {
-                    $this->entityManager->flush();
-                    $output->writeln('recipe ' . $recipe->getName() . ' is valid');
+                if ($knownIngredient) {
+                    $recipeIngredient->setRecipe($recipe);
+                    $recipeIngredient->setIngredient($knownIngredient);
+                    $recipeIngredient->setQuantity($ingredientQuantity);
+                    $recipeIngredient->setUnit(Unit::tryFrom($ingredientUnit));
                 } else {
-                    $output->writeln('recipe ' . $recipe->getName() . ' has invalid ingredient');
-                    foreach ($invalidIngredients as $invalidIngredient) {
-                        $output->writeln($invalidIngredient);
-                    }
+                    $invalidIngredients[] = $ingredientName;
+                    $publish = false;
+                }
+
+                $this->entityManager->persist($recipeIngredient);
+            }
+
+            if ($publish) {
+                $this->entityManager->flush();
+                $output->writeln('recipe ' . $recipe->getName() . ' is valid');
+            } else {
+                $output->writeln('recipe ' . $recipe->getName() . ' has invalid ingredient');
+                foreach ($invalidIngredients as $invalidIngredient) {
+                    $output->writeln($invalidIngredient);
                 }
             }
+
             $this->entityManager->clear();
-            $i++;
+
         }
 
         return Command::SUCCESS;

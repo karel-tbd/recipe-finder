@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Mobile front end changes">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/overwrites/quill.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/overwrites/quill.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RecipeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecipeType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers/dropdown_width_controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers/recipe_people_controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/Import.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Import.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/ImportRecipes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,15 +300,7 @@
       <workItem from="1737115939620" duration="2736000" />
       <workItem from="1737118700938" duration="3843000" />
       <workItem from="1737288698412" duration="1277000" />
-      <workItem from="1737289987642" duration="12115000" />
-    </task>
-    <task id="LOCAL-00062" summary="made database all new becuse of foodgroup bug">
-      <option name="closed" value="true" />
-      <created>1736430608717</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1736430608717</updated>
+      <workItem from="1737289987642" duration="14402000" />
     </task>
     <task id="LOCAL-00063" summary="changed front end again, made find recipe working again, cleaned up php-storm">
       <option name="closed" value="true" />
@@ -695,7 +686,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737295114527</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Mobile front end changes">
+      <option name="closed" value="true" />
+      <created>1737306270807</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1737306270807</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
