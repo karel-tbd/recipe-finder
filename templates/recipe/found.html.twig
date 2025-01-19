@@ -50,8 +50,8 @@
 
                                                     <div class="md:w-1/2">
                                                         <div>
-                                                            <h2 class="pt-3 text-2xl border">{{ recipe.name }}</h2>
-                                                            <p class="border h-20">
+                                                            <h2 class="lg:pt-3 text-2xl border">{{ recipe.name }}</h2>
+                                                            <p class="border max-h-20 lg:max-h-36 lg:pt-3 overflow-y-auto">
                                                                 {{ recipe.description }}
                                                             </p>
                                                             <div class="flex gap-x-3 border">
@@ -67,7 +67,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="absolute bottom-0 z-50 flex gap-x-3 border">
+                                                <div class="absolute bottom-0 z-50 flex lg:pt-3 gap-x-3 border">
                                                     <twig:Link
                                                             href="{{ path('recipe_show', {'uuid':recipe.uuid}) }}"
                                                             label='Go to recipe'/>
