@@ -39,7 +39,7 @@
                                                  data-carousel-item>
                                                 <div class="md:flex md:gap-x-5 w-full pt-5">
                                                     {% if recipe and recipe.image %}
-                                                        <div class="md:w-1/2 border">
+                                                        <div class="md:w-1/2">
                                                             <img class="object-cover overflow-hidden h-32 m-auto w-full md:h-52 md:m-0 rounded-xl"
                                                                  src="{{ vich_uploader_asset(recipe, 'image') }}"
                                                                  alt="{{ recipe.name }}">
@@ -82,7 +82,7 @@
                                         {% if recipes|length > 1 %}
                                             {# Carousel control buttons #}
                                             <button type="button"
-                                                    class="absolute top-0 start-0 ml-[-20px] lg:ml-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                                                    class="absolute top-0 start-0 ml-[-15px] lg:ml-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                                                     data-carousel-prev>
                                                 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-400/30 hover:bg-gray-300/30 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
                                                 <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
@@ -97,7 +97,7 @@
                                                 </span>
                                             </button>
                                             <button type="button"
-                                                    class="absolute top-0 end-0 z-30 mr-[-20px] lg:mr-0 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                                                    class="absolute top-0 end-0 z-30 mr-[-15px] lg:mr-0 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                                                     data-carousel-next>
                                                 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-400/30 hover:bg-gray-300/30 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
                                                 <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
