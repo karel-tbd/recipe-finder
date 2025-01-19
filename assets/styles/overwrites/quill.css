@@ -13,7 +13,7 @@
     }
 
     .ql-snow.ql-toolbar .ql-picker.ql-expanded .ql-picker-label[aria-expanded="true"] {
-        @apply text-orange-400;
+        @apply text-red-500;
     }
 
     .ql-snow.ql-toolbar .ql-picker.ql-expanded .ql-picker-label[aria-expanded="true"] .ql-stroke {
@@ -21,7 +21,7 @@
     }
 
     .ql-snow .ql-picker.ql-expanded .ql-picker-label {
-        @apply text-blue-950;
+        @apply text-black;
     }
 
     .ql-snow.ql-toolbar .ql-picker.ql-expanded .ql-picker-options {
@@ -31,39 +31,39 @@
     @media (pointer: coarse) {
         .ql-snow.ql-toolbar button:hover:not(.ql-active),
         .ql-snow .ql-toolbar button:hover:not(.ql-active) {
-            color: var(--color-blue-950);
+            color: var(--color-black);
         }
 
         .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-fill,
         .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-fill,
         .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill,
         .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill {
-            @apply fill-blue-950;
+            @apply fill-black;
         }
 
         .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke,
         .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke,
         .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter,
         .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter {
-            @apply stroke-blue-950
+            @apply stroke-black
         }
     }
 
     .ql-snow .ql-stroke {
-        @apply stroke-blue-950
+        @apply stroke-black
     }
 
     .ql-snow .ql-stroke-miter {
-        @apply stroke-blue-950
+        @apply stroke-black
     }
 
     .ql-snow .ql-fill,
     .ql-snow .ql-stroke.ql-fill {
-        @apply fill-blue-950;
+        @apply fill-black;
     }
 
     .ql-snow .ql-tooltip::before {
-        @apply text-blue-950;
+        @apply text-black;
     }
 
     .ql-snow .ql-tooltip {
@@ -84,7 +84,7 @@
     .ql-snow .ql-toolbar .ql-picker-item:hover,
     .ql-snow.ql-toolbar .ql-picker-item.ql-selected,
     .ql-snow .ql-toolbar .ql-picker-item.ql-selected {
-        @apply text-orange-400;
+        @apply text-red-500;
     }
 
     .ql-snow.ql-toolbar button:hover .ql-fill,
@@ -150,7 +150,7 @@
     }
 
     .ql-snow .ql-picker {
-        @apply text-blue-950;
+        @apply text-black;
     }
 
     .ql-editor p,
@@ -225,7 +225,7 @@
 
     .ql-snow .ql-editor a,
     .ql-snow a {
-        @apply no-underline text-orange-400;
+        @apply no-underline text-red-500;
     }
 
     .ql-snow .ql-editor h1 {
@@ -254,7 +254,7 @@
 }
 
 .ql-content a {
-    @apply no-underline text-orange-400;
+    @apply no-underline text-red-500;
 }
 
 .ql-content p,

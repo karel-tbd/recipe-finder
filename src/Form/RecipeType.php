@@ -113,9 +113,7 @@ class RecipeType extends AbstractType
                         ],
                         'mimeTypesMessage' => 'Please upload a valid PNG, JPEG or WEBP file',
                     ]),
-                    new NotBlank([
-
-                    ])
+                    new NotBlank([])
                 ],
             ])
             ->add('time', NumberType::class, [
