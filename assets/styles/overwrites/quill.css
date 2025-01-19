@@ -1,15 +1,15 @@
 [data-controller="quill"] {
     .ql-snow.ql-container {
         font-family: 'Source Sans 3', Helvetica, Arial, sans-serif;
-        @apply border border-gray-200 dark:border-gray-600 rounded-b-lg;
+        @apply border border-gray-200 rounded-b-lg;
     }
 
     .ql-snow.ql-toolbar {
-        @apply border border-gray-200 dark:border-gray-600 rounded-t-lg;
+        @apply border border-gray-200 rounded-t-lg;
     }
 
     .ql-snow.ql-toolbar .ql-picker.ql-expanded .ql-picker-label {
-        @apply border border-gray-200 dark:border-gray-600 rounded-t-lg;
+        @apply border border-gray-200 rounded-t-lg;
     }
 
     .ql-snow.ql-toolbar .ql-picker.ql-expanded .ql-picker-label[aria-expanded="true"] {
@@ -21,11 +21,11 @@
     }
 
     .ql-snow .ql-picker.ql-expanded .ql-picker-label {
-        @apply text-blue-950 dark:text-white;
+        @apply text-blue-950;
     }
 
     .ql-snow.ql-toolbar .ql-picker.ql-expanded .ql-picker-options {
-        @apply border border-gray-200 dark:border-gray-600 rounded-b-lg rounded-tr-lg shadow-none bg-white dark:bg-blue-950;
+        @apply border border-gray-200 rounded-b-lg rounded-tr-lg shadow-none bg-white;
     }
 
     @media (pointer: coarse) {
@@ -38,36 +38,36 @@
         .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-fill,
         .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill,
         .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill {
-            @apply fill-blue-950 dark:fill-white;
+            @apply fill-blue-950;
         }
 
         .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke,
         .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke,
         .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter,
         .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter {
-            @apply stroke-blue-950 dark:stroke-white
+            @apply stroke-blue-950
         }
     }
 
     .ql-snow .ql-stroke {
-        @apply stroke-blue-950 dark:stroke-white
+        @apply stroke-blue-950
     }
 
     .ql-snow .ql-stroke-miter {
-        @apply stroke-blue-950 dark:stroke-white
+        @apply stroke-blue-950
     }
 
     .ql-snow .ql-fill,
     .ql-snow .ql-stroke.ql-fill {
-        @apply fill-blue-950 dark:fill-white;
+        @apply fill-blue-950;
     }
 
     .ql-snow .ql-tooltip::before {
-        @apply text-blue-950 dark:text-white;
+        @apply text-blue-950;
     }
 
     .ql-snow .ql-tooltip {
-        @apply shadow-none z-40 rounded-lg border border-gray-200 dark:border-gray-600;
+        @apply shadow-none z-40 rounded-lg border border-gray-200;
     }
 
     .ql-snow.ql-toolbar button:hover,
@@ -150,7 +150,7 @@
     }
 
     .ql-snow .ql-picker {
-        @apply text-blue-950 dark:text-white;
+        @apply text-blue-950;
     }
 
     .ql-editor p,

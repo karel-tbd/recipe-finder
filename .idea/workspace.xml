@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Mobile front end changes" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Mobile front end changes">
+      <change afterPath="$PROJECT_DIR$/public/images/favicon-32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -242,11 +245,11 @@
       <recent name="$PROJECT_DIR$/templates/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\workspace\recipe-finder\public" />
+      <recent name="C:\workspace\recipe-finder\public\images" />
       <recent name="$PROJECT_DIR$/assets/icons" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/assets/styles/overwrites" />
-      <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -294,15 +297,7 @@
       <workItem from="1737115939620" duration="2736000" />
       <workItem from="1737118700938" duration="3843000" />
       <workItem from="1737288698412" duration="1277000" />
-      <workItem from="1737289987642" duration="3943000" />
-    </task>
-    <task id="LOCAL-00060" summary="ongoing world cuisine filter">
-      <option name="closed" value="true" />
-      <created>1736354945823</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1736354945823</updated>
+      <workItem from="1737289987642" duration="4637000" />
     </task>
     <task id="LOCAL-00061" summary="made cta + Put animation on search recipes + pdf is dynamic with mount of people">
       <option name="closed" value="true" />
@@ -688,7 +683,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737293824565</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="Mobile front end changes">
+      <option name="closed" value="true" />
+      <created>1737294114875</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1737294114875</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
