@@ -1,31 +1,52 @@
 <aside id="logo-sidebar"
-       class="fixed top-0 {{ is_granted('IS_IMPERSONATOR') ? 'pt-28' : 'pt-20' }} left-0 z-40 w-96 h-screen transition-transform -translate-x-full border-r xl:hidden "
+       class="fixed top-0 {{ is_granted('IS_IMPERSONATOR') ? 'pt-28' : 'pt-20' }} left-0 z-40 w-96 h-screen transition-transform -translate-x-full border-r lg:hidden "
        aria-label="Sidebar">
     <div class="h-full p-3 overflow-y-auto bg-gray-50">
         <ul class="space-y-2 font-medium">
-            <li class="py-4">
+            <li>
                 <twig:Sidebar:Item
                         path="{{ path('recipe_index') }}"
                         label="Search recipes"
                 />
             </li>
-            <li class="py-4">
-                <twig:Sidebar:Item
-                        path="{{ path('recipe_saved') }}"
-                        label="My recipes"
-                />
-            </li>
-            <li class="py-4">
-                <twig:Sidebar:Item
-                        path="{{ path('recipe_add') }}"
-                        label="Add own recipes"
-                />
-            </li>
-            {% if is_granted('ROLE_ADMIN') %}
-                <li class="py-4">
+            {% if app.user() %}
+                <li>
                     <twig:Sidebar:Item
-                            path="{{ path('recipe_manage') }}"
-                            label="Manage recipes"
+                            path="{{ path('recipe_saved') }}"
+                            label="My recipes"
+                    />
+                </li>
+                <li>
+                    <twig:Sidebar:Item
+                            path="{{ path('recipe_add') }}"
+                            label="Add own recipes"
+                    />
+                </li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li>
+                        <twig:Sidebar:Item
+                                path="{{ path('recipe_manage') }}"
+                                label="Manage recipes"
+                        />
+                    </li>
+                {% endif %}
+                <li>
+                    <twig:Sidebar:Item
+                            path="{{ path('user_edit') }}"
+                            label="Edit account"/>
+                </li>
+
+            {% else %}
+                <li>
+                    <twig:Sidebar:Item
+                            path="{{ path('app_login') }}"
+                            label="Login"
+                    />
+                </li>
+                <li>
+                    <twig:Sidebar:Item
+                            path="{{ path('app_register') }}"
+                            label="Register"
                     />
                 </li>
             {% endif %}
