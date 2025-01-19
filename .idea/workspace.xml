@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Mobile front end changes">
-      <change beforePath="$PROJECT_DIR$/templates/recipe/found.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/found.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Mobile front end changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -296,47 +294,7 @@
       <workItem from="1737115939620" duration="2736000" />
       <workItem from="1737118700938" duration="3843000" />
       <workItem from="1737288698412" duration="1277000" />
-      <workItem from="1737289987642" duration="2974000" />
-    </task>
-    <task id="LOCAL-00052" summary="show recipe changes on dropdown">
-      <option name="closed" value="true" />
-      <created>1736010980783</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1736010980783</updated>
-    </task>
-    <task id="LOCAL-00053" summary="fixed bug on recipe search">
-      <option name="closed" value="true" />
-      <created>1736011948398</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1736011948398</updated>
-    </task>
-    <task id="LOCAL-00054" summary="added font and made country filter a radio type">
-      <option name="closed" value="true" />
-      <created>1736157585317</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1736157585317</updated>
-    </task>
-    <task id="LOCAL-00055" summary="small front end changes + gave up splitting add form in 3 steps. Not possible">
-      <option name="closed" value="true" />
-      <created>1736335247895</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1736335247895</updated>
-    </task>
-    <task id="LOCAL-00056" summary="ongoing front end on edit and add recipe + bug fix on manage page">
-      <option name="closed" value="true" />
-      <created>1736342102712</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1736342102712</updated>
+      <workItem from="1737289987642" duration="3326000" />
     </task>
     <task id="LOCAL-00057" summary="fixed front end edit and add recipe">
       <option name="closed" value="true" />
@@ -690,7 +648,47 @@
       <option name="project" value="LOCAL" />
       <updated>1737292977946</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="Mobile front end changes">
+      <option name="closed" value="true" />
+      <created>1737293049131</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1737293049131</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Mobile front end changes">
+      <option name="closed" value="true" />
+      <created>1737293129319</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1737293129319</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Mobile front end changes">
+      <option name="closed" value="true" />
+      <created>1737293148329</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1737293148329</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Mobile front end changes">
+      <option name="closed" value="true" />
+      <created>1737293253437</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1737293253437</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Mobile front end changes">
+      <option name="closed" value="true" />
+      <created>1737293336740</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1737293336740</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
