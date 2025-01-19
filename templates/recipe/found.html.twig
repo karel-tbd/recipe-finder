@@ -39,7 +39,7 @@
                                                  data-carousel-item>
                                                 <div class="md:flex md:gap-x-5 w-full pt-5">
                                                     {% if recipe and recipe.image %}
-                                                        <div class="md:w-1/2">
+                                                        <div class="md:w-1/2 border">
                                                             <img class="object-cover overflow-hidden pb-5 h-32 m-auto w-full md:h-52 md:m-0 rounded-xl"
                                                                  src="{{ vich_uploader_asset(recipe, 'image') }}"
                                                                  alt="{{ recipe.name }}">
@@ -50,11 +50,11 @@
 
                                                     <div class="md:w-1/2">
                                                         <div>
-                                                            <h2 class="pt-3 text-2xl">{{ recipe.name }}</h2>
-                                                            <p class="pt-3">
+                                                            <h2 class="pt-3 text-2xl border">{{ recipe.name }}</h2>
+                                                            <p class="pt-3 border">
                                                                 {{ recipe.description }}
                                                             </p>
-                                                            <div class="flex gap-x-3 pt-5">
+                                                            <div class="flex gap-x-3 pt-5 border">
                                                                 <div class="flex gap-x-2 items-center">
                                                                     <div class="w-4">{{ ux_icon('clock') }}</div>
                                                                     <p>{{ recipe.time }} min</p>
@@ -67,7 +67,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="absolute bottom-0 z-50 flex gap-x-3">
+                                                <div class="absolute bottom-0 z-50 flex gap-x-3 border">
                                                     <twig:Link
                                                             href="{{ path('recipe_show', {'uuid':recipe.uuid}) }}"
                                                             label='Go to recipe'/>

@@ -4,27 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Styling find recipe fixed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/MyRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/Recipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/SearchRecipes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Pages/ShowRecipe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Question.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Question.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/Question/Answer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/Question/Answer.html.twig" afterDir="false" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Mobile front end changes">
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/_footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/_sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_sidebar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/found.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/found.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/request.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/request.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/forgot.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/forgot.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/edit.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,15 +296,7 @@
       <workItem from="1737115939620" duration="2736000" />
       <workItem from="1737118700938" duration="3843000" />
       <workItem from="1737288698412" duration="1277000" />
-      <workItem from="1737289987642" duration="1683000" />
-    </task>
-    <task id="LOCAL-00043" summary="fixed layout on landiong page">
-      <option name="closed" value="true" />
-      <created>1735826248590</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1735826248590</updated>
+      <workItem from="1737289987642" duration="1985000" />
     </task>
     <task id="LOCAL-00044" summary="amount on show is fixible">
       <option name="closed" value="true" />
@@ -709,7 +682,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737121479154</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Mobile front end changes">
+      <option name="closed" value="true" />
+      <created>1737291830824</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1737291830824</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -738,7 +719,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ongoing world cuisine filter" />
     <MESSAGE value="made cta + Put animation on search recipes + pdf is dynamic with mount of people" />
     <MESSAGE value="made database all new becuse of foodgroup bug" />
     <MESSAGE value="changed front end again, made find recipe working again, cleaned up php-storm" />
@@ -763,6 +743,7 @@
     <MESSAGE value="fix deleted rated recipe bug fixed" />
     <MESSAGE value="pdf styling fix" />
     <MESSAGE value="Styling find recipe fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Styling find recipe fixed" />
+    <MESSAGE value="Mobile front end changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mobile front end changes" />
   </component>
 </project>
