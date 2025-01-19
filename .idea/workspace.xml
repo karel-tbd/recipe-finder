@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Mobile front end changes" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Mobile front end changes">
+      <change beforePath="$PROJECT_DIR$/templates/recipe/found.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/found.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -294,31 +296,7 @@
       <workItem from="1737115939620" duration="2736000" />
       <workItem from="1737118700938" duration="3843000" />
       <workItem from="1737288698412" duration="1277000" />
-      <workItem from="1737289987642" duration="2293000" />
-    </task>
-    <task id="LOCAL-00046" summary="tried to make add recipe form in multible parts">
-      <option name="closed" value="true" />
-      <created>1735919448053</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1735919448053</updated>
-    </task>
-    <task id="LOCAL-00047" summary="front end on recipe index page">
-      <option name="closed" value="true" />
-      <created>1735988725073</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1735988725073</updated>
-    </task>
-    <task id="LOCAL-00048" summary="made recipe filter on mobile">
-      <option name="closed" value="true" />
-      <created>1735991191243</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1735991191243</updated>
+      <workItem from="1737289987642" duration="2656000" />
     </task>
     <task id="LOCAL-00049" summary="added security messages on site">
       <option name="closed" value="true" />
@@ -688,7 +666,31 @@
       <option name="project" value="LOCAL" />
       <updated>1737292285655</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="Mobile front end changes">
+      <option name="closed" value="true" />
+      <created>1737292403531</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1737292403531</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Mobile front end changes">
+      <option name="closed" value="true" />
+      <created>1737292547038</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1737292547039</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Mobile front end changes">
+      <option name="closed" value="true" />
+      <created>1737292656473</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1737292656473</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
