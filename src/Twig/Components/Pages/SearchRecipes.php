@@ -22,9 +22,6 @@ final class SearchRecipes extends AbstractController
     use DefaultActionTrait;
     use ComponentWithFormTrait;
 
-    #[LiveProp(writable: true)]
-    public string $query = '';
-
     public array $recipes;
 
     private const int PER_PAGE = 21;
@@ -39,7 +36,6 @@ final class SearchRecipes extends AbstractController
     public function getRecipes(): array
     {
         $search = $this->getForm()->getData() ?? [];
-
         $recipeCollection = [];
         $recipes = $this->recipeRepository->search($search, (self::PER_PAGE * $this->page));
         foreach ($recipes as $i => $recipe) {

@@ -22,9 +22,6 @@ final class MyRecipes extends AbstractController
     use DefaultActionTrait;
     use ComponentWithFormTrait;
 
-    #[LiveProp(writable: true)]
-    public string $query = '';
-
     public array $recipes;
 
     private const int PER_PAGE = 21;
