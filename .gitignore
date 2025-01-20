@@ -20,6 +20,7 @@
 ###> symfony/phpunit-bridge ###
 .phpunit.result.cache
 /phpunit.xml
+.env
 /private
 /node_modules
 ###< symfony/phpunit-bridge ###
