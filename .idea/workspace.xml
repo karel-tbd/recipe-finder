@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="871bb87f-824c-48f5-b785-fc6303469c4d" name="Changes" comment="buttons live collection type front-end fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="871bb87f-824c-48f5-b785-fc6303469c4d" name="Changes" comment="git fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,10 +42,20 @@
   }
 }]]></component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="git fix">
+      <option name="closed" value="true" />
+      <created>1737409411461</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1737409411461</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="buttons live collection type front-end fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="buttons live collection type front-end fix" />
+    <MESSAGE value="git fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="git fix" />
   </component>
 </project>
