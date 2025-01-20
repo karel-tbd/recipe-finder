@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Recipe found front end">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="data-turbo-prefetch false" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -297,15 +294,7 @@
       <workItem from="1737115939620" duration="2736000" />
       <workItem from="1737118700938" duration="3843000" />
       <workItem from="1737288698412" duration="1277000" />
-      <workItem from="1737289987642" duration="19183000" />
-    </task>
-    <task id="LOCAL-00067" summary="ux changes and filter layout">
-      <option name="closed" value="true" />
-      <created>1736507375826</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1736507375827</updated>
+      <workItem from="1737289987642" duration="20003000" />
     </task>
     <task id="LOCAL-00068" summary="responsive changes">
       <option name="closed" value="true" />
@@ -691,7 +680,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737365394870</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="data-turbo-prefetch false">
+      <option name="closed" value="true" />
+      <created>1737379316185</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1737379316185</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -720,7 +717,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed front end again, made find recipe working again, cleaned up php-storm" />
     <MESSAGE value="added comments to code and made twig component for find recipe functionality" />
     <MESSAGE value="added comments to code + cleaned up code" />
     <MESSAGE value="Added styling for quill editor plus front end ux changes added" />
@@ -745,6 +741,7 @@
     <MESSAGE value="Mobile front end changes" />
     <MESSAGE value="cleanup code" />
     <MESSAGE value="Recipe found front end" />
-    <option name="LAST_COMMIT_MESSAGE" value="Recipe found front end" />
+    <MESSAGE value="data-turbo-prefetch false" />
+    <option name="LAST_COMMIT_MESSAGE" value="data-turbo-prefetch false" />
   </component>
 </project>

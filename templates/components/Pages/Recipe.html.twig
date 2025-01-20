@@ -55,14 +55,14 @@
                             <div>{{ form_row(ingredient.quantity) }}</div>
                             <div class="capitalize"> {{ form_row(ingredient.unit) }}</div>
                         </div>
-                        <div class=" md:pb-0 lg:mt-7">
-                            {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 text-sm py-2.5 px-4' } }) }}
+                        <div class=" md:pb-0 lg:mt-8">
+                            {{ form_row(ingredient.vars.button_delete, { label: "Delete", attr: { class: 'text-red-500 rounded border border-red-500 py-2.5 px-4' } }) }}
                         </div>
                     </div>
                 {% endfor %}
 
                 <div>
-                    {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-3 px-4 text-sm'}}) }}
+                    {{ form_widget(form.recipeIngredients.vars.button_add, {label: 'Add Ingredient', attr: {class: 'bg-red-500 text-white rounded py-2 mt-3 px-4 '}}) }}
                 </div>
                 {{ form_errors(form.recipeIngredients) }}
             </div>
