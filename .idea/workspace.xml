@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Recipe found front end" />
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Recipe found front end">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recipe/manage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe/manage.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -294,23 +297,7 @@
       <workItem from="1737115939620" duration="2736000" />
       <workItem from="1737118700938" duration="3843000" />
       <workItem from="1737288698412" duration="1277000" />
-      <workItem from="1737289987642" duration="16372000" />
-    </task>
-    <task id="LOCAL-00065" summary="added comments to code + cleaned up code">
-      <option name="closed" value="true" />
-      <created>1736440862488</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1736440862488</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Added styling for quill editor plus front end ux changes added">
-      <option name="closed" value="true" />
-      <created>1736497796111</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1736497796111</updated>
+      <workItem from="1737289987642" duration="19183000" />
     </task>
     <task id="LOCAL-00067" summary="ux changes and filter layout">
       <option name="closed" value="true" />
@@ -688,7 +675,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737364982777</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="Recipe found front end">
+      <option name="closed" value="true" />
+      <created>1737365238166</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1737365238166</updated>
+    </task>
+    <task id="LOCAL-00115" summary="Recipe found front end">
+      <option name="closed" value="true" />
+      <created>1737365394870</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1737365394870</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

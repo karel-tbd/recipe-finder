@@ -41,7 +41,8 @@
                         <a href="{{ path('recipe_add') }}" class="hover:text-red-500">Add recipe</a>
                     </li>
                     <li class="py-2">
-                        <a href="{{ path('app_logout') }}" class="hover:text-red-500">Logout</a>
+                        <a href="{{ path('app_logout') }}" class="hover:text-red-500"
+                           data-turbo-prefetch="false">Logout</a>
                     </li>
                 {% else %}
                     <li class="py-2">
