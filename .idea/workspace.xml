@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="cleanup code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2f405dac-7888-40ee-a3df-668aaa501acf" name="Changes" comment="Recipe found front end" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -296,15 +294,7 @@
       <workItem from="1737115939620" duration="2736000" />
       <workItem from="1737118700938" duration="3843000" />
       <workItem from="1737288698412" duration="1277000" />
-      <workItem from="1737289987642" duration="16232000" />
-    </task>
-    <task id="LOCAL-00064" summary="added comments to code and made twig component for find recipe functionality">
-      <option name="closed" value="true" />
-      <created>1736440328673</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1736440328673</updated>
+      <workItem from="1737289987642" duration="16372000" />
     </task>
     <task id="LOCAL-00065" summary="added comments to code + cleaned up code">
       <option name="closed" value="true" />
@@ -690,7 +680,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737308825035</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Recipe found front end">
+      <option name="closed" value="true" />
+      <created>1737364982777</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1737364982777</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -719,7 +717,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="made database all new becuse of foodgroup bug" />
     <MESSAGE value="changed front end again, made find recipe working again, cleaned up php-storm" />
     <MESSAGE value="added comments to code and made twig component for find recipe functionality" />
     <MESSAGE value="added comments to code + cleaned up code" />
@@ -744,6 +741,7 @@
     <MESSAGE value="Styling find recipe fixed" />
     <MESSAGE value="Mobile front end changes" />
     <MESSAGE value="cleanup code" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup code" />
+    <MESSAGE value="Recipe found front end" />
+    <option name="LAST_COMMIT_MESSAGE" value="Recipe found front end" />
   </component>
 </project>
