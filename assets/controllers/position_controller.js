@@ -15,7 +15,6 @@ export default class extends Controller {
         this.selectedDifficulty = null;
         this.selectedMeal = null;
 
-
         for (const mealType of this.mealTypeTargets) {
             mealType.addEventListener('click', async (event) => {
                 let currentMealType = event.currentTarget;

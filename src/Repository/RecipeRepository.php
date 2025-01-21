@@ -46,28 +46,28 @@ use Symfony\Bundle\SecurityBundle\Security;
                 ->andWhere('r.publish = 1');
         }
 
-        if (QueryService::isNotEmpty($search, 'name')) {
-            $query
-                ->andWhere('r.name LIKE :name')
-                ->setParameter('name', '%' . $search['name'] . '%');
-        }
-
-        if (QueryService::isNotEmpty($search, 'ingredients')) {
-            $ingredients = reset($search['ingredients']);
-            $number = count($ingredients);
-            $or = [];
-            foreach ($ingredients as $i => $ingredient) {
-                $or[] = 'i.name LIKE :ingredient' . $i;
-                $query->setParameter('ingredient' . $i, '%' . $ingredient->getName() . '%');
-            }
-            if (!empty($or)) {
-                $query->andWhere(implode(' OR ', $or))
-                    ->having('COUNT(r.id) >= :number')
-                    ->setParameter('number', $number);
-            }
-        }
-
         if (!empty($search)) {
+            if (QueryService::isNotEmpty($search, 'name')) {
+                $query
+                    ->andWhere('r.name LIKE :name')
+                    ->setParameter('name', '%' . $search['name'] . '%');
+            }
+
+            if (QueryService::isNotEmpty($search, 'ingredients')) {
+                $ingredients = reset($search['ingredients']);
+                $number = count($ingredients);
+                $or = [];
+                foreach ($ingredients as $i => $ingredient) {
+                    $or[] = 'i.name LIKE :ingredient' . $i;
+                    $query->setParameter('ingredient' . $i, '%' . $ingredient->getName() . '%');
+                }
+                if (!empty($or)) {
+                    $query->andWhere(implode(' OR ', $or))
+                        ->having('COUNT(r.id) >= :number')
+                        ->setParameter('number', $number);
+                }
+            }
+
             $inGroup = [];
             $notInGroup = [];
             if (QueryService::isNotEmpty($search, 'meat')) {
